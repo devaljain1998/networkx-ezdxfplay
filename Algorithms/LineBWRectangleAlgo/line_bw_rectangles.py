@@ -4,6 +4,7 @@ import os
 import pprint
 
 file_path = 'Algorithms/LineBWRectangleAlgo/input/'
+output_file_path = 'Algorithms/LineBWRectangleAlgo/output/'
 
 #Reading the file
 try:
@@ -181,3 +182,56 @@ for line in lines:
 
 print('\n\n====Printing the lines slopes:\n')    
 pprint.pprint(slopes)
+
+
+# loop through lines of each slope and draw a line in the centre
+parallel_line_pairs = []
+for slope, lines in slopes.items():
+    print(f'Looping for slope : {slope}:\n')
+    
+    # fetch points in pair of two and form their pairs:
+    index, i = 0, 0
+    while (2 * i < len(lines)):
+        index = 2 * i
+        line1 = lines[index]
+        if index + 1 < len(lines):
+            line2 = lines[index + 1]
+        else:
+            line2 = None
+        #Make pair of these lines
+        if line2:
+            parallel_line_pairs.append((line1, line2))
+        i +=1
+        
+print(f'Parallel line pairs: {parallel_line_pairs}')
+
+#Create a new layer for center-lines
+dwg.layers.new(name='CenterLines', dxfattribs={'linetype': 'DOTTED', 'color': 7})
+        
+#Now loop through the pairs and draw a line to center of these pairs:
+print('\nLooping through pairs now:\n')
+for pair in parallel_line_pairs:
+    line1, line2 = pair
+    
+    if line2:
+        #Start center points:
+        x1 = (line1[0][0] + line2[0][0]) / 2
+        y1 = (line1[0][1] + line2[0][1]) / 2
+        
+        #End center points:
+        x2 = (line1[0][0] + line2[0][0]) / 2
+        y2 = (line1[0][1] + line2[0][1]) / 2
+        
+        print(f"""
+              line1 : {line1},
+              line2 : {line2},
+              centre_points: {(x1, y1), (x2, y2)}
+              """)  
+        
+        # Adding a new center line with the layer: CenterLines
+        msp.add_line((x1, x2), (y1, y2), dxfattribs={'layer': 'CenterLines'})
+    
+print('Success now saving the file')
+#Saving the final file:
+dwg.saveas(output_file_path + 'center_lines.dxf')
+print('File save success')

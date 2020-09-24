@@ -7,3 +7,5 @@ __MACOSX/._networkxdoc.py
 __MACOSX/dxfFilesIn/._in.dxf
 .vscode/settings.json
 Algorithms/LineBWRectangleAlgo/input/#IN.dxf
+Algorithms/LineBWRectangleAlgo/output/#center_lines.dxf
+Algorithms/LineBWRectangleAlgo/output/center_lines.dxf
