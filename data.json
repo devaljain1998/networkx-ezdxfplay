@@ -1,0 +1,1 @@
+"{\n    \"salary\": 2000,\n    \"post\": \"Tech\",\n    \"manager\": {\n        \"salary\": 2000,\n        \"post\": \"CTO\",\n        \"manager\": null,\n        \"name\": \"Rahul\",\n        \"idnumber\": 886012\n    },\n    \"name\": \"Arjun\",\n    \"idnumber\": 886012\n}"
