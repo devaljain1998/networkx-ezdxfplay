@@ -138,7 +138,8 @@ def print_entity(e):
 #     print(layer)
 
 print('Printing all the polyines:')
-polylines = msp.query('LWPOLYLINE')
+#fetching all the polylines from the layer PP-BEAM
+polylines = msp.query('LWPOLYLINE[layer=="PP-BEAM"]')
 for polyline in polylines:
     print_entity(polyline)
 
