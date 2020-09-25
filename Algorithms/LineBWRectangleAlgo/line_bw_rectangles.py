@@ -2,13 +2,17 @@ import sys
 import ezdxf
 import os
 import pprint
+import math
 
-file_path = 'Algorithms/LineBWRectangleAlgo/input/'
+file_path = 'Algorithms/LineBWRectangleAlgo/input/DXF/'
+input_file = 'RECTANGAL.dxf'
 output_file_path = 'Algorithms/LineBWRectangleAlgo/output/'
+input_file_name = input_file.split('.')[0]
+output_file = f'{input_file_name}_output.dxf'
 
 #Reading the file
 try:
-    dwg = ezdxf.readfile(file_path + 'IN.dxf')
+    dwg = ezdxf.readfile(file_path + input_file)
 except IOError:
     print(f'Not a DXF file or a generic I/O error.')
     sys.exit(1)
@@ -137,6 +141,10 @@ def print_entity(e):
 # for layer in dwg.layers:
 #     print(layer)
 
+# Printing all the elements:
+# for e in msp:
+#     print_entity(e)
+
 print('Printing all the polyines:')
 #fetching all the polylines from the layer PP-BEAM
 polylines = msp.query('LWPOLYLINE[layer=="PP-BEAM"]')
@@ -146,8 +154,9 @@ for polyline in polylines:
 #Convert polylines into lines:
 print('Converting polylines into lines.')
 lines = [] 
-line = []
 for polyline in polylines:
+    line = []
+    
     for point in polyline:
         x, y = point[0], point[1]
         line.append((x, y))
@@ -157,22 +166,54 @@ for polyline in polylines:
             #Append the line into lines
             lines.append(line)
             #clear the line
-            line = []
-        
+            line = [(x, y)]
+    
+    # if the polyline is closed 
+    CLOSED = 1
+    if CLOSED == polyline.dxf.flags:
+        #Connecting the first and last points also:
+        p1 = polyline[-1]
+        x1, y1 = p1[0], p1[1]
+        p2 = polyline[0]
+        x2, y2 = p2[0], p2[1]
+        lines.append([(x1, y1), (x2, y2)])
+
 print('Lines:')            
 pprint.pprint(lines)
+
+
+def try_to_build_the_exact_figure(lines):
+    dwg.layers.new('TestFigure')
+    for line in lines:
+        print(f'Adding line {line}')
+        p1 = line[0]
+        p2 = line[1]
+        msp.add_line(p1, p2, dxfattribs={'layer': 'TestFigure'})
+        
+# try_to_build_the_exact_figure(lines)
 
 print('\n\nLines after sorting:')
 lines.sort()
 pprint.pprint(lines)
 
 
+def get_slope(x1, y1, x2, y2): 
+    try:
+        slope = (float)(y2-y1)/(float)(round(x2-x1))
+    except ZeroDivisionError:
+        print(f'Zerodivisionerror:: Variables are: {(x1, y1), (x2, y2)}')
+        return 'INFINITE'
+    return slope
+
 slopes = dict()
 #Finding slopes of every line:
 for line in lines:
     p1, p2 = line[0], line[1]
-    construction_ray = ezdxf.math.ConstructionRay(p1, p2)
-    slope = construction_ray.slope
+    slope = get_slope(p1[0], p1[1], p2[0], p2[1])
+    
+    #Rounding slope for 3 decimal:
+    if type(slope) == float:
+        slope = round(slope, 5) #slope = round(slope, ndigits = 5)
     
     # Check if the slope exists in the slope_dict
     if slope in slopes.keys():
@@ -204,10 +245,11 @@ for slope, lines in slopes.items():
             parallel_line_pairs.append((line1, line2))
         i +=1
         
-print(f'Parallel line pairs: {parallel_line_pairs}')
+print(f'Parallel line pairs:')
+pprint.pprint(parallel_line_pairs)
 
 #Create a new layer for center-lines
-dwg.layers.new(name='CenterLines', dxfattribs={'linetype': 'DOTTED', 'color': 7})
+dwg.layers.new(name='CenterLines', dxfattribs={'linetype': 'DASHED', 'color': 7})
         
 #Now loop through the pairs and draw a line to center of these pairs:
 print('\nLooping through pairs now:\n')
@@ -220,19 +262,23 @@ for pair in parallel_line_pairs:
         y1 = (line1[0][1] + line2[0][1]) / 2
         
         #End center points:
-        x2 = (line1[0][0] + line2[0][0]) / 2
-        y2 = (line1[0][1] + line2[0][1]) / 2
+        x2 = (line1[1][0] + line2[1][0]) / 2
+        y2 = (line1[1][1] + line2[1][1]) / 2
         
         print(f"""
               line1 : {line1},
               line2 : {line2},
               centre_points: {(x1, y1), (x2, y2)}
-              """)  
+              """)
+        
+        # Find out when the centre points are coming as equal:
+        if (x1, y1) == (x2, y2):
+            print(f'In this case IT IS NOT A LINE, JUST A POINT: {(x1, y1, (x2, y2))}')
         
         # Adding a new center line with the layer: CenterLines
-        msp.add_line((x1, x2), (y1, y2), dxfattribs={'layer': 'CenterLines'})
+        msp.add_line((x1, y1), (x2, y2), dxfattribs={'layer': 'CenterLines'})
     
 print('Success now saving the file')
 #Saving the final file:
-dwg.saveas(output_file_path + 'center_lines.dxf')
-print('File save success')
+dwg.saveas(output_file_path + output_file)
+print(f'File {output_file_path + output_file} save success.')
