@@ -1,3 +1,3 @@
-    #print(e.dxf.thickness, 'e.dxf.thickness')
-    #print(e.dxf.true_color, 'e.dxf.true_color')
-    #print(e.dxf.color_name, 'e.dxf.color_name')
+print('\n\nLines after sorting:')
+# lines.sort()
+# pprint.pprint(lines)

@@ -3,6 +3,9 @@ import ezdxf
 import os
 import pprint
 import math
+from pillarplus import math as ppmath
+
+print(f'{ppmath}')
 
 file_path = 'Algorithms/LineBWRectangleAlgo/input/DXF/'
 input_file = 'sample1.dxf'
@@ -173,7 +176,7 @@ for polyline in polylines:
             line = [(x, y)]
     
     # if the polyline is closed 
-    if is_closed(polyline):
+    if ppmath.is_polyline_closed(polyline):
         #Connecting the first and last points also:
         p1 = polyline[-1]
         x1, y1 = p1[0], p1[1]
@@ -212,7 +215,7 @@ slopes = dict()
 #Finding slopes of every line:
 for line in lines:
     p1, p2 = line[0], line[1]
-    slope = get_slope(p1[0], p1[1], p2[0], p2[1])
+    slope = ppmath.find_slope(p1, p2)
     
     #Rounding slope for 3 decimal:
     if type(slope) == float:
@@ -245,6 +248,8 @@ for slope, lines in slopes.items():
             line2 = None
         #Make pair of these lines
         if line2:
+            print(f'Found a parallel line pair. {line1, line2}')
+            print(f'Distance between them: {ppmath.get_distance_between_two_parallel_lines(line1, line2)}')
             parallel_line_pairs.append((line1, line2))
         i +=1
         

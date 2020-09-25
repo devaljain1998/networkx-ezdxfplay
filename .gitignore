@@ -1,3 +1,10 @@
+*.pyc
+*~
+__pycache__
+.DS_Storegit
+._.*
+._*
+.DS_Store
 __MACOSX/._arc.py
 __MACOSX/._basics.py
 __MACOSX/._data.json
