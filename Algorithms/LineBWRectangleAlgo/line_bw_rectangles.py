@@ -240,17 +240,35 @@ for slope, lines in slopes.items():
     # fetch points in pair of two and form their pairs:
     index, i = 0, 0
     while (2 * i < len(lines)):
-        index = 2 * i
+        index = i # index = 2 * i
         line1 = lines[index]
-        if index + 1 < len(lines):
-            line2 = lines[index + 1]
-        else:
-            line2 = None
-        #Make pair of these lines
-        if line2:
-            print(f'Found a parallel line pair. {line1, line2}')
-            print(f'Distance between them: {ppmath.get_distance_between_two_parallel_lines(line1, line2)}')
+        print(f'Now making pairs for line1: {line1}:-')
+        
+        def _get_line2(index, counter):
+            return lines[index + counter] if (index + counter < len(lines)) else None
+        
+        counter = 1
+        line2 = _get_line2(index, counter)
+        
+        # Looping to form the maximum possible pairs with line1.
+        while (line2):
+            distance = ppmath.get_distance_between_two_parallel_lines(line1, line2)
+            print(f'Dist: {distance} for {line1, line2}')
+
+            if distance == 0: 
+                counter += 1
+                line2 = _get_line2(index, counter)
+                continue
+                
+            if distance > ppmath.MAXIMUM_DISTANCE_BETWEEN_BEAMS: break
+            
+            print(f'Forming a pair b/w {line1, line2}')
+            #Make pair of these lines
             parallel_line_pairs.append((line1, line2))
+            
+            counter += 1
+            line2 = _get_line2(index, counter)
+            
         i +=1
         
 print(f'Parallel line pairs:')
@@ -290,8 +308,8 @@ for pair in parallel_line_pairs:
             print(f'In this case IT IS NOT A LINE, JUST A POINT: {(x1, y1, (x2, y2))}')
             
             #Reversing line 2 in this case and then check if the points are still the same
-            line2.reverse()
-            x1, y1, x2, y2 = get_centre_points(line1, line2)
+            l2 = list(reversed(line2))
+            x1, y1, x2, y2 = get_centre_points(line1, l2)
         
         # Adding a new center line with the layer: CenterLines
         msp.add_line((x1, y1), (x2, y2), dxfattribs={'layer': 'CenterLines'})
