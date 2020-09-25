@@ -5,7 +5,7 @@ import pprint
 import math
 
 file_path = 'Algorithms/LineBWRectangleAlgo/input/DXF/'
-input_file = 'RECTANGAL.dxf'
+input_file = 'sample1.dxf'
 output_file_path = 'Algorithms/LineBWRectangleAlgo/output/'
 input_file_name = input_file.split('.')[0]
 output_file = f'{input_file_name}_output.dxf'
@@ -253,17 +253,23 @@ dwg.layers.new(name='CenterLines', dxfattribs={'linetype': 'DASHED', 'color': 7}
         
 #Now loop through the pairs and draw a line to center of these pairs:
 print('\nLooping through pairs now:\n')
+
+def get_centre_points(line1, line2):
+    #Start center points:
+    x1 = (line1[0][0] + line2[0][0]) / 2
+    y1 = (line1[0][1] + line2[0][1]) / 2
+
+    #End center points:
+    x2 = (line1[1][0] + line2[1][0]) / 2
+    y2 = (line1[1][1] + line2[1][1]) / 2
+    return x1, y1, x2, y2
+
 for pair in parallel_line_pairs:
     line1, line2 = pair
     
     if line2:
         #Start center points:
-        x1 = (line1[0][0] + line2[0][0]) / 2
-        y1 = (line1[0][1] + line2[0][1]) / 2
-        
-        #End center points:
-        x2 = (line1[1][0] + line2[1][0]) / 2
-        y2 = (line1[1][1] + line2[1][1]) / 2
+        x1, y1, x2, y2 = get_centre_points(line1, line2)
         
         print(f"""
               line1 : {line1},
@@ -274,6 +280,10 @@ for pair in parallel_line_pairs:
         # Find out when the centre points are coming as equal:
         if (x1, y1) == (x2, y2):
             print(f'In this case IT IS NOT A LINE, JUST A POINT: {(x1, y1, (x2, y2))}')
+            
+            #Reversing line 2 in this case and then check if the points are still the same
+            line2.reverse()
+            x1, y1, x2, y2 = get_centre_points(line1, line2)
         
         # Adding a new center line with the layer: CenterLines
         msp.add_line((x1, y1), (x2, y2), dxfattribs={'layer': 'CenterLines'})
