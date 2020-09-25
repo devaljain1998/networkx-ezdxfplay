@@ -150,6 +150,10 @@ print('Printing all the polyines:')
 polylines = msp.query('LWPOLYLINE[layer=="PP-BEAM"]')
 for polyline in polylines:
     print_entity(polyline)
+    
+def is_closed(polyline):
+    CLOSED = 1
+    return CLOSED == polyline.dxf.flags
 
 #Convert polylines into lines:
 print('Converting polylines into lines.')
@@ -169,8 +173,7 @@ for polyline in polylines:
             line = [(x, y)]
     
     # if the polyline is closed 
-    CLOSED = 1
-    if CLOSED == polyline.dxf.flags:
+    if is_closed(polyline):
         #Connecting the first and last points also:
         p1 = polyline[-1]
         x1, y1 = p1[0], p1[1]
