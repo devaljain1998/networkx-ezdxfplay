@@ -40,6 +40,17 @@ def get_coordinates(point) -> tuple:
     """
     return (coordinate for coordinate in point)
 
+def get_line_points_2d(line) -> tuple:
+    """This function returns fetched the following points from the line: x1, y1, x2, y2
+
+    Args:
+        line (List of Tuples): A line is a collection of tuple of points in the following manner [(x1, y1), (x2, y2)].
+
+    Returns:
+        tuple: Returns a tuple of coordinate in the following order: x1, y1, x2, y2.
+    """
+    return line[0][0], line[0][1], line[1][0], line[1][1]
+
 def is_between(point, line_start, line_end):
     return round(find_distance(line_start, point) + find_distance(point, line_end), 5) == round(find_distance(line_start, line_end), 5)
 
@@ -183,6 +194,30 @@ def is_inverted(point, from_point, to_point):
 
 def is_parallel(line1, line2):
     return find_slope(line1[0], line1[1]) == find_slope(line2[0], line2[1])
+
+def are_lines_overlapping(line1, line2) -> bool:
+    """This function checks whether the two lines are overlapping or not.
+
+    Args:
+        line1 (List of Tuples): A line is a collection of tuple of points in the following manner [(x1, y1), (x2, y2)].
+        line2 (List of Tuples): A line is a collection of tuple of points in the following manner [(x1, y1), (x2, y2)].
+
+    Returns:
+        bool: True if lines are overlapping otherwise False.
+    """        
+    x11, y11, x12, y12 = get_line_points_2d(line1)
+    x21, y21, x22, y22 = get_line_points_2d(line2)
+    
+    def in_range(a, a1, a2):
+        min_a = min(a1, a2)
+        max_a = max(a1, a2)
+        return a >= min_a and a <= max_a
+        
+    #Check if the lines are overlapping
+    overlapping = (in_range(x11, x21, x22) or in_range(x12, x21, x22)
+                    or in_range(y11, y21, y22) or in_range(y12, y21, y22))
+    
+    return overlapping
 
 
 def convert_to_clockwise(point_list):
