@@ -23,4 +23,6 @@ NOTE: Pair is forming between the two but I need to make the pair from the extre
     Approaches:
         - Either calculate the distance two times and store the maximum distance.
         - While fethching lines add a condition to swap lines if the x1 > x2 || y1 > y2. (BETTER) *.
+            NOTE:
+            - In this case have to handle the case when the Y is decreasing.
 }
