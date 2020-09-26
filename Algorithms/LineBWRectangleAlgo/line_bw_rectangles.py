@@ -5,10 +5,8 @@ import pprint
 import math
 from pillarplus import math as ppmath
 
-print(f'{ppmath}')
-
 file_path = 'Algorithms/LineBWRectangleAlgo/input/DXF/'
-input_file = 'sample1.dxf'
+input_file = 'sample4.dxf'
 output_file_path = 'Algorithms/LineBWRectangleAlgo/output/'
 input_file_name = input_file.split('.')[0]
 output_file = f'{input_file_name}_output.dxf'
@@ -201,25 +199,30 @@ def try_to_build_the_exact_figure(lines):
 print('\n\nLines after sorting:')
 lines.sort()
 pprint.pprint(lines)
-
-
+    
 def get_slope(x1, y1, x2, y2): 
     try:
         slope = (float)(y2-y1)/(float)(round(x2-x1))
     except ZeroDivisionError:
         print(f'Zerodivisionerror:: Variables are: {(x1, y1), (x2, y2)}')
-        return 'INFINITE'
+        return math.inf
     return slope
+
+def test_rounding_slopes_of_lines():
+    for line in lines:
+        p1, p2 = line[0], line[1]
+        slope = ppmath.find_slope(p1, p2)
+
 
 slopes = dict()
 #Finding slopes of every line:
 for line in lines:
     p1, p2 = line[0], line[1]
-    slope = ppmath.find_slope(p1, p2)
+    slope = get_slope(p1[0], p1[1], p2[0], p2[1])# slope = ppmath.find_slope(p1, p2)
     
     #Rounding slope for 3 decimal:
-    if type(slope) == float:
-        slope = round(slope, 5) #slope = round(slope, ndigits = 5)
+    if slope != math.inf:
+        slope = round(slope) #slope = round(slope, ndigits = 5)
     
     # Check if the slope exists in the slope_dict
     if slope in slopes.keys():
@@ -231,6 +234,20 @@ for line in lines:
 print('\n\n====Printing the lines slopes:\n')    
 pprint.pprint(slopes)
 
+def get_distance_of_all():
+    print('Printing all the distance of lines:')
+    for slope, lines in slopes.items():
+        print(f'Printing dis for slope: {slope}')
+        for i in range(len(lines)):
+            line1 = lines[i]
+            for j in range(i + 1, len(lines)):
+                line2 = lines[j]
+                distance = ppmath.get_distance_between_two_parallel_lines(line1, line2)
+                print(f'Distance {distance} b/w {line1, line2}')
+            print('\n\n')
+            
+# get_distance_of_all()
+
 
 # loop through lines of each slope and draw a line in the centre
 parallel_line_pairs = []
@@ -239,8 +256,8 @@ for slope, lines in slopes.items():
     
     # fetch points in pair of two and form their pairs:
     index, i = 0, 0
-    while (2 * i < len(lines)):
-        index = i # index = 2 * i
+    while (i < len(lines)):
+        index = i #  index = 2 * i
         line1 = lines[index]
         print(f'Now making pairs for line1: {line1}:-')
         
@@ -254,15 +271,30 @@ for slope, lines in slopes.items():
         while (line2):
             distance = ppmath.get_distance_between_two_parallel_lines(line1, line2)
             print(f'Dist: {distance} for {line1, line2}')
-
-            if distance == 0: 
+            
+            #edge cases:
+            # Lines should not fall into each other
+            if round(distance) == 0: 
                 counter += 1
                 line2 = _get_line2(index, counter)
                 continue
-                
-            if distance > ppmath.MAXIMUM_DISTANCE_BETWEEN_BEAMS: break
             
-            print(f'Forming a pair b/w {line1, line2}')
+            # Lines should be overlapping
+            if not ppmath.are_lines_overlapping(line1, line2):
+                counter += 1
+                line2 = _get_line2(index, counter)
+                continue                
+            
+            # Lines should be inside a threshold
+            if distance > ppmath.MAXIMUM_DISTANCE_BETWEEN_BEAMS: 
+                # break            
+                counter += 1
+                line2 = _get_line2(index, counter)
+                continue                
+                
+            
+            
+            print(f'Forming a pair b/w {line1, line2}, slope: {slope}\n')
             #Make pair of these lines
             parallel_line_pairs.append((line1, line2))
             

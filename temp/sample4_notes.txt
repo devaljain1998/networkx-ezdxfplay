@@ -1,0 +1,26 @@
+{
+
+[(5266.315483526307, 1963.852992281946),
+  (7661.519384898681, 3355.711637331405)]
+
+[(7737.578469880013, 3642.791792674477),
+  (2765.601046973063, 753.5639673946907)],
+
+Slope: 1
+NOTE: Pair is forming between the two but I need to make the pair from the extreme endpoint of either.
+}
+
+{
+    [(7661.519384898681, 3355.711637331405),
+  (8558.339171766564, 1812.403874022175)],
+
+    [(8739.908791928765, 1917.914409203045),
+  (7737.578469880013, 3642.791792674477)],
+
+  Slope : -2
+
+  NOTE: It is coming as DWARF because of one is increasing and another is decreasing.
+    Approaches:
+        - Either calculate the distance two times and store the maximum distance.
+        - While fethching lines add a condition to swap lines if the x1 > x2 || y1 > y2. (BETTER) *.
+}

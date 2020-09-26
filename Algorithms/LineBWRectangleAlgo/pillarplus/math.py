@@ -8,7 +8,7 @@ import ezdxf
 from ezdxf.math import Vector, Vec2
 
 #CONSTANTS:
-MAXIMUM_DISTANCE_BETWEEN_BEAMS : int = 250
+MAXIMUM_DISTANCE_BETWEEN_BEAMS : int = 300 #It is needed to be decided
 
 # angle in radians
 def directed_points_on_line(point, angle, width):
@@ -211,13 +211,15 @@ def are_lines_overlapping(line1, line2) -> bool:
     def in_range(a, a1, a2):
         min_a = min(a1, a2)
         max_a = max(a1, a2)
-        return a >= min_a and a <= max_a
+        return (a >= min_a and a <= max_a) or (min_a >= a and max_a <= a)
         
     #Check if the lines are overlapping
-    overlapping = (in_range(x11, x21, x22) or in_range(x12, x21, x22)
+    is_overlapping_line1 = (in_range(x11, x21, x22) or in_range(x12, x21, x22)
                     or in_range(y11, y21, y22) or in_range(y12, y21, y22))
-    
-    return overlapping
+    is_overlapping_line2 = (in_range(x21, x11, x12) or in_range(x22, x11, x12)
+                    or in_range(y21, y11, y12) or in_range(y22, y11, y12))
+    #Anyone of the line1 or line2 should fall inside each other
+    return is_overlapping_line1 or is_overlapping_line2
 
 
 def convert_to_clockwise(point_list):
