@@ -41,7 +41,7 @@ def get_coordinates(point) -> tuple:
     return (coordinate for coordinate in point)
 
 def get_line_points_2d(line) -> tuple:
-    """This function returns fetched the following points from the line: x1, y1, x2, y2
+    """This function returns fetches the following points from the line: x1, y1, x2, y2
 
     Args:
         line (List of Tuples): A line is a collection of tuple of points in the following manner [(x1, y1), (x2, y2)].
@@ -461,6 +461,20 @@ def is_polyline_closed(polyline) -> bool:
     """
     CLOSED = 1
     return CLOSED == polyline.dxf.flags
+
+def is_line_decreasing_2d(line) -> bool:
+    """Function to check whether the line is decreasing.
+    The condition for decreasing:
+    if x1 > x2 or y1 > y2.
+
+    Args:
+        line (List of Tuples): A line is a collection of tuple of points in the following manner [(x1, y1), (x2, y2)].
+
+    Returns:
+        bool: Returns True is the line is decreasing otherwise False.
+    """
+    x1, y1, x2, y2 = get_line_points_2d(line)
+    return (x1 > x2) #or (y1 > y2)
 
 # Testing
 print(find_rotation((0, 0), (-1, 1)))
