@@ -169,7 +169,7 @@ for polyline in polylines:
         #if the line has two points:
         if len(line) == 2:
             #Check if the line is decreasing or not:
-            if ppmath.is_line_decreasing_2d(line):
+            if ppmath.is_line_decreasing_on_x_2d(line):
                 #Swap the points if the line is decreasing:
                 line.reverse()
             
