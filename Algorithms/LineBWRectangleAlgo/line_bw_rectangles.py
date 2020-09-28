@@ -6,7 +6,7 @@ import math
 from pillarplus import math as ppmath
 
 file_path = 'Algorithms/LineBWRectangleAlgo/input/DXF/'
-input_file = 'sample4.dxf'
+input_file = 'RECTANGAL.dxf'
 output_file_path = 'Algorithms/LineBWRectangleAlgo/output/'
 input_file_name = input_file.split('.')[0]
 output_file = f'{input_file_name}_output.dxf'
@@ -327,30 +327,80 @@ def get_centre_points(line1, line2):
     y2 = (line1[1][1] + line2[1][1]) / 2
     return x1, y1, x2, y2
 
+def get_non_segmented_lines(line1, line2):
+    #Start center points:
+    x1, y1, x2, y2 = get_centre_points(line1, line2)
+    
+    print(f"""
+            line1 : {line1},
+            line2 : {line2},
+            centre_points: {(x1, y1), (x2, y2)}
+            """)
+    
+    # Find out when the centre points are coming as equal:
+    if (x1, y1) == (x2, y2):
+        print(f'In this case IT IS NOT A LINE, JUST A POINT: {(x1, y1, (x2, y2))}')
+        
+        # Reversing line 2 in this case and then check if the points are still the same
+        l2 = list(reversed(line2))
+        x1, y1, x2, y2 = get_centre_points(line1, l2)
+    
+    # Adding a new center line with the layer: CenterLines
+    msp.add_line((x1, y1), (x2, y2), dxfattribs={'layer': 'CenterLines'})
+    
+    
+def get_segmented_line(line1, line2):
+    """Reference: https://math.stackexchange.com/questions/2593627/i-have-a-line-i-want-to-move-the-line-a-certain-distance-away-parallelly/2594547
+
+    Args:
+        line1 (List of Tuples): A line is a collection of tuple of points in the following manner [(x1, y1), (x2, y2)].
+        line2 (List of Tuples): A line is a collection of tuple of points in the following manner [(x1, y1), (x2, y2)].
+        
+    Returns:
+        line (List of Tuples): A linesegment in middle of line1 and line2.
+    """
+    # Calculate lenght of both the line segment.
+    line1_length = ppmath.get_length_of_line_segment(line1)
+    line2_length = ppmath.get_length_of_line_segment(line2)
+    
+    # The line to be moved is the line which is the smaller between the two
+    if min(line1_length, line2_length) == line1_length:
+        line_to_be_moved = line1
+        r = line1_length
+    else:
+        line_to_be_moved = line2
+        r = line2_length
+        
+    # Make a new line which is at half the distance between line1 and line2
+    distance = ppmath.get_distance_between_two_parallel_lines(line1, line2)
+    
+    # Formula to calculate the points of the lines
+    x1, y1, x2, y2 = ppmath.get_line_points_2d(line_to_be_moved)
+    d = distance / 2
+    multiplier = d / r
+    del_x = multiplier * (y1 - y2)
+    del_y = multiplier * (x2 - x1)
+    
+    x3, y3 = (x1 + del_x), (y1 + del_y)
+    x4, y4 = (x2 + del_x), (y2 + del_y)
+    
+    return [(x3, y3), (x4, y4)]
+
 for pair in parallel_line_pairs:
     line1, line2 = pair
     
     if line2:
-        #Start center points:
-        x1, y1, x2, y2 = get_centre_points(line1, line2)
-        
+        print('Now calculating line segment')
+        # get_non_segmented_lines(line1, line2)
+        line_segment = get_segmented_line(line1, line2)
         print(f"""
-              line1 : {line1},
-              line2 : {line2},
-              centre_points: {(x1, y1), (x2, y2)}
+              line1: {line1},
+              line2: {line2},
+              line_segment: {line_segment}
               """)
+        msp.add_line(line_segment[0], line_segment[1], dxfattribs={'layer': 'CenterLines'})
         
-        # Find out when the centre points are coming as equal:
-        if (x1, y1) == (x2, y2):
-            print(f'In this case IT IS NOT A LINE, JUST A POINT: {(x1, y1, (x2, y2))}')
-            
-            #Reversing line 2 in this case and then check if the points are still the same
-            l2 = list(reversed(line2))
-            x1, y1, x2, y2 = get_centre_points(line1, l2)
         
-        # Adding a new center line with the layer: CenterLines
-        msp.add_line((x1, y1), (x2, y2), dxfattribs={'layer': 'CenterLines'})
-    
 print('Success now saving the file')
 #Saving the final file:
 dwg.saveas(output_file_path + output_file)
