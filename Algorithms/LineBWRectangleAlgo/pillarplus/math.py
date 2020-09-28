@@ -195,7 +195,7 @@ def is_inverted(point, from_point, to_point):
 def is_parallel(line1, line2):
     return find_slope(line1[0], line1[1]) == find_slope(line2[0], line2[1])
 
-def are_lines_overlapping(line1, line2) -> bool:
+def are_lines_overlapping(line1, line2, slope) -> bool:
     """This function checks whether the two lines are overlapping or not.
 
     Args:
@@ -214,10 +214,21 @@ def are_lines_overlapping(line1, line2) -> bool:
         return (a >= min_a and a <= max_a) or (min_a >= a and max_a <= a)
         
     #Check if the lines are overlapping
-    is_overlapping_line1 = (in_range(x11, x21, x22) or in_range(x12, x21, x22)
-                    or in_range(y11, y21, y22) or in_range(y12, y21, y22))
-    is_overlapping_line2 = (in_range(x21, x11, x12) or in_range(x22, x11, x12)
-                    or in_range(y21, y11, y12) or in_range(y22, y11, y12))
+    if slope == 0 or slope == inf:
+        is_overlapping_line1 = (in_range(x11, x21, x22) or in_range(x12, x21, x22)
+                        or in_range(y11, y21, y22) or in_range(y12, y21, y22))
+        is_overlapping_line2 = (in_range(x21, x11, x12) or in_range(x22, x11, x12)
+                        or in_range(y21, y11, y12) or in_range(y22, y11, y12))
+    else:
+        is_overlapping_line1 = (
+            (in_range(x11, x21, x22) or in_range(x12, x21, x22))
+                        and 
+            (in_range(y11, y21, y22) or in_range(y12, y21, y22)))
+        is_overlapping_line2 = (
+            (in_range(x21, x11, x12) or in_range(x22, x11, x12))
+                        and 
+            (in_range(y21, y11, y12) or in_range(y22, y11, y12)))
+        
     #Anyone of the line1 or line2 should fall inside each other
     return is_overlapping_line1 or is_overlapping_line2
 

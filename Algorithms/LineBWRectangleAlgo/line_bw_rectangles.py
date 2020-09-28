@@ -285,7 +285,7 @@ for slope, lines in slopes.items():
                 continue
             
             # Lines should be overlapping
-            if not ppmath.are_lines_overlapping(line1, line2):
+            if not ppmath.are_lines_overlapping(line1, line2, slope):
                 counter += 1
                 line2 = _get_line2(index, counter)
                 continue                

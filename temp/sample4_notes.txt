@@ -26,3 +26,13 @@ NOTE: Pair is forming between the two but I need to make the pair from the extre
             NOTE:
             - In this case have to handle the case when the Y is decreasing.
 }
+
+{
+  line1 : [(3374.170467725903, 5823.522742859709), (4313.031305890057, 6369.096993698406)],
+  line2 : [(4418.541841070928, 6187.527373536204), (4977.518746500511, 6512.350173699222)],
+
+  slope : 1
+
+  NOTE: The lines are showing overlapping and making a distored line which not be the case.
+  Have to modify overlapping function or have to make a new function.
+}
