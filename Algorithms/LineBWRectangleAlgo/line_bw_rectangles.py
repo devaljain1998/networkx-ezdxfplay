@@ -6,7 +6,7 @@ import math
 from pillarplus import math as ppmath
 
 file_path = 'Algorithms/LineBWRectangleAlgo/input/DXF/'
-input_file = 'RECTANGAL.dxf'
+input_file = 'sample1.dxf'
 output_file_path = 'Algorithms/LineBWRectangleAlgo/output/'
 input_file_name = input_file.split('.')[0]
 output_file = f'{input_file_name}_output.dxf'
@@ -327,6 +327,20 @@ def get_centre_points(line1, line2):
     y2 = (line1[1][1] + line2[1][1]) / 2
     return x1, y1, x2, y2
 
+
+def get_direction(line_to_be_moved, other_line):
+    # fetch the highest point 
+    max_point = max(line_to_be_moved[0], line_to_be_moved[1])
+    
+    directions = {1 : "RIGHT", -1 : "LEFT", 0 : "ON THE LINE"}
+    
+    from ezdxf.math import Vec2, point_to_line_relation
+    dir = point_to_line_relation(Vec2(max_point), Vec2(other_line[0]), Vec2(other_line[1]))
+    
+    print(f'Direction for {line_to_be_moved, other_line} is {directions[dir]}')
+    
+    return dir
+
 def get_non_segmented_lines(line1, line2):
     #Start center points:
     x1, y1, x2, y2 = get_centre_points(line1, line2)
@@ -344,13 +358,18 @@ def get_non_segmented_lines(line1, line2):
         # Reversing line 2 in this case and then check if the points are still the same
         l2 = list(reversed(line2))
         x1, y1, x2, y2 = get_centre_points(line1, l2)
+        
+    return [(x1, y1), (x2, y2)]
     
     # Adding a new center line with the layer: CenterLines
     msp.add_line((x1, y1), (x2, y2), dxfattribs={'layer': 'CenterLines'})
     
     
 def get_segmented_line(line1, line2):
-    """Reference: https://math.stackexchange.com/questions/2593627/i-have-a-line-i-want-to-move-the-line-a-certain-distance-away-parallelly/2594547
+    """This function returns a line segment in between the two the parallel line pairs.
+    Logic has been taken from MathStackExchange (link given below).
+    Reference: 
+        https://math.stackexchange.com/questions/2593627/i-have-a-line-i-want-to-move-the-line-a-certain-distance-away-parallelly/2594547
 
     Args:
         line1 (List of Tuples): A line is a collection of tuple of points in the following manner [(x1, y1), (x2, y2)].
@@ -359,30 +378,42 @@ def get_segmented_line(line1, line2):
     Returns:
         line (List of Tuples): A linesegment in middle of line1 and line2.
     """
+    RIGHT = 1
+    LEFT = -1
+    
     # Calculate lenght of both the line segment.
     line1_length = ppmath.get_length_of_line_segment(line1)
     line2_length = ppmath.get_length_of_line_segment(line2)
-    
+        
+    print(f'l1s: {line1_length}, l2s: {line2_length}')
     # The line to be moved is the line which is the smaller between the two
     if min(line1_length, line2_length) == line1_length:
         line_to_be_moved = line1
         r = line1_length
+        print(f'LinetobeMoved: {line_to_be_moved}, r: {r}')
+        direction = get_direction(line_to_be_moved, line2)
     else:
         line_to_be_moved = line2
         r = line2_length
+        direction = get_direction(line_to_be_moved, line1)
         
     # Make a new line which is at half the distance between line1 and line2
     distance = ppmath.get_distance_between_two_parallel_lines(line1, line2)
     
+    # Get direction and distance with which the line is needed to move
+
+    d = distance / 2
+    
     # Formula to calculate the points of the lines
     x1, y1, x2, y2 = ppmath.get_line_points_2d(line_to_be_moved)
-    d = distance / 2
     multiplier = d / r
     del_x = multiplier * (y1 - y2)
     del_y = multiplier * (x2 - x1)
     
-    x3, y3 = (x1 + del_x), (y1 + del_y)
-    x4, y4 = (x2 + del_x), (y2 + del_y)
+    x3 = x1 + del_x if direction == RIGHT else x1 - del_x
+    y3 = y1 + del_y if direction == RIGHT else y1 - del_y
+    x4 = x2 + del_x if direction == RIGHT else x2 - del_x
+    y4 = y2 + del_y if direction == RIGHT else y2 - del_y
     
     return [(x3, y3), (x4, y4)]
 
@@ -390,13 +421,13 @@ for pair in parallel_line_pairs:
     line1, line2 = pair
     
     if line2:
-        print('Now calculating line segment')
+        print(f'Now calculating line segment {line1, line2}')
         # get_non_segmented_lines(line1, line2)
         line_segment = get_segmented_line(line1, line2)
         print(f"""
               line1: {line1},
               line2: {line2},
-              line_segment: {line_segment}
+              line_segment: {line_segment}\n\n
               """)
         msp.add_line(line_segment[0], line_segment[1], dxfattribs={'layer': 'CenterLines'})
         
