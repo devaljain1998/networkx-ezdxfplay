@@ -8,7 +8,7 @@ import ezdxf
 from ezdxf.math import Vector, Vec2
 
 #CONSTANTS:
-MAXIMUM_DISTANCE_BETWEEN_BEAMS : int = 300 #It is needed to be decided
+MAXIMUM_DISTANCE_BETWEEN_BEAMS : int = 500 #It is needed to be decided
 
 # angle in radians
 def directed_points_on_line(point, angle, width):
@@ -500,6 +500,31 @@ def is_line_decreasing_on_y_2d(line) -> bool:
     """
     x1, y1, x2, y2 = get_line_points_2d(line)
     return (y1 > y2)
+
+
+def get_mid_points_between_points(point1, point2) -> tuple:
+    """This function returns mid point between two points.
+
+    Args:
+        point1 (tuple): Point which will be of format (x, y).
+        point2 (tuple): Point which will be of format (x, y).
+
+    Returns:
+        tuple: Mid Point: (((x1 + x2) / 2)), ((y1 + y2) / 2)))
+    """
+    mid_point = []
+    # x coordinate
+    mid_point.append(((point1[0] + point2[0]) / 2))
+    
+    # y coordinate
+    mid_point.append(((point1[1] + point2[1]) / 2))
+
+    # z coordinate    
+    if len(point1) > 2:
+            mid_point.append(((point1[2] + point2[2]) / 2))
+            
+    return tuple(mid_point)
+
 
 # Testing
 print(find_rotation((0, 0), (-1, 1)))

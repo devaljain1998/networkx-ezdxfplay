@@ -6,7 +6,7 @@ import math
 from pillarplus import math as ppmath
 
 file_path = 'Algorithms/LineBWRectangleAlgo/input/DXF/'
-input_file = 'sample6.dxf'
+input_file = 'sample1.dxf'
 output_file_path = 'Algorithms/LineBWRectangleAlgo/output/'
 input_file_name = input_file.split('.')[0]
 output_file = f'{input_file_name}_output.dxf'
@@ -188,10 +188,14 @@ for polyline in polylines:
         x1, y1 = p1[0], p1[1]
         p2 = polyline[0]
         x2, y2 = p2[0], p2[1]
-        lines.append([(x1, y1), (x2, y2)])
+        line = [(x1, y1), (x2, y2)]
+        line_meta[str(line)] = {'polyline' : polyline}
+        lines.append(line)
 
 print('Lines:')            
 pprint.pprint(lines)
+print('Line_meta:')
+pprint.pprint(line_meta)
 
 
 def try_to_build_the_exact_figure(lines):
@@ -473,7 +477,7 @@ def get_centered_line_segments(line1, line2) -> list:
     line2_length = ppmath.get_length_of_line_segment(line2)
     
     smaller_line = line1 if line1_length <= line2_length else line2
-    bigger_line = line1 if smaller_line == line2 else line1
+    bigger_line = line1 if smaller_line == line2 else line2
     
     # We need to get perpendicular points from the smaller line to the bigger line
     p1 = smaller_line[0]
@@ -494,7 +498,7 @@ def get_centered_line_segments(line1, line2) -> list:
                 break
                 
     # We need to get perpendicular points from the smaller line to the bigger line
-    p2 = smaller_line[0]
+    p2 = smaller_line[1]
     perpendicular_point2 = ppmath.find_perpendicular_point(p2, bigger_line[0], bigger_line[1])
     
     # Check if the perpendicular point exists on the other line or not:
@@ -534,11 +538,15 @@ for pair in parallel_line_pairs:
         # else:
         #     line_segment = get_segmented_line(line1, line2)
             
-        # print(f"""
-        #       line1: {line1},
-        #       line2: {line2},
-        #       line_segment: {line_segment}\n\n
-        #       """)
+        
+        line_segment = get_centered_line_segments(line1, line2)
+        
+        print(f"""
+              line1: {line1},
+              line2: {line2},
+              line_segment: {line_segment}\n\n
+              """)
+        
         msp.add_line(line_segment[0], line_segment[1], dxfattribs={'layer': 'CenterLines'})
         
 print('Debug_parallel_line_pairs')
