@@ -5,8 +5,8 @@ import pprint
 import math
 from pillarplus import math as ppmath
 
-file_path = 'Algorithms/LineBWRectangleAlgo/input/'
-input_file = 'IN.dxf'
+file_path = 'Algorithms/LineBWRectangleAlgo/input/DXF/'
+input_file = 'RECTANGAL.dxf'
 output_file_path = 'Algorithms/LineBWRectangleAlgo/output/'
 input_file_name = input_file.split('.')[0]
 output_file = f'{input_file_name}_output.dxf'
