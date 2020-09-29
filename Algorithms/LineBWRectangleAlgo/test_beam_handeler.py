@@ -6,7 +6,7 @@ import math
 from beam_handler import get_beams
 
 file_path = 'Algorithms/LineBWRectangleAlgo/input/DXF/'
-input_file = 'RECTANGAL.dxf'
+input_file = 'beam.dxf'
 output_file_path = 'Algorithms/LineBWRectangleAlgo/output/'
 input_file_name = input_file.split('.')[0]
 output_file = f'{input_file_name}_output.dxf'
@@ -24,6 +24,6 @@ except ezdxf.DXFStructureError:
 msp = dwg.modelspace()
 print(f'File read success from {file_path}.')    
 
-beams = get_beams(msp, dwg, output_file_path + output_file)
+beams = get_beams(msp, dwg, 'BEAM', output_file_path + output_file)
 print(f'Sucess in')
 print(f'\n\n**Beams: {beams}')

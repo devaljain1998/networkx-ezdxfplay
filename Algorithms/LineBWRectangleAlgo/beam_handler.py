@@ -33,7 +33,8 @@ class Beam:
 #CONSTANTS:
 MAXIMUM_DISTANCE_BETWEEN_BEAMS : int = 500 #It is needed to be decided
 
-def get_lines(msp, dwg) -> List[tuple]:
+line_meta = {}
+def get_lines(msp, dwg, layer_name) -> List[tuple]:
     """This function returns all the lines contained in the layer "PP-BEAM"
     of the dxf file provided.
 
@@ -50,7 +51,7 @@ def get_lines(msp, dwg) -> List[tuple]:
             List[tuple]: Returns an 'unsorted' list of lines.
         """
         #fetching all the polylines from the layer PP-BEAM
-        polylines = msp.query('LWPOLYLINE[layer=="PP-BEAM"]')
+        polylines = msp.query(f'LWPOLYLINE[layer=="{layer_name}"]')
             
         def is_closed(polyline):
             CLOSED = 1
@@ -59,7 +60,6 @@ def get_lines(msp, dwg) -> List[tuple]:
         #Convert polylines into lines:
         print('Converting polylines into lines.')
         lines = []
-        line_meta = {}
         for polyline in polylines:
             line = []
             
@@ -104,34 +104,52 @@ def get_lines(msp, dwg) -> List[tuple]:
         """
         lines = []
         #fetching all the lines from the layer PP-BEAM
-        Lines = msp.query('LINE[layer=="PP-BEAM"]')
+        Lines = msp.query(f'LINE[layer=="{layer_name}"]')
         
         for Line in Lines:
-            line = []
+            try:
+                x1, y1, z1 = Line.dxf.start
+                x2, y2, z2 = Line.dxf.end
+            except Exception as e:
+                print(f'Exception occured while reading line: {e}')
             
-            for point in Line:
-                x, y = point[0], point[1]
-                line.append((x, y))
+            line = [(x1, y1), (x2, y2)]
+            
+            if is_line_decreasing_on_x_2d(line):
+                #Swap the points if the line is decreasing:
+                line.reverse()
                 
-                #if the line has two points:
-                if len(line) == 2:
-                    #Check if the line is decreasing or not:
-                    if is_line_decreasing_on_x_2d(line):
-                        #Swap the points if the line is decreasing:
-                        line.reverse()
+            line_meta[str(line)] = {'polyline' : False}
+            
+            lines.append(line)
+            
+            
+            # for point in Line:
+            #     x, y = point[0], point[1]
+            #     line.append((x, y))
+                
+            #     #if the line has two points:
+            #     if len(line) == 2:
+            #         #Check if the line is decreasing or not:
+            #         if is_line_decreasing_on_x_2d(line):
+            #             #Swap the points if the line is decreasing:
+            #             line.reverse()
                     
-                    #Append the line into lines
-                    lines.append(line)
-                    #clear the line
-                    line = [(x, y)]
+            #         #Append the line into lines
+            #         lines.append(line)
+                    
+            #         line_meta[str(line)] = {'polyline' : False}
+                    
+            #         #clear the line
+            #         line = [(x, y)]
         
         return lines
         
         
     polyline_lines = get_lines_from_polylines(msp)
-    #line_lines = get_lines_from_lines()
+    line_lines = get_lines_from_lines(msp)
     lines.extend(polyline_lines)
-    #lines.extend(line_lines)
+    lines.extend(line_lines)
     
     # Sorting the lines before returning
     lines.sort()
@@ -172,6 +190,20 @@ def get_slope_bucket(lines: List[List[tuple]]) -> Dict[int, List[List[tuple]]]:
             slopes[slope] = [line]
     
     return slopes
+
+def does_lines_belong_to_same_polyline(line1, line2) -> bool:
+    """Function to find that the lines belong to the same polyline or not.
+
+    Args:
+        line1 (List[List[tuple]]): List of lines fetched from the layer "PP-BEAM".
+        line2 (List[List[tuple]]): List of lines fetched from the layer "PP-BEAM".
+
+    Returns:
+        bool: Returns True is they belong to the same polyline otherwise False.
+    """
+    if line_meta[str(line1)]['polyline'] == False or line_meta[str(line2)]['polyline'] == False:
+        return False
+    return line_meta[str(line1)]['polyline'] == line_meta[str(line2)]['polyline']
 
 parallel_line_pair_meta = {}
 def get_parallel_line_pairs(slope_bucket : Dict[int, List[List[tuple]]]) -> List[List[tuple]]:
@@ -215,28 +247,32 @@ def get_parallel_line_pairs(slope_bucket : Dict[int, List[List[tuple]]]) -> List
                 #edge cases:
                 # Lines should not fall into each other
                 if round(distance) == 0: 
+                    print('REJECTED: round(distance) == 0')
                     counter += 1
                     line2 = _get_line2(index, counter)
                     continue
                 
                 # Lines should be overlapping
                 if not are_lines_overlapping(line1, line2, slope):
+                    print('REJECTED: not are_lines_overlapping(line1, line2, slope)')
                     counter += 1
                     line2 = _get_line2(index, counter)
                     continue                
                 
                 # Lines should be inside a threshold
                 if distance > MAXIMUM_DISTANCE_BETWEEN_BEAMS: 
+                    print('REJECTED: distance > MAXIMUM_DISTANCE_BETWEEN_BEAMS')
                     # break            
                     counter += 1
                     line2 = _get_line2(index, counter)
                     continue                
                 
                 # Method is not used anymore  
-                # if does_lines_belong_to_same_polyline(line1, line2):
-                #     counter += 1
-                #     line2 = _get_line2(index, counter)
-                #     continue                                
+                if does_lines_belong_to_same_polyline(line1, line2):
+                    print('REJECTED: does_lines_belong_to_same_polyline(line1, line2)')
+                    counter += 1
+                    line2 = _get_line2(index, counter)
+                    continue                                
                 
                 print(f'Forming a pair b/w {line1, line2}, slope: {slope}\n')
                 #Make pair of these lines
@@ -357,14 +393,14 @@ def draw_beams(beams, msp, dwg, output_file):
         dwg.saveas(output_file)
         print(f'File {output_file} save success.')
 
-def get_beams(msp, dwg, output_file = None) -> List[Beam]:
+def get_beams(msp, dwg, layer_name, output_file = None) -> List[Beam]:
     """This function returns beams from polylines present in the layer "PP-BEAM"
     in the dxf file.
 
     Returns:
         List[Beam]: Returns a list of beam line segments.
     """
-    lines = get_lines(msp, dwg)
+    lines = get_lines(msp, dwg, layer_name)
     slope_bucket = get_slope_bucket(lines)
     parallel_line_pairs = get_parallel_line_pairs(slope_bucket)
     beams = get_beams_from_pairs(parallel_line_pairs)
