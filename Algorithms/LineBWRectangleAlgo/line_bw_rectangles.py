@@ -5,8 +5,8 @@ import pprint
 import math
 from pillarplus import math as ppmath
 
-file_path = 'Algorithms/LineBWRectangleAlgo/input/DXF/'
-input_file = 'sample1.dxf'
+file_path = 'Algorithms/LineBWRectangleAlgo/input/'
+input_file = 'IN.dxf'
 output_file_path = 'Algorithms/LineBWRectangleAlgo/output/'
 input_file_name = input_file.split('.')[0]
 output_file = f'{input_file_name}_output.dxf'
@@ -502,7 +502,7 @@ def get_centered_line_segments(line1, line2) -> list:
     perpendicular_point2 = ppmath.find_perpendicular_point(p2, bigger_line[0], bigger_line[1])
     
     # Check if the perpendicular point exists on the other line or not:
-    if ppmath.is_between(perpendicular_point1, bigger_line[0], bigger_line[1]):
+    if ppmath.is_between(perpendicular_point2, bigger_line[0], bigger_line[1]):
         # Find centre point in this case
         centre_point2 = ppmath.get_mid_points_between_points(p2, perpendicular_point2)
     else:
@@ -512,7 +512,7 @@ def get_centered_line_segments(line1, line2) -> list:
             # if this perpendicular point lies in the smaller line then break
             if ppmath.is_between(perpendicular_point2, smaller_line[0], smaller_line[1]):
                 # calculate the centre point first
-                centre_point2 = ppmath.get_mid_points_between_points(point, perpendicular_point1)
+                centre_point2 = ppmath.get_mid_points_between_points(point, perpendicular_point2)
                 break
             
     return [centre_point1, centre_point2]

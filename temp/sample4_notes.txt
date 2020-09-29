@@ -36,3 +36,15 @@ NOTE: Pair is forming between the two but I need to make the pair from the extre
   NOTE: The lines are showing overlapping and making a distored line which not be the case.
   Have to modify overlapping function or have to make a new function.
 }
+
+
+
+
+
+
+========================
+LINE SEGMENT
+
+{
+  NOTE: Line segment has to be modified because the smaller segment can have extreme end point then the bigger segment.
+}
