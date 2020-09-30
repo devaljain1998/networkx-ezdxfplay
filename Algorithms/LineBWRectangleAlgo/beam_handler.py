@@ -31,7 +31,7 @@ class Beam:
         return self.__repr__()
 
 #CONSTANTS:
-MAXIMUM_DISTANCE_BETWEEN_BEAMS : int = 500 #It is needed to be decided
+MAXIMUM_DISTANCE_BETWEEN_BEAMS = 500 #It is needed to be decided
 
 line_meta = {}
 def get_lines(msp, dwg, layer_name) -> List[tuple]:
@@ -393,13 +393,15 @@ def draw_beams(beams, msp, dwg, output_file):
         dwg.saveas(output_file)
         print(f'File {output_file} save success.')
 
-def get_beams(msp, dwg, layer_name, output_file = None) -> List[Beam]:
+def get_beams(msp, dwg, layer_name, conversion_factor, output_file = None) -> List[Beam]:
     """This function returns beams from polylines present in the layer "PP-BEAM"
     in the dxf file.
 
     Returns:
         List[Beam]: Returns a list of beam line segments.
     """
+    global MAXIMUM_DISTANCE_BETWEEN_BEAMS
+    MAXIMUM_DISTANCE_BETWEEN_BEAMS = MAXIMUM_DISTANCE_BETWEEN_BEAMS * conversion_factor
     lines = get_lines(msp, dwg, layer_name)
     slope_bucket = get_slope_bucket(lines)
     parallel_line_pairs = get_parallel_line_pairs(slope_bucket)

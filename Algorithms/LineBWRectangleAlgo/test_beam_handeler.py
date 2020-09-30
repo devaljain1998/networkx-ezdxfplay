@@ -24,6 +24,6 @@ except ezdxf.DXFStructureError:
 msp = dwg.modelspace()
 print(f'File read success from {file_path}.')    
 
-beams = get_beams(msp, dwg, 'BEAM', output_file_path + output_file)
+beams = get_beams(msp, dwg, 'BEAM', 1.0, output_file_path + output_file)
 print(f'Sucess in')
 print(f'\n\n**Beams: {beams}')
