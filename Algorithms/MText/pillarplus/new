@@ -1,0 +1,7 @@
+class Beam:
+    number
+    start_point
+    end_point
+    screen_start_point
+    screen_end_point
+    width
