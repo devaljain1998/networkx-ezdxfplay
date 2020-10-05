@@ -86,15 +86,15 @@ def add_text_to_chamber(entity, params):
         (dir_x, 0, 0), (0, dir_y, 0)) / 2
 
     # Draw in line in the direction of angle:
-    slant_line_length = 100
+    slant_line_length = 300
     slant_line = directed_points_on_line(
         centre_point, angle, slant_line_length)
     msp.add_line(centre_point, slant_line[0], dxfattribs={
                  'layer': 'TextLayer'})
 
     # Drawing straight line:
-    straight_line_length = 200
-    angle: float = get_angle_between_two_points(slant_line[0], (dir_x, 0, 0))
+    straight_line_length = 500
+    angle: float = 0
     straight_line = directed_points_on_line(
         slant_line[0], angle, straight_line_length)
     msp.add_line(slant_line[0], straight_line[0],
@@ -114,11 +114,15 @@ def add_text_to_chamber(entity, params):
         {entity['type'].upper()}
         SIZE: {size}
         """
-
-        mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
+        # MTEXT Formatting
+        mtext = msp.add_mtext("", dxfattribs={'layer': 'TextLayer'})
+        mtext += text
+        mtext.set_font('OpenSans', True, False, 1252, 128)
+        
+        mtext.dxf.char_height = 5
         mtext.set_location(straight_line[0], None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
         # Setting border for the text:
-        mtext.dxf.box_fill_scale = 5
+        #mtext.dxf.box_fill_scale = 5
         print('Box Fill Scale: ', mtext.dxf.box_fill_scale)
 
     elif entity['type'] == 'inspection chamber':
