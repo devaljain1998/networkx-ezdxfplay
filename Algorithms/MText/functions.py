@@ -5,6 +5,7 @@ import pprint
 import math
 import ezdxf
 import json
+from ezdxf.math import Vector
 from pillarplus.math import find_distance, get_angle_between_two_points, directed_points_on_line
 
 
@@ -127,6 +128,8 @@ def add_text_to_chamber(entity, params):
         # Setting border for the text:
         #mtext.dxf.box_fill_scale = 5
         print('Box Fill Scale: ', mtext.dxf.box_fill_scale)
+        
+        print('width', mtext.dxf.width)
 
     elif entity['type'] == 'inspection chamber':
         size = '1\'.6"X1\'6"'
@@ -220,8 +223,58 @@ def add_text_on_wall(point: tuple, text: str, wall):
         text (str): The which is needed to be added.
         wall (entity): Wall is an entity.
     """
-    pass
+    # Get corners of the wall
+    corners = wall['corners']
+    
+    # Check the point is closed to which corner
+    closest_corner = corners[0] if find_distance(point, corners[0]) <= find_distance(point, corners[1]) else corners[1]
 
+    # Get the in-angle and get opposite angle for it.
+    in_angle = wall['in_angle']
+    opposite_in_angle = in_angle - 180
+    
+    # Stretch distance in the direction of x and y:
+    vector = Vector(closest_corner[0] - point[0], closest_corner[1] - point[1])
+    angle = vector.angle
+    angle = math.degrees(angle)
+    
+    # In degree
+    angle_for_slant_line = (angle + opposite_in_angle) / 2
+
+    # Draw in line in the direction of angle:
+    slant_line_length = 300
+    slant_line = directed_points_on_line(
+        point, math.radians(angle_for_slant_line), slant_line_length)
+    msp.add_line(point, slant_line[0], dxfattribs={
+                 'layer': 'TextLayer'})
+
+    # Drawing straight line:
+    straight_line_length = 500
+    angle: float = 0 if closest_corner[0] > 0 else math.pi
+    straight_line = directed_points_on_line(
+        slant_line[0], angle, straight_line_length)
+    msp.add_line(slant_line[0], straight_line[0],
+                 dxfattribs={'layer': 'TextLayer'})
+    
+    mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
+    mtext.dxf.char_height = 50
+    
+    point = list(straight_line[0])
+    # Increasing the Y coordinate for proper positioning
+    point[0] -= 250
+    # point[0] += 270
+    point[1] += 60
+    mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])    
+    
+    print('width', mtext.dxf.width)
+    print(f'Success in adding mtext at the location: {point} and angle: {opposite_in_angle}.')
+    
+    try:
+        dwg.saveas(output_file_path + output_file)
+    except Exception as e:
+        print(f'Failed to save the file due to the following exception: {e}')
+        sys.exit(1)
+    
     
   
 # DRIVER: add_text_to_chamber  
@@ -232,6 +285,12 @@ def add_text_on_wall(point: tuple, text: str, wall):
 
 
 # DRIVER: add_text_to_piping
-add_text_to_piping("H/el/lo P/il$lar$Plus!", (0, 0), 10, math.pi / 4)
+# add_text_to_piping("H/el/lo P/il$lar$Plus!", (0, 0), 10, math.pi / 4)
 
+#DRIVER: add_text_to_wall
+walls = identification_json['walls']
+wall = walls[0]
+corners = wall['corners']
+point = ((corners[0][0] + corners[1][0]) / 2, (corners[0][1] + corners[1][1]) / 2, (corners[0][2] + corners[1][2]) / 2)
+add_text_on_wall(point, "Hello PillarPlus!", wall)
 
