@@ -70,18 +70,18 @@ def add_text_to_chamber(entity, params):
         dir_y = max_y
     
     # Stretch distance in the direction of x and y:
-    angle: float = get_angle_between_two_points((dir_x, 0, 0), (0, dir_y, 0))
+    angle: float = get_angle_between_two_points((dir_x - centre_point[0], -centre_point[1], centre_point[2]), (-centre_point[0], dir_y - centre_point[1], -centre_point[2]))
     
     # Draw in line in the direction of angle:
     slant_line_length = 100
     slant_line = directed_points_on_line(centre_point, angle, slant_line_length)
-    msp.add_line(slant_line[0], slant_line[1], dxfattribs={'layer': 'TextLayer'})
+    msp.add_line(centre_point, slant_line[0], dxfattribs={'layer': 'TextLayer'})
     
     #Drawing straight line:
     straight_line_length = 200
     angle: float = get_angle_between_two_points(slant_line[1], (dir_x, 0, 0))
-    straight_line = directed_points_on_line(slant_line[1], angle, straight_line_length)
-    msp.add_line(straight_line[0], straight_line[1], dxfattribs={'layer': 'TextLayer'})
+    straight_line = directed_points_on_line(slant_line[0], angle, straight_line_length)
+    msp.add_line(slant_line[0], straight_line[0], dxfattribs={'layer': 'TextLayer'})
     
     # Types of chambers:
     # gully trap chamber
@@ -99,7 +99,7 @@ def add_text_to_chamber(entity, params):
         """
         
         mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
-        mtext.set_location(straight_line[1])
+        mtext.set_location(straight_line[0])
         
     elif entity['type'] == 'inspection chamber':
         size = '1\'.6"X1\'6"'
