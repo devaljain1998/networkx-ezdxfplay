@@ -526,6 +526,22 @@ def get_mid_points_between_points(point1, point2) -> tuple:
     return tuple(mid_point)
 
 
+def get_angle_between_two_points(point1: tuple, point2: tuple) -> float:
+    """This function returns angle between unit vectors.
+
+    Args:
+        point1 (tuple): It is of the form (x, y, z).
+        point2 (tuple): It is of the form (x, y, z).
+
+    Returns:
+        [float]: Returns angle in Radians.
+    """
+    v1 = Vector(point1)
+    v2 = Vector(point2)
+    dot_product = v1.dot(v2)
+    angle = acos(dot_product/(v1.magnitude * v2.magnitude))
+    return angle
+
 # Testing
 print(find_rotation((0, 0), (-1, 1)))
 print(find_rotation((0, 0), (-1, -1)))
