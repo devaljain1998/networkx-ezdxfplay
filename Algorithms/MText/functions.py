@@ -26,6 +26,7 @@ except ezdxf.DXFStructureError:
 
 # Adding a new layer:
 dwg.layers.new('TextLayer')
+dwg.layers.new('PipingLayer')
 
 msp = dwg.modelspace()
 print(f'DXF File read success from {file_path}.')
@@ -117,10 +118,12 @@ def add_text_to_chamber(entity, params):
         # MTEXT Formatting
         mtext = msp.add_mtext("", dxfattribs={'layer': 'TextLayer'})
         mtext += text
-        mtext.set_font('OpenSans', True, False, 1252, 128)
+        mtext.dxf.char_height = 50
         
-        mtext.dxf.char_height = 5
-        mtext.set_location(straight_line[0], None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
+        point = list(straight_line[0])
+        # Increasing the Y coordinate for proper positioning
+        point[1] += 300
+        mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
         # Setting border for the text:
         #mtext.dxf.box_fill_scale = 5
         print('Box Fill Scale: ', mtext.dxf.box_fill_scale)
@@ -155,8 +158,8 @@ def add_text_to_chamber(entity, params):
 
     else:
         raise ValueError(
-            'Only chambers with types: ("gully trap chamber", "inspection chamber", "rainwater chamber") are allowed.')
-
+            'Only chambers with types: ("gully trap chamber", "inspection chamber", "rainwater chamber") are allowed.')    
+        
     # Saving the file:
     try:
         dwg.saveas(output_file_path + output_file)
@@ -166,8 +169,69 @@ def add_text_to_chamber(entity, params):
     print(
         f'Successfully added slant_line: {slant_line} and straight_line: {straight_line}')
 
+    
+def add_text_to_piping(text: str, location: tuple, distance: float, rotation: float):
+    """This function adds text to piping at certain 'distance' from the location provided with the rotation.
+    The function accepts the text of the format: "///$$".
+    This function then changes all the '/' and '$' into '\n' (Newline Char).
 
-entities = identification_json['entities']
-params = identification_json["params"]
-# Calling function by hardcoding:
-add_text_to_chamber(entities[67], params)
+    Args:
+        text (str): The text which is needed to be inserted. The text will be of the format "///$$"
+        location (tuple): The location from which needs to be considered.
+        distance (float): The distance from the location after which the text needed to be printed.
+        rotation (float): Rotation on which the text needs to be printed on the dxf file.
+    """
+    # Replacing all the '/' and '$' with NEWLINE Char.
+    text = text.replace('/', '\n')
+    text = text.replace('$', '\n')
+                        
+    # Finding the point where text should be placed.
+    line = directed_points_on_line(location, rotation, distance)
+    point_on_which_text_is_to_be_placed = line[0]
+    
+    # Placing the point at the location
+    mtext = msp.add_mtext(text, dxfattribs = {'layer' : 'PipingText', 'style': 'OpenSans'})    
+    # Setting the location
+    mtext.set_location(point_on_which_text_is_to_be_placed)    
+    
+    # Setting the rotation
+    # angle will be equal to rotation - 90 degrees
+    angle = rotation - (math.pi / 2)
+    angle_in_degree = math.degrees(angle)
+    mtext.set_rotation(angle_in_degree)
+    
+    # Char font size:
+    mtext.dxf.char_height = 1
+            
+    print(f'Success in adding mtext at the location: {point_on_which_text_is_to_be_placed} and angle: {angle_in_degree}.')
+    
+    try:
+        dwg.saveas(output_file_path + output_file)
+    except Exception as e:
+        print(f'Failed to save the file due to the following exception: {e}')
+        sys.exit(1)
+        
+
+def add_text_on_wall(point: tuple, text: str, wall):
+    """This function adds text on the wall.
+
+    Args:
+        point (tuple): A list of point.
+        text (str): The which is needed to be added.
+        wall (entity): Wall is an entity.
+    """
+    pass
+
+    
+  
+# DRIVER: add_text_to_chamber  
+# entities = identification_json['entities']
+# params = identification_json["params"]
+# # Calling function by hardcoding:
+# add_text_to_chamber(entities[67], params)
+
+
+# DRIVER: add_text_to_piping
+add_text_to_piping("H/el/lo P/il$lar$Plus!", (0, 0), 10, math.pi / 4)
+
+
