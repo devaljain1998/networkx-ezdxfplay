@@ -526,7 +526,7 @@ def get_mid_points_between_points(point1, point2) -> tuple:
     return tuple(mid_point)
 
 
-def get_angle_between_two_points(point1: tuple, point2: tuple) -> float:
+def get_angle_between_two_points(point1: tuple, point2: tuple, *args) -> float:
     """This function returns angle between unit vectors.
 
     Args:
@@ -538,16 +538,27 @@ def get_angle_between_two_points(point1: tuple, point2: tuple) -> float:
     """
     v1 = Vector(point1)
     v2 = Vector(point2)
-    dot_product = v1.dot(v2)
-    angle = acos(dot_product/(v1.magnitude * v2.magnitude))
+
+    # dot_product = v1.dot(v2)
+    # try:
+    #     angle = acos(dot_product/(v1.magnitude * v2.magnitude))
+    # except ZeroDivisionError:
+    #     if v1.magnitude == 0 and v2.magnitude != 0:
+    #         return acos(dot_product/(v2.magnitude))
+    #     if v2.magnitude == 0 and v1.magnitude != 0:
+    #         return acos(dot_product/(v1.magnitude))
+    #     return 0
+    
+    angle = (v1 + v2).angle
+    print(f'Angle b/w v1 and v2:', angle, degrees(angle))
     return angle
 
 # Testing
-print(find_rotation((0, 0), (-1, 1)))
-print(find_rotation((0, 0), (-1, -1)))
-print(find_rotation((0, 0), (1, 1)))
-print(find_rotation((0, 0), (1, -1)))
-print(get_side_points((0, 0), 90, None, 10, 10, 10))
+# print(find_rotation((0, 0), (-1, 1)))
+# print(find_rotation((0, 0), (-1, -1)))
+# print(find_rotation((0, 0), (1, 1)))
+# print(find_rotation((0, 0), (1, -1)))
+# print(get_side_points((0, 0), 90, None, 10, 10, 10))
 
 # print(is_inverted((0,0),(1,1),(1,0)))
 # print(find_rotation((1,0),(0,-0.5)))
