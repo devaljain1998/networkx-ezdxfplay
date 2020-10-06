@@ -154,8 +154,7 @@ def add_text_to_chamber(entity, params, *args):
         SIZE: {size}
         """
         # MTEXT Formatting
-        mtext = msp.add_mtext("", dxfattribs={'layer': 'TextLayer'})
-        mtext += text
+        mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
         mtext.dxf.char_height = 10 * conversion_factor
         
         point = list(straight_line_point)
@@ -178,9 +177,15 @@ def add_text_to_chamber(entity, params, *args):
         {entity['type'].upper()}
         SIZE: {size}
         """
-
+        
+        # MTEXT Formatting
         mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
-        mtext.set_location(straight_line[1])
+        mtext.dxf.char_height = 10 * conversion_factor
+        
+        point = list(straight_line_point)
+        # Increasing the Y coordinate for proper positioning
+        point[1] += (100 * conversion_factor)
+        mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])        
 
     elif entity['type'] == 'rainwater chamber':
         size = '1\'.0"X1\'0"'
@@ -193,8 +198,14 @@ def add_text_to_chamber(entity, params, *args):
         SIZE: {size}
         """
 
+        # MTEXT Formatting
         mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
-        mtext.set_location(straight_line[1])
+        mtext.dxf.char_height = 10 * conversion_factor
+        
+        point = list(straight_line_point)
+        # Increasing the Y coordinate for proper positioning
+        point[1] += (100 * conversion_factor)
+        mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])        
 
     else:
         raise ValueError(
@@ -211,7 +222,7 @@ def add_text_to_chamber(entity, params, *args):
 
 
 # Testing gully trap chambers:
-gully_trap_chambers_entities = [0, 3, 6, 9]
+gully_trap_chambers_entities = [0, 3, 6, 9, 2, 5, 8, 11, 1, 4, 7, 10]
 entities = identification_json['entities']
 params = identification_json["params"]
 conversion_factor = params['Units conversion factor']
