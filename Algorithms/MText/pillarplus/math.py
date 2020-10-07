@@ -6,6 +6,7 @@ from math import *
 import sympy as sp
 import ezdxf
 from ezdxf.math import Vector, Vec2
+from typing import List
 
 #CONSTANTS:
 MAXIMUM_DISTANCE_BETWEEN_BEAMS : int = 500 #It is needed to be decided
@@ -552,6 +553,20 @@ def get_angle_between_two_points(point1: tuple, point2: tuple, *args) -> float:
     angle = (v1 + v2).angle
     print(f'Angle b/w v1 and v2:', angle, degrees(angle))
     return angle
+
+
+def get_distance_of_point_to_a_line(point: tuple, line: List[tuple]) -> float:
+    """This function returns the distance of a point to a line using the standard library math
+    functions of ezdxf.
+
+    Args:
+        point (tuple): [description]
+        line (List[tuple]): [description]
+
+    Returns:
+        float: Distance between point and a line.
+    """
+    return ezdxf.math.distance_point_line_2d(Vec2(point), Vec2(line[0]), Vec2(line[1]))
 
 # Testing
 # print(find_rotation((0, 0), (-1, 1)))

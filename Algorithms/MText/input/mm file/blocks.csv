@@ -1,0 +1,5 @@
+block name,block type,block rotation,height (overwrite on defaults),breadth (overwrite on defaults)
+GT 1,gully trap chamber,0,,
+IC 1,inspection chamber,0,,
+CCDD,switchboard,90,,
+GHYTU,rain water chamber,0,,

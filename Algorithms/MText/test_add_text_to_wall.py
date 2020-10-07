@@ -82,7 +82,7 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
     
     # Move find the point above x distance with closest corner:
     #(.) -> The point can be here. That is why we are finding a parallel distance.
-    # 
+    # .
     # _________
     point_above_closest_corner = directed_points_on_line(closest_corner, pi/2, distance)[0]
     
@@ -113,9 +113,9 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
     
     point = list(straight_line[0])
     # Increasing the Y coordinate for proper positioning
-    point[0] -= (250 * conversion_factor)
+    # point[0] -= (10 * conversion_factor)
     # point[0] += 270
-    point[1] += (60 * conversion_factor)
+    # point[1] += (60 * conversion_factor)
     mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])    
     mtext.set_rotation(vector.angle_deg)
     
@@ -136,6 +136,7 @@ switch_boards = [i for i in range(12, 24)]
 entities = identification_json['entities']
 params = identification_json["params"]
 conversion_factor = params['Units conversion factor']
+
 # Calling function by hardcoding:
 for i in switch_boards:
     switch_board = entities[i]
