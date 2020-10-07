@@ -144,13 +144,35 @@ def add_text_to_chamber(entity, params, *args):
     # inspection chamber
     # rainwater chamber
     if entity['type'] == 'gully trap chamber':
+        slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
+        # Draw in line in the direction of angle:
+        slant_line_length = 300 * conversion_factor
+        slant_line = directed_points_on_line(
+            centre_point, slant_line_angle, slant_line_length)
+        msp.add_line(centre_point, slant_line[0], dxfattribs={
+                    'layer': 'TextLayer'})
+
+        # Drawing straight line:
+        straight_line_length = 500 * conversion_factor
+        angle: float = 0
+        straight_line = directed_points_on_line(
+            slant_line[0], angle, straight_line_length)
+        
+        # Find which point (0 or 1) of straight line should be used:
+        straight_line_point = straight_line[0] if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else straight_line[1]
+        
+        msp.add_line(slant_line[0], straight_line_point,
+                    dxfattribs={'layer': 'TextLayer'})
+        
         size = '1\'.0"X1\'0"'
 
         text = f"""
         F.GL: {entity['finish_floor_level']}
         I.LVL: {entity['invert_level']}
         DEPTH: {entity['chamber_depth']}
-        {entity['type'].upper()}
+        GULLY TRAP
+        CHAMBER
         SIZE: {size}
         """
         # MTEXT Formatting
@@ -158,23 +180,52 @@ def add_text_to_chamber(entity, params, *args):
         mtext.dxf.char_height = 10 * conversion_factor
         
         point = list(straight_line_point)
-        # Increasing the Y coordinate for proper positioning
+        # proper positioning
+        # Positioning x coordinate:
+        point[0] += (0 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (-100 * conversion_factor)
+        # Increasing the Y coordinate
         point[1] += (100 * conversion_factor)
         mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
         # Setting border for the text:
-        #mtext.dxf.box_fill_scale = 5
+        mtext = mtext.set_bg_color(2, scale = 1.5)
+        mtext.dxf.box_fill_scale = 5
+        
+        print('dxf.bg_fill', mtext.dxf.bg_fill)
         print('Box Fill Scale: ', mtext.dxf.box_fill_scale)
         
         print('width', mtext.dxf.width)
 
     elif entity['type'] == 'inspection chamber':
+        slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
+        # Draw in line in the direction of angle:
+        slant_line_length = 300 * conversion_factor
+        slant_line = directed_points_on_line(
+            centre_point, slant_line_angle, slant_line_length)
+        msp.add_line(centre_point, slant_line[0], dxfattribs={
+                    'layer': 'TextLayer'})
+
+        # Drawing straight line:
+        straight_line_length = 500 * conversion_factor
+        angle: float = 0
+        straight_line = directed_points_on_line(
+            slant_line[0], angle, straight_line_length)
+        
+        # Find which point (0 or 1) of straight line should be used:
+        straight_line_point = straight_line[0] if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else straight_line[1]
+        
+        msp.add_line(slant_line[0], straight_line_point,
+                    dxfattribs={'layer': 'TextLayer'})
+                
         size = '1\'.6"X1\'6"'
 
         text = f"""
         F.GL: {entity['finish_floor_level']}
         I.LVL: {entity['invert_level']}
         DEPTH: {entity['chamber_depth']}
-        {entity['type'].upper()}
+        INSPECTION
+        CHAMBER
         SIZE: {size}
         """
         
@@ -188,13 +239,35 @@ def add_text_to_chamber(entity, params, *args):
         mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])        
 
     elif entity['type'] == 'rainwater chamber':
+        slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
+        # Draw in line in the direction of angle:
+        slant_line_length = 300 * conversion_factor
+        slant_line = directed_points_on_line(
+            centre_point, slant_line_angle, slant_line_length)
+        msp.add_line(centre_point, slant_line[0], dxfattribs={
+                    'layer': 'TextLayer'})
+
+        # Drawing straight line:
+        straight_line_length = 500 * conversion_factor
+        angle: float = 0
+        straight_line = directed_points_on_line(
+            slant_line[0], angle, straight_line_length)
+        
+        # Find which point (0 or 1) of straight line should be used:
+        straight_line_point = straight_line[0] if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else straight_line[1]
+        
+        msp.add_line(slant_line[0], straight_line_point,
+                    dxfattribs={'layer': 'TextLayer'})
+        
         size = '1\'.0"X1\'0"'
 
         text = f"""
         F.GL: {entity['finish_floor_level']}
         I.LVL: {entity['invert_level']}
         DEPTH: {entity['chamber_depth']}
-        {entity['type'].upper()}
+        RAIN WATER
+        CHAMBER
         SIZE: {size}
         """
 
@@ -210,16 +283,9 @@ def add_text_to_chamber(entity, params, *args):
     else:
         raise ValueError(
             'Only chambers with types: ("gully trap chamber", "inspection chamber", "rainwater chamber") are allowed.')    
-        
-    # Saving the file:
-    try:
-        dwg.saveas(output_file_path + output_file)
-    except Exception as e:
-        print(f'Failed to save the file due to the following exception: {e}')
-        sys.exit(1)
+    
     print(
         f'Successfully added slant_line: {slant_line} and straight_line: {straight_line}\n\n')
-
 
 # Testing gully trap chambers:
 gully_trap_chambers_entities = [0, 3, 6, 9, 2, 5, 8, 11, 1, 4, 7, 10]
@@ -229,3 +295,12 @@ conversion_factor = params['Units conversion factor']
 # Calling function by hardcoding:
 for i in gully_trap_chambers_entities:
     add_text_to_chamber(entities[i], params, conversion_factor)
+
+
+# Saving the file:
+try:
+    dwg.saveas(output_file_path + output_file)
+    print(f'Success in saving file: {output_file_path + output_file}')
+except Exception as e:
+    print(f'Failed to save the file due to the following exception: {e}')
+    sys.exit(1)
