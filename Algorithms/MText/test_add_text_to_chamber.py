@@ -176,7 +176,7 @@ def add_text_to_chamber(entity, params, *args):
         # Positioning x coordinate:
         point[0] += (0 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (-11 * conversion_factor)
-        # Increasing the Y coordinate
+        # Increasing the Y coordinate:
         point[1] += (7 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (7 * conversion_factor)
 
@@ -228,18 +228,33 @@ def add_text_to_chamber(entity, params, *args):
         
         point = list(straight_line_point)
         
+        # Declaring Variable boundry_vertex points:
+        x_extra_distance = (12 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (-10 * conversion_factor)
+        y_extra_height = (6 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (6 * conversion_factor)
+        y_lower_height = -5
+        
         # Build a box boundry:
-        boundry_points = [(point[0], point[1] - 5), (point[0] + 12, point[1] - 5), (point[0] + 12, point[1] + 10), (point[0], point[1] + 10), (point[0], point[1] - 5)]
+        boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
         boundryline = msp.add_lwpolyline(boundry_points, dxfattribs={'layer': 'TextLayerBoundry'})
                 
         # proper positioning
         # Positioning x coordinate:
         point[0] += (0 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (-10 * conversion_factor)
-        # Increasing the Y coordinate
-        point[1] += (10 * conversion_factor)        
+            degrees(slant_line_angle)) <= 90 else (-11 * conversion_factor)
+        # Increasing the Y coordinate:
+        point[1] += (7 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (7 * conversion_factor)
 
         mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
+        # Setting border for the text:
+        # mtext = mtext.set_bg_color(2, scale = 1.5)
+        # mtext.dxf.box_fill_scale = 5
+        print('dxf.bg_fill', mtext.dxf.bg_fill)
+        print('Box Fill Scale: ', mtext.dxf.box_fill_scale)
+        
+        print('width', mtext.dxf.width)
 
     elif entity['type'] == 'rainwater chamber':
         slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
@@ -276,18 +291,33 @@ def add_text_to_chamber(entity, params, *args):
         
         point = list(straight_line_point)
         
+        # Declaring Variable boundry_vertex points:
+        x_extra_distance = (12 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (-10 * conversion_factor)
+        y_extra_height = (6 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (6 * conversion_factor)
+        y_lower_height = -5
+        
         # Build a box boundry:
-        boundry_points = [(point[0], point[1] - 5), (point[0] + 12, point[1] - 5), (point[0] + 12, point[1] + 10), (point[0], point[1] + 10), (point[0], point[1] - 5)]
+        boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
         boundryline = msp.add_lwpolyline(boundry_points, dxfattribs={'layer': 'TextLayerBoundry'})
                 
         # proper positioning
         # Positioning x coordinate:
         point[0] += (0 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (-10 * conversion_factor)
-        # Increasing the Y coordinate
-        point[1] += (10 * conversion_factor)        
+            degrees(slant_line_angle)) <= 90 else (-11 * conversion_factor)
+        # Increasing the Y coordinate:
+        point[1] += (7 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (7 * conversion_factor)
 
         mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
+        # Setting border for the text:
+        # mtext = mtext.set_bg_color(2, scale = 1.5)
+        # mtext.dxf.box_fill_scale = 5
+        print('dxf.bg_fill', mtext.dxf.bg_fill)
+        print('Box Fill Scale: ', mtext.dxf.box_fill_scale)
+        
+        print('width', mtext.dxf.width)
 
     else:
         raise ValueError(
