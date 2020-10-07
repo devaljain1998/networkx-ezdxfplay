@@ -10,8 +10,8 @@ from math import *
 
 from pillarplus.math import find_distance, get_angle_between_two_points, directed_points_on_line
 
-file_path = 'Algorithms/MText/input/'
-input_file = 'chamber_test.dxf'
+file_path = 'Algorithms/MText/input/mm file/'
+input_file = 'in.dxf'
 output_file_path = 'Algorithms/MText/output/'
 input_file_name = input_file.split('.')[0]
 output_file = 'output_chamber_TEST.dxf'
@@ -28,12 +28,13 @@ except ezdxf.DXFStructureError:
 
 # Adding a new layer:
 dwg.layers.new('TextLayer')
+dwg.layers.new('TextLayerBoundry')
 
 msp = dwg.modelspace()
 print(f'DXF File read success from {file_path}.')
 
 # Reading the identification JSON:
-json_file_path = 'Algorithms/MText/chamber_identification.json'
+json_file_path = 'Algorithms/MText/mm_identification.json'
 try:
     with open(json_file_path) as json_file:
         identification_json = json.load(json_file)
@@ -117,28 +118,7 @@ def add_text_to_chamber(entity, params, *args):
         angle: float = get_angle_between_two_points(x_dir_coordinates, y_dir_coordinates)
         print('angle after choosing dir for slant line: ', angle, math.degrees(angle))
         return angle
-        
-    slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
-    # Draw in line in the direction of angle:
-    slant_line_length = 300 * conversion_factor
-    slant_line = directed_points_on_line(
-        centre_point, slant_line_angle, slant_line_length)
-    msp.add_line(centre_point, slant_line[0], dxfattribs={
-                 'layer': 'TextLayer'})
-
-    # Drawing straight line:
-    straight_line_length = 500 * conversion_factor
-    angle: float = 0
-    straight_line = directed_points_on_line(
-        slant_line[0], angle, straight_line_length)
     
-    # Find which point (0 or 1) of straight line should be used:
-    straight_line_point = straight_line[0] if 0 <= abs(
-        degrees(slant_line_angle)) <= 90 else straight_line[1]
-    
-    msp.add_line(slant_line[0], straight_line_point,
-                 dxfattribs={'layer': 'TextLayer'})
-
     # Types of chambers:
     # gully trap chamber
     # inspection chamber
@@ -146,14 +126,14 @@ def add_text_to_chamber(entity, params, *args):
     if entity['type'] == 'gully trap chamber':
         slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
         # Draw in line in the direction of angle:
-        slant_line_length = 300 * conversion_factor
+        slant_line_length = 30 * conversion_factor
         slant_line = directed_points_on_line(
             centre_point, slant_line_angle, slant_line_length)
         msp.add_line(centre_point, slant_line[0], dxfattribs={
                     'layer': 'TextLayer'})
 
         # Drawing straight line:
-        straight_line_length = 500 * conversion_factor
+        straight_line_length = 50 * conversion_factor
         angle: float = 0
         straight_line = directed_points_on_line(
             slant_line[0], angle, straight_line_length)
@@ -177,19 +157,28 @@ def add_text_to_chamber(entity, params, *args):
         """
         # MTEXT Formatting
         mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
-        mtext.dxf.char_height = 10 * conversion_factor
+        mtext.dxf.char_height = 1 * conversion_factor
         
         point = list(straight_line_point)
+        
+        # Build a box boundry:
+        boundry_points = [(point[0], point[1] - 5), (point[0] + 12, point[1] - 5), (point[0] + 12, point[1] + 10), (point[0], point[1] + 10), (point[0], point[1] - 5)]
+        boundryline = msp.add_lwpolyline(boundry_points, dxfattribs={'layer': 'TextLayerBoundry'})
+        # Closing the line:
+        boundryline.is_closed = True        
+                
         # proper positioning
         # Positioning x coordinate:
         point[0] += (0 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (-100 * conversion_factor)
+            degrees(slant_line_angle)) <= 90 else (-10 * conversion_factor)
         # Increasing the Y coordinate
-        point[1] += (100 * conversion_factor)
+        point[1] += (10 * conversion_factor)        
+
         mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
         # Setting border for the text:
-        mtext = mtext.set_bg_color(2, scale = 1.5)
-        mtext.dxf.box_fill_scale = 5
+        # mtext = mtext.set_bg_color(2, scale = 1.5)
+        # mtext.dxf.box_fill_scale = 5
+        
         
         print('dxf.bg_fill', mtext.dxf.bg_fill)
         print('Box Fill Scale: ', mtext.dxf.box_fill_scale)
@@ -261,7 +250,6 @@ def add_text_to_chamber(entity, params, *args):
                     dxfattribs={'layer': 'TextLayer'})
         
         size = '1\'.0"X1\'0"'
-
         text = f"""
         F.GL: {entity['finish_floor_level']}
         I.LVL: {entity['invert_level']}
@@ -288,13 +276,13 @@ def add_text_to_chamber(entity, params, *args):
         f'Successfully added slant_line: {slant_line} and straight_line: {straight_line}\n\n')
 
 # Testing gully trap chambers:
-gully_trap_chambers_entities = [0, 3, 6, 9, 2, 5, 8, 11, 1, 4, 7, 10]
+gully_trap_chambers_entities = [0, 3, 6, 9,] #+ [2, 5, 8, 11, 1, 4, 7, 10]
 entities = identification_json['entities']
 params = identification_json["params"]
 conversion_factor = params['Units conversion factor']
 # Calling function by hardcoding:
 for i in gully_trap_chambers_entities:
-    add_text_to_chamber(entities[i], params, conversion_factor)
+    add_text_to_chamber(entities[i], params, 1.0)
 
 
 # Saving the file:
