@@ -13,8 +13,8 @@ from pillarplus.math import (directed_points_on_line, find_distance,
                              get_angle_between_two_points,
                              get_distance_of_point_to_a_line)
 
-file_path = 'Algorithms/MText/input/'
-input_file = 'chamber_test.dxf'
+file_path = 'Algorithms/MText/input/mm file/'
+input_file = 'in.dxf'
 output_file_path = 'Algorithms/MText/output/'
 input_file_name = input_file.split('.')[0]
 output_file = 'output_chamber_WALL_TEST.dxf'
@@ -36,7 +36,7 @@ msp = dwg.modelspace()
 print(f'DXF File read success from {file_path}.')
 
 # Reading the identification JSON:
-json_file_path = 'Algorithms/MText/chamber_identification.json'
+json_file_path = 'Algorithms/MText/mm_identification.json'
 try:
     with open(json_file_path) as json_file:
         identification_json = json.load(json_file)
@@ -58,7 +58,6 @@ MTEXT_ATTACHMENT_POINTS = {
 }
 
 
-
 def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
     """This function adds text on the wall.
 
@@ -76,6 +75,8 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
     # Get the in-angle and get opposite angle for it.
     in_angle = wall['in_angle']
     opposite_in_angle = in_angle + 180
+    # Clean opposite_in_angle:
+    opposite_in_angle = opposite_in_angle if 0 <= opposite_in_angle <= 180 else -opposite_in_angle
     
     # find distance of point to wall:
     distance = ezdxf.math.distance_point_line_2d(Vec2(point), Vec2(corners[0]), Vec2(corners[1]))
@@ -94,32 +95,52 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
     angle_for_slant_line = (angle + opposite_in_angle) / 2
 
     # Draw in line in the direction of angle:
-    slant_line_length = 300 * conversion_factor
+    slant_line_length = 15 * conversion_factor
     slant_line = directed_points_on_line(
         point, math.radians(angle_for_slant_line), slant_line_length)
+    print(f'Drawing slant_line of length: {slant_line_length} at point: {point}, sl: {slant_line}')
     msp.add_line(point, slant_line[0], dxfattribs={
                  'layer': 'TextLayer'})
 
     # Drawing straight line:
-    straight_line_length = 500 * conversion_factor
-    angle: float = vector.angle
+    def get_straight_line_length(text) -> float:
+        """This function returns the length of the largest line in the text.
+        """
+        straight_line_length = 0
+        lines = text.split('\n')
+        for line in lines: straight_line_length = max(straight_line_length, len(line))
+        return straight_line_length
+        
+    straight_line_length = 25 * conversion_factor
+    straight_line_length = get_straight_line_length(text) * conversion_factor
+    
+    straight_line_angle: float = vector.angle
     straight_line = directed_points_on_line(
-        slant_line[0], angle, straight_line_length)
-    msp.add_line(slant_line[0], straight_line[0],
+        slant_line[0], straight_line_angle, straight_line_length)
+    
+    # Find which point (0 or 1) of straight line should be used:
+    straight_line_point = straight_line[0] if 0 <= abs(
+            degrees(angle_for_slant_line)) <= 90 else straight_line[1]
+    
+    msp.add_line(slant_line[0], straight_line_point,
                  dxfattribs={'layer': 'TextLayer'})
     
     mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
-    mtext.dxf.char_height = 10 * conversion_factor
+    mtext.dxf.char_height = 1 * conversion_factor
+        
+    # Positioning mtext appropriately now:
+    print('angle_for_slant_line', angle_for_slant_line)
+    mtext_location_shift_x_length = (- (2 * straight_line_length) / 3) if (0 <= abs(angle_for_slant_line) <= 90) else (+ (2 * straight_line_length) / 3)
     
-    point = list(straight_line[0])
-    # Increasing the Y coordinate for proper positioning
-    # point[0] -= (10 * conversion_factor)
-    # point[0] += 270
-    # point[1] += (60 * conversion_factor)
-    mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])    
-    mtext.set_rotation(vector.angle_deg)
+    mtext_location_shift_y_length = (- (straight_line_length) / 3) if (0 <= (angle_for_slant_line) <= 180) else (+ (straight_line_length) / 3)
     
-    print(f'Success in adding mtext at the location: {point} and angle: {opposite_in_angle}.')
+    mtext_location_point = (straight_line_point[0] + mtext_location_shift_x_length, straight_line_point[1] + mtext_location_shift_y_length)
+    mtext.set_location(mtext_location_point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"]) 
+    mtext_rotation =  0#(Vec2(straight_line_point[0] - slant_line[0][0], straight_line_point[1] - slant_line[0][1]).angle_deg)#0 #abs(vector.angle_deg)
+    mtext.set_rotation(mtext_rotation)
+    print(f'Setting rotation of mtext at: {mtext_rotation}, vector.angle_deg: {vector.angle_deg}')
+    
+    print(f'Success in adding mtext at the location: {mtext_location_point} and angle: {opposite_in_angle}.\n')
     
     try:
         dwg.saveas(output_file_path + output_file)
@@ -132,7 +153,7 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
 
 # Testing add text to wall:
 walls = identification_json['walls']
-switch_boards = [i for i in range(12, 24)]
+switch_boards = [i for i in range(12, 24)] #24
 entities = identification_json['entities']
 params = identification_json["params"]
 conversion_factor = params['Units conversion factor']
@@ -142,4 +163,5 @@ for i in switch_boards:
     switch_board = entities[i]
     wall = list(filter(lambda wall: wall['number'] == switch_board['wall_number'], walls))[0]
     point = switch_board['location']
-    add_text_on_wall(point, "Hello PillarPlus!\nAnother Line of\nText.", wall, conversion_factor)
+    print(f'Point: {point}')
+    add_text_on_wall(point, "Hello PillarPlus!\nAnother Line of\nText.", wall, 1.0)
