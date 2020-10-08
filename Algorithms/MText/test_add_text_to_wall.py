@@ -74,9 +74,13 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
 
     # Get the in-angle and get opposite angle for it.
     in_angle = wall['in_angle']
+    # If angle is negatively greater than then -180 then get it into normal scale again:
+    if -360 <= in_angle <= -180:
+        in_angle = 360 + in_angle
+    
     opposite_in_angle = in_angle + 180
     # Clean opposite_in_angle:
-    opposite_in_angle = opposite_in_angle if 0 <= opposite_in_angle <= 180 else -opposite_in_angle
+    opposite_in_angle = opposite_in_angle if (0 <= opposite_in_angle <= 180) or (-180 <= opposite_in_angle <= 0) else -(360  - opposite_in_angle)
     
     # find distance of point to wall:
     distance = ezdxf.math.distance_point_line_2d(Vec2(point), Vec2(corners[0]), Vec2(corners[1]))
@@ -91,8 +95,19 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
     vector = Vector(point_above_closest_corner[0] - point[0], point_above_closest_corner[1] - point[1])
     angle = vector.angle_deg
     
+    def does_angles_has_same_signs(angle_a, angle_b):
+        return ((angle_a > 0) and (angle_b > 0)) or ((angle_a < 0) and (angle_b < 0))    
+    
     # In degree
+    if not does_angles_has_same_signs(opposite_in_angle, angle):
+        if angle < 0: angle = 360 + angle
+        
     angle_for_slant_line = (angle + opposite_in_angle) / 2
+        
+    # if the angle_for_slant_line is same as that of the in_angle then we need to reverse the angles:
+    if does_angles_has_same_signs(angle_for_slant_line, in_angle):
+        if angle_for_slant_line < 0: angle_for_slant_line = 360 + angle_for_slant_line 
+        elif in_angle < 0: in_angle = 360 + in_angle
 
     # Draw in line in the direction of angle:
     slant_line_length = 15 * conversion_factor
@@ -114,18 +129,20 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
     straight_line_length = 25 * conversion_factor
     straight_line_length = get_straight_line_length(text) * conversion_factor
     
-    straight_line_angle: float = vector.angle
+    straight_line_angle: float = 0 if 0 <= abs(angle_for_slant_line) <= 90 else pi
     straight_line = directed_points_on_line(
         slant_line[0], straight_line_angle, straight_line_length)
     
     # Find which point (0 or 1) of straight line should be used:
-    straight_line_point = straight_line[0] if 0 <= abs(
-            degrees(angle_for_slant_line)) <= 90 else straight_line[1]
+    straight_line_point = straight_line[1] if 0 <= abs(
+            degrees(angle_for_slant_line)) <= 90 else straight_line[0]
     
     msp.add_line(slant_line[0], straight_line_point,
                  dxfattribs={'layer': 'TextLayer'})
     
-    mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
+    mtext = msp.add_mtext(f"""sla: {degrees(straight_line_angle)}
+                          slna: {angle_for_slant_line}
+                          in_angle: {in_angle}""", dxfattribs={'layer': 'TextLayer'})
     mtext.dxf.char_height = 1 * conversion_factor
         
     # Positioning mtext appropriately now:
@@ -153,7 +170,7 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
 
 # Testing add text to wall:
 walls = identification_json['walls']
-switch_boards = [i for i in range(12, 24)] #24
+switch_boards = [i for i in range(18, 19)] #24
 entities = identification_json['entities']
 params = identification_json["params"]
 conversion_factor = params['Units conversion factor']
