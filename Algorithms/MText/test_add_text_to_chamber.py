@@ -270,10 +270,13 @@ def add_text_to_chamber(entity, params, *args):
         angle: float = 0
         straight_line = directed_points_on_line(
             slant_line[0], angle, straight_line_length)
-        
+                
         # Find which point (0 or 1) of straight line should be used:
         straight_line_point = straight_line[0] if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else straight_line[1]
+        
+        msp.add_line(slant_line[0], straight_line_point,
+                    dxfattribs={'layer': 'TextLayer'})                
         
         size = '1\'.0"X1\'0"'
         text = f"""
@@ -327,7 +330,7 @@ def add_text_to_chamber(entity, params, *args):
         f'Successfully added slant_line: {slant_line} and straight_line: {straight_line}\n\n')
 
 # Testing gully trap chambers:
-gully_trap_chambers_entities = [0, 3, 6, 9,] #+ [2, 5, 8, 11, 1, 4, 7, 10]
+gully_trap_chambers_entities = [0, 3, 6, 9,] + [2, 5, 8, 11, 1, 4, 7, 10]
 entities = identification_json['entities']
 params = identification_json["params"]
 conversion_factor = params['Units conversion factor']
