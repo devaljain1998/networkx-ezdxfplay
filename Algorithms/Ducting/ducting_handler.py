@@ -168,15 +168,60 @@ def get_graph(connections, joints_dict, entities_dict=None) -> nx.Graph:
 
 	return graph
 
+def assign_side_trim_end_trim(graph: nx.DiGraph, joint_defaults: dict):
+    """This function assigns start_trim and end_trim to all the edges of the graphs.
 
+    Args:
+        graph (nx.DiGraph): A directed graph created by the function 'get_directed_graph'.
+    """
+    mirror = '_mirror'
+    DEFAULT_SIZE = 75
+
+    for node in graph.nodes():
+        in_degree = graph.in_degree(node)
+        # Validating in_degree:
+        if in_degree > 1:
+            raise ValueError(f'Exception: "in_degree" cannot be more than one in ducting. Exception occured in node: {node}')
+        
+        out_degree = graph.out_degree(node)
+        
+        if graph.nodes[node] == 'bend':
+            # finding parent and child nodes
+            parent_node = list(graph.predecessors(node))[0]
+            child_node = list(graph.successors(node))[0]
+            
+            # Making key for joint default
+            joint_default_key = graph.nodes[node]['type'] + mirror if graph.nodes['mirror'] else ''
+            # Fetching joint default from key
+            joint_default = joint_defaults[joint_default_key]
+            intrim = joint_default.get('intrim', 0)
+            outtrim = joint_default.get('outtrim', 0)
+            
+            # Now finding the start and out trims of each edges
+            parent_edge['end_trim'] = intrim
+            child_edge['start_trim'] = outtrim
+            
+        elif graph.nodes[node] == 't':
+            
 
 def update_graph_properties(graph: nx.DiGraph, joint_defaults: dict):
+    """The function is used to update the graph properties for ease in drawing the ducting.
+    This functions is used to update the following properties: 'size', 'rotation', 'type' and 'mirror', 'start_trim' and 'end_trim'.
+
+    Args:
+        graph (nx.DiGraph): [description]
+        joint_defaults (dict): [description]
+    """
     mirror = '_mirror'
     DEFAULT_SIZE = 75
     
     # Traversing the nodes to decide the type of joints:
     for node in graph.nodes():
         in_degree = graph.in_degree(node)
+        # Validating in_degree:
+        if in_degree > 1:
+            raise ValueError(f'Exception: "in_degree" cannot be more than one in ducting. Exception occured in node: {node}')
+        
         out_degree = graph.out_degree(node)
         
         if graph.nodes[node]['type'] is None:
@@ -195,7 +240,7 @@ def update_graph_properties(graph: nx.DiGraph, joint_defaults: dict):
                 to_point = graph.nodes[child_node]['location']
                 is_mirror = is_inverted(point, from_point, to_point)
                 graph.nodes[node]['mirror'] = is_mirror
-                
+
                 # Finding angle in between the three points
                 angle = find_angle(from_point, point, to_point)
                 if math.pi/2 - 0.1 < angle < math.pi/2 + 0.1 or 3*math.pi/2 - 0.1 < angle < 3*math.pi/2 + 0.1:
@@ -206,6 +251,65 @@ def update_graph_properties(graph: nx.DiGraph, joint_defaults: dict):
                 graph.nodes[node]['rotation'] = find_rotation(from_point, point)
                 graph.nodes[node]['size'] = parent_edge.get('size', DEFAULT_SIZE)
                 
+            elif in_degree == 1 and out_degree == 2:
+                # finding parent and child nodes
+                parent_node = list(graph.predecessors(node))[0]
+                child_nodes = list(graph.successors(node))
+                
+                # finding parent and child edges
+                parent_edge = graph[parent_node][node]
+                child_edges = [graph[node][child_node] for child_node in child_nodes]
+                
+                # This case will never be MIRROR.
+                graph.nodes[node]['mirror'] = False
+                
+                # Getting points of child, parent and self nodes:
+                point = graph.nodes[node]['location']
+                from_point = graph.nodes[parent_node]['location']
+                
+                # Naming the childs
+                one_eighty_child_found = False
+                one_eighty_child = None
+                to_point = graph.nodes[child_nodes[0]]['location']
+                angle1 = find_angle(from_point, point, to_point)
+                first_child = child_nodes[0]
+                
+                if math.pi - 0.1 < angle1 < math.pi + 0.1:
+                    one_eighty_child_found = True
+                    one_eighty_child = first_child
+                    graph.nodes[node]['type'] = 't'
+                
+                other_child = child_nodes[1]
+                to_point = graph.nodes[child_nodes[0]]['location']
+                angle2 = find_angle(from_point, point, to_point)
+                
+                if math.pi - 0.1 < angle1 < math.pi + 0.1:
+                    one_eighty_child_found = True
+                    one_eighty_child = other_child
+                    graph.nodes[node]['type'] = 't'
+
+                if not one_eighty_child_found:
+                    graph.nodes[node]['type'] = 'special t'
+
+            elif in_degree == 1 and out_degree == 3:
+                # finding parent and child nodes
+                parent_node = list(graph.predecessors(node))[0]
+                child_nodes = list(graph.successors(node))
+                
+                # finding parent and child edges
+                parent_edge = graph[parent_node][node]
+                child_edges = [graph[node][child_node] for child_node in child_nodes]
+                
+                # This case will never be MIRROR.
+                graph.nodes[node]['mirror'] = False
+                
+                # Getting points of child, parent and self nodes:
+                point = graph.nodes[node]['location']
+                from_point = graph.nodes[parent_node]['location']
+
+                graph.nodes[node]['type'] = 'cross'
+
+
 
 
 
