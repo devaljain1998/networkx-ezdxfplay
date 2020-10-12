@@ -95,7 +95,7 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
     if entity['type'] == 'gully trap chamber':
         slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
         # Draw in line in the direction of angle:
-        slant_line_length = 1200 * conversion_factor
+        slant_line_length = 1500 * conversion_factor
         slant_line = directed_points_on_line(
             centre_point, slant_line_angle, slant_line_length)
         msp.add_line(centre_point, slant_line[0], dxfattribs={
@@ -154,7 +154,7 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
     elif entity['type'] == 'inspection chamber':
         slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
         # Draw in line in the direction of angle:
-        slant_line_length = 1200 * conversion_factor
+        slant_line_length = 400 * conversion_factor
         slant_line = directed_points_on_line(
             centre_point, slant_line_angle, slant_line_length)
         msp.add_line(centre_point, slant_line[0], dxfattribs={
@@ -214,7 +214,7 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
     elif entity['type'] == 'rainwater chamber':
         slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
         # Draw in line in the direction of angle:
-        slant_line_length = 1200 * conversion_factor
+        slant_line_length = 1800 * conversion_factor
         slant_line = directed_points_on_line(
             centre_point, slant_line_angle, slant_line_length)
         msp.add_line(centre_point, slant_line[0], dxfattribs={
