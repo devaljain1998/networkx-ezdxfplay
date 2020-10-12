@@ -12,10 +12,10 @@ from pillarplus.math import find_distance, get_angle_between_two_points, directe
 from pillarplus.texting import add_text_to_chamber
 
 file_path = 'Algorithms/MText/input/'
-input_file = 'TestProjectMM.dxf'
+input_file = 'TestProjectInch.dxf'
 output_file_path = 'Algorithms/MText/output/'
 input_file_name = input_file.split('.')[0]
-output_file = 'output_TestProjectMM.dxf'
+output_file = 'output_TestProjectInch.dxf'
 
 # Reading the DXF file
 try:
@@ -35,7 +35,7 @@ msp = dwg.modelspace()
 print(f'DXF File read success from {file_path}.')
 
 # Reading the identification JSON:
-json_file_path = 'Algorithms/MText/input/testproject_mm_identification.json'
+json_file_path = 'Algorithms/MText/input/TestProject_inch.json'
 try:
     with open(json_file_path) as json_file:
         identification_json = json.load(json_file)
@@ -61,9 +61,9 @@ entities = identification_json['entities']
 params = identification_json["params"]
 
 #ADD TEXT TO CHAMBER DRIVER FUNCTION:
-for i in (67, 68, 66):
+for i in (18,):
     entity = entities[i]
-    add_text_to_chamber(msp, entity, params)
+    add_text_to_chamber(msp, entity, params, 'TextLayer')
     
 print('Testing add_text_to_chamber SUCCESS!')
 

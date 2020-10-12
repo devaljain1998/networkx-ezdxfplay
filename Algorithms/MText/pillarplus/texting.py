@@ -112,14 +112,14 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
             degrees(slant_line_angle)) <= 90 else straight_line[1]
         
         msp.add_line(slant_line[0], straight_line_point,
-                    dxfattribs={'layer': 'TextLayer'})
+                    dxfattribs={'layer': layer_name})
         
         size = '1\'.0"X1\'0"'
 
         text = f"""
         F.GL: {entity['finish_floor_level']}
         I.LVL: {entity['invert_level']}
-        DEPTH: {entity['chamber_depth']}
+        DEPTH: {entity.get('chamber_depth')}
         GULLY TRAP
         CHAMBER
         SIZE: {size}
@@ -135,7 +135,7 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
             degrees(slant_line_angle)) <= 90 else (-600 * conversion_factor)
         y_extra_height = (360 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (360 * conversion_factor)
-        y_lower_height = -300
+        y_lower_height = -300 * conversion_factor
         
         # Build a box boundry:
         boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
@@ -178,7 +178,7 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         text = f"""
         F.GL: {entity['finish_floor_level']}
         I.LVL: {entity['invert_level']}
-        DEPTH: {entity['chamber_depth']}
+        DEPTH: {entity.get('chamber_depth')}
         INSPECTION
         CHAMBER
         SIZE: {size}
@@ -195,11 +195,11 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
             degrees(slant_line_angle)) <= 90 else (-600 * conversion_factor)
         y_extra_height = (360 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (360 * conversion_factor)
-        y_lower_height = -300
+        y_lower_height = -300 * conversion_factor
         
         # Build a box boundry:
         boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
-        boundryline = msp.add_lwpolyline(boundry_points, dxfattribs={'layer': 'TextLayerBoundry'})
+        boundryline = msp.add_lwpolyline(boundry_points, dxfattribs={'layer': layer_name})
                 
         # proper positioning
         # Positioning x coordinate:
@@ -237,14 +237,14 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         text = f"""
         F.GL: {entity['finish_floor_level']}
         I.LVL: {entity['invert_level']}
-        DEPTH: {entity['chamber_depth']}
+        DEPTH: {entity.get('chamber_depth')}
         RAIN WATER
         CHAMBER
         SIZE: {size}
         """
 
         # MTEXT Formatting
-        mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
+        mtext = msp.add_mtext(text, dxfattribs={'layer': layer_name})
         mtext.dxf.char_height = 60 * conversion_factor
         
         point = list(straight_line_point)
@@ -254,7 +254,7 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
             degrees(slant_line_angle)) <= 90 else (-600 * conversion_factor)
         y_extra_height = (360 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (360 * conversion_factor)
-        y_lower_height = -300
+        y_lower_height = -300 * conversion_factor
         
         # Build a box boundry:
         boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
