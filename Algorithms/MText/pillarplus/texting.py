@@ -131,11 +131,11 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         point = list(straight_line_point)
         
         # Declaring Variable boundry_vertex points:
-        x_extra_distance = (480 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (-400 * conversion_factor)
-        y_extra_height = (240 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (240 * conversion_factor)
-        y_lower_height = -200
+        x_extra_distance = (720 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (-600 * conversion_factor)
+        y_extra_height = (360 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (360 * conversion_factor)
+        y_lower_height = -300
         
         # Build a box boundry:
         boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
@@ -146,7 +146,7 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         point[0] += (0 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (-440 * conversion_factor)
         # Increasing the Y coordinate:
-        point[1] += (280 * conversion_factor) if 0 <= abs(
+        point[1] += (420 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (280 * conversion_factor)
 
         mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
@@ -154,14 +154,14 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
     elif entity['type'] == 'inspection chamber':
         slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
         # Draw in line in the direction of angle:
-        slant_line_length = 30 * conversion_factor
+        slant_line_length = 1200 * conversion_factor
         slant_line = directed_points_on_line(
             centre_point, slant_line_angle, slant_line_length)
         msp.add_line(centre_point, slant_line[0], dxfattribs={
                     'layer': 'TextLayer'})
 
         # Drawing straight line:
-        straight_line_length = 50 * conversion_factor
+        straight_line_length = 250 * conversion_factor
         angle: float = 0
         straight_line = directed_points_on_line(
             slant_line[0], angle, straight_line_length)
@@ -178,7 +178,7 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         text = f"""
         F.GL: {entity['finish_floor_level']}
         I.LVL: {entity['invert_level']}
-        DEPTH: {entity['depth']}
+        DEPTH: {entity['chamber_depth']}
         INSPECTION
         CHAMBER
         SIZE: {size}
@@ -186,16 +186,16 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         
         # MTEXT Formatting
         mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
-        mtext.dxf.char_height = 1 * conversion_factor
+        mtext.dxf.char_height = 60 * conversion_factor
         
         point = list(straight_line_point)
         
         # Declaring Variable boundry_vertex points:
-        x_extra_distance = (12 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (-10 * conversion_factor)
-        y_extra_height = (6 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (6 * conversion_factor)
-        y_lower_height = -5
+        x_extra_distance = (720 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (-600 * conversion_factor)
+        y_extra_height = (360 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (360 * conversion_factor)
+        y_lower_height = -300
         
         # Build a box boundry:
         boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
@@ -204,47 +204,40 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         # proper positioning
         # Positioning x coordinate:
         point[0] += (0 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (-11 * conversion_factor)
+            degrees(slant_line_angle)) <= 90 else (-440 * conversion_factor)
         # Increasing the Y coordinate:
-        point[1] += (7 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (7 * conversion_factor)
+        point[1] += (420 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (280 * conversion_factor)
 
         mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
-        # Setting border for the text:
-        # mtext = mtext.set_bg_color(2, scale = 1.5)
-        # mtext.dxf.box_fill_scale = 5
-        print('dxf.bg_fill', mtext.dxf.bg_fill)
-        print('Box Fill Scale: ', mtext.dxf.box_fill_scale)
-        
-        print('width', mtext.dxf.width)
 
     elif entity['type'] == 'rainwater chamber':
         slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
         # Draw in line in the direction of angle:
-        slant_line_length = 30 * conversion_factor
+        slant_line_length = 1200 * conversion_factor
         slant_line = directed_points_on_line(
             centre_point, slant_line_angle, slant_line_length)
         msp.add_line(centre_point, slant_line[0], dxfattribs={
                     'layer': 'TextLayer'})
 
         # Drawing straight line:
-        straight_line_length = 50 * conversion_factor
+        straight_line_length = 250 * conversion_factor
         angle: float = 0
         straight_line = directed_points_on_line(
             slant_line[0], angle, straight_line_length)
-                
+        
         # Find which point (0 or 1) of straight line should be used:
         straight_line_point = straight_line[0] if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else straight_line[1]
         
         msp.add_line(slant_line[0], straight_line_point,
-                    dxfattribs={'layer': 'TextLayer'})                
+                    dxfattribs={'layer': 'TextLayer'})
         
         size = '1\'.0"X1\'0"'
         text = f"""
         F.GL: {entity['finish_floor_level']}
         I.LVL: {entity['invert_level']}
-        DEPTH: {entity['depth']}
+        DEPTH: {entity['chamber_depth']}
         RAIN WATER
         CHAMBER
         SIZE: {size}
@@ -252,16 +245,16 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
 
         # MTEXT Formatting
         mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
-        mtext.dxf.char_height = 1 * conversion_factor
+        mtext.dxf.char_height = 60 * conversion_factor
         
         point = list(straight_line_point)
         
         # Declaring Variable boundry_vertex points:
-        x_extra_distance = (12 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (-10 * conversion_factor)
-        y_extra_height = (6 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (6 * conversion_factor)
-        y_lower_height = -5
+        x_extra_distance = (720 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (-600 * conversion_factor)
+        y_extra_height = (360 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (360 * conversion_factor)
+        y_lower_height = -300
         
         # Build a box boundry:
         boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
@@ -270,19 +263,12 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         # proper positioning
         # Positioning x coordinate:
         point[0] += (0 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (-11 * conversion_factor)
+            degrees(slant_line_angle)) <= 90 else (-440 * conversion_factor)
         # Increasing the Y coordinate:
-        point[1] += (7 * conversion_factor) if 0 <= abs(
-            degrees(slant_line_angle)) <= 90 else (7 * conversion_factor)
+        point[1] += (420 * conversion_factor) if 0 <= abs(
+            degrees(slant_line_angle)) <= 90 else (280 * conversion_factor)
 
         mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
-        # Setting border for the text:
-        # mtext = mtext.set_bg_color(2, scale = 1.5)
-        # mtext.dxf.box_fill_scale = 5
-        print('dxf.bg_fill', mtext.dxf.bg_fill)
-        print('Box Fill Scale: ', mtext.dxf.box_fill_scale)
-        
-        print('width', mtext.dxf.width)
 
     else:
         raise ValueError(
