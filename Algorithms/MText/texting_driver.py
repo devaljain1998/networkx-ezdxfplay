@@ -9,13 +9,24 @@ from ezdxf.math import Vector
 from math import *
 
 from pillarplus.math import find_distance, get_angle_between_two_points, directed_points_on_line
-from pillarplus.texting import add_text_to_chamber, add_text_to_connection
+from pillarplus.texting import add_text_to_chamber, add_text_to_connection, add_text_to_wall
 
-file_path = 'Algorithms/MText/input/'
-input_file = 'TestProjectInch.dxf'
+file_paths = {
+    'wall' : 'Algorithms/MText/input/Deval/TestProjectMM/'#'Algorithms/MText/input/mm file/',
+
+}
+input_files = {
+    'wall': 'in.dxf',
+}
+output_files = {
+    'wall' : 'output_WALL_TestProjectMM.dxf'
+}
+
+file_path = file_paths['wall'] #'Algorithms/MText/input/'
+input_file = input_files['wall'] #'TestProjectInch.dxf'
 output_file_path = 'Algorithms/MText/output/'
 input_file_name = input_file.split('.')[0]
-output_file = 'output_TestProjectInch.dxf'
+output_file = output_files['wall'] #'output_TestProjectInch.dxf'
 
 # Reading the DXF file
 try:
@@ -35,7 +46,10 @@ msp = dwg.modelspace()
 print(f'DXF File read success from {file_path}.')
 
 # Reading the identification JSON:
-json_file_path = 'Algorithms/MText/input/TestProject_inch.json'
+json_file_paths = {
+    'wall': 'Algorithms/MText/input/Deval/TestProjectMM/identification.json'#'Algorithms/MText/mm_identification.json',
+}
+json_file_path = json_file_paths['wall'] #'Algorithms/MText/input/TestProject_inch.json'
 # json_file_path = 'Algorithms/MText/input/connections_identification.json'
 try:
     with open(json_file_path) as json_file:
@@ -78,6 +92,30 @@ print('Testing add_text_to_chamber SUCCESS!')
 #     end = entities.get(connection.get('target_number')) if connection['target_type'] == 'Entity' else joints.get(connection.get('target_number'))
 #     conncection_start = connection['source_number']
 #     add_text_to_connection(connection, source['location'], end['location'], params, msp, 'TextingLayer')
+
+
+# ADD TEXT TO WALL DRIVER FUNCTION
+# switch_boards = [i for i in range(12, 24)] #24
+entities = identification_json['entities']
+params = identification_json["params"]
+# conversion_factor = params['Units conversion factor']
+walls = {wall['number']: wall for wall in identification_json['walls']}
+wall_lights = [5, 12, 13, 14, 19]
+# Testing on wall_lights:
+for i in wall_lights:
+    wall_light = entities[i]
+    wall = walls[wall_light['wall_number']]
+    point = wall_light['location']
+    add_text_to_wall(point, "Hello PillarPlus!\nAnother Line of\nText.", wall, params, msp, 'TextLayer')
+
+# Calling function by hardcoding:
+# for i in switch_boards:
+#     switch_board = entities[i]
+#     wall = list(filter(lambda wall: wall['number'] == switch_board['wall_number'], walls))[0]
+#     point = switch_board['location']
+#     # print(f'Point: {point}')
+#     add_text_to_wall(point, "Hello PillarPlus!\nAnother Line of\nText.", wall, params, msp, 'TextLayer')
+
 
 # Saving the file:
 try:

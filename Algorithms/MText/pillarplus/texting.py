@@ -471,6 +471,7 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
     print(f'Drawing slant_line of length: {slant_line_length} at point: {point}, sl: {slant_line}')    
     
     # Drawing straight line:
+    MTEXT_CHAR_HEIGHT = 30
     def get_straight_line_length(text) -> float:
         """This function returns the length of the largest line in the text.
         """
@@ -479,9 +480,15 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
         for line in lines: straight_line_length = max(straight_line_length, len(line))
         STRAIGHT_LINE_LENGTH_SCALE_FACTOR = 15
         return straight_line_length * STRAIGHT_LINE_LENGTH_SCALE_FACTOR * conversion_factor
+
+    def get_straight_line_height(text) -> float:
+        """This function returns the height of the straight line."""
+        lines = text.split('\n')
+        STRAIGHT_LINE_HEIGHT_FACTOR = MTEXT_CHAR_HEIGHT
+        return STRAIGHT_LINE_HEIGHT_FACTOR * len(lines) * conversion_factor
         
     straight_line_length = get_straight_line_length(text)
-    
+    straight_line_height = get_straight_line_height(text)
     straight_line_angle: float = 0 #if 0 <= abs(angle_for_slant_line) <= 90 else pi
     straight_line = directed_points_on_line(
         slant_line[0], straight_line_angle, straight_line_length)
@@ -501,7 +508,7 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
     mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
     
     # Positioning mtext:
-    mtext_x_shift = 10 * conversion_factor
+    mtext_x_shift = 150 * conversion_factor
     mtext_y_shift = 12 * conversion_factor
     
     if 0 <= angle_between_both_vectors < 90:
