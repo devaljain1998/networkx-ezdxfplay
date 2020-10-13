@@ -509,7 +509,7 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
     
     # Positioning mtext:
     mtext_x_shift = 150 * conversion_factor
-    mtext_y_shift = 12 * conversion_factor
+    mtext_y_shift = 2 * straight_line_height * conversion_factor #12 * 
     
     if 0 <= angle_between_both_vectors < 90:
         mtext_x_coordinate = straight_line_point[0] - mtext_x_shift

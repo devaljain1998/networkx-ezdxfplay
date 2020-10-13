@@ -106,7 +106,7 @@ for i in wall_lights:
     wall_light = entities[i]
     wall = walls[wall_light['wall_number']]
     point = wall_light['location']
-    add_text_to_wall(point, "Hello PillarPlus!\nAnother Line of\nText.", wall, params, msp, 'TextLayer')
+    add_text_to_wall(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", wall, params, msp, 'TextLayer')
 
 # Calling function by hardcoding:
 # for i in switch_boards:
