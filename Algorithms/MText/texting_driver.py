@@ -12,14 +12,14 @@ from pillarplus.math import find_distance, get_angle_between_two_points, directe
 from pillarplus.texting import add_text_to_chamber, add_text_to_connection, add_text_to_wall
 
 file_paths = {
-    'wall' : 'Algorithms/MText/input/Deval/TestProjectMM/'#'Algorithms/MText/input/mm file/',
+    'wall' : 'Algorithms/MText/input/Deval/KHouseIN/'#'Algorithms/MText/input/Deval/TestProjectMM/'#'Algorithms/MText/input/mm file/',
 
 }
 input_files = {
     'wall': 'in.dxf',
 }
 output_files = {
-    'wall' : 'output_WALL_TestProjectMM.dxf'
+    'wall' : 'output_WALL_KHATRI_TestProjectInch.dxf'
 }
 
 file_path = file_paths['wall'] #'Algorithms/MText/input/'
@@ -47,7 +47,7 @@ print(f'DXF File read success from {file_path}.')
 
 # Reading the identification JSON:
 json_file_paths = {
-    'wall': 'Algorithms/MText/input/Deval/TestProjectMM/identification.json'#'Algorithms/MText/mm_identification.json',
+    'wall': 'Algorithms/MText/input/Deval/KHouseIN/identification.json'#'Algorithms/MText/mm_identification.json',
 }
 json_file_path = json_file_paths['wall'] #'Algorithms/MText/input/TestProject_inch.json'
 # json_file_path = 'Algorithms/MText/input/connections_identification.json'
@@ -100,13 +100,21 @@ entities = identification_json['entities']
 params = identification_json["params"]
 # conversion_factor = params['Units conversion factor']
 walls = {wall['number']: wall for wall in identification_json['walls']}
-wall_lights = [5, 12, 13, 14, 19]
-# Testing on wall_lights:
-for i in wall_lights:
-    wall_light = entities[i]
-    wall = walls[wall_light['wall_number']]
+#wall_lights = [5, 12, 13, 14, 19]
+entities_with_walls = list(filter(lambda entity: entity['wall_number'] is not None, entities))
+# Testing on entites with walls:
+for entity in entities_with_walls:
+    wall = walls[entity['wall_number']]
     point = wall_light['location']
     add_text_to_wall(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", wall, params, msp, 'TextLayer')
+
+
+# Testing on wall_lights:
+# for i in entities_with_walls: #wall_lights:
+#     wall_light = entities[i]
+#     wall = walls[wall_light['wall_number']]
+#     point = wall_light['location']
+#     add_text_to_wall(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", wall, params, msp, 'TextLayer')
 
 # Calling function by hardcoding:
 # for i in switch_boards:
