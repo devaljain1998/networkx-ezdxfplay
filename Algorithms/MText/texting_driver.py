@@ -105,7 +105,7 @@ entities_with_walls = list(filter(lambda entity: entity['wall_number'] is not No
 # Testing on entites with walls:
 for entity in entities_with_walls:
     wall = walls[entity['wall_number']]
-    point = wall_light['location']
+    point = entity['location']
     add_text_to_wall(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", wall, params, msp, 'TextLayer')
 
 
