@@ -5,7 +5,7 @@ import pprint
 import math
 import ezdxf
 import json
-from ezdxf.math import Vector
+from ezdxf.math import Vector, Vec2
 from math import *
 
 from .math import find_distance, get_angle_between_two_points, directed_points_on_line, find_mid_point
@@ -462,7 +462,8 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
     if angle_between_both_vectors < 0: angle_between_both_vectors = 360 + angle_between_both_vectors
     
     # Draw slant line:
-    slant_line_length = 15 * conversion_factor
+    SLANT_LINE_SCALE_FACTOR = 20
+    slant_line_length = 15 * SLANT_LINE_SCALE_FACTOR * conversion_factor
     slant_line = directed_points_on_line(
         point, math.radians(angle_between_both_vectors), slant_line_length)
     msp.add_line(point, slant_line[0], dxfattribs={
@@ -476,10 +477,10 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
         straight_line_length = 0
         lines = text.split('\n')
         for line in lines: straight_line_length = max(straight_line_length, len(line))
-        return straight_line_length
+        STRAIGHT_LINE_LENGTH_SCALE_FACTOR = 15
+        return straight_line_length * STRAIGHT_LINE_LENGTH_SCALE_FACTOR * conversion_factor
         
-    # straight_line_length = 25 * conversion_factor
-    straight_line_length = get_straight_line_length(text) * conversion_factor
+    straight_line_length = get_straight_line_length(text)
     
     straight_line_angle: float = 0 #if 0 <= abs(angle_for_slant_line) <= 90 else pi
     straight_line = directed_points_on_line(
@@ -520,7 +521,7 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
         mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
         
     mtext_point = (mtext_x_coordinate, mtext_y_coordinate)
-    
+    mtext.dxf.char_height = 30 * conversion_factor
     mtext.set_location(mtext_point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"]) 
     
     print(f'Success in adding mtext at the point: {point} for wall: {wall["number"]}.\n')
