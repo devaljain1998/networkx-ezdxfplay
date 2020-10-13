@@ -9,13 +9,13 @@ from ezdxf.math import Vector
 from math import *
 
 from pillarplus.math import find_distance, get_angle_between_two_points, directed_points_on_line
-from pillarplus.texting import add_text_to_chamber
+from pillarplus.texting import add_text_to_chamber, add_text_to_connection
 
 file_path = 'Algorithms/MText/input/'
-input_file = 'TestProjectInch.dxf'
+input_file = 'TestProjectMM.dxf'
 output_file_path = 'Algorithms/MText/output/'
 input_file_name = input_file.split('.')[0]
-output_file = 'output_TestProjectInch.dxf'
+output_file = 'output_connection_TestProjectMM.dxf'
 
 # Reading the DXF file
 try:
@@ -35,7 +35,8 @@ msp = dwg.modelspace()
 print(f'DXF File read success from {file_path}.')
 
 # Reading the identification JSON:
-json_file_path = 'Algorithms/MText/input/TestProject_inch.json'
+# json_file_path = 'Algorithms/MText/input/TestProject_inch.json'
+json_file_path = 'Algorithms/MText/input/connections_identification.json'
 try:
     with open(json_file_path) as json_file:
         identification_json = json.load(json_file)
@@ -56,8 +57,11 @@ MTEXT_ATTACHMENT_POINTS = {
     "MTEXT_BOTTOM_RIGHT":	9,
 }
 
-
 entities = identification_json['entities']
+#entities = {entity['number']: entity for entity in identification_json['entities']}
+joints = identification_json['joints']
+#joints = {joint['number']: joint for joint in identification_json['joints']}
+connections = identification_json['connections']
 params = identification_json["params"]
 
 #ADD TEXT TO CHAMBER DRIVER FUNCTION:
@@ -66,6 +70,14 @@ for i in (18,):
     add_text_to_chamber(msp, entity, params, 'TextLayer')
     
 print('Testing add_text_to_chamber SUCCESS!')
+
+# ADD TEXT TO CONNECTION DRIVER FUNCTION
+# for i in [0, 1, 2]:
+#     connection = connections[i]
+#     source = entities.get(connection.get('source_number')) if connection['source_type'] == 'Entity' else joints.get(connection.get('source_number'))
+#     end = entities.get(connection.get('target_number')) if connection['target_type'] == 'Entity' else joints.get(connection.get('target_number'))
+#     conncection_start = connection['source_number']
+#     add_text_to_connection(connection, source['location'], end['location'], params, msp, 'TextingLayer')
 
 # Saving the file:
 try:
