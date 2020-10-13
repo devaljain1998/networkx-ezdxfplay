@@ -9,7 +9,7 @@ from ezdxf.math import Vector
 from math import *
 
 from pillarplus.math import find_distance, get_angle_between_two_points, directed_points_on_line
-from pillarplus.texting import add_text_to_chamber, add_text_to_connection, add_text_to_wall
+from pillarplus.texting import add_text_to_chamber, add_text_to_connection, add_text_to_wall, add_text_through_pp_outer, add_text_to_location
 
 file_paths = {
     'wall' : 'Algorithms/MText/input/Deval/KHouseIN/'#'Algorithms/MText/input/Deval/TestProjectMM/'#'Algorithms/MText/input/mm file/',
@@ -19,7 +19,7 @@ input_files = {
     'wall': 'in.dxf',
 }
 output_files = {
-    'wall' : 'output_WALL_KHATRI_TestProjectInch.dxf'
+    'wall' : 'output_add_text_through_location.dxf'#'output_WALL_KHATRI_TestProjectInch_PPOUTER.dxf'#'output_WALL_KHATRI_TestProjectInch.dxf'
 }
 
 file_path = file_paths['wall'] #'Algorithms/MText/input/'
@@ -103,10 +103,10 @@ walls = {wall['number']: wall for wall in identification_json['walls']}
 #wall_lights = [5, 12, 13, 14, 19]
 entities_with_walls = list(filter(lambda entity: entity['wall_number'] is not None, entities))
 # Testing on entites with walls:
-for entity in entities_with_walls:
-    wall = walls[entity['wall_number']]
-    point = entity['location']
-    add_text_to_wall(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", wall, params, msp, 'TextLayer')
+# for entity in entities_with_walls:
+#     wall = walls[entity['wall_number']]
+#     point = entity['location']
+#     add_text_to_wall(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", wall, params, msp, 'TextLayer')
 
 
 # Testing on wall_lights:
@@ -124,6 +124,16 @@ for entity in entities_with_walls:
 #     # print(f'Point: {point}')
 #     add_text_to_wall(point, "Hello PillarPlus!\nAnother Line of\nText.", wall, params, msp, 'TextLayer')
 
+
+# TEST ADD TEXT THROUGH PP OUTER
+# for entity in entities:
+#     point = entity['location']
+#     add_text_through_pp_outer(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", params, msp, 'TextLayer')
+
+
+# TEST ADD POINT THROUGH LOCATION
+for point in [(0, 0), (-10, 0)]:
+    add_text_to_location(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", pi/4, 100, params, msp, 'TextLayer')
 
 # Saving the file:
 try:

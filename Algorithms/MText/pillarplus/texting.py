@@ -536,5 +536,188 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
 
 
 # 5. ADD TEXT TO LOCATION
-def add_text_to_location(params: dict, msp, layer_name: str = None) -> None:
-    pass
+def add_text_to_location(point: tuple, text: str, rotation: float, length: float, params: dict, msp, layer_name: str = None) -> None:
+    # Clean text
+    text = get_cleaned_text(text)
+
+    # Get conversion factor:
+    conversion_factor = params['Units conversion factor']
+
+    slant_line_angle = rotation
+    # Converting slant line angle into degrees
+    slant_line_angle = degrees(slant_line_angle)
+    if slant_line_angle < 0: slant_line_angle += 360
+    elif slant_line_angle > 360: slant_line_angle %= 360
+
+    # Drawing slant line:
+    SLANT_LINE_SCALE_FACTOR = 20
+    slant_line_length = 15 * SLANT_LINE_SCALE_FACTOR * conversion_factor
+    slant_line = directed_points_on_line(
+        point, radians(slant_line_angle), slant_line_length)
+    msp.add_line(point, slant_line[0], dxfattribs={
+                'layer': 'TextLayer'})
+
+    MTEXT_CHAR_HEIGHT = 30                
+    def get_straight_line_height(text) -> float:
+        """This function returns the height of the straight line."""
+        lines = text.split('\n')
+        STRAIGHT_LINE_HEIGHT_FACTOR = MTEXT_CHAR_HEIGHT
+        return STRAIGHT_LINE_HEIGHT_FACTOR * len(lines) * conversion_factor
+
+    straight_line_height = get_straight_line_height(text)
+
+    # Add mtext now
+    mtext = msp.add_mtext(text, dxfattribs = {'layer': layer_name})
+    # Positioning mtext:
+    mtext_x_shift = 150 * conversion_factor
+    # straight line height already multiplied by conversion so no need to change now
+    mtext_y_shift = 2 * straight_line_height
+    
+    straight_line_point = slant_line[1]
+    if 0 <= slant_line_angle < 90:
+        mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
+    elif 90 <= slant_line_angle < 180:
+        mtext_x_coordinate = straight_line_point[0] + mtext_x_shift
+    elif 180 <= slant_line_angle < 270:
+        mtext_x_coordinate = straight_line_point[0] + mtext_x_shift
+    elif 270 <= slant_line_angle < 360:
+        mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
+    else:
+        raise ValueError(f'slant_line_angle should be between 0 to 360 degrees. Got: {slant_line_angle}.')
+    
+    if 0 <= slant_line_angle <= 180:
+        mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
+    else:
+        mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
+        
+
+    mtext_point = (mtext_x_coordinate, mtext_y_coordinate)
+    mtext.dxf.char_height = MTEXT_CHAR_HEIGHT * conversion_factor
+    mtext.set_location(mtext_point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"]) 
+
+
+
+
+# 6. ADD TEXT THROUGH PP-OUTER
+def add_text_through_pp_outer(point: tuple, text: str, params: dict, msp, layer_name: str = None) -> None:
+    """This function adds text on a point by comparing PP-OUTER (boundry of the project).
+
+    Args:
+        point (tuple): A list of point.
+        text (str): The which is needed to be added.
+        wall (entity): Wall is an entity.
+    """
+    # Clean text
+    text = get_cleaned_text(text)
+
+    # Get conversion factor:
+    conversion_factor = params['Units conversion factor']
+
+    # Find in which direction we need to draw the line from the outer
+    # 1. Get the 4 corners:
+    min_x, min_y = params["PP-OUTER minx"], params["PP-OUTER miny"]
+    max_x, max_y = params["PP-OUTER maxx"], params["PP-OUTER maxy"]
+
+    # 2. Now find the direction by check where is the centre-point closest
+    def get_direction(min_x, min_y, max_x, max_y, centre_point):
+        if find_distance((min_x, 0), (centre_point[0], 0)) <= find_distance((centre_point[0], 0), (max_x, 0)):
+            print('Chosen min_x', min_x)
+            dir_x = min_x
+        else:
+            print('Chosen max_x', max_x)
+            dir_x = max_x
+
+        if find_distance((0, min_y), (0, centre_point[1])) <= find_distance((0, centre_point[1]), (0, max_y)):
+            print('Chosen min_y', min_y)
+            dir_y = min_y
+        else:
+            print('Chosen max_y', max_y)
+            dir_y = max_y
+            
+        return dir_x, dir_y
+    
+    dir_x, dir_y = get_direction(min_x, min_y, max_x, max_y, point)
+        
+    def get_slant_line_angle(dir_x, dir_y, centre_point):
+        # Create Vectors
+        centre_point_vector = Vector(centre_point)
+        # Y coordinate will be 0
+        x_dir_vector = Vec2(dir_x - centre_point_vector.x, 0)
+        # X coordinate will be 0
+        y_dir_vector = Vec2(0, dir_y - centre_point_vector.y)
+        return (x_dir_vector + y_dir_vector).angle_deg
+
+    slant_line_angle = get_slant_line_angle(dir_x, dir_y, point)
+    if slant_line_angle < 0: slant_line_angle += 360
+    elif slant_line_angle > 360: slant_line_angle %= 360
+
+    # Drawing slant line:
+    SLANT_LINE_SCALE_FACTOR = 20
+    slant_line_length = 15 * SLANT_LINE_SCALE_FACTOR * conversion_factor
+    slant_line = directed_points_on_line(
+        point, radians(slant_line_angle), slant_line_length)
+    msp.add_line(point, slant_line[0], dxfattribs={
+                'layer': layer_name})
+
+    # Drawing straight line:
+    MTEXT_CHAR_HEIGHT = 30
+    def get_straight_line_length(text) -> float:
+        """This function returns the length of the largest line in the text.
+        """
+        straight_line_length = 0
+        lines = text.split('\n')
+        for line in lines: straight_line_length = max(straight_line_length, len(line))
+        STRAIGHT_LINE_LENGTH_SCALE_FACTOR = 15
+        return straight_line_length * STRAIGHT_LINE_LENGTH_SCALE_FACTOR * conversion_factor
+
+    def get_straight_line_height(text) -> float:
+        """This function returns the height of the straight line."""
+        lines = text.split('\n')
+        STRAIGHT_LINE_HEIGHT_FACTOR = MTEXT_CHAR_HEIGHT
+        return STRAIGHT_LINE_HEIGHT_FACTOR * len(lines) * conversion_factor
+        
+    straight_line_length = get_straight_line_length(text)
+    straight_line_height = get_straight_line_height(text)
+    straight_line_angle: float = 0 #if 0 <= abs(angle_for_slant_line) <= 90 else pi
+    straight_line = directed_points_on_line(
+        slant_line[0], straight_line_angle, straight_line_length)
+
+    # Find straight line point according to slant line angle quadrant
+    # 1st and 4th quadrant
+    if (0 <= slant_line_angle <= 90) or (270 <= slant_line_angle < 360):
+        straight_line_point = straight_line[0]
+    else:
+        straight_line_point = straight_line[1]
+
+    # Draw straight line:
+    msp.add_line(slant_line[0], straight_line_point, dxfattribs={
+                 'layer': 'TextLayer'})
+
+    # Add mtext now
+    mtext = msp.add_mtext(text, dxfattribs = {'layer': layer_name})
+    # Positioning mtext:
+    mtext_x_shift = 150 * conversion_factor
+    # straight line height already multiplied by conversion so no need to change now
+    mtext_y_shift = 2 * straight_line_height
+    
+    if 0 <= slant_line_angle < 90:
+        mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
+    elif 90 <= slant_line_angle < 180:
+        mtext_x_coordinate = straight_line_point[0] + mtext_x_shift
+    elif 180 <= slant_line_angle < 270:
+        mtext_x_coordinate = straight_line_point[0] + mtext_x_shift
+    elif 270 <= slant_line_angle < 360:
+        mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
+    else:
+        raise ValueError(f'slant_line_angle should be between 0 to 360 degrees. Got: {slant_line_angle}.')
+    
+    if 0 <= slant_line_angle <= 180:
+        mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
+    else:
+        mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
+        
+    mtext_point = (mtext_x_coordinate, mtext_y_coordinate)
+    mtext.dxf.char_height = MTEXT_CHAR_HEIGHT * conversion_factor
+    mtext.set_location(mtext_point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"]) 
+
+    print(f'Success in placing MText at point: {point}.')
