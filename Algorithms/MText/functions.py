@@ -196,13 +196,7 @@ def add_text_to_piping(text: str, location: tuple, distance: float, rotation: fl
     mtext = msp.add_mtext(text, dxfattribs = {'layer' : 'PipingText', 'style': 'OpenSans'})    
     # Setting the location
     mtext.set_location(point_on_which_text_is_to_be_placed)    
-    
-    # Setting the rotation
-    # angle will be equal to rotation - 90 degrees
-    angle = rotation - (math.pi / 2)
-    angle_in_degree = math.degrees(angle)
-    mtext.set_rotation(angle_in_degree)
-    
+        
     # Char font size:
     mtext.dxf.char_height = 1
             

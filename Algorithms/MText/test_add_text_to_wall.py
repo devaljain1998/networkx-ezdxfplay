@@ -82,6 +82,10 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
     # Clean opposite_in_angle:
     opposite_in_angle = opposite_in_angle if (0 <= opposite_in_angle <= 180) or (-180 <= opposite_in_angle <= 0) else -(360  - opposite_in_angle)
     
+    # Creating vector from opposite_in_angle and point:
+    opposite_point = directed_points_on_line(point, radians(opposite_in_angle), 1)[0]
+    opposite_vector = Vec2(opposite_point[0] - point[0], opposite_point[1] - point[1])
+    
     # find distance of point to wall:
     distance = ezdxf.math.distance_point_line_2d(Vec2(point), Vec2(corners[0]), Vec2(corners[1]))
     
@@ -102,8 +106,15 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
     if not does_angles_has_same_signs(opposite_in_angle, angle):
         if angle < 0: angle = 360 + angle
         
-    angle_for_slant_line = (angle + opposite_in_angle) / 2
+    if (angle + opposite_in_angle) <= 360 - (angle + opposite_in_angle):
+        angle_for_slant_line = (angle + opposite_in_angle) / 2
+    else:
+        angle_for_slant_line = (360 - (angle + opposite_in_angle)) / 2
         
+    # print('orginal angle of slant line: ', angle_for_slant_line)
+    # print('New slant line angle: ', (vector + opposite_vector).angle_deg)
+    # angle_for_slant_line = (vector + opposite_vector).angle_deg
+            
     # if the angle_for_slant_line is same as that of the in_angle then we need to reverse the angles:
     if does_angles_has_same_signs(angle_for_slant_line, in_angle):
         if angle_for_slant_line < 0: angle_for_slant_line = 360 + angle_for_slant_line 
@@ -170,7 +181,7 @@ def add_text_on_wall(point: tuple, text: str, wall, conversion_factor: float):
 
 # Testing add text to wall:
 walls = identification_json['walls']
-switch_boards = [i for i in range(18, 19)] #24
+switch_boards = [i for i in range(12, 24)] #24
 entities = identification_json['entities']
 params = identification_json["params"]
 conversion_factor = params['Units conversion factor']

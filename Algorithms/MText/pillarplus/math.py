@@ -568,6 +568,7 @@ def get_distance_of_point_to_a_line(point: tuple, line: List[tuple]) -> float:
     """
     return ezdxf.math.distance_point_line_2d(Vec2(point), Vec2(line[0]), Vec2(line[1]))
 
+
 # Testing
 # print(find_rotation((0, 0), (-1, 1)))
 # print(find_rotation((0, 0), (-1, -1)))
@@ -578,3 +579,4 @@ def get_distance_of_point_to_a_line(point: tuple, line: List[tuple]) -> float:
 # print(is_inverted((0,0),(1,1),(1,0)))
 # print(find_rotation((1,0),(0,-0.5)))
 # print(atan(inf))
+print(find_rotation((621.7585709541784, 391.8314580109683), (587.8635993213738, 316.2203754724818)))

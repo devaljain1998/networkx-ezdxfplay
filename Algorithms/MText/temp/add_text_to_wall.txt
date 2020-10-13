@@ -1,0 +1,5 @@
+point_above closest corner is coming wrong. (270, 0) => 135.0
+
+Straight Line angle of vector is taken through the NEAREST corner of the wall.
+Which can be really big number as entity[12]: 172 degress.
+So need to figure out to incline all the angles.
