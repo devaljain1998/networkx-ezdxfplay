@@ -573,22 +573,22 @@ def add_text_to_location(point: tuple, text: str, rotation: float, length: float
     # straight line height already multiplied by conversion so no need to change now
     mtext_y_shift = 2 * straight_line_height
     
-    straight_line_point = slant_line[1]
+    straight_line_point = slant_line[0]
     if 0 <= slant_line_angle < 90:
-        mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
+        mtext_x_coordinate = straight_line_point[0] + mtext_x_shift
     elif 90 <= slant_line_angle < 180:
-        mtext_x_coordinate = straight_line_point[0] + mtext_x_shift
-    elif 180 <= slant_line_angle < 270:
-        mtext_x_coordinate = straight_line_point[0] + mtext_x_shift
-    elif 270 <= slant_line_angle < 360:
         mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
+    elif 180 <= slant_line_angle < 270:
+        mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
+    elif 270 <= slant_line_angle < 360:
+        mtext_x_coordinate = straight_line_point[0] + mtext_x_shift
     else:
         raise ValueError(f'slant_line_angle should be between 0 to 360 degrees. Got: {slant_line_angle}.')
     
     if 0 <= slant_line_angle <= 180:
         mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
     else:
-        mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
+        mtext_y_coordinate = straight_line_point[1] #- mtext_y_shift
         
 
     mtext_point = (mtext_x_coordinate, mtext_y_coordinate)
