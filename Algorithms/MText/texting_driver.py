@@ -92,11 +92,11 @@ params = identification_json["params"]
 # print('Testing add_text_to_chamber SUCCESS!')
 
 # ADD TEXT TO CONNECTION DRIVER FUNCTION
-for connection in connections:
-    source = entities.get(connection.get('source_number')) if connection['source_type'] == 'Entity' else joints.get(connection.get('source_number'))
-    end = entities.get(connection.get('target_number')) if connection['target_type'] == 'Entity' else joints.get(connection.get('target_number'))
-    conncection_start = connection['source_number']
-    add_text_to_connection(connection, source['location'], end['location'], params, msp, 'TextingLayer')
+# for connection in connections:
+#     source = entities.get(connection.get('source_number')) if connection['source_type'] == 'Entity' else joints.get(connection.get('source_number'))
+#     end = entities.get(connection.get('target_number')) if connection['target_type'] == 'Entity' else joints.get(connection.get('target_number'))
+#     conncection_start = connection['source_number']
+#     add_text_to_connection(connection, source['location'], end['location'], params, msp, 'TextingLayer')
 
 
 # ADD TEXT TO WALL DRIVER FUNCTION
@@ -135,9 +135,9 @@ for connection in connections:
 
 
 # TEST ADD POINT THROUGH LOCATION
-# for point in [(0, 0),]:
-#     msp.add_circle(point, 2)
-#     add_text_to_location(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", pi/4, 0, params, msp, 'TextLayer')
+for point in [(0, 0),]:
+    msp.add_circle(point, 2)
+    add_text_to_location(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", pi/4, 0, params, msp, 'TextLayer')
     # add_text_to_location(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", 3*pi/4, 100, params, msp, 'TextLayer')
     # add_text_to_location(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", 5*pi/4, 100, params, msp, 'TextLayer')
     # add_text_to_location(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", -pi/4, 100, params, msp, 'TextLayer')
