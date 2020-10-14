@@ -181,7 +181,7 @@ def get_slope_bucket(lines: List[List[tuple]]) -> Dict[int, List[List[tuple]]]:
         
         #Rounding slope for 3 decimal:
         if slope != math.inf:
-            slope = round(slope) #slope = round(slope, ndigits = 5)
+            slope = round(slope, 1) #slope = round(slope, ndigits = 5)
         
         # Check if the slope exists in the slope_dict
         if slope in slopes.keys():
@@ -404,6 +404,7 @@ def get_beams(msp, dwg, layer_name, conversion_factor, output_file = None) -> Li
     MAXIMUM_DISTANCE_BETWEEN_BEAMS = MAXIMUM_DISTANCE_BETWEEN_BEAMS * conversion_factor
     lines = get_lines(msp, dwg, layer_name)
     slope_bucket = get_slope_bucket(lines)
+    print(f'Found the folloing slopes: {slope_bucket.keys()}')
     parallel_line_pairs = get_parallel_line_pairs(slope_bucket)
     beams = get_beams_from_pairs(parallel_line_pairs)
     draw_beams(beams, msp, dwg, output_file)
