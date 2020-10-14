@@ -105,14 +105,15 @@ def add_text_to_connection(connection, connection_start, connection_end, params:
         slant_line_angle = (find_text_rotation(
             connection_start, connection_end) + 90) % 360
 
+        MTEXT_CHAR_HEIGHT = 30
+
         # place slant line:
         SLANT_LINE_SCALE_FACTOR = 20
-        slant_line_length = 15 * SLANT_LINE_SCALE_FACTOR * conversion_factor
+        slant_line_length = (MTEXT_CHAR_HEIGHT / 2) * SLANT_LINE_SCALE_FACTOR * conversion_factor
         slant_line = directed_points_on_line(
             mid_point, radians(slant_line_angle), slant_line_length)[0]
         msp.add_line(mid_point, slant_line, dxfattribs={'layer': layer_name})
 
-        MTEXT_CHAR_HEIGHT = 30
         # Place straight line:
         def get_straight_line_length(text) -> float:
             """This function returns the length of the largest line in the text.
@@ -121,7 +122,7 @@ def add_text_to_connection(connection, connection_start, connection_end, params:
             lines = text.split('\n')
             for line in lines:
                 straight_line_length = max(straight_line_length, len(line))
-            STRAIGHT_LINE_SCALE_FACTOR = 15
+            STRAIGHT_LINE_SCALE_FACTOR = (MTEXT_CHAR_HEIGHT / 2)
             return (straight_line_length * STRAIGHT_LINE_SCALE_FACTOR) * conversion_factor
 
         def get_straight_line_height(text) -> float:
@@ -191,15 +192,17 @@ def add_text_to_connection(connection, connection_start, connection_end, params:
         # find mid point:
         mid_point = find_mid_point(connection_start, connection_end)
 
+        MTEXT_CHAR_HEIGHT = 30
+
         # find slant line angle:
+        SLANT_LINE_SCALE_FACTOR = 20
         slant_line_angle = (
             rotation + 90) % 360 if 0 <= rotation <= 90 or 270 <= rotation < 360 else (rotation - 90)
-        slant_line_length = 500 * conversion_factor
+        slant_line_length = (MTEXT_CHAR_HEIGHT / 2) * SLANT_LINE_SCALE_FACTOR * conversion_factor
         slant_line = directed_points_on_line(
             mid_point, radians(slant_line_angle), slant_line_length)[0]
         msp.add_line(mid_point, slant_line, dxfattribs = {'layer': layer_name})
         
-        MTEXT_CHAR_HEIGHT = 30
         # Place straight line:
         def get_straight_line_length(text) -> float:
             """This function returns the length of the largest line in the text.
@@ -208,7 +211,7 @@ def add_text_to_connection(connection, connection_start, connection_end, params:
             lines = text.split('\n')
             for line in lines:
                 straight_line_length = max(straight_line_length, len(line))
-            STRAIGHT_LINE_SCALE_FACTOR = 15
+            STRAIGHT_LINE_SCALE_FACTOR = MTEXT_CHAR_HEIGHT / 2
             return (straight_line_length * STRAIGHT_LINE_SCALE_FACTOR) * conversion_factor
 
         def get_straight_line_height(text) -> float:
@@ -587,9 +590,11 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
     if angle_between_both_vectors < 0:
         angle_between_both_vectors = 360 + angle_between_both_vectors
 
+    MTEXT_CHAR_HEIGHT = 30        
+
     # Draw slant line:
     SLANT_LINE_SCALE_FACTOR = 20
-    slant_line_length = 15 * SLANT_LINE_SCALE_FACTOR * conversion_factor
+    slant_line_length = (MTEXT_CHAR_HEIGHT / 2) * SLANT_LINE_SCALE_FACTOR * conversion_factor
     slant_line = directed_points_on_line(
         point, math.radians(angle_between_both_vectors), slant_line_length)
     msp.add_line(point, slant_line[0], dxfattribs={
@@ -598,7 +603,6 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
         f'Drawing slant_line of length: {slant_line_length} at point: {point}, sl: {slant_line}')
 
     # Drawing straight line:
-    MTEXT_CHAR_HEIGHT = 30
 
     def get_straight_line_length(text) -> float:
         """This function returns the length of the largest line in the text.
@@ -607,7 +611,7 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
         lines = text.split('\n')
         for line in lines:
             straight_line_length = max(straight_line_length, len(line))
-        STRAIGHT_LINE_LENGTH_SCALE_FACTOR = 15
+        STRAIGHT_LINE_LENGTH_SCALE_FACTOR = MTEXT_CHAR_HEIGHT / 2
         return straight_line_length * STRAIGHT_LINE_LENGTH_SCALE_FACTOR * conversion_factor
 
     def get_straight_line_height(text) -> float:
@@ -757,7 +761,7 @@ def add_text_through_pp_outer(point: tuple, text: str, params: dict, msp, layer_
         lines = text.split('\n')
         for line in lines:
             straight_line_length = max(straight_line_length, len(line))
-        STRAIGHT_LINE_LENGTH_SCALE_FACTOR = 15
+        STRAIGHT_LINE_LENGTH_SCALE_FACTOR = MTEXT_CHAR_HEIGHT / 2
         return straight_line_length * STRAIGHT_LINE_LENGTH_SCALE_FACTOR * conversion_factor
 
     def get_straight_line_height(text) -> float:
