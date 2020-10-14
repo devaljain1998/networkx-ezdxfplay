@@ -1,6 +1,6 @@
 from typing import List, Dict
 import math
-from pillarplus.math import is_line_decreasing_on_x_2d, is_polyline_closed, are_lines_overlapping, get_length_of_line_segment, get_distance_between_two_parallel_lines, find_perpendicular_point, is_between, get_mid_points_between_points, get_line_points_2d
+from pillarplus.math import is_line_decreasing_on_x_2d, is_polyline_closed, are_lines_overlapping, get_length_of_line_segment, get_distance_between_two_parallel_lines, find_perpendicular_point, is_between, get_mid_points_between_points, get_line_points_2d, find_slope
 
 
 class Beam:
@@ -205,6 +205,31 @@ def does_lines_belong_to_same_polyline(line1, line2) -> bool:
         return False
     return line_meta[str(line1)]['polyline'] == line_meta[str(line2)]['polyline']
 
+
+def is_almost_parallel(line1: List[tuple], line2: List[tuple],permissible_angle: int = 1) -> bool:
+    """This function detects if the lines are almost parallel.
+
+    Args:
+        line1 (List[tuple]): A line which is a list of tuples
+        line2 (List[tuple]): A line which is a list of tuples
+        permissible_angle (int, optional): Permissible angle in degrees. Defaults to 1 degree.
+
+    Returns:
+        [bool]: Returns true if the lines are almost parallel according to the permissible angle otherwise false.
+    """
+    permissible_angle #angle in degree at which lines are still considered parallel
+    theta1 = math.atan(find_slope(line1[0],line1[1]))*180/math.pi
+    theta2 = math.atan(find_slope(line2[0],line2[1]))*180/math.pi
+    if theta1<0:
+        theta1 = theta1 + 180
+    if theta2<0:
+        theta2 = theta2 + 180
+    if (theta1-theta2 < permissible_angle):
+        return True
+    else:
+        return False
+
+
 parallel_line_pair_meta = {}
 def get_parallel_line_pairs(slope_bucket : Dict[int, List[List[tuple]]]) -> List[List[tuple]]:
     """This function returns the pairs of parallel lines that are chosen
@@ -267,9 +292,14 @@ def get_parallel_line_pairs(slope_bucket : Dict[int, List[List[tuple]]]) -> List
                     line2 = _get_line2(index, counter)
                     continue                
                 
-                # Method is not used anymore  
                 if does_lines_belong_to_same_polyline(line1, line2):
                     print('REJECTED: does_lines_belong_to_same_polyline(line1, line2)')
+                    counter += 1
+                    line2 = _get_line2(index, counter)
+                    continue                                
+
+                if not is_almost_parallel(line1, line2):
+                    print('REJECTED: is_almost_parallel(line1, line2)')
                     counter += 1
                     line2 = _get_line2(index, counter)
                     continue                                
