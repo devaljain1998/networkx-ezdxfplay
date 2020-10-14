@@ -17,18 +17,20 @@ file_paths = {
 }
 input_files = {
     'wall': 'in.dxf',
-    'connection': 'in.dxf'
+    'connection': 'in.dxf',
+    'connection_small' : 'updated_in.dxf'
 }
 output_files = {
     'wall' : 'output_add_text_through_location_TestProjectMM.dxf',#'output_WALL_KHATRI_TestProjectInch_PPOUTER.dxf'#'output_WALL_KHATRI_TestProjectInch.dxf'
-    'connection': 'output_connection_TestProjectMM.dxf'
+    'connection': 'output_connection_TestProjectMM.dxf',
+    'connection_small': 'output_connection_small_TestProjectMM.dxf',
 }
 
 file_path = file_paths['connection'] #'Algorithms/MText/input/'
-input_file = input_files['connection'] #'TestProjectInch.dxf'
+input_file = input_files['connection_small'] #'TestProjectInch.dxf'
 output_file_path = 'Algorithms/MText/output/'
 input_file_name = input_file.split('.')[0]
-output_file = output_files['connection'] #'output_TestProjectInch.dxf'
+output_file = output_files['connection_small'] #'output_TestProjectInch.dxf'
 
 # Reading the DXF file
 try:
@@ -50,9 +52,10 @@ print(f'DXF File read success from {file_path}.')
 # Reading the identification JSON:
 json_file_paths = {
     'wall': 'Algorithms/MText/input/Deval/KHouseIN/identification.json',#'Algorithms/MText/mm_identification.json',
-    'connection': 'Algorithms/MText/input/Deval/TestProjectMM/khatri_connections_identification.json'
+    'connection': 'Algorithms/MText/input/Deval/TestProjectMM/khatri_connections_identification.json',
+    'connection_small': 'Algorithms/MText/input/Deval/TestProjectMM/updated_identification.json'
 }
-json_file_path = json_file_paths['connection'] #'Algorithms/MText/input/TestProject_inch.json'
+json_file_path = json_file_paths['connection_small'] #'Algorithms/MText/input/TestProject_inch.json'
 # json_file_path = 'Algorithms/MText/input/connections_identification.json'
 try:
     with open(json_file_path) as json_file:
