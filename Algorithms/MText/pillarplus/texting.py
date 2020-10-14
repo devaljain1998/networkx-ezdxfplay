@@ -22,6 +22,7 @@ MTEXT_ATTACHMENT_POINTS = {
     "MTEXT_BOTTOM_RIGHT":	9,
 }
 
+
 def get_cleaned_text(text: str):
     """This function cleans text.
 
@@ -31,19 +32,24 @@ def get_cleaned_text(text: str):
     Returns:
         [type]: [description]
     """
+    text = text.replace('///', '/')
+    text = text.replace('//', '/')
+    text = text.replace('$$$', '$')
+    text = text.replace('$$', '$')
     text = text.replace('/', '\n')
     text = text.replace('$', '\n')
     return text
 
-def find_text_rotation(p1,p2):
+
+def find_text_rotation(p1, p2):
     '''
     find the angle for text to rotate
     Parameters: takes two points (location) (list or tuple)
     Return: angle in degrees
     Dependencies: find_rotation function in pillarplus.math
     '''
-    rotation = find_rotation(p1,p2)
-    if (abs(rotation)>90):
+    rotation = find_rotation(p1, p2)
+    if (abs(rotation) > 90):
         rotation += 180
     return rotation
 
@@ -57,7 +63,7 @@ def find_text_rotation(p1,p2):
 #             leader_flag = 0
 #             #add leader if required
 #             if pipe_length < 500 * conversion_factor:                                               #--:warning:-- (HCV)
-#                 #draw ledger and add text 
+#                 #draw ledger and add text
 #                 angle = 135                                                                         #--:warning:-- (HCV)
 #                 dist = 200 * conversion_factor                                                      #--:warning:-- (HCV)
 #                 pipe_text_location = draw_leader(pipe_text_location,angle,dist)
@@ -76,70 +82,77 @@ def find_text_rotation(p1,p2):
 # 1. ADD TEXT TO CONNECTION
 def add_text_to_connection(connection, connection_start, connection_end, params: dict, msp, layer_name: str = None) -> None:
     if connection_start is None or connection_end is None:
-        raise ValueError(f"Exception: connection_start and connection_end can never be null: {connection}")
-    
+        raise ValueError(
+            f"Exception: connection_start and connection_end can never be null: {connection}")
+
     # Cleaning text:
     text = connection['text']
     text = get_cleaned_text(text)
-    
+
     # Get conversion factor:
     conversion_factor: float = params['Units conversion factor']
-    
+
     # Defining constant for minimum connection length:
     MINIMUM_CONNECTION_SIZE = 500 * conversion_factor
     CONNECTION_TEXT_EXTRA_HEIGHT = 100 * conversion_factor
-    
+
     # Handling cases of desired texting sizes
     if find_distance(connection_start, connection_end) >= MINIMUM_CONNECTION_SIZE:
         # Find midpoint of the connection:
         mid_point = find_mid_point(connection_start, connection_end)
-        
+
         # finding angle on which the text is to be placed:
-        slant_line_angle = (find_text_rotation(connection_start, connection_end) + 90) % 360
-        
+        slant_line_angle = (find_text_rotation(
+            connection_start, connection_end) + 90) % 360
+
         # place slant line:
         slant_line_length = 500 * conversion_factor
-        slant_line = directed_points_on_line(mid_point, radians(slant_line_angle), slant_line_length)[0]
-        msp.add_line(mid_point, slant_line, dxfattribs = {'layer': layer_name})
-        
+        slant_line = directed_points_on_line(
+            mid_point, radians(slant_line_angle), slant_line_length)[0]
+        msp.add_line(mid_point, slant_line, dxfattribs={'layer': layer_name})
+
         MTEXT_CHAR_HEIGHT = 30
         # Place straight line:
+
         def get_straight_line_length(text) -> float:
             """This function returns the length of the largest line in the text.
             """
             straight_line_length = 0
             lines = text.split('\n')
-            for line in lines: straight_line_length = max(straight_line_length, len(line))
+            for line in lines:
+                straight_line_length = max(straight_line_length, len(line))
             STRAIGHT_LINE_SCALE_FACTOR = 15
             return (straight_line_length * STRAIGHT_LINE_SCALE_FACTOR) * conversion_factor
-        
 
         def get_straight_line_height(text) -> float:
             """This function returns the height of the straight line."""
             lines = text.split('\n')
             STRAIGHT_LINE_HEIGHT_FACTOR = MTEXT_CHAR_HEIGHT
             return STRAIGHT_LINE_HEIGHT_FACTOR * len(lines) * conversion_factor
-        
+
         straight_line_length = get_straight_line_length(text)
         straight_line_height = get_straight_line_height(text)
         straight_line_angle = 0
-        straight_line = directed_points_on_line(slant_line, radians(straight_line_angle), straight_line_length)
+        straight_line = directed_points_on_line(
+            slant_line, radians(straight_line_angle), straight_line_length)
         is_x_increasing = connection_end[0] - connection_start[0] >= 0
-        
+
         straight_line_point = straight_line[0] if 0 <= slant_line_angle <= 90 or 270 <= slant_line_angle < 360 else straight_line[1]
-        msp.add_line(slant_line, straight_line_point, dxfattribs = {'layer': layer_name})
-        
-        
+        msp.add_line(slant_line, straight_line_point,
+                     dxfattribs={'layer': layer_name})
+
         # Now placing MText:
         mtext = msp.add_mtext(text, dxfattribs={'layer': layer_name})
-        
+
         # Positioning mtext:
         mtext_x_shift = straight_line_length / 2
         mtext_y_shift = 2 * straight_line_height
-        
+
         # Cleaning slant_line_angle
-        if slant_line_angle < 0: slant_line_angle += 360
-        elif slant_line_angle >= 360: slant_line_angle %= 360
+        if slant_line_angle < 0:
+            slant_line_angle += 360
+        elif slant_line_angle >= 360:
+            slant_line_angle %= 360
 
         if 0 <= slant_line_angle < 90:
             mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
@@ -150,25 +163,41 @@ def add_text_to_connection(connection, connection_start, connection_end, params:
         elif 270 <= slant_line_angle < 360:
             mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
         else:
-            raise ValueError(f'slant_line_angle should be between 0 to 360 degrees. Got: {slant_line_angle}.')
-        
+            raise ValueError(
+                f'slant_line_angle should be between 0 to 360 degrees. Got: {slant_line_angle}.')
+
         if 0 <= slant_line_angle <= 180:
             mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
         else:
             mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
-        
+
         mtext_point = (mtext_x_coordinate, mtext_y_coordinate)
         mtext.dxf.char_height = MTEXT_CHAR_HEIGHT * conversion_factor
-        mtext.set_location(mtext_point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"]) 
-        
-        print(f'Success in adding mtext at the point: {mtext_point} for connection: {connection}.\n')
-        
-    
+        mtext.set_location(mtext_point, None,
+                           MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
+
+        print(
+            f'Success in adding mtext at the point: {mtext_point} for connection: {connection}.\n')
+
     # Handling case of texting when the connection size is very less
     else:
-        pass
+        # find rotation between the two angles:
+        rotation = find_rotation(connection_start, connection_end)
+        if rotation < 0:
+            rotation += 360
+        elif rotation >= 360:
+            rotation %= 360
+
+        # find mid point:
+        mid_point = find_mid_point(connection_start, connection_end)
+
+        # find slant line angle:
+        slant_line_angle = (
+            rotation + 90) if 0 <= rotation <= 90 or 270 <= rotation < 360 else (rotation - 90)
 
 # 2. ADD TEXT TO CHAMBER
+
+
 def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **args):
     """This function adds text to a chamber.
     Params is really useful here as it will be consisting of the outer boundries.
@@ -178,7 +207,7 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         params (dict): The params dict of PillarPlus.
     """
     # print(f'Inside text to function: {entity}')
-    
+
     # Get conversion factor:
     conversion_factor = params['Units conversion factor']
 
@@ -189,7 +218,7 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
     # 1. Get the 4 corners:
     min_x, min_y = params["PP-OUTER minx"], params["PP-OUTER miny"]
     max_x, max_y = params["PP-OUTER maxx"], params["PP-OUTER maxy"]
-    
+
     print(f'min_min x,y', (min_x, min_y))
     print(f'max_max x,y', (max_x, max_y))
     print('CentrePoint: ', centre_point)
@@ -209,25 +238,29 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         else:
             print('Chosen max_y', max_y)
             dir_y = max_y
-            
+
         return dir_x, dir_y
-    
+
     dir_x, dir_y = get_direction(min_x, min_y, max_x, max_y, centre_point)
-        
+
     def get_slant_line_angle(dir_x, dir_y, centre_point):
         # Create Vectors
         centre_point_vector = Vector(centre_point)
         # Y coordinate will be 0
-        x_dir_coordinates = (dir_x - centre_point_vector.x, 0) #x_dir_vector = Vector() - centre_point_vector
+        # x_dir_vector = Vector() - centre_point_vector
+        x_dir_coordinates = (dir_x - centre_point_vector.x, 0)
         # X coordinate will be 0
         y_dir_coordinates = (0, dir_y - centre_point_vector.y)
-        print({'centre_point_vector': centre_point_vector, 'x_dir_coordinates': x_dir_coordinates, 'y_dir_coordinates': y_dir_coordinates})
+        print({'centre_point_vector': centre_point_vector,
+               'x_dir_coordinates': x_dir_coordinates, 'y_dir_coordinates': y_dir_coordinates})
         # print('p1', (dir_x - centre_point[0], 0), '\np2',(0, dir_y - centre_point[1]))
         #angle: float = get_angle_between_two_points((dir_x - centre_point[0], -centre_point[1]), (-centre_point[0], dir_y - centre_point[1]), centre_point) / 2
-        angle: float = get_angle_between_two_points(x_dir_coordinates, y_dir_coordinates)
-        print('angle after choosing dir for slant line: ', angle, math.degrees(angle))
+        angle: float = get_angle_between_two_points(
+            x_dir_coordinates, y_dir_coordinates)
+        print('angle after choosing dir for slant line: ',
+              angle, math.degrees(angle))
         return angle
-    
+
     # Types of chambers:
     # gully trap chamber
     # inspection chamber
@@ -239,21 +272,21 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         slant_line = directed_points_on_line(
             centre_point, slant_line_angle, slant_line_length)
         msp.add_line(centre_point, slant_line[0], dxfattribs={
-                    'layer': 'TextLayer'})
+            'layer': 'TextLayer'})
 
         # Drawing straight line:
         straight_line_length = 250 * conversion_factor
         angle: float = 0
         straight_line = directed_points_on_line(
             slant_line[0], angle, straight_line_length)
-        
+
         # Find which point (0 or 1) of straight line should be used:
         straight_line_point = straight_line[0] if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else straight_line[1]
-        
+
         msp.add_line(slant_line[0], straight_line_point,
-                    dxfattribs={'layer': layer_name})
-        
+                     dxfattribs={'layer': layer_name})
+
         size = '1\'.0"X1\'0"'
 
         text = f"""
@@ -267,20 +300,22 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         # MTEXT Formatting
         mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
         mtext.dxf.char_height = 60 * conversion_factor
-        
+
         point = list(straight_line_point)
-        
+
         # Declaring Variable boundry_vertex points:
         x_extra_distance = (720 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (-600 * conversion_factor)
         y_extra_height = (360 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (360 * conversion_factor)
         y_lower_height = -300 * conversion_factor
-        
+
         # Build a box boundry:
-        boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
-        boundryline = msp.add_lwpolyline(boundry_points, dxfattribs={'layer': 'TextLayerBoundry'})
-                
+        boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] +
+                                                                                                                            x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
+        boundryline = msp.add_lwpolyline(boundry_points, dxfattribs={
+                                         'layer': 'TextLayerBoundry'})
+
         # proper positioning
         # Positioning x coordinate:
         point[0] += (0 * conversion_factor) if 0 <= abs(
@@ -289,7 +324,8 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         point[1] += (420 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (280 * conversion_factor)
 
-        mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
+        mtext.set_location(
+            point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
 
     elif entity['type'] == 'inspection chamber':
         slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
@@ -298,21 +334,21 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         slant_line = directed_points_on_line(
             centre_point, slant_line_angle, slant_line_length)
         msp.add_line(centre_point, slant_line[0], dxfattribs={
-                    'layer': 'TextLayer'})
+            'layer': 'TextLayer'})
 
         # Drawing straight line:
         straight_line_length = 250 * conversion_factor
         angle: float = 0
         straight_line = directed_points_on_line(
             slant_line[0], angle, straight_line_length)
-        
+
         # Find which point (0 or 1) of straight line should be used:
         straight_line_point = straight_line[0] if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else straight_line[1]
-        
+
         msp.add_line(slant_line[0], straight_line_point,
-                    dxfattribs={'layer': 'TextLayer'})
-                
+                     dxfattribs={'layer': 'TextLayer'})
+
         size = '1\'.6"X1\'6"'
 
         text = f"""
@@ -323,24 +359,26 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         CHAMBER
         SIZE: {size}
         """
-        
+
         # MTEXT Formatting
         mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
         mtext.dxf.char_height = 60 * conversion_factor
-        
+
         point = list(straight_line_point)
-        
+
         # Declaring Variable boundry_vertex points:
         x_extra_distance = (720 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (-600 * conversion_factor)
         y_extra_height = (360 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (360 * conversion_factor)
         y_lower_height = -300 * conversion_factor
-        
+
         # Build a box boundry:
-        boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
-        boundryline = msp.add_lwpolyline(boundry_points, dxfattribs={'layer': layer_name})
-                
+        boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] +
+                                                                                                                            x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
+        boundryline = msp.add_lwpolyline(
+            boundry_points, dxfattribs={'layer': layer_name})
+
         # proper positioning
         # Positioning x coordinate:
         point[0] += (0 * conversion_factor) if 0 <= abs(
@@ -349,7 +387,8 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         point[1] += (420 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (280 * conversion_factor)
 
-        mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
+        mtext.set_location(
+            point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
 
     elif entity['type'] == 'rainwater chamber':
         slant_line_angle = get_slant_line_angle(dir_x, dir_y, centre_point)
@@ -358,21 +397,21 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         slant_line = directed_points_on_line(
             centre_point, slant_line_angle, slant_line_length)
         msp.add_line(centre_point, slant_line[0], dxfattribs={
-                    'layer': 'TextLayer'})
+            'layer': 'TextLayer'})
 
         # Drawing straight line:
         straight_line_length = 250 * conversion_factor
         angle: float = 0
         straight_line = directed_points_on_line(
             slant_line[0], angle, straight_line_length)
-        
+
         # Find which point (0 or 1) of straight line should be used:
         straight_line_point = straight_line[0] if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else straight_line[1]
-        
+
         msp.add_line(slant_line[0], straight_line_point,
-                    dxfattribs={'layer': 'TextLayer'})
-        
+                     dxfattribs={'layer': 'TextLayer'})
+
         size = '1\'.0"X1\'0"'
         text = f"""
         F.GL: {entity['finish_floor_level']}
@@ -386,20 +425,22 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         # MTEXT Formatting
         mtext = msp.add_mtext(text, dxfattribs={'layer': layer_name})
         mtext.dxf.char_height = 60 * conversion_factor
-        
+
         point = list(straight_line_point)
-        
+
         # Declaring Variable boundry_vertex points:
         x_extra_distance = (720 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (-600 * conversion_factor)
         y_extra_height = (360 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (360 * conversion_factor)
         y_lower_height = -300 * conversion_factor
-        
+
         # Build a box boundry:
-        boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
-        boundryline = msp.add_lwpolyline(boundry_points, dxfattribs={'layer': 'TextLayerBoundry'})
-                
+        boundry_points = [(point[0], point[1] + y_lower_height), (point[0] + x_extra_distance, point[1] + y_lower_height), (point[0] +
+                                                                                                                            x_extra_distance, point[1] + y_extra_height), (point[0], point[1] + y_extra_height), (point[0], point[1] + y_lower_height)]
+        boundryline = msp.add_lwpolyline(boundry_points, dxfattribs={
+                                         'layer': 'TextLayerBoundry'})
+
         # proper positioning
         # Positioning x coordinate:
         point[0] += (0 * conversion_factor) if 0 <= abs(
@@ -408,12 +449,13 @@ def add_text_to_chamber(msp, entity, params: dict, layer_name: str = None, **arg
         point[1] += (420 * conversion_factor) if 0 <= abs(
             degrees(slant_line_angle)) <= 90 else (280 * conversion_factor)
 
-        mtext.set_location(point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
+        mtext.set_location(
+            point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
 
     else:
         raise ValueError(
-            'Only chambers with types: ("gully trap chamber", "inspection chamber", "rainwater chamber") are allowed.')    
-    
+            'Only chambers with types: ("gully trap chamber", "inspection chamber", "rainwater chamber") are allowed.')
+
     print(
         f'Successfully added slant_line: {slant_line} and straight_line: {straight_line}\n\n')
 
@@ -423,6 +465,8 @@ def add_text_to_piping(params: dict, msp, layer_name: str = None) -> None:
     pass
 
 # 4. ADD TEXT TO WALL
+
+
 def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_name: str = None) -> None:
     """This function adds text on the wall.
 
@@ -433,41 +477,50 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
     """
     # Get conversion factor:
     conversion_factor: float = params['Units conversion factor']
-    
+
     # Get corners of the wall
     corners = wall['corners']
-    
+
     # Check the point is closed to which corner
-    closest_corner = corners[0] if find_distance(point, corners[0]) <= find_distance(point, corners[1]) else corners[1]
+    closest_corner = corners[0] if find_distance(
+        point, corners[0]) <= find_distance(point, corners[1]) else corners[1]
 
     # Get the in-angle and get opposite angle for it.
     in_angle = wall['in_angle']
-    if in_angle < 0: in_angle = 360 + in_angle
-    
+    if in_angle < 0:
+        in_angle = 360 + in_angle
+
     # Opposite in_angle:
     opposite_in_angle = (in_angle + 180) % 360
-    
+
     # find distance of point to wall:
-    distance = ezdxf.math.distance_point_line_2d(Vec2(point), Vec2(corners[0]), Vec2(corners[1]))
-    
+    distance = ezdxf.math.distance_point_line_2d(
+        Vec2(point), Vec2(corners[0]), Vec2(corners[1]))
+
     # Move find the point above x distance with closest corner:
-    #(.) -> The point can be here. That is why we are finding a parallel distance.
+    # (.) -> The point can be here. That is why we are finding a parallel distance.
     # .
     # _________
-    point_above_closest_corner = directed_points_on_line(closest_corner, radians(in_angle), distance)[0]
-    
+    point_above_closest_corner = directed_points_on_line(
+        closest_corner, radians(in_angle), distance)[0]
+
     # Forming a vector with point and point_above_closest_corner
-    vector = Vector(point_above_closest_corner[0] - point[0], point_above_closest_corner[1] - point[1])
+    vector = Vector(
+        point_above_closest_corner[0] - point[0], point_above_closest_corner[1] - point[1])
     angle = vector.angle_deg
-    if angle < 0: angle = 360 + angle
-    
+    if angle < 0:
+        angle = 360 + angle
+
     # Creating vector from opposite_in_angle and point:
-    opposite_point = directed_points_on_line(point, radians(opposite_in_angle), vector.magnitude)[0]
-    opposite_vector = Vec2(opposite_point[0] - point[0], opposite_point[1] - point[1])
-    
+    opposite_point = directed_points_on_line(
+        point, radians(opposite_in_angle), vector.magnitude)[0]
+    opposite_vector = Vec2(
+        opposite_point[0] - point[0], opposite_point[1] - point[1])
+
     angle_between_both_vectors = (vector + opposite_vector).angle_deg
-    if angle_between_both_vectors < 0: angle_between_both_vectors = 360 + angle_between_both_vectors
-    
+    if angle_between_both_vectors < 0:
+        angle_between_both_vectors = 360 + angle_between_both_vectors
+
     # Draw slant line:
     SLANT_LINE_SCALE_FACTOR = 20
     slant_line_length = 15 * SLANT_LINE_SCALE_FACTOR * conversion_factor
@@ -475,16 +528,19 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
         point, math.radians(angle_between_both_vectors), slant_line_length)
     msp.add_line(point, slant_line[0], dxfattribs={
                  'layer': 'TextLayer'})
-    print(f'Drawing slant_line of length: {slant_line_length} at point: {point}, sl: {slant_line}')    
-    
+    print(
+        f'Drawing slant_line of length: {slant_line_length} at point: {point}, sl: {slant_line}')
+
     # Drawing straight line:
     MTEXT_CHAR_HEIGHT = 30
+
     def get_straight_line_length(text) -> float:
         """This function returns the length of the largest line in the text.
         """
         straight_line_length = 0
         lines = text.split('\n')
-        for line in lines: straight_line_length = max(straight_line_length, len(line))
+        for line in lines:
+            straight_line_length = max(straight_line_length, len(line))
         STRAIGHT_LINE_LENGTH_SCALE_FACTOR = 15
         return straight_line_length * STRAIGHT_LINE_LENGTH_SCALE_FACTOR * conversion_factor
 
@@ -493,10 +549,11 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
         lines = text.split('\n')
         STRAIGHT_LINE_HEIGHT_FACTOR = MTEXT_CHAR_HEIGHT
         return STRAIGHT_LINE_HEIGHT_FACTOR * len(lines) * conversion_factor
-        
+
     straight_line_length = get_straight_line_length(text)
     straight_line_height = get_straight_line_height(text)
-    straight_line_angle: float = 0 #if 0 <= abs(angle_for_slant_line) <= 90 else pi
+    # if 0 <= abs(angle_for_slant_line) <= 90 else pi
+    straight_line_angle: float = 0
     straight_line = directed_points_on_line(
         slant_line[0], straight_line_angle, straight_line_length)
 
@@ -510,15 +567,15 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
     # Draw straight line:
     msp.add_line(slant_line[0], straight_line_point, dxfattribs={
                  'layer': 'TextLayer'})
-        
+
     # Mtext operations
     mtext = msp.add_mtext(text, dxfattribs={'layer': 'TextLayer'})
-    
+
     # Positioning mtext:
     mtext_x_shift = 150 * conversion_factor
     # straight line height already multiplied by conversion so no need to change now
-    mtext_y_shift = 2 * straight_line_height#12 * 
-    
+    mtext_y_shift = 2 * straight_line_height  # 12 *
+
     if 0 <= angle_between_both_vectors < 90:
         mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
     elif 90 <= angle_between_both_vectors < 180:
@@ -528,18 +585,21 @@ def add_text_to_wall(point: tuple, text: str, wall, params: dict, msp, layer_nam
     elif 270 <= angle_between_both_vectors < 360:
         mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
     else:
-        raise ValueError(f'angle_between_both_vectors should be between 0 to 360 degrees. Got: {angle_between_both_vectors}.')
-    
+        raise ValueError(
+            f'angle_between_both_vectors should be between 0 to 360 degrees. Got: {angle_between_both_vectors}.')
+
     if 0 <= angle_between_both_vectors <= 180:
         mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
     else:
         mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
-        
+
     mtext_point = (mtext_x_coordinate, mtext_y_coordinate)
     mtext.dxf.char_height = 30 * conversion_factor
-    mtext.set_location(mtext_point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"]) 
-    
-    print(f'Success in adding mtext at the point: {point} for wall: {wall["number"]}.\n')
+    mtext.set_location(mtext_point, None,
+                       MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
+
+    print(
+        f'Success in adding mtext at the point: {point} for wall: {wall["number"]}.\n')
 
 
 # 5. ADD TEXT TO LOCATION
@@ -553,8 +613,10 @@ def add_text_to_location(point: tuple, text: str, rotation: float, length: float
     slant_line_angle = rotation
     # Converting slant line angle into degrees
     slant_line_angle = degrees(slant_line_angle)
-    if slant_line_angle < 0: slant_line_angle += 360
-    elif slant_line_angle > 360: slant_line_angle %= 360
+    if slant_line_angle < 0:
+        slant_line_angle += 360
+    elif slant_line_angle > 360:
+        slant_line_angle %= 360
 
     # Drawing slant line:
     SLANT_LINE_SCALE_FACTOR = 20
@@ -562,9 +624,10 @@ def add_text_to_location(point: tuple, text: str, rotation: float, length: float
     slant_line = directed_points_on_line(
         point, radians(slant_line_angle), slant_line_length)
     msp.add_line(point, slant_line[0], dxfattribs={
-                'layer': 'TextLayer'})
+        'layer': 'TextLayer'})
 
-    MTEXT_CHAR_HEIGHT = 30                
+    MTEXT_CHAR_HEIGHT = 30
+
     def get_straight_line_height(text) -> float:
         """This function returns the height of the straight line."""
         lines = text.split('\n')
@@ -574,12 +637,12 @@ def add_text_to_location(point: tuple, text: str, rotation: float, length: float
     straight_line_height = get_straight_line_height(text)
 
     # Add mtext now
-    mtext = msp.add_mtext(text, dxfattribs = {'layer': layer_name})
+    mtext = msp.add_mtext(text, dxfattribs={'layer': layer_name})
     # Positioning mtext:
     mtext_x_shift = 150 * conversion_factor
     # straight line height already multiplied by conversion so no need to change now
     mtext_y_shift = 2 * straight_line_height
-    
+
     straight_line_point = slant_line[0]
     if 0 <= slant_line_angle < 90:
         mtext_x_coordinate = straight_line_point[0] + mtext_x_shift
@@ -590,19 +653,18 @@ def add_text_to_location(point: tuple, text: str, rotation: float, length: float
     elif 270 <= slant_line_angle < 360:
         mtext_x_coordinate = straight_line_point[0] + mtext_x_shift
     else:
-        raise ValueError(f'slant_line_angle should be between 0 to 360 degrees. Got: {slant_line_angle}.')
-    
+        raise ValueError(
+            f'slant_line_angle should be between 0 to 360 degrees. Got: {slant_line_angle}.')
+
     if 0 <= slant_line_angle <= 180:
         mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
     else:
-        mtext_y_coordinate = straight_line_point[1] #- mtext_y_shift
-        
+        mtext_y_coordinate = straight_line_point[1]  # - mtext_y_shift
 
     mtext_point = (mtext_x_coordinate, mtext_y_coordinate)
     mtext.dxf.char_height = MTEXT_CHAR_HEIGHT * conversion_factor
-    mtext.set_location(mtext_point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"]) 
-
-
+    mtext.set_location(mtext_point, None,
+                       MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
 
 
 # 6. ADD TEXT THROUGH PP-OUTER
@@ -640,11 +702,11 @@ def add_text_through_pp_outer(point: tuple, text: str, params: dict, msp, layer_
         else:
             print('Chosen max_y', max_y)
             dir_y = max_y
-            
+
         return dir_x, dir_y
-    
+
     dir_x, dir_y = get_direction(min_x, min_y, max_x, max_y, point)
-        
+
     def get_slant_line_angle(dir_x, dir_y, centre_point):
         # Create Vectors
         centre_point_vector = Vector(centre_point)
@@ -655,8 +717,10 @@ def add_text_through_pp_outer(point: tuple, text: str, params: dict, msp, layer_
         return (x_dir_vector + y_dir_vector).angle_deg
 
     slant_line_angle = get_slant_line_angle(dir_x, dir_y, point)
-    if slant_line_angle < 0: slant_line_angle += 360
-    elif slant_line_angle > 360: slant_line_angle %= 360
+    if slant_line_angle < 0:
+        slant_line_angle += 360
+    elif slant_line_angle > 360:
+        slant_line_angle %= 360
 
     # Drawing slant line:
     SLANT_LINE_SCALE_FACTOR = 20
@@ -664,16 +728,18 @@ def add_text_through_pp_outer(point: tuple, text: str, params: dict, msp, layer_
     slant_line = directed_points_on_line(
         point, radians(slant_line_angle), slant_line_length)
     msp.add_line(point, slant_line[0], dxfattribs={
-                'layer': layer_name})
+        'layer': layer_name})
 
     # Drawing straight line:
     MTEXT_CHAR_HEIGHT = 30
+
     def get_straight_line_length(text) -> float:
         """This function returns the length of the largest line in the text.
         """
         straight_line_length = 0
         lines = text.split('\n')
-        for line in lines: straight_line_length = max(straight_line_length, len(line))
+        for line in lines:
+            straight_line_length = max(straight_line_length, len(line))
         STRAIGHT_LINE_LENGTH_SCALE_FACTOR = 15
         return straight_line_length * STRAIGHT_LINE_LENGTH_SCALE_FACTOR * conversion_factor
 
@@ -682,10 +748,11 @@ def add_text_through_pp_outer(point: tuple, text: str, params: dict, msp, layer_
         lines = text.split('\n')
         STRAIGHT_LINE_HEIGHT_FACTOR = MTEXT_CHAR_HEIGHT
         return STRAIGHT_LINE_HEIGHT_FACTOR * len(lines) * conversion_factor
-        
+
     straight_line_length = get_straight_line_length(text)
     straight_line_height = get_straight_line_height(text)
-    straight_line_angle: float = 0 #if 0 <= abs(angle_for_slant_line) <= 90 else pi
+    # if 0 <= abs(angle_for_slant_line) <= 90 else pi
+    straight_line_angle: float = 0
     straight_line = directed_points_on_line(
         slant_line[0], straight_line_angle, straight_line_length)
 
@@ -701,12 +768,12 @@ def add_text_through_pp_outer(point: tuple, text: str, params: dict, msp, layer_
                  'layer': 'TextLayer'})
 
     # Add mtext now
-    mtext = msp.add_mtext(text, dxfattribs = {'layer': layer_name})
+    mtext = msp.add_mtext(text, dxfattribs={'layer': layer_name})
     # Positioning mtext:
     mtext_x_shift = 150 * conversion_factor
     # straight line height already multiplied by conversion so no need to change now
     mtext_y_shift = 2 * straight_line_height
-    
+
     if 0 <= slant_line_angle < 90:
         mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
     elif 90 <= slant_line_angle < 180:
@@ -716,15 +783,17 @@ def add_text_through_pp_outer(point: tuple, text: str, params: dict, msp, layer_
     elif 270 <= slant_line_angle < 360:
         mtext_x_coordinate = straight_line_point[0] - mtext_x_shift
     else:
-        raise ValueError(f'slant_line_angle should be between 0 to 360 degrees. Got: {slant_line_angle}.')
-    
+        raise ValueError(
+            f'slant_line_angle should be between 0 to 360 degrees. Got: {slant_line_angle}.')
+
     if 0 <= slant_line_angle <= 180:
         mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
     else:
         mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
-        
+
     mtext_point = (mtext_x_coordinate, mtext_y_coordinate)
     mtext.dxf.char_height = MTEXT_CHAR_HEIGHT * conversion_factor
-    mtext.set_location(mtext_point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"]) 
+    mtext.set_location(mtext_point, None,
+                       MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"])
 
     print(f'Success in placing MText at point: {point}.')
