@@ -8,7 +8,7 @@ import json
 from ezdxf.math import Vector, Vec2
 from math import *
 
-from .math import find_distance, get_angle_between_two_points, directed_points_on_line, find_mid_point
+from .math import find_distance, get_angle_between_two_points, directed_points_on_line, find_mid_point, find_rotation
 
 MTEXT_ATTACHMENT_POINTS = {
     "MTEXT_TOP_LEFT":	1,
@@ -42,7 +42,7 @@ def find_text_rotation(p1,p2):
     Return: angle in degrees
     Dependencies: find_rotation function in pillarplus.math
     '''
-    rotation = math.find_rotation(p1,p2)
+    rotation = find_rotation(p1,p2)
     if (abs(rotation)>90):
         rotation += 180
     return rotation
@@ -86,14 +86,11 @@ def add_text_to_connection(connection, connection_start, connection_end, params:
     conversion_factor: float = params['Units conversion factor']
     
     # Defining constant for minimum connection length:
-    MINIMUM_CONNECTION_SIZE = 100 * conversion_factor
+    MINIMUM_CONNECTION_SIZE = 500 * conversion_factor
     CONNECTION_TEXT_EXTRA_HEIGHT = 100 * conversion_factor
     
-    # Fetching text from connection:
-    text = connection['text']
-    
     # Handling cases of desired texting sizes
-    if connection['size'] >= MINIMUM_CONNECTION_SIZE:
+    if find_distance(connection_start, connection_end) >= MINIMUM_CONNECTION_SIZE:
         # Find midpoint of the connection:
         mid_point = find_mid_point(connection_start, connection_end)
         
@@ -103,8 +100,9 @@ def add_text_to_connection(connection, connection_start, connection_end, params:
         # place slant line:
         slant_line_length = 500 * conversion_factor
         slant_line = directed_points_on_line(mid_point, radians(slant_line_angle), slant_line_length)[0]
-        msp.add_line(slant_line[0], slant_line[1], dxfattribs = {'layer': layer_name})
+        msp.add_line(mid_point, slant_line, dxfattribs = {'layer': layer_name})
         
+        MTEXT_CHAR_HEIGHT = 30
         # Place straight line:
         def get_straight_line_length(text) -> float:
             """This function returns the length of the largest line in the text.
@@ -112,24 +110,32 @@ def add_text_to_connection(connection, connection_start, connection_end, params:
             straight_line_length = 0
             lines = text.split('\n')
             for line in lines: straight_line_length = max(straight_line_length, len(line))
-            STRAIGHT_LINE_SCALE_FACTOR = 10
+            STRAIGHT_LINE_SCALE_FACTOR = 15
             return (straight_line_length * STRAIGHT_LINE_SCALE_FACTOR) * conversion_factor
         
-        straight_line_length = get_straight_line_length()
+
+        def get_straight_line_height(text) -> float:
+            """This function returns the height of the straight line."""
+            lines = text.split('\n')
+            STRAIGHT_LINE_HEIGHT_FACTOR = MTEXT_CHAR_HEIGHT
+            return STRAIGHT_LINE_HEIGHT_FACTOR * len(lines) * conversion_factor
+        
+        straight_line_length = get_straight_line_length(text)
+        straight_line_height = get_straight_line_height(text)
         straight_line_angle = 0
-        straight_line = directed_points_on_line(slant_line[1], radians(straight_line_angle), straight_line_length)
+        straight_line = directed_points_on_line(slant_line, radians(straight_line_angle), straight_line_length)
         is_x_increasing = connection_end[0] - connection_start[0] >= 0
         
-        straight_line_point = straight_line[0] if is_x_increasing else straight_line[1]
-        msp.add_line(slant_line[1], straight_line_point, dxfattribs = {'layer': layer_name})
+        straight_line_point = straight_line[0] if 0 <= slant_line_angle <= 90 or 270 <= slant_line_angle < 360 else straight_line[1]
+        msp.add_line(slant_line, straight_line_point, dxfattribs = {'layer': layer_name})
         
         
         # Now placing MText:
-        mtext = msp.add_mtext(connection['text'], dxfattribs={'layer': layer_name})
+        mtext = msp.add_mtext(text, dxfattribs={'layer': layer_name})
         
         # Positioning mtext:
-        mtext_x_shift = 50 * conversion_factor
-        mtext_y_shift = 60 * conversion_factor
+        mtext_x_shift = straight_line_length / 2
+        mtext_y_shift = 2 * straight_line_height
         
         # Cleaning slant_line_angle
         if slant_line_angle < 0: slant_line_angle += 360
@@ -152,6 +158,7 @@ def add_text_to_connection(connection, connection_start, connection_end, params:
             mtext_y_coordinate = straight_line_point[1] + mtext_y_shift
         
         mtext_point = (mtext_x_coordinate, mtext_y_coordinate)
+        mtext.dxf.char_height = MTEXT_CHAR_HEIGHT * conversion_factor
         mtext.set_location(mtext_point, None, MTEXT_ATTACHMENT_POINTS["MTEXT_TOP_CENTER"]) 
         
         print(f'Success in adding mtext at the point: {mtext_point} for connection: {connection}.\n')

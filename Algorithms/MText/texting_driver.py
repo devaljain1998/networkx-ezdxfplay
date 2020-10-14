@@ -12,21 +12,23 @@ from pillarplus.math import find_distance, get_angle_between_two_points, directe
 from pillarplus.texting import add_text_to_chamber, add_text_to_connection, add_text_to_wall, add_text_through_pp_outer, add_text_to_location
 
 file_paths = {
-    'wall' : 'Algorithms/MText/input/Deval/KHouseIN/'#'Algorithms/MText/input/Deval/TestProjectMM/'#'Algorithms/MText/input/mm file/',
-
+    'wall' : 'Algorithms/MText/input/Deval/TestProjectMM/',#'Algorithms/MText/input/Deval/KHouseIN/'#'Algorithms/MText/input/mm file/',
+    'connection' : 'Algorithms/MText/input/Deval/TestProjectMM/'
 }
 input_files = {
     'wall': 'in.dxf',
+    'connection': 'in.dxf'
 }
 output_files = {
-    'wall' : 'output_add_text_through_location.dxf'#'output_WALL_KHATRI_TestProjectInch_PPOUTER.dxf'#'output_WALL_KHATRI_TestProjectInch.dxf'
+    'wall' : 'output_add_text_through_location_TestProjectMM.dxf',#'output_WALL_KHATRI_TestProjectInch_PPOUTER.dxf'#'output_WALL_KHATRI_TestProjectInch.dxf'
+    'connection': 'output_connection_TestProjectMM.dxf'
 }
 
-file_path = file_paths['wall'] #'Algorithms/MText/input/'
-input_file = input_files['wall'] #'TestProjectInch.dxf'
+file_path = file_paths['connection'] #'Algorithms/MText/input/'
+input_file = input_files['connection'] #'TestProjectInch.dxf'
 output_file_path = 'Algorithms/MText/output/'
 input_file_name = input_file.split('.')[0]
-output_file = output_files['wall'] #'output_TestProjectInch.dxf'
+output_file = output_files['connection'] #'output_TestProjectInch.dxf'
 
 # Reading the DXF file
 try:
@@ -47,9 +49,10 @@ print(f'DXF File read success from {file_path}.')
 
 # Reading the identification JSON:
 json_file_paths = {
-    'wall': 'Algorithms/MText/input/Deval/KHouseIN/identification.json'#'Algorithms/MText/mm_identification.json',
+    'wall': 'Algorithms/MText/input/Deval/KHouseIN/identification.json',#'Algorithms/MText/mm_identification.json',
+    'connection': 'Algorithms/MText/input/Deval/TestProjectMM/khatri_connections_identification.json'
 }
-json_file_path = json_file_paths['wall'] #'Algorithms/MText/input/TestProject_inch.json'
+json_file_path = json_file_paths['connection'] #'Algorithms/MText/input/TestProject_inch.json'
 # json_file_path = 'Algorithms/MText/input/connections_identification.json'
 try:
     with open(json_file_path) as json_file:
@@ -71,10 +74,10 @@ MTEXT_ATTACHMENT_POINTS = {
     "MTEXT_BOTTOM_RIGHT":	9,
 }
 
-entities = identification_json['entities']
-#entities = {entity['number']: entity for entity in identification_json['entities']}
-joints = identification_json['joints']
-#joints = {joint['number']: joint for joint in identification_json['joints']}
+# entities = identification_json['entities']
+entities = {entity['number']: entity for entity in identification_json['entities']}
+# joints = identification_json['joints']
+joints = {joint['number']: joint for joint in identification_json['joints']}
 connections = identification_json['connections']
 params = identification_json["params"]
 
@@ -83,25 +86,22 @@ params = identification_json["params"]
 #     entity = entities[i]
 #     add_text_to_chamber(msp, entity, params, 'TextLayer')
     
-print('Testing add_text_to_chamber SUCCESS!')
+# print('Testing add_text_to_chamber SUCCESS!')
 
 # ADD TEXT TO CONNECTION DRIVER FUNCTION
-# for i in [0, 1, 2]:
-#     connection = connections[i]
-#     source = entities.get(connection.get('source_number')) if connection['source_type'] == 'Entity' else joints.get(connection.get('source_number'))
-#     end = entities.get(connection.get('target_number')) if connection['target_type'] == 'Entity' else joints.get(connection.get('target_number'))
-#     conncection_start = connection['source_number']
-#     add_text_to_connection(connection, source['location'], end['location'], params, msp, 'TextingLayer')
+for connection in connections:
+    source = entities.get(connection.get('source_number')) if connection['source_type'] == 'Entity' else joints.get(connection.get('source_number'))
+    end = entities.get(connection.get('target_number')) if connection['target_type'] == 'Entity' else joints.get(connection.get('target_number'))
+    conncection_start = connection['source_number']
+    add_text_to_connection(connection, source['location'], end['location'], params, msp, 'TextingLayer')
 
 
 # ADD TEXT TO WALL DRIVER FUNCTION
 # switch_boards = [i for i in range(12, 24)] #24
-entities = identification_json['entities']
-params = identification_json["params"]
 # conversion_factor = params['Units conversion factor']
-walls = {wall['number']: wall for wall in identification_json['walls']}
+# walls = {wall['number']: wall for wall in identification_json['walls']}
 #wall_lights = [5, 12, 13, 14, 19]
-entities_with_walls = list(filter(lambda entity: entity['wall_number'] is not None, entities))
+# entities_with_walls = list(filter(lambda entity: entity['wall_number'] is not None, entities))
 # Testing on entites with walls:
 # for entity in entities_with_walls:
 #     wall = walls[entity['wall_number']]
@@ -132,8 +132,13 @@ entities_with_walls = list(filter(lambda entity: entity['wall_number'] is not No
 
 
 # TEST ADD POINT THROUGH LOCATION
-for point in [(0, 0), (-10, 0)]:
-    add_text_to_location(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", pi/4, 100, params, msp, 'TextLayer')
+# for point in [(0, 0),]:
+#     msp.add_circle(point, 2)
+#     add_text_to_location(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", pi/4, 0, params, msp, 'TextLayer')
+    # add_text_to_location(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", 3*pi/4, 100, params, msp, 'TextLayer')
+    # add_text_to_location(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", 5*pi/4, 100, params, msp, 'TextLayer')
+    # add_text_to_location(point, "Hello PillarPlus!\nAnother Line of\nText\nAnother line\nyet another.", -pi/4, 100, params, msp, 'TextLayer')
+
 
 # Saving the file:
 try:
