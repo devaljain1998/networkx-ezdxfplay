@@ -152,11 +152,15 @@ def dfs_to_shift_locations(graph,head):
 
 					#Which taper slant UP or DOWN ?
 					point1 = directed_points_on_line(current_node_obj['shifted_location'],angle_per,parent_width/2)[0]
+					msp.add_circle(point1, 4, dxfattribs = {'color': 4});
 					point2 = directed_points_on_line(current_node_obj['shifted_location'],angle_per,parent_width/2)[1]
+					msp.add_circle(point2, 4, dxfattribs = {'color': 4});
 					rotation = find_rotation(location,point2)*(math.pi/180)
 
 					p1 = directed_points_on_line(point1,taper_angle,check_shift)[0] #slant end
+					msp.add_circle(p1, 10); #msp.add_mtext(str(p1)).set_location(p1)
 					p2 = directed_points_on_line(point2,taper_angle,check_shift)[0] #slant end
+					msp.add_circle(p2, 10); #msp.add_mtext(str(p2)).set_location(p2)
 
 					#checking whether Point1 is desired or Point2 is desired.
 					per_point1 = find_perpendicular_point(p1, point1, point2)
@@ -168,12 +172,14 @@ def dfs_to_shift_locations(graph,head):
 						vector = ezdxf.math.Vector(per_point1)-ezdxf.math.Vector(point1)
 						current_node_obj['vector'] = parent_vector+vector
 						vec = current_node_obj['vector']
+						msp.add_circle(per_point1, 10)
 						#msp.add_circle(per_point1,7,dxfattribs={"color":1})
 						
 						current_node_obj['connection_point'] = directed_points_on_line(current_node_obj['location'],vec.angle,vec.magnitude/2)[0]
 						print('1')
 
 					elif is_between(per_point2,point1,point2):
+						msp.add_circle(per_point2, 10)
 						slant_start_point = point2
 						shift_direction = find_rotation(point2,per_point2)
 						
