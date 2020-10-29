@@ -9,6 +9,7 @@ Packages used:
 1. ezdxf
 2. networkx
 3. math
+4. Pillarplus's internal modules: math, texting, blocks, boq
 
 Global variables
 1. _dwg : the auto cad file read through ezdxf
@@ -21,7 +22,6 @@ Add arrows (done only blocks not placed)
 Layers and colors (done for joints and connection)
 different depth place block (done but not tested)
 side trim implementation (done)
-
 """
 
 import ezdxf
@@ -791,38 +791,43 @@ if __name__ == '__main__':
 		print(f'Parameters file "parameters.csv" is missing')
 		exit()
 
+	# Importing the joints through the joints.dxf file. (Specific for the project)
+	# It lies in the setup file.
 	_joints_dwg = ezdxf.readfile(this_dir + 'setup/' + 'joints.dxf')  # joints dxf
 
-	# FILE READING
+	# FILE READING: dxf_file
 	autocad_file = this_dir + params_dict['ProjectFolder'] + 'updated_in.dxf'
 	set_msp(autocad_file)
 
-
+	# Reading JSON file
 	with open(this_dir + params_dict['ProjectFolder'] + 'updated_identification.json') as json_file:
 		data = json.load(json_file)
 
+	# Reading joint_dict
 	joints_dict = {}
 	for joint in data['joints']:
 		if joint['service'] == 'drainage':
 			joints_dict[joint['number']] = joint
 
-
+	# Reading entities_dict
 	entities_dict = {}
 	for entity in data['entities']:
 		if entity['service'] == 'drainage':
 			entities_dict[entity['number']] = entity
 
 
-	
+	# Reading connnections
 	connections = []
-
 	for connection in data['connections']:
 		if connection['service'] == 'drainage':
 			connections.append(connection)
 
+	# Reading conversion factor
 	conversion_factor = data['params']['Units conversion factor']
 
 	#SIZE MAPPING CREATION
+    # For proper unit conversion
+    # From current unit to mm unit.
 	current_unit = data['params']['Units']
 	sizes_dict = data['sizes']['drainage']
 	size_mapping_dict = create_size_mapping_dict(sizes_dict,current_unit)
