@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import math
 from pillarplus.math import is_inverted, find_angle, find_rotation, directed_points_on_line, find_perpendicular_slope_angle,find_perpendicular_point,is_between
 import ezdxf
+from ezdxf.math import Vector, Vec2
 from pillarplus.blocks import place_block_at_location
 import re
 from ezdxf.addons import Importer
@@ -18,6 +19,11 @@ SERVICE_NAME: str = 'ducting'
 class Ducting:
     def __init__(self, number):
         self.number = number
+        
+        
+def __debug_location(point, name: str = 'debug', radius = 2, color:int = 2):
+    msp.add_circle(point, radius, dxfattribs={'color': color})
+    msp.add_mtext(name).set_location(point)
 
 
 def get_json_object():
@@ -146,10 +152,7 @@ def dfs_to_shift_locations(graph,head):
                 if re.sub("[^0-9]","",int_part) != '':
                     taper_angle = float(taper_type)*(math.pi/180)
                     check_shift = (parent_width-child_width) / math.cos(30 * (math.pi / 180))
-
                     
-
-
                     #Which taper slant UP or DOWN ?
                     point1 = directed_points_on_line(current_node_obj['shifted_location'],angle_per,parent_width/2)[0]
                     msp.add_circle(point1, 4, dxfattribs = {'color': 4}); msp.add_mtext('point1').set_location(point1)
@@ -165,6 +168,11 @@ def dfs_to_shift_locations(graph,head):
                     #checking whether Point1 is desired or Point2 is desired.
                     per_point1 = find_perpendicular_point(p1, point1, point2)
                     per_point2 = find_perpendicular_point(p2, point1, point2)
+                    # __debug_location(per_point1, f'per_point1\n{per_point1}', 1)
+                    # __debug_location(per_point1, f'per_point2\n{per_point2}', 1)
+                    
+                    
+                    print(f'per_point1: {per_point1}', f'per_point2: {per_point2}')
 
                     if is_between(per_point1,point1,point2):
                         msp.add_mtext('Chosen Per-Point1').set_location(per_point1)
@@ -187,7 +195,7 @@ def dfs_to_shift_locations(graph,head):
                         
                         #msp.add_circle(point2,7,dxfattribs={"color":4})
                         #msp.add_circle(per_point2,3,dxfattribs={"color":92})
-                        vector = ezdxf.math.Vector(per_point2)-ezdxf.math.Vector(point2)
+                        vector =  Vec2(point2) - Vec2(per_point2) #ezdxf.math.Vector(per_point2)-ezdxf.math.Vector(point2)
                         current_node_obj['vector'] = parent_vector+vector
                         vec = current_node_obj['vector']
                         print(vec.magnitude,"MAGNITUDE",vec.magnitude/2)
@@ -514,7 +522,7 @@ def update_graph_properties(graph, joint_defaults):
                 to_point = graph.nodes[child_nodes[0]]['location']
                 angle2 = find_angle(from_point, point, to_point)
                 
-                if math.pi - 0.1 < angle1 < math.pi + 0.1:
+                if math.pi - 0.1 < angle2 < math.pi + 0.1:
                     one_eighty_child_found = True
                     one_eighty_child = other_child
                     graph.nodes[node]['type'] = 't'
@@ -677,8 +685,9 @@ def draw(graph,joint_defaults):
         #msp.add_line(start,end)
 
         angle_per = find_perpendicular_slope_angle(start,end)
-        start_extremes = directed_points_on_line(start,angle_per,width/2)[0],directed_points_on_line(start,angle_per,width/2)[1]
-        end_extremes = directed_points_on_line(end,angle_per,width/2)[0],directed_points_on_line(end,angle_per,width/2)[1]
+        start_extremes = directed_points_on_line(start,angle_per,width/2)
+        end_extremes = directed_points_on_line(end,angle_per,width/2)
+        
         # msp.add_circle(end_extremes[0],5*FACTOR,dxfattribs={'color':2})
         # msp.add_circle(end_extremes[1],5*FACTOR,dxfattribs={'color':4})
         draw_double_lined_connection(start_extremes,end_extremes)
@@ -706,11 +715,13 @@ def draw(graph,joint_defaults):
                 print(f'child_edge_width: {child_edge_width}')
                 child_conn_rotation = find_rotation(source_obj['connection_point'],target_obj['shifted_location'])*(math.pi/180)
 
-                wo_wala_point = directed_points_on_line(target_obj['shifted_location'],target_obj['vector'].angle,target_obj['vector'].magnitude/2)[0]
+                wo_wala_point = directed_points_on_line(target_obj['location'], target_obj['vector'].angle, target_obj['vector'].magnitude/2)[0]
                 msp.add_circle(wo_wala_point, 2); msp.add_mtext('wo_walla_point').set_location(wo_wala_point)
+                
                 left_end_reducer = directed_points_on_line(wo_wala_point,child_conn_rotation,child_edge_obj['start_trim'])[0]
                 msp.add_circle(left_end_reducer, 1, dxfattribs={'color': 1}); msp.add_mtext('left_end_reducer').set_location(left_end_reducer)
-                end_extremes_reducer = directed_points_on_line(left_end_reducer,angle_per,child_edge_width/2)
+                
+                end_extremes_reducer = directed_points_on_line(left_end_reducer, angle_per, child_edge_width/2)
                 start_extremes_reducer = end_extremes
                 msp.add_circle(start_extremes_reducer[0], 3, dxfattribs={'color': 3}); msp.add_mtext('SER1').set_location(start_extremes_reducer[0])
                 msp.add_circle(start_extremes_reducer[1], 3, dxfattribs={'color': 3}); msp.add_mtext('SER2').set_location(start_extremes_reducer[1])
