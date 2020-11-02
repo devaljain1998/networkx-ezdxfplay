@@ -719,13 +719,15 @@ def draw(graph,joint_defaults):
                 
                 print('connection_rotation', connection_rotation, 'child_conn_rotation', child_conn_rotation)
 
-                wo_wala_point = directed_points_on_line(target_obj['shifted_location'], target_obj['vector'].angle, target_obj['vector'].magnitude / 2)[0]
+                # wo_wala_point = directed_points_on_line(target_obj['shifted_location'], target_obj['vector'].angle, target_obj['vector'].magnitude / 2)[0]
+                wo_wala_point = target_obj['connection_point']
                 msp.add_circle(wo_wala_point, 2); msp.add_mtext('wo_walla_point').set_location(wo_wala_point)
                 
                 left_end_reducer = directed_points_on_line(wo_wala_point,child_conn_rotation,child_edge_obj['start_trim'])[0]
                 # left_end_reducer = directed_points_on_line(target_obj['connection_point'],child_conn_rotation,child_edge_obj['start_trim'])[0]
                 msp.add_circle(left_end_reducer, 1, dxfattribs={'color': 1}); msp.add_mtext('left_end_reducer').set_location(left_end_reducer)
                 
+                child_connection_rotation_perpendicular_angle = find_perpendicular_slope_angle(target_obj['connection_point'], child_obj['shifted_location'])
                 end_extremes_reducer = directed_points_on_line(left_end_reducer, angle_per, child_edge_width/2)
                 start_extremes_reducer = end_extremes
                 msp.add_circle(start_extremes_reducer[0], 3, dxfattribs={'color': 3}); msp.add_mtext('SER1').set_location(start_extremes_reducer[0])
