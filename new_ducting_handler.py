@@ -187,7 +187,7 @@ def dfs_to_shift_locations(graph,head):
                         # msp.add_circle(per_point1, 10)
                         #msp.add_circle(per_point1,7,dxfattribs={"color":1})
                         
-                        current_node_obj['connection_point'] = directed_points_on_line(current_node_obj['shifted_location'],vec.angle,vec.magnitude/2)[0]
+                        current_node_obj['connection_point'] = directed_points_on_line(current_node_obj['shifted_location'],vec.angle,vec.magnitude)[0]
                         print('1')
 
                     elif is_between(per_point2,point1,point2):
