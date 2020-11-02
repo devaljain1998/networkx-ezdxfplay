@@ -191,6 +191,8 @@ def dfs_to_shift_locations(graph,head):
 
                     elif is_between(per_point2,point1,point2):
                         msp.add_mtext('Chosen Per-Point2').set_location(per_point2)
+                        print('Chosen Per-point2')
+                        print(dict(child_width=child_width, parent_width=parent_width))
                         msp.add_circle(per_point2, 10)
                         slant_start_point = point2
                         shift_direction = find_rotation(point2,per_point2)
@@ -664,7 +666,7 @@ def draw(graph,joint_defaults):
         connection_obj['start_trim'] = connection_obj.get('start_trim',0) #*(width/75)
 
         source_node,target_node = connection[0],connection[1]
-
+        
         source_obj,target_obj = graph.nodes[source_node],graph.nodes[target_node]
         
         # msp.add_line(source_obj['location'],target_obj['location'])
@@ -713,21 +715,24 @@ def draw(graph,joint_defaults):
                 print("QQQQQQQQQ")
                 print('Inside else of side-centre')
                 print(f'child_edge_width: {child_edge_width}')
-                child_conn_rotation = find_rotation(source_obj['connection_point'],target_obj['shifted_location'])*(math.pi/180)
+                child_conn_rotation = find_rotation(target_obj['connection_point'],child_obj['shifted_location'])*(math.pi/180)
+                
+                print('connection_rotation', connection_rotation, 'child_conn_rotation', child_conn_rotation)
 
                 wo_wala_point = directed_points_on_line(target_obj['shifted_location'], target_obj['vector'].angle, target_obj['vector'].magnitude / 2)[0]
-                # msp.add_circle(wo_wala_point, 2); msp.add_mtext('wo_walla_point').set_location(wo_wala_point)
+                msp.add_circle(wo_wala_point, 2); msp.add_mtext('wo_walla_point').set_location(wo_wala_point)
                 
                 left_end_reducer = directed_points_on_line(wo_wala_point,child_conn_rotation,child_edge_obj['start_trim'])[0]
-                # msp.add_circle(left_end_reducer, 1, dxfattribs={'color': 1}); msp.add_mtext('left_end_reducer').set_location(left_end_reducer)
+                # left_end_reducer = directed_points_on_line(target_obj['connection_point'],child_conn_rotation,child_edge_obj['start_trim'])[0]
+                msp.add_circle(left_end_reducer, 1, dxfattribs={'color': 1}); msp.add_mtext('left_end_reducer').set_location(left_end_reducer)
                 
                 end_extremes_reducer = directed_points_on_line(left_end_reducer, angle_per, child_edge_width/2)
                 start_extremes_reducer = end_extremes
-                # msp.add_circle(start_extremes_reducer[0], 3, dxfattribs={'color': 3}); msp.add_mtext('SER1').set_location(start_extremes_reducer[0])
-                # msp.add_circle(start_extremes_reducer[1], 3, dxfattribs={'color': 3}); msp.add_mtext('SER2').set_location(start_extremes_reducer[1])
+                msp.add_circle(start_extremes_reducer[0], 3, dxfattribs={'color': 3}); msp.add_mtext('SER1').set_location(start_extremes_reducer[0])
+                msp.add_circle(start_extremes_reducer[1], 3, dxfattribs={'color': 3}); msp.add_mtext('SER2').set_location(start_extremes_reducer[1])
                 
-                # msp.add_circle(end_extremes_reducer[0], 3, dxfattribs={'color': 5}); msp.add_mtext('EER1').set_location(end_extremes_reducer[0])
-                # msp.add_circle(end_extremes_reducer[1], 3, dxfattribs={'color': 5}); msp.add_mtext('EER2').set_location(end_extremes_reducer[1])
+                msp.add_circle(end_extremes_reducer[0], 3, dxfattribs={'color': 5}); msp.add_mtext('EER1').set_location(end_extremes_reducer[0])
+                msp.add_circle(end_extremes_reducer[1], 3, dxfattribs={'color': 5}); msp.add_mtext('EER2').set_location(end_extremes_reducer[1])
     
 
                 draw_collar_reducer(start_extremes_reducer,end_extremes_reducer)
