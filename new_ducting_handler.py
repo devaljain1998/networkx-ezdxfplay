@@ -686,11 +686,22 @@ def draw(graph,joint_defaults):
         #print(source_obj['vector'],target_obj['vector'])
         #parallel_point = directed_points_on_line(source_obj['connection_point'] ,source_obj['vector'].angle,source_obj['vector'].magnitude)[0]
         #msp.add_circle(source_obj['connection_point'],5,dxfattribs={'color':3})
-        
+                
         connection_rotation = find_rotation(source_obj['connection_point'],target_obj['shifted_location'])*(math.pi/180)
         #print(source_obj['location'],connection_rotation,graph.edges[connection]['start_trim']*FACTOR,'DIRECTED FUN PARAMETER')
         scale = (width)/75
-        start = directed_points_on_line(source_obj['connection_point'],connection_rotation,connection_obj['start_trim'])[0] #connection's start
+        
+        # PHIR NAYA JUGAAD:
+        if source_obj['type'] == 'reducer':
+            wo_wala_point = directed_points_on_line(source_obj['shifted_location'], source_obj['vector'].angle, source_obj['self_vector'].magnitude / 2)[0]
+            # wo_wala_point = target_obj['connection_point']
+            # wo_wala_point = target_obj['shifted_location']
+            
+            left_end_reducer = directed_points_on_line(wo_wala_point, connection_rotation, connection_obj['start_trim'])[0]
+            # new start
+            start = left_end_reducer#directed_points_on_line(left_end_reducer, connection_rotation, connection_obj['start_trim'])[0] 
+        else:
+            start = directed_points_on_line(source_obj['connection_point'], connection_rotation, connection_obj['start_trim'])[0] #connection's start
         end = directed_points_on_line(target_obj['shifted_location'],connection_rotation,connection_obj['end_trim'])[1] #connection's end
         # __debug_location(start, 'start')
         # __debug_location(end, 'end')
