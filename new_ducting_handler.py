@@ -202,12 +202,13 @@ def dfs_to_shift_locations(graph,head):
                         #msp.add_circle(per_point2,3,dxfattribs={"color":92})
                         vector =  Vector(per_point2) - Vector(point2) #ezdxf.math.Vector(per_point2)-ezdxf.math.Vector(point2)
                         current_node_obj['vector'] = parent_vector+vector
+                        current_node_obj['self_vector'] = vector
                         vec = current_node_obj['vector']
                         print(vec.magnitude,"MAGNITUDE",vec.magnitude/2)
                         current_node_obj['connection_point'] = directed_points_on_line(current_node_obj['location'],vec.angle,vec.magnitude)[0]
                         print('2')
                         pprint.pprint({'L': current_node_obj['location'], 'SL': current_node_obj['shifted_location'], 'CP': current_node_obj['connection_point']})
-                        
+                        __debug_location(point = current_node_obj['connection_point'], name = f"{vector.magnitude}", radius = 1, color = 4)
                     else:
                         print("No Between Points")
 
@@ -217,8 +218,8 @@ def dfs_to_shift_locations(graph,head):
 
         # FOR DEBUG of L, SL and CP:
         __debug_location(point = current_node_obj['location'], name = "L", radius = 1, color = 1)
-        __debug_location(point = current_node_obj['shifted_location'], name = "SL", radius = 1, color = 3)
-        __debug_location(point = current_node_obj['connection_point'], name = "CP", radius = 1, color = 4)        
+        __debug_location(point = current_node_obj['shifted_location'], name = f"SL", radius = 1, color = 3)
+        __debug_location(point = current_node_obj['connection_point'], name = f"CP", radius = 1, color = 4)        
     else:
         print("NONE PARENT")
         current_node_obj['vector'] = ezdxf.math.Vector(0,0,0)
@@ -728,9 +729,10 @@ def draw(graph,joint_defaults):
                 
                 print('connection_rotation', connection_rotation, 'child_conn_rotation', child_conn_rotation)
 
-                # wo_wala_point = directed_points_on_line(target_obj['shifted_location'], target_obj['vector'].angle, target_obj['vector'].magnitude / 2)[0]
+                wo_wala_point = directed_points_on_line(target_obj['shifted_location'], target_obj['vector'].angle, target_obj['self_vector'].magnitude / 2)[0]
                 # wo_wala_point = target_obj['connection_point']
-                wo_wala_point = target_obj['shifted_location']
+                # wo_wala_point = target_obj['shifted_location']
+                
                 msp.add_circle(wo_wala_point, 2); msp.add_mtext('wo_walla_point').set_location(wo_wala_point)
                 
                 left_end_reducer = directed_points_on_line(wo_wala_point,child_conn_rotation,child_edge_obj['start_trim'])[0]
