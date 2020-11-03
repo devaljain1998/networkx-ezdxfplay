@@ -185,10 +185,14 @@ def assign_side_trim_end_trim(graph: nx.DiGraph, joint_defaults: dict):
         
         out_degree = graph.out_degree(node)
         
-        if graph.nodes[node] == 'bend':
+        if graph.nodes[node]['type'] in ('bend', 'elbow'):
             # finding parent and child nodes
             parent_node = list(graph.predecessors(node))[0]
             child_node = list(graph.successors(node))[0]
+            
+            # finding parent and child edges
+            parent_edge = graph[parent_node][node]
+            child_edge = graph[node][child_node]
             
             # Making key for joint default
             joint_default_key = graph.nodes[node]['type'] + mirror if graph.nodes['mirror'] else ''
@@ -201,8 +205,97 @@ def assign_side_trim_end_trim(graph: nx.DiGraph, joint_defaults: dict):
             parent_edge['end_trim'] = intrim
             child_edge['start_trim'] = outtrim
             
-        elif graph.nodes[node] == 't':
+        elif graph.nodes[node]['type'] == 'reducer':
+            # finding parent and child nodes
+            parent_node = list(graph.predecessors(node))[0]
+            child_node = list(graph.successors(node))[0]
             
+            # finding parent and child edges
+            parent_edge = graph[parent_node][node]
+            child_edge = graph[node][child_node]
+            
+            # Calculating the intrim and outtrim
+            width_of_parent_edge = parent_edge['size'].split()
+            width_of_reducer = None
+            
+            
+        elif graph.nodes[node]['type'] == 't':
+            # finding parent and child nodes
+            parent_node = list(graph.predecessors(node))[0]
+            child_nodes = list(graph.successors(node))
+            
+            # finding parent and child edges
+            parent_edge = graph[parent_node][node]
+            
+            point = graph.nodes[node]['location']
+            from_point = graph.nodes[parent_node]['location']
+            
+            # Find on which node we need to attach collar
+            collar_node = None
+            for child_node in child_nodes:
+                to_point = graph.nodes[child_node]['location']
+                angle = find_angle(from_point, point, to_point)
+                if (math.pi/2 - 0.1 < angle < math.pi/2 + 0.1) or (3*math.pi/2 - 0.1 < angle < 3*math.pi/2 + 0.1):
+                    collar_node = child_node
+                    break
+                
+            # Now attach intrim and outtrim of collar
+            child_edge = graph[node][collar_node]
+            
+            def get_outtrim():
+                width = float(parent_edge['size'].split('x')[1])
+                return width
+            outtrim = get_outtrim()
+            
+            # Now finding the start and out trims of each edges
+            parent_edge['end_trim'] = 0
+            child_edge['start_trim'] = outtrim
+            
+        elif graph.nodes[node]['type'] == 'special t':
+            pass
+        
+        elif graph.nodes[node]['type'] == 'cross':
+            # finding parent and child nodes
+            parent_node = list(graph.predecessors(node))[0]
+            child_nodes = list(graph.successors(node))
+            
+            # finding parent and child edges
+            parent_edge = graph[parent_node][node]
+            
+            point = graph.nodes[node]['location']
+            from_point = graph.nodes[parent_node]['location']
+
+            # Fetching collar nodes
+            collar_nodes = []
+            for child_node in child_nodes:
+                to_point = graph.nodes[child_node]['location']
+                angle = find_angle(from_point, point, to_point)
+                if (math.pi/2 - 0.1 < angle < math.pi/2 + 0.1) or (3*math.pi/2 - 0.1 < angle < 3*math.pi/2 + 0.1):
+                    collar_nodes.append(child_node)
+                
+            # Collar nodes should be exactly two otherwise raising exception for this.
+            if len(collar_nodes) != 2:
+                raise ValueError(f'Exception: Their should be two collar nodes in three-way duct for proper assignment of start trim and end trim. Exception occured for node: {graph.nodes[node]}.')
+            
+            # Marking end_trim
+            parent_edge['end_trim'] = 0
+            
+            def get_outtrim():
+                width = float(parent_edge['size'].split('x')[1])
+                return width
+            outtrim = get_outtrim()
+
+            # Finding child_edges and modifying the outtrim if they are perpendicular 
+            for child_node in child_nodes:
+                to_point = graph.nodes[child_node]['location']
+                angle = find_angle(from_point, point, to_point)
+                
+                if (math.pi/2 - 0.1 < angle < math.pi/2 + 0.1) or (3*math.pi/2 - 0.1 < angle < 3*math.pi/2 + 0.1):
+                    child_edge = graph[node][child_node]
+                    child_edge['start_trim'] = outtrim
+                else:
+                    child_edge['start_trim'] = 0
+
 
 def update_graph_properties(graph: nx.DiGraph, joint_defaults: dict):
     """The function is used to update the graph properties for ease in drawing the ducting.
@@ -308,16 +401,17 @@ def update_graph_properties(graph: nx.DiGraph, joint_defaults: dict):
                 from_point = graph.nodes[parent_node]['location']
 
                 graph.nodes[node]['type'] = 'cross'
-
-
-
+                
+                
+        
+        # Updating intrims and outtrims of graph also
+        assign_side_trim_end_trim(graph, joint_defaults)
+        return
 
 
 def clean_other_json_properties(json):
     pass
 
-def draw_ductings(graph: nx.DiGraph):
-    pass
 
 def draw_graph(directed_graph):
     plt.figure(figsize =(10,10))
@@ -325,6 +419,42 @@ def draw_graph(directed_graph):
     plt.axis('off')
     plt.tight_layout();
     plt.savefig('graph_image.jpg')
+
+def draw_bend():
+    pass
+def draw_reducer():
+    pass
+def draw_elbow():
+    pass
+def draw_t():
+    pass
+def draw_special_t():
+    pass
+def draw_cross():
+    pass
+        
+
+def draw_ductings(graph: nx.DiGraph):
+    """This function draws ducting from the updated graph
+
+    Args:
+        graph (nx.DiGraph): It is the updated through the 'update_graph_properties' function.
+    """    
+    for node in graph.nodes():
+        in_degree = graph.in_degree(node)
+        out_degree = graph.out_degree(node)
+        
+        if out_degree == 1:
+            # Draw the Bend or Reducer or Elbow case
+            ducting_types = {'bend': draw_bend, 'reducer': draw_reducer, 'elbow': draw_elbow}
+        elif out_degree == 2:
+            # Draw the 't' or 'special t' cases
+            ducting_types = {'t': draw_t, 'special t': draw_special_t}
+        elif out_degree == 3:
+            # Draw the 'cross' case
+            ducting_types = {'cross': draw_cross}
+            
+    print('Ducting drawings success!')
 
 # Logic:
 PRIORITY_LIST = ['CS unit']

@@ -87,6 +87,8 @@ def add_text_to_connection(connection, connection_start, connection_end, params:
 
     # Cleaning text:
     text = connection['text']
+    if text is None:
+        return
     text = get_cleaned_text(text)
 
     # Get conversion factor:

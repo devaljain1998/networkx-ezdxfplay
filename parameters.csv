@@ -1,0 +1,26 @@
+Parameter,Value
+ProjectFolder,/
+BeamLayer,BEAM
+ArrowMaxLength,600
+TextMaxLength,1000
+ConnectionMinLength,"{'drainage':250,'watersupply':250,'conduiting':250,'chiller':250,'sprinkler':250,'piping':250,'ducting':250}"
+HotWater,No
+RoomHeight,3000
+WallThickness,115
+CeilingThickness,150
+FloorThickness,150
+FalseCeilingHeight,2700
+SideDistanceElevations,1500
+VeticalGapElevations,1500
+HorizontalGapElevations,2100
+WidthForDoublePoints,200
+behindWall,55
+MultibackPoints db,15
+MultibackPoints lv rack,11
+MultibackPoints epbx,10
+MultibackPoints nvr,10
+MultibackPoints gully trap chamber,11
+MultibackPoints inspection chamber,15
+MultibackPoints rainwater chamber,15
+ceilingRange,2.5:6:10:12:2.5:6:0:0
+wallRange,4:6:10:12:4:6:18:20

@@ -138,8 +138,8 @@ def dfs_to_shift_locations(graph,head):
         angle_per = find_perpendicular_slope_angle(parent_node_obj['location'],location)
         parent_vector = parent_node_obj['vector']
 
-        shift_amount, shift_direction = parent_vector.magnitude,parent_vector.angle_deg
-        current_node_obj['shifted_location'] = directed_points_on_line(location,shift_direction*(math.pi/180),shift_amount)[0]
+        shift_amount, shift_direction = parent_vector.magnitude,parent_vector.angle
+        current_node_obj['shifted_location'] = directed_points_on_line(location,shift_direction,shift_amount)[0]
         current_node_obj['vector'] = parent_vector
         current_node_obj['connection_point'] = current_node_obj['shifted_location']
         
@@ -728,9 +728,10 @@ def draw(graph,joint_defaults):
                 
                 print('connection_rotation', connection_rotation, 'child_conn_rotation', child_conn_rotation)
 
-                wo_wala_point = directed_points_on_line(target_obj['shifted_location'], target_obj['vector'].angle, target_obj['vector'].magnitude / 2)[0]
+                # wo_wala_point = directed_points_on_line(target_obj['shifted_location'], target_obj['vector'].angle, target_obj['vector'].magnitude / 2)[0]
                 # wo_wala_point = target_obj['connection_point']
-                # msp.add_circle(wo_wala_point, 2); msp.add_mtext('wo_walla_point').set_location(wo_wala_point)
+                wo_wala_point = target_obj['shifted_location']
+                msp.add_circle(wo_wala_point, 2); msp.add_mtext('wo_walla_point').set_location(wo_wala_point)
                 
                 left_end_reducer = directed_points_on_line(wo_wala_point,child_conn_rotation,child_edge_obj['start_trim'])[0]
                 # left_end_reducer = directed_points_on_line(target_obj['connection_point'],child_conn_rotation,child_edge_obj['start_trim'])[0]

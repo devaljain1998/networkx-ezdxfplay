@@ -1,0 +1,324 @@
+Block name,block type,auto_up,mirror,target point x,target point y,target point z,intrim,outtrim,sidetrim,short name,Service,is_elevation,colour,independent value
+PP-YTEE,Ytee,,NO,-591.59,2364.3,0,151.51,63.94,149.32,Y,drainage,,blue,YES
+PP-SWEPTTEE,Swept tee,,NO,-662.94,2135.58,0,80.16,135.3,119.76,ST,drainage,,blue,YES
+PP-SHOE,Shoe,,NO,-617.01,13647.83,0,75.67,69.13,,S,drainage,,blue,YES
+PP-DOUBLE SHOE,Double Shoe,,NO,-650.52,13216.6,0,171.29,177.82,,DS,drainage,,blue,YES
+PP-BEND 90,Bend(90),,NO,-649.98,12918.21,0,93.96,99.55,,B,drainage,,blue,YES
+PP-SINGLE TEE,Single tee,,NO,-591.27,1184.23,0,107.73,107.73,107.73,T,drainage,,blue,YES
+PP-DOUBLE Y TEE,Double Y tee,,NO,-527.05,925.14,0,151.51,63.94,,DYT,drainage,,blue,YES
+PP-CROSS TEE,Cross tee,,NO,-552.14,630,0,107.73,107.73,107.73,CT,drainage,,blue,YES
+PP-TEEUP,Tee up,,NO,-629.89,4145.49,0,0,0,,TUP,drainage,,blue,YES
+PP-YTEE UP,Ytee up,,NO,-636.47,4487.63,0,0,0,,YTUP,drainage,,blue,YES
+PP-P TRAP,P-trap,,NO,-608.45,11535.19,0,52.33,91.57,,P.T.,trap,,blue,YES
+PP-S TRAP,S-trap,,NO,-608.76,11179.15,0,52.33,91.57,,S.T.,trap,,blue,YES
+PP-Q TRAP,Q-trap,,NO,-608.76,10856.26,0,52.33,91.57,,Q.T.,trap,,blue,YES
+PP-MULTI TRAP,Multi trap,,NO,-567.03,-148.35,0,67.1,91.5,,M.T.,trap,,blue,YES
+PP-NAHANI TRAP,Nahani trap,,NO,-594.11,10151.77,0,52.33,91.57,,N.T.,trap,,blue,YES
+PP-WB W TOP,wb wall top,,NO,0,0,0,0,0,,,drainage,,blue,YES
+PP-UR W TOP,ur wall top,,NO,0,0,0,0,0,,,drainage,,blue,YES
+PP-SINKW TOP,sink wall top,,NO,0,0,0,0,0,,,drainage,,blue,YES
+PP-SHOWER BEND,Shower bend,,NO,0,0,0,52.33,91.57,,S.Bend,trap,,blue,YES
+PP-BT,bottle trap,,NO,-572.96,3388.67,0,0,0,,B.T.,trap,,blue,YES
+PP-URBACK,urinal back,,NO,-572.96,3070.02,0,0,0,,URB,drainage,,blue,YES
+PP-WC CONNECTOR BEND,WC connector bend,,NO,-101.14,0,0,0,101.25,,WCB,drainage,,blue,YES
+PP-COP CEILING,COP Ceiling,,NO,-541.94,-636.88,0,24.19,24.19,,COP,drainage,,blue,YES
+PP-COP FLOOR,COP Floor,,NO,-534.46,-845.6,0,37.5,37.5,,COP,drainage,,blue,YES
+PP-COUPLER,Coupler,,NO,-531.93,-746.07,0,43.93,43.93,,C,drainage,,blue,YES
+PP-SLEEVE,sleeve,,NO,-538.62,8373.73,0,110.3,110.3,,SL,all,,magenta,YES
+PP-WBBACK,wb back,,NO,-572.96,3774.41,0,0,0,,WBB,drainage,,blue,YES
+PP-GRATING,SS grating,,NO,0,0,0,0,0,,GR,drainage,,blue,YES
+PP-YTEE R160-110,Ytee reducer 160-110,,NO,-4141.9,14486.97,0,289.22,170.42,276.04,Y 160-110,drainage,,blue,
+PP-YTEE R160-75,Ytee reducer 160-75,,NO,-491.35,7277.15,0,264.47,195.17,229.14,Y 160-75,drainage,,blue,
+PP-YTEE R110-75,Ytee reducer 110-75,,NO,-473.38,6919.33,0,198.39,117.61,189.37,Y 110-75,drainage,,blue,
+PP-TEE R110-75,Single tee reducer 110-75,,NO,-542.08,6572.82,0,158,158,136.74,T 110-75,drainage,,blue,
+PP-TEE R160-75,Single tee reducer 160-75,,NO,-541.09,6219.82,0,229.82,229.82,174.2,T 160-75,drainage,,blue,
+PP-TEE R160-110,Single tee reducer 160-110,,NO,-543.11,5845.46,0,229.82,229.82,194.16,T 160-110,drainage,,blue,
+PP-STEE R110-75,Swept tee reducer 110-75,,NO,-591.45,5500.03,0,117.57,198.43,150.9,ST 110-75,drainage,,blue,
+PP-STEE R160-75,Swept tee reducer 160-75,,NO,-631.93,5161.16,0,149.84,309.8,175.9,ST 160-75,drainage,,blue,
+PP-STEE R160-110,Swept tee reducer 160-110,,NO,-639.89,4789.69,0,167.34,292.3,198.49,ST 160-110,drainage,,blue,
+PP-Y TEE MIRROR,Ytee,,YES,563.73,14333.09,0,151.51,63.94,149.32,,drainage,,blue,
+PP-SWEPTTEE MIRROR,Swept tee,,YES,491.37,13985.76,0,80.16,135.3,119.76,,drainage,,blue,
+PP-SHOE MIRROR,Shoe,,YES,0,0,0,75.67,69.13,,,drainage,,blue,
+PP-DOUBLE SHOE MIRROR,Double Shoe,,YES,460.39,13334.06,0,171.29,177.82,,,drainage,,blue,
+PP-BEND 90 MIRROR,Bend(90),,YES,462.16,12946.47,0,99.55,93.96,,,drainage,,blue,
+PP-SINGLE TEE MIRROR,Single tee,,YES,600.23,12558.59,0,107.73,107.73,,T,drainage,,blue,
+PP-YTEE R160-110 MIRROR,Ytee reducer 160-110,,YES,529.26,7697.83,0,289.21,170.42,276.04,,drainage,,blue,
+PP-YTEE R160-75 MIRROR,Ytee reducer 160-75,,YES,526.47,7345.88,0,264.47,197.17,235.95,,drainage,,blue,
+PP-YTEE R110-75 MIRROR,Ytee reducer 110-75,,YES,515.7,6981.43,0,198.39,117.61,199.32,,drainage,,blue,
+PP-TEE R110-75 MIRROR,Single tee reducer 110-75,,YES,503.25,6630.36,0,158,158,136.74,,drainage,,blue,
+PP-TEE R160-75 MIRROR,Single tee reducer 160-75,,YES,528.23,6304.86,0,229.82,229.82,174.2,,drainage,,blue,
+PP-TEE R160-110 MIRROR,Single tee reducer 160-110,,YES,529.73,5943.1,0,229.82,229.82,194.16,,drainage,,blue,
+PP-STEE R110-75 MIRROR,Swept tee reducer 110-75,,YES,496.15,5583.9,0,117.57,198.43,150.9,,drainage,,blue,
+PP-STEE R160-75 MIRROR,Swept tee reducer 160-75,,YES,493.89,5229.45,0,149.84,309.8,175.9,,drainage,,blue,
+PP-STEE R160-110 MIRROR,Swept tee reducer 160-110,,YES,546.19,4883.15,0,167.34,292.3,198.49,,drainage,,blue,
+PP-BEND 90 WS,Bend 90,,NO,-550.19,-2151.24,0,94.34,94.34,,B,watersupply,,blue,YES
+PP-SINGLE TEE WS,Single tee,,NO,-623.15,-2379.26,0,94.45,94.45,87.82,T,watersupply,,blue,YES
+PP-CROSS TEE WS,Cross tee,,NO,-592.81,-2717.77,0,87.82,87.82,87.82,CT,watersupply,,blue,YES
+PP-COUPLER,Coupler,,NO,-531.93,-746.07,0,43.93,43.93,,C,watersupply,,blue,YES
+PP-END CAP,End cap,,NO,4711.19,12575.65,0,18.83,0,,END,watersupply,,blue,YES
+PP-BALL VALVE,Ball valve,,NO,-574.16,-3733.63,0,72.71,77.21,,BV,watersupply,,blue,YES
+PP-BUTTERFLY VALVE,butterfly valve,,NO,-546.06,-3923.44,0,72.71,77.21,,BTV,watersupply,,blue,YES
+PP-PRV,PRV,,NO,-539.17,-4252.52,0,56.24,56.24,,PRV,watersupply,,blue,YES
+PP-GLOBE VALVE,Globe valve,,NO,15488.18,-3702.68,0,46.78,46.78,,GV,watersupply,,blue,YES
+PP-GATE VALVE,Gate valve,,NO,15498.15,-4157.46,0,53.75,53.75,,GATEV,watersupply,,blue,YES
+PP-NRV,NRV,,NO,15490.81,-3989.02,0,46.78,46.78,,NRV,watersupply,,blue,YES
+PP-PUMP,Pump,,NO,15498.53,-4668.84,0,37.5,37.5,,P,watersupply,,blue,YES
+PP-COLD,cold tap,yes,NO,4760.59,9697.11,0,0,0,,COLD,watersupply,,blue,YES
+PP-HOT,hot tap,yes,NO,4760.59,9342.58,0,0,0,,HOT,watersupply,,red,YES
+PP-REUSE,reuse tap,yes,NO,4760.59,8988.05,0,0,0,,REUSE,watersupply,,blue,YES
+PP-BEND WS MIRROR,Bend 90,,YES,5820.02,13994.58,0,94.34,94.34,,B,watersupply,,blue,
+PP-SINGLE TEE WS MIRROR,Single tee,,YES,5807.47,13670.94,0,94.45,94.45,87.82,T,watersupply,,blue,
+PP-END CAP MIRROR,End cap,,YES,5809.8,12575.65,0,18.83,0,,END,watersupply,,blue,
+PP-NRV MIRROR,NRV,,YES,16749.6,-4447.69,0,46.78,46.78,,NRV,watersupply,,blue,
+PP-PUMP MIRROR,Pump,,YES,16688,-4668.23,0,37.5,37.5,,P,watersupply,,blue,
+PP-BALL VALVE E,Ball valve,,NO,18783.2,-4129.62,0,81.69,81.69,,BV,watersupply,YES,blue,YES
+PP-BUTTERFLY VALVE E,butterfly valve,,NO,19044.96,-4139.57,0,94.38,94.38,,BTV,watersupply,YES,blue,YES
+PP-GLOBE VALVE E,Globe valve,,NO,14699.21,-3693.97,0,101.14,101.14,,GV,watersupply,YES,blue,YES
+PP-GATE VALVE E,Gate valve,,NO,18688.48,-3836.28,0,53.75,53.75,,GATEV,watersupply,YES,blue,YES
+PP-8 WAY BOX,fan box,,NO,-1025.88,-6354.33,0,37.5,37.5,,FB,conduiting,,orange,YES
+PP-4 WAY BOX,4-way box,yes,NO,-1022.62,-6597.45,0,37.5,37.5,,4B,conduiting,,orange,YES
+PP-3 WAY BOX,3-way box,yes,NO,-1027.78,-6835.69,0,37.5,37.5,,3B,conduiting,,orange,YES
+PP-2 WAY BOX,2-way box,yes,NO,-1028.36,-7015.24,0,37.5,37.5,,2B,conduiting,,orange,YES
+PP-BEND,bend,,NO,9292.72,12622.81,0,88.21,88.21,,B,conduiting,,black,YES
+PP-BEND MIRROR,bend,,YES,10578.5,12622.81,0,88.21,88.21,,B,conduiting,,black,
+PP-Without regulator-Raw-1 way-2,one way switch-2M,,NO,9345.48,12156.07,0,,,,,elevation,,black,
+PP-Without regulator-Raw-1 way-1,one way switch-1M,,NO,9390.33,11796.59,0,,,,,elevation,,black,
+PP-Without regulator-Raw-2 way-1,two way switch-1M,,NO,9390.33,11442.06,0,,,,,elevation,,black,
+PP-Without regulator-Raw-2 way-2,two way switch-2M,,NO,9345.48,11105.69,0,,,,,elevation,,black,
+PP-Without regulator-UPS-1 way-1,one way switch-2M,,NO,9390.33,10709.92,0,,,,,elevation,,black,
+PP-Without regulator-UPS-1 way-2,one way switch-1M,,NO,9345.48,10360.34,0,,,,,elevation,,black,
+PP-Without regulator-UPS-2 way-1,two way switch-1M,,NO,9390.33,10000.86,0,,,,,elevation,,black,
+PP-Without regulator-UPS-2 way-2,two way switch-2M,,NO,9345.48,9664.49,0,,,,,elevation,,black,
+PP-Only regulator-Raw-1 way-1,one way regulator fan-1M,,NO,9385.57,9308.17,0,,,,,elevation,,black,
+PP-Only regulator-Raw-1 way-2,one way regulator fan-2M,,NO,9364.17,8916.49,0,,,,,elevation,,black,
+PP-CEILING PENDANT,ceiling pendant,,NO,-1078.23,-10730.14,0,,,,CP,sprinkler,,red,YES
+PP-WALL PENDANT,wall pendant,,NO,-1084.42,-10940.68,0,,,,WP,sprinkler,,red,YES
+PP-UPRIGHT,upright,,NO,13690.48,13277.82,0,,,,UP,sprinkler,,red,YES
+PP-WL,wall light,,NO,2837.51,20925.41,0,,,,WL,elevation,,black,
+PP-AC,ac,,NO,-798.16,29014.13,0,,,,AC,elevation,,black,
+PP-TL,tubelight,,NO,3970.99,20883.32,0,,,,TL,elevation,,black,
+PP-WFN,wall fan,,NO,3532.03,26209.03,0,,,,WFN,elevation,,black,
+PP-ML,mirror light,,NO,2874.43,20550.41,0,,,,ML,elevation,,black,
+PP-SWITCH BOARD P,switchboard,,NO,29365.96,10888.06,0,,,,SB,plan,,black,
+PP-EX,exhaust,,NO,3795.55,24480.91,0,,,,EX,elevation,,black,
+PP-GY,geyser,,NO,790.99,29062.93,0,,,,GY,elevation,,black,
+PP-TV,tv,,NO,426.58,20820.44,0,,,,TV,elevation,,black,
+PP-DB,db,,NO,5310.43,20614.5,0,,,,DB,elevation,,black,
+PP-LV ,lv rack,,NO,4030.29,16999.13,0,,,,LV rack,elevation,,black,
+PP-EPBX,epbx,,NO,5116.62,17071.12,0,,,,EPBX,elevation,,black,
+PP-MB,meter box,,NO,5118.42,18280,0,,,,MB,elevation,,black,
+PP-WCW,wc wall,,NO,813.03,26757.54,0,,,,WCW,elevation,,blue,
+PP-WCF,wc floor,,NO,-1296.01,26605.12,0,,,,WCF,elevation,,blue,
+PP-WCI,wc indian,,NO,-2187,26874.84,0,,,,WCI,elevation,,blue,
+PP-WBW,wb wall,,NO,-2082.31,20528.83,0,,,,WBW,elevation,,blue,
+PP-WBF,wb floor,,NO,-2082.31,19020.96,0,,,,WBF,elevation,,blue,
+PP-SHOWER,shower,,NO,2437.58,27830.91,0,,,,SH,elevation,,blue,
+PP-URW E,urinal wall,,NO,-3.09,-226.65,0,,,,URW,elevation,,blue,
+PP-URF E,urinal floor,,NO,-3.09,-226.65,0,,,,URF,elevation,,blue,
+PP-SINK W E,sink wall,,NO,0,-222.42,0,,,,SINK W,elevation,,blue,
+PP-SINK F E,sink floor,,NO,0,-222.42,0,,,,SINK F,elevation,,blue,
+PP-HF,health faucet,,NO,402.31,26836.7,0,,,,HF,elevation,,blue,
+PP-BATHTUB,bathtub,,NO,597.12,25121.72,0,,,,BATH,elevation,,blue,
+PP-NVR BACK,nvr back,,NO,0,0,0,,,,NVR,conduiting,,navy,YES
+PP-DBBACK,db back,yes,NO,-572.96,2710.83,0,,,,DBB,conduiting,,navy,YES
+PP-SBBACK,sb back,yes,NO,-572.96,2325.08,0,,,,SBB,conduiting,,navy,YES
+PP-MBBACK,mb back,yes,NO,-572.96,2006.44,0,,,,MBB,conduiting,,navy,YES
+PP-LVBACK,lv back,yes,NO,-572.96,1616.03,0,,,,LVB,conduiting,,navy,YES
+PP-EPBXBACK,epbx back,yes,NO,-572.96,1297.38,0,,,,EPBXB,conduiting,,navy,YES
+PP-UPBEND,up bend watersupply,,NO,4523.14,8369.48,0,57.79,0,,BEND,watersupply,,blue,YES
+PP-UPCONDUIT,up bend conduiting,,NO,9462.87,6801.17,0,57.79,0,,BEND,conduiting,,black,YES
+PP-Only regulator-Raw-2 way-1,two way regulator fan-1M,,NO,9385.57,8599.12,0,,,,,elevation,,black,
+PP-Only regulator-Raw-2 way-2,two way regulator fan-2M,,NO,9364.17,8207.44,0,,,,,elevation,,black,
+PP-Only regulator-UPS-1 way-1,one way regulator fan-1M,,NO,9385.57,7890.06,0,,,,,elevation,,black,
+PP-Only regulator-UPS-1 way-2,one way regulator fan-2M,,NO,9364.17,7498.38,0,,,,,elevation,,black,
+PP-Only regulator-UPS-2 way-1,two way regulator fan-1M,,NO,9385.57,7181,0,,,,,elevation,,black,
+PP-Only regulator-UPS-2 way-2,two way regulator fan-2M,,NO,9364.17,6789.32,0,,,,,elevation,,black,
+PP-Data-1,data socket-1M,,NO,9378.06,6422.74,0,,,,,elevation,,black,
+PP-Raw-Power socket with switch-3,power socket witch switch-3M,,NO,9332.5,6065.31,0,,,,,elevation,,black,
+PP-Raw-AC-1,AC switch-1M,,NO,9390.33,5747.47,0,,,,,elevation,,black,
+PP-Raw-AC-2,AC switch-2M,,NO,9345.48,5373.85,0,,,,,elevation,,black,
+PP-TV Co-Axial-1,TV co-axial-1M,,NO,9378.06,4981.54,0,,,,,elevation,,black,
+PP-Raw-Power socket-2,power socket-2M,,NO,9347.89,4651.4,0,,,,,elevation,,black,
+PP-Telephone-1,telephone socket-1M,,NO,9394.7,4359.99,0,,,,,elevation,,black,
+PP-UPS-Power socket with switch-3,power socket witch switch-3M,,NO,9332.5,3608.59,0,,,,,elevation,,black,
+PP-UPS-AC-1,AC switch-1M,,NO,9390.33,3289.79,0,,,,,elevation,,black,
+PP-UPS-AC-2,AC switch-2M,,NO,9345.48,2917.14,0,,,,,elevation,,black,
+PP-UPS-Power socket-2,power socket-2M,,NO,9347.89,2194.68,0,,,,,elevation,,black,
+PP-With regulator-Raw-1 way-2,one way fan-2M,,NO,9332.03,1533.52,0,,,,,elevation,,black,
+PP-With regulator-UPS-1 way-2,one way fan-2M,,NO,9332.03,1178.99,0,,,,,elevation,,black,
+PP-With regulator-UPS-2 way-2,two way fan-2M,,NO,9332.03,824.46,0,,,,,elevation,,black,
+PP-With regulator-Raw-1 way-3,one way fan-3M,,NO,0,0,0,,,,,elevation,,black,
+PP-With regulator-UPS-2 way-3,two way fan-3M,,NO,9310.63,-676.97,0,,,,,elevation,,black,
+PP-With regulator-Raw-2 way-3,two way fan-3M,,NO,9310.63,-1031.5,0,,,,,elevation,,black,
+PP-blank-1,blank-1M,,NO,9384.54,-1428.9,0,,,,,elevation,,black,
+PP-POINTER,pointer,,NO,0,0,0,,,,,draw,,black,YES
+PP-With regulator-Raw-2 way-2,two way fan-3M,,NO,9332.03,423.77,0,,,,,elevation,,black,
+PP-With regulator-UPS-1 way-3,one way fan-3M,,NO,9310.63,-322.44,0,,,,,elevation,,black,
+PP-GTBACK,gt back,,NO,0,0,0,0,0,,GTB,drainage,,blue,YES
+PP-ICBACK,ic back,,NO,0,0,0,0,0,,ICB,drainage,,blue,YES
+PP-RWCBACK,rwc back,,NO,0,0,0,0,0,,RWCB,drainage,,blue,YES
+PP-ARROW,arrow,,NO,0,5.36,0,,,,,draw,,black,YES
+PP-WBCOLD,cold tap wash basin,yes,NO,4760.59,7855.31,0,0,0,,,watersupply,,blue,YES
+PP-WBHOT,hot tap wash basin,yes,NO,4760.59,7520.89,0,0,0,,,watersupply,,red,YES
+PP-WCCOLD,cold tap cistern,yes,NO,4760.59,7144.66,0,0,0,,,watersupply,,blue,YES
+PP-GYCOLD,cold tap geyser,yes,NO,4760.59,6790.13,0,0,0,,,watersupply,,blue,YES
+PP-GYHOT,hot tap geyser,yes,NO,4760.59,6412.52,0,0,0,,,watersupply,,red,YES
+PP-HEALTH FAUCET COLD,cold tap health faucet,yes,NO,0,0,0,,,,,watersupply,,blue,YES
+PP-SHCOLD,cold tap shower,yes,NO,4760.59,6057.99,0,0,0,,,watersupply,,blue,YES
+PP-SHHOT,hot tap shower,yes,NO,4760.59,5680.37,0,0,0,,,watersupply,,red,YES
+PP-URCOLD,cold tap urinal,yes,NO,4760.59,5325.84,0,0,0,,,watersupply,,blue,YES
+PP-BATHCOLD,cold tap bathtub,yes,NO,4760.59,4948.23,0,0,0,,,watersupply,,blue,YES
+PP-BATHHOT,hot tap bathtub,yes,NO,4760.59,4570.62,0,0,0,,,watersupply,,red,YES
+PP-SINK HOT,hot tap sink,yes,NO,0,0,0,,,,,watersupply,,red,YES
+PP-SINK COLD,cold tap sink,yes,NO,0,0,0,,,,,watersupply,,blue,YES
+PP-SHORT BEND,short bend,,NO,13718.28,12994.24,0,94.34,94.34,,,sprinkler,,red,YES
+PP-LONG BEND,long bend,,NO,13718.28,12639.71,0,183.11,183.11,,,sprinkler,,red,YES
+PP-ELBOW FIRE,elbow,,NO,13724.92,12241.39,0,72.37,72.37,,,sprinkler,,red,YES
+PP-SINGLE TEE FIRE,single tee,,NO,13717.6,11929.92,0,94.45,94.45,87.82,,sprinkler,,red,YES
+PP-SOCKET FIRE,socket,,NO,13796.07,11514.08,0,44.96,43.15,134.87,,sprinkler,,red,YES
+PP-SOCKET FIRE MIRROR,socket,,YES,14928.28,11454.84,0,44.96,43.15,134.87,,sprinkler,,red,YES
+PP-REDUCING TEE,reducing tee,,NO,13717.6,11220.86,0,94.45,94.45,87.82,,sprinkler,,red,YES
+PP-CROSS TEE FIRE,cross tee,,NO,13749.67,10800.92,0,87.82,87.82,94.45,,sprinkler,,red,YES
+PP-FLANGE,flanges,,NO,13747.74,10452.21,0,20,20,,,sprinkler,,red,YES
+PP-BUTTERFLY VALVE FIRE,butterfly valve,,NO,13821.73,10098.86,0,72.71,72.71,,,sprinkler,,red,YES
+PP-BALL VALVE  FIRE,ball valve,,NO,13806.82,9700.99,0,72.71,77.21,,,sprinkler,,red,YES
+PP-Y STRAINER FIRE,y-strainer,,NO,13826.11,9309.3,0,151.39,37.94,,,sprinkler,,red,YES
+PP-GLOBE VALVE FIRE,globe valve,,NO,13826.76,8986.07,0,46.26,46.26,,,sprinkler,,red,YES
+PP-RUBBER EXPANSION BELLOWS,rubber expansion bellows,,NO,13818.39,8650.4,0,43.18,43.18,,,sprinkler,,red,YES
+PP-FLOW SWITCH,flow switch,,NO,13785.5,8314.14,0,94.45,94.45,,,sprinkler,,red,YES
+PP-PRESSURE GUAGE,pressure gauge,,NO,13766.46,7940,0,37.5,37.5,,,sprinkler,,red,YES
+PP-AUTOMATIC AIR VENT VALVE,automatic air vent valve,,NO,13759.51,7559.81,0,46.26,46.26,,,sprinkler,,red,YES
+PP-SHORT BEND MIRROR,short bend,,YES,14966.02,12907.94,0,94.34,94.34,,,sprinkler,,red,
+PP-LONG BEND MIRROR,long bend,,YES,14961.66,12540.25,0,183.11,183.11,,,sprinkler,,red,
+PP-ELBOW FIRE MIRROR,elbow,,YES,14875.69,12223.12,0,72.37,72.37,,,sprinkler,,red,
+PP-SINGLE TEE FIRE MIRROR,single tee,,YES,14937.83,11862.29,0,94.45,94.45,87.82,,sprinkler,,red,
+PP-REDUCING TEE MIRROR,reducing tee,,YES,14917.74,11166.65,0,94.45,94.45,87.82,,sprinkler,,red,
+PP-FLANGE E,flages,,NO,16083.12,10444.19,0,,,,,sprinkler,YES,red,YES
+PP-BUTTERFLY VALVE FIRE E,butterfly valve,,NO,16109.17,10030.53,0,87.86,69.56,,,sprinkler,YES,red,YES
+PP-BALL VALVE  FIRE E,ball valve,,NO,16073,9720.32,0,87.74,75.64,,,sprinkler,,red,YES
+PP-Y STRAINER FIRE MIRROR,y-strainer ,,YES,15003.45,9367.74,0,151.39,37.94,,,sprinkler,,red,
+PP-GLOBE VALVE FIRE E,globe valve ,,NO,16127.34,8900.75,0,90.91,90.91,,,sprinkler,YES,red,YES
+PP-FLOW SWITCH MIRROR,flow switch,,YES,14938.48,8211.21,0,94.45,94.45,,,sprinkler,,red,
+PP-SP ARROW,Sp arrow,,NO,0,0,0,,,,,sprinkler,,green,
+PP-REFINET,refinet,,NO,18896.18,14051.83,0,1056.09,0,214.7,,piping,,red,YES
+PP-BEND COPPER,bend,,NO,18418.92,13332.28,0,106.09,106.09,,,piping,,red,YES
+PP-REFINET S,refinet tee,,NO,18896.18,12810.15,0,1056.09,0,214.7,,piping,,red,
+PP-REFINET S MIRROR,refinet tee,,YES,20101.33,12717.71,0,1056.09,0,214.7,,piping,,red,
+PP-REFINET MIRROR,refinet,,YES,20101,13840.69,0,1056.09,0,214.7,,piping,,red,
+PP-BEND COPPER MIRROR,bend,,YES,19706.26,13283.69,0,106.09,106.09,,,chiller,,black,
+PP-SHORT BEND CH,short bend,,NO,23042.71,12998.77,0,94.34,94.34,,,chiller,,black,YES
+PP-LONG BEND CH,long bend,,NO,23042.71,12644.24,0,183.11,183.11,,,chiller,,black,YES
+PP-ELBOW CH,elbow,,NO,23031.63,12235.97,0,72.37,72.37,,,chiller,,black,YES
+PP-SINGLE TEE CH,single tee,,NO,23021.15,11899.18,0,94.45,94.45,,,chiller,,black,YES
+PP-DRAIN VALVE,drain valve,,NO,22935.15,6457.73,0,46.26,46.26,,,chiller,,black,YES
+PP-SOCKET CH,socket,,NO,23082.29,11491.67,0,99,99,,,chiller,,black,YES
+PP-REDUCING TEE CH,reducing tee,,NO,23039.69,11198.45,0,94.45,94.45,,,chiller,,black,YES
+PP-CROSS TEE CH,cross tee,,NO,23071.76,10778.51,0,87.82,87.82,,,chiller,,black,YES
+PP-FLANGE CH,flanges,,NO,23069.83,10429.8,0,20,20,,,chiller,,black,YES
+PP-BUTTERFLY VALVE CH,butterfly valve,,NO,23143.82,10076.45,0,72.71,72.71,,,chiller,,black,YES
+PP-BALL VALVE CH,ball valve,,NO,0,0,0,72.71,77.21,,,chiller,,black,YES
+PP-Y STRAINER CH,y-strainer,,NO,23153.73,9283.48,0,151.39,37.94,,,chiller,,black,YES
+PP-GLOBE VALVE CH,globe valve,,NO,23148.85,8963.66,0,46.26,46.26,,,chiller,,black,YES
+PP-BALL VALVE SET CH,ball valve set,,NO,22935.15,6103.2,0,46.26,46.26,,,chiller,,black,YES
+PP-RUBBER EXPANSION BELLOWS CH,rubber expansion bellows,,NO,23140.48,8629.98,0,43.18,43.18,,,chiller,,black,YES
+PP-BALANCING VALVE CH,balancing valve,,NO,23023.21,8246.96,0,46.26,46.26,,,chiller,,black,YES
+PP-FLOW SWITCH CH,flow switch,,NO,23040.73,7981.06,0,94.45,94.45,,,chiller,,black,YES
+PP-PRESSURE GUAGE CH,pressure gauge,,NO,22956.9,7558.05,0,,,,,chiller,,black,YES
+PP-TEMPERATURE GUAGE CH,temperature guage,,NO,22924.18,7203.87,0,,,,,chiller,,black,YES
+PP-PURGUE VALVE CH,purgue valve,,NO,22935.15,6812.25,0,46.26,46.26,,,chiller,,black,YES
+PP-AUTOMATIC AIR VENT VALVE CH,automatic air vent valve,,NO,22935.15,5748.67,0,46.26,46.26,,,chiller,,black,YES
+PP-SHORT BEND CH MIRROR,short bend ,,YES,24290.15,12912.46,0,94.34,94.34,,,chiller,,black,
+PP-LONG BEND CH MIRROR,long bend,,YES,24286.08,12544.78,0,183.11,183.11,,,chiller,,black,
+PP-ELBOW CH MIRROR,elbow,,YES,24233.17,12219.09,0,72.37,72.37,,,chiller,,black,
+PP-SINGLE TEE CH MIRROR,single tee,,YES,24260.38,11856.87,0,94.45,94.45,,,chiller,,black,
+PP-REDUCING TEE CH MIRROR,reducing tee,,YES,24239.83,11144.24,0,94.45,94.45,,,chiller,,black,
+PP-FLANGE CH E,flanges,,NO,25405.21,10421.78,0,,,,,chiller,YES,black,
+PP-BUTTERFLY VALVE CH E,butterfly valve,,NO,25430.06,10008.35,0,,,,,chiller,YES,black,
+PP-BALL VALVE CH E,ball valve,,NO,0,0,0,78.51,67.68,,,chiller,YES,black,
+PP-Y STRAINER CH MIRROR,y-strainer ,,YES,24323.35,9347.16,0,151.39,37.94,,,chiller,,black,
+PP-GLOBE VALVE CH E,globe valve ,,NO,25368.52,8899.5,0,,,,,chiller,YES,black,
+PP-FLOW SWITCH CH MIRROR,flow switch,,YES,24289.31,7873.42,0,94.45,94.45,,,chiller,,black,
+PP-3WAY MOTORIZED,3way motorized,,NO,22935.15,5033.1,0,46.26,46.26,,,chiller,,black,
+PP-2WAY MOTORIZED,2way motorized,,NO,22935.15,5369.47,0,46.26,46.26,,,chiller,,black,
+PP-AUTOMATIC AIR VENT VALVE WS,automatic air vent valve,,NO,4762.94,4184.38,0,46.26,46.26,,,watersupply,,blue,YES
+PP-WATER LVL,water lvl controller,,NO,4707.96,3855.51,0,37.5,37.5,,,watersupply,,blue,YES
+PP-SPSINGLETWS,sp single tee,,NO,0,0,0,87.82,94.45,94.45,,watersupply,,blue,YES
+PP-SPSINGLETSP,sp single tee,,NO,-42.5,0,0,87.82,94.45,94.45,,sprinkler,,red,
+PP-FAN P,fan 48'',,,29596.31,13506.86,0,,,,,plan,,,YES
+PP-ROUND CEILING LIGHT,round ceiling light,,,29767.51,13594.41,0,,,,,plan,,,YES
+PP-SQUARE LIGHT P,square ceiling light,,,29578.19,13214.18,0,,,,,plan,,,YES
+PP-WALL LIGHT P,wall light,,,29482.29,12616.35,0,,,,,plan,,,YES
+PP-AC P,ac,,,29477.32,11762.18,0,,,,,plan,,,YES
+PP-TUBE P,tubelight,,,29551.63,11300.32,0,,,,,plan,,,YES
+PP-WALL FAN P,wall fan,,,29374.45,11431.63,0,,,,,plan,,,YES
+PP- MIRROR LIGHT P,mirror light,,,29466.58,10821.96,0,,,,,plan,,,YES
+PP-SWITCH BOARD P,switchboard,,,29365.96,10887.33,0,,,,,plan,,,YES
+PP-ex P,exhaust,,,29388.72,10057.11,0,,,,,plan,,,YES
+PP-GEYSER P,geyser,,,29441.19,9610.9,0,,,,,plan,,,YES
+PP-TV P,tv,,,29162.96,8524.84,0,,,,,plan,,,YES
+PP-DB P,db,,,29342.11,9305,0,,,,,plan,,,YES
+PP-LV RACK P,lv rack,,,29374.27,8914.9,0,,,,,plan,,,YES
+PP-EPBX P,epbx,,,29217.01,8548.12,0,,,,,plan,,,YES
+PP-METER BOX P,meter box,,,29311.21,8176.67,0,,,,,plan,,,YES
+PP-WC WALL P,wc wall,,,29534.49,7385.96,0,,,,,plan,,,YES
+PP-WC FLOOR P,wc floor,,,29444.56,7226.31,0,,,,,plan,,,YES
+PP-WB WALL P,wb wall,,,29603.95,6733.16,0,,,,,plan,,,YES
+PP-WB FLOOR P,wb floor,,,29595.42,6329.76,0,,,,,plan,,,YES
+PP-WC INDIAN P,wc indian,,,29344.25,6047.65,0,,,,,plan,,,YES
+PP-SHOWER P,shower,,,29587.98,5615.26,0,,,,,plan,,,YES
+PP-BATHTUB P,bathtub,,,29387.45,4691.24,0,,,,,plan,,,YES
+PP-HEALTH FAUCAT P,health faucet,,,29591.48,4458.69,0,,,,,plan,,,YES
+PP-GRATING P,grating,,,0,0,0,,,,,plan,,,YES
+PP-SHOWER CHANNEL P,shower channel,,,29740.45,3162.46,0,,,,,plan,,,YES
+PP-WWP P,waste pipe,,,0,0,0,,,,,plan,,,YES
+PP-SWP P,soil pipe,,,1.56,1.19,0,,,,,plan,,,YES
+PP-RWP P,rain pipe,,,0,0,0,,,,,plan,,,YES
+PP-VENT P,vent pipe,,,0,0,0,,,,,plan,,,YES
+PP-AC DRAIN P,AC drain pipe,,,0,0,0,,,,,plan,,,YES
+PP-COPPER PIPE P,copper pipe,,,0,0,0,,,,,plan,,,YES
+PP-CHILLER PIPE P,chiller pipe,,,0,0,0,,,,,plan,,,YES
+PP-AC RETURN PIPE P,ac return pipe,,,0,-82.72,0,,,,,plan,,,YES
+PP-CWP P,cold water pipe,,,0,0,0,,,,,plan,,,YES
+PP-FWP,flush water pipe,,,0,0,0,,,,,plan,,,YES
+PP-HWP P,hot water pipe,,,0,0,0,,,,,plan,,,YES
+PP-GULLY TRAP P,gully trap chamber,,,29569.5,-1838.22,0,,,,,plan,,,YES
+PP-INSPECTION CHAMBER P,inspection chamber,,,29571.61,-2223.46,0,,,,,plan,,,YES
+PP-RAIN WATER CHAMBER P,rainwater chamber,,,29569.5,-2619.69,0,,,,,plan,,,YES
+PP-DOOR P,door,,,29593.59,-3581.74,0,,,,,plan,,,YES
+PP-WINDOW P,window,,,29788.18,29788.18,0,,,,,plan,,,YES
+PP-SPRINKLER PIPE P,sprinkler pipe,,,0,0,0,,,,,plan,,,YES
+PP-HYDRANT PIPE P,hydrant pipe,,,0,0,0,,,,,plan,,,YES
+PP-SPRINKLER RETURN PIPE P,sprinkler return,,,0,0,0,,,,,plan,,,YES
+PP-GCL P,grid ceiling light,,,29723.54,12820.88,0,,,,,plan,,,YES
+PP-URW,urinal wall,,,-93.97,-93.97,0,,,,,plan,,,YES
+PP-URF,urinal floor,,,-93.97,-93.97,0,,,,,plan,,,YES
+PP-SINK W,sink wall,,,0,0,0,,,,,plan,,,YES
+PP-SINK F,sink floor,,,0,0,0,,,,,plan,,,YES
+PP-NVR P,nvr,,NO,29709.55,-4898.52,0,,,,,plan,,,YES
+PP- HVAC TEE,tee,,,29677.23,2148.77,0,252.4,252.4,,,ducting,,,YES
+PP-HVAC ELBOW,bend,,,0,0,0,62.11,62.11,,,ducting,,,YES
+PP-HVAC45,elbow,,,0,0,0,38.45,70.16,,,ducting,,,YES
+PP-HVAC ELBOW MIRROR,bend,,YES,0,0,0,62.11,62.11,,,ducting,,,
+PP-HVAC45 MIRROR,elbow,,YES,0,0,0,38.45,70.16,,,ducting,,,
+PP-DRAINAGE END,drainage end,,,0,0,0,0,0,,,drainage,,,
+PP-WATER SUPPLY END,watersupply end,,,0,0,0,0,0,,,watersupply,,,
+PP-CONDUITING END,conduiting end,,,0,0,0,0,0,,,conduiting,,,
+PP-SPRINKLER END,sprinkler end,,,0,0,0,0,0,,,sprinkler,,,
+PP-COPPER PIPE END,piping end,,,0,0,0,0,0,,,piping,,,
+PP-CHILLER PIPE END,chiller end,,,0,0,0,0,0,,,chiller,,,
+PP-DUCT DOT,ducting end,,,50422.88,13190.22,0,0,0,,,ducting,,,
+PP-WELD JOINT,weld tee,,NO,0,0,0,94.45,94.45,0,,sprinkler,,red,YES
+PP-WELD JOINT M,weld tee,,YES,0,0,0,94.45,94.45,0,,sprinkler,,red,
+PP-CCTV,cctv dome,,NO,0,0,0,0,0,0,,plan,,,YES
+PP-WELD BEND,weld bend,,NO,0,0,0,126.4,62.5,0,,sprinkler,,red,YES
+PP-WELD BEND M,weld bend,,YES,0,0,0,126.4,62.5,0,,sprinkler,,red,
+PP-STEP UP WS,stepover watersupply,,NO,0,0,0,183.92,183.92,0,,watersupply,,,YES
+PP-ARROW 1,arrow 1,,,0,0,0,,,,,draw,,black,YES
+PP-STEP UP COUN,stepover conduiting,,,0,0,0,183.92,183.92,0,,conduiting,,navy,YES
+PP-FAN 1,fan 30'',,,0,0,0,,,,,plan,,,YES
+PP-WiFi,WiFi,,,0,0,0,,,,,plan,,,YES
+PP-CHANDELIER,chandelier,,,0,0,0,,,,,plan,,,YES
+PP-Foot light,foot light,,,0,0,0,,,,,plan,,,YES
+PP-Smoke detector,smoke detector,,,0,0,0,,,,,plan,,,YES
+PP-Motion Detector,motion detector,,,0,0,0,,,,,plan,,,YES
+PP-FL E,foot light,,,0,0,0,,,,,elevation,,black,
