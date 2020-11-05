@@ -5,8 +5,8 @@ import pprint
 import math
 from beam_handler import get_beams
 
-file_path = 'Algorithms/LineBWRectangleAlgo/input/'
-input_file = 'IN.dxf' #'beam_testing_edge_cases.dxf'
+file_path = 'Algorithms/LineBWRectangleAlgo/input/DXF/'
+input_file = 'extended_lines.dxf' #'beam_testing_edge_cases.dxf'
 output_file_path = 'Algorithms/LineBWRectangleAlgo/output/'
 input_file_name = input_file.split('.')[0]
 output_file = f'{input_file_name}_output.dxf'
@@ -37,6 +37,9 @@ print(f'File read success from {file_path}.')
 # dwg.saveas(file_path + 'sample_file.dxf')
 # print(f'SUCCESS in saving INPUT file. at {file_path + "sample_file.dxf"}')
 
-beams = get_beams(msp, dwg, 'PP-BEAM', 0.0393701, output_file_path + output_file)
+inch_conversion_factor = 0.0393701
+mm_conversion_factor = 1.0
+
+beams = get_beams(msp, dwg, 'SHT. BEAM', mm_conversion_factor, output_file_path + output_file)
 print(f'Sucess in')
 print(f'\n\n**Beams: {beams}')
