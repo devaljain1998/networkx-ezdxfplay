@@ -6,11 +6,46 @@ Aim: Cleaning the dxf file's walls is really important because due to irregulari
 # IMPORTS:
 import networkx as nx
 import logging
+from pillarplus.math import get_nearest_points_from_a_point
 
 
 # Declarations:
 logger = logging.getLogger(__name__)
 
+
+# Helper functions:
+def get_nearest_node(node, graph) -> List[tuple]:
+    # TODO: complete this function in the most optimized way:
+    return get_nearest_points_from_a_point(node.point, graph.points)
+
+def intersection(line: List[tuple], point: tuple) -> bool:
+    # TODO: complete this function in the most optimized way:
+    return True
+
+def break_edge_into_two_edges(edge, node, graph, node_edge_count = None):
+    # TODO: complete this function in the most optimized way:
+    return
+
+def update_the_graph_and_node_edge_count(*args, **kwargs):
+    # TODO: complete this function in the most optimized way:
+    return
+
+def connect_to_nearest_node(node, graph):
+    # TODO: complete this function in the most optimized way:
+    nearest_node = get_nearest_node(node, graph)
+    new_edge = (node, nearest_node)
+    graph.add_edge(new_edge)
+    update_the_graph_and_node_edge_count(edges = [new_edge])
+    return
+
+def delete_nodes_with_edge_count_greater_than_two(base_node, edges):
+    # TODO: complete this function in the most optimized way:
+    return
+
+def get_wall_lines_from_graph_edges(graph) -> list:
+    # TODO: complete this function in the most optimized way:
+    wall_lines = list(graph.edges)
+    return wall_lines
 
 # CODE:
 def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list, node_edge_count: dict):
@@ -52,7 +87,7 @@ def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list, node
             # 1.2. check if node intersects the edge?
             if (intersection(edge, node)):
                 # 1.2.1 If they intersects then break the edge into two parts:
-                break_edge_into_two_edges(edge, node)
+                break_edge_into_two_edges(edge, node, graph)
                 update_the_graph_and_node_edge_count(graph, node_edge_count)
     
     return
