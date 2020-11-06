@@ -75,12 +75,18 @@ def delete_nodes_with_edge_count_greater_than_two(base_node, edges, graph):
     node_set = {edge[0] for edge in edges}
     node_set.update([edge[1] for edge in edges])
     node_set.remove(base_node)
+    
+    # to handle problem:
+    edges_to_be_removed = []
+    
     # now traverse through the edges and remove the edge with the node having greater than one degree
     for edge in edges:
         node = edge[0] if edge[0] != base_node else edge[1]
         # remove this edge if this edge has a degree greater than 2:
         if graph.degree(node) > 2:
-            graph.remove_edge(edge[0], edge[1])
+            edges_to_be_removed.append((edge[0], edge[1]))
+            
+    graph.remove_edges_from(edges_to_be_removed)
     logger.debug(f'Edges with (edge_count > 2) successfully deleted for base_node:{base_node}')
     return
 
