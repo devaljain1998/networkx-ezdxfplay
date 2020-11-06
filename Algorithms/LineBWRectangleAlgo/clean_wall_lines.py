@@ -7,11 +7,12 @@ Aim: Cleaning the dxf file's walls is really important because due to irregulari
 import networkx as nx
 import logging
 from pillarplus.math import get_nearest_points_from_a_point, is_between
+from typing import List
 
 
 # Declarations:
 logger = logging.getLogger(__name__)
-
+logger.setLevel(logging.DEBUG)
 
 # Helper functions:
 def get_nodes_with_degree(degree: int, graph: nx.Graph) -> list:
@@ -29,12 +30,12 @@ def get_nearest_nodes(node, graph) -> List[tuple]:
     Returns:
         List[tuple]: list of nearest nodes in decreasing order.
     """
-    points = graph.nodes(data = False)
+    points = list(graph.nodes(data = False))
     point = node
-    node_edge = graph.edges(node)
+    node_edge = list(graph.edges(node))[0]
     # Removing the points of node edges so that do not get repeated.
     points.remove(node_edge[0]); points.remove(node_edge[1])
-    nearest_points = get_nearest_points_from_a_point(node.point, graph.points)
+    nearest_points = get_nearest_points_from_a_point(point, points)
     return nearest_points
 
 def intersection(line: List[tuple], point: tuple) -> bool:
@@ -49,14 +50,14 @@ def intersection(line: List[tuple], point: tuple) -> bool:
     """
     return is_between(point, line[0], line[1])
 
-def break_edge_into_two_edges(edge, node, graph, node_edge_count):
+def break_edge_into_two_edges(edge, node, graph):
     # Fetch points from edge
     p1, p2 = edge
     # Create new edges
     new_edges = [(p1, node), (node, p2)]
     graph.add_edges_from(new_edges)
     # Delete the current edge
-    graph.remove_edge(edge)
+    graph.remove_edge(edge[0], edge[1])
     return
 
 def update_the_graph_and_node_edge_count(*args, **kwargs):
@@ -66,24 +67,24 @@ def update_the_graph_and_node_edge_count(*args, **kwargs):
 def connect_to_nearest_node(node, graph):
     nearest_node = get_nearest_nodes(node, graph)[0]
     new_edge = (node, nearest_node)
-    graph.add_edge(new_edge)
+    graph.add_edge(new_edge[0], new_edge[1])
     return
 
 def delete_nodes_with_edge_count_greater_than_two(base_node, edges, graph):
     # create a node_set (set).
-    node_set = {edge for edge in edges}
+    node_set = {edge[0] for edge in edges}
+    node_set.update([edge[1] for edge in edges])
     node_set.remove(base_node)
     # now traverse through the edges and remove the edge with the node having greater than one degree
     for edge in edges:
         node = edge[0] if edge[0] != base_node else edge[1]
         # remove this edge if this edge has a degree greater than 2:
         if graph.degree(node) > 2:
-            graph.remove_edge(edge)
+            graph.remove_edge(edge[0], edge[1])
     logger.debug(f'Edges with (edge_count > 2) successfully deleted for base_node:{base_node}')
     return
 
 def get_wall_lines_from_graph_edges(graph) -> list:
-    # TODO: complete this function in the most optimized way:
     wall_lines = list(graph.edges)
     return wall_lines
 
@@ -110,7 +111,7 @@ def get_node_edge_count(graph: nx.Graph) -> dict:
     return node_edge_count
 
 # CODE:
-def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list, node_edge_count: dict):
+def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list):
     """This function cleans wall_lines and updates node's edge counts accordingly.
     
     Aim:
@@ -138,12 +139,12 @@ def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list, node
         node_edge_count (dict): [description]
     """
     # 0. Fetch all the one_edge_count nodes.
-    one_edge_count_nodes = node_edge_count.get(1)
+    one_edge_count_nodes = get_nodes_with_degree(1, graph)
     
     # 1. Then loops through all the one-edge-count nodes.
     for node in one_edge_count_nodes:
         # 1.1. then fetch its nearests node to the point:
-        nearest_nodes = get_nearest_nodes(node)
+        nearest_nodes = get_nearest_nodes(node, graph)
         # 1.2. loop through all the edges of the nearest_node:
         for nearest_node in nearest_nodes:
             intersection_flag = False
@@ -152,7 +153,6 @@ def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list, node
                 if (intersection(edge, node)):
                     # 1.2.1 If they intersects then break the edge into two parts:
                     break_edge_into_two_edges(edge, node, graph)
-                    update_the_graph_and_node_edge_count(graph, node_edge_count)
                     intersection_flag = True
                     break
                 
@@ -196,37 +196,34 @@ def get_cleaned_wall_lines(wall_lines: list) -> list:
     graph = nx.Graph()
     graph.add_edges_from(wall_lines)
     logger.debug('graph initialized.')
-    
-    # Edge count dictionary for track_record:
-    node_edge_count = get_node_edge_count(graph)
         
     # Clean the wall lines and the nodes:
-    clean_wall_lines_and_node_edge_count(wall_lines, node_edge_count)
+    clean_wall_lines_and_node_edge_count(graph, wall_lines)
         
     #4. Loop infinitely until no edge remains of edge_count > 2:
-    def is_edge_count_greater_than_two_exists(node_edge_count: dict) -> bool:
+    def is_edge_count_greater_than_two_exists(graph) -> bool:
         """Returns true if there exists keys > 2 in the node_edge_count dictionary"""
-        return len(list(filter(lambda key: key > 2, node_edge_count.keys()))) > 0
+        return len(list(filter(lambda node: graph.degree(node) > 2, graph.nodes))) > 0
         
-    while (is_edge_count_greater_than_two_exists(node_edge_count)):
+    while (is_edge_count_greater_than_two_exists(graph)):
         # 4.1 Traverse the nodes with 1-edge connectivity and connect them with the nearest node.
-        for edge_count_1_node in edge_count.get(1, []):
+        for edge_count_1_node in get_nodes_with_degree(1, graph):
             # Connect edge count 1 nodes with the nearest nodes
             # 4.2 Update the connectivity of the node after that.
-            connect_to_nearest_node(base_node = edge_count_1_node)
+            connect_to_nearest_node(node = edge_count_1_node, graph = graph)
         
-        # Now traverse of nodes with edge_count greater than 3:
-        edge_counts_of_nodes_greater_than_two = list(filter(lambda key: key > 2, 
-                                                            node_edge_count.keys()))
+        # Now traverse of nodes with edge_count greater than 3:        
+        edge_counts_of_nodes_greater_than_two = {degree[1] for degree in graph.degree if degree[1] > 2}
         
         for edge_count in edge_counts_of_nodes_greater_than_two:
-            node_set = node_edge_count[edge_count]
+            node_set = get_nodes_with_degree(edge_count, graph)
             # Traverse node by node and delete the edge with edge_count > 2:
             for node in node_set:
                 graph_node = graph.nodes[node]
                 edges = graph.edges(node)
                 # Now loop through all the edges and delete the edge which has the node with edge_count > 2:
-                delete_nodes_with_edge_count_greater_than_two(base_node = node, edges = edges)
+                delete_nodes_with_edge_count_greater_than_two(
+                    base_node = node, edges = edges, graph = graph)
         
 
     new_wall_lines = get_wall_lines_from_graph_edges(graph)
