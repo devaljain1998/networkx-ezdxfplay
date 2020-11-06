@@ -6,7 +6,7 @@ Aim: Cleaning the dxf file's walls is really important because due to irregulari
 # IMPORTS:
 import networkx as nx
 import logging
-from pillarplus.math import get_nearest_points_from_a_point
+from pillarplus.math import get_nearest_points_from_a_point, is_between
 
 
 # Declarations:
@@ -14,16 +14,49 @@ logger = logging.getLogger(__name__)
 
 
 # Helper functions:
-def get_nearest_node(node, graph) -> List[tuple]:
-    # TODO: complete this function in the most optimized way:
-    return get_nearest_points_from_a_point(node.point, graph.points)
+def get_nodes_with_degree(degree: int, graph: nx.Graph) -> list:
+    """Returns a list of nodes with degree d"""
+    return list(filter(lambda node: graph.degree(node) == degree, graph.nodes))
+
+
+def get_nearest_nodes(node, graph) -> List[tuple]:
+    """Function to get the nearest nodes from node in the graph.
+
+    Args:
+        node (nx.Node): current node
+        graph (nx.Graph): graph
+
+    Returns:
+        List[tuple]: list of nearest nodes in decreasing order.
+    """
+    points = graph.nodes(data = False)
+    point = node
+    node_edge = graph.edges(node)
+    # Removing the points of node edges so that do not get repeated.
+    points.remove(node_edge[0]); points.remove(node_edge[1])
+    nearest_points = get_nearest_points_from_a_point(node.point, graph.points)
+    return nearest_points
 
 def intersection(line: List[tuple], point: tuple) -> bool:
-    # TODO: complete this function in the most optimized way:
-    return True
+    """Function to find whether a point lies on a line or not.
 
-def break_edge_into_two_edges(edge, node, graph, node_edge_count = None):
-    # TODO: complete this function in the most optimized way:
+    Args:
+        line (List[tuple])
+        point (tuple)
+
+    Returns:
+        bool: True if point intersects line otherwise False.
+    """
+    return is_between(point, line[0], line[1])
+
+def break_edge_into_two_edges(edge, node, graph, node_edge_count):
+    # Fetch points from edge
+    p1, p2 = edge
+    # Create new edges
+    new_edges = [(p1, node), (node, p2)]
+    graph.add_edges_from(new_edges)
+    # Delete the current edge
+    graph.remove_edge(edge)
     return
 
 def update_the_graph_and_node_edge_count(*args, **kwargs):
@@ -31,21 +64,50 @@ def update_the_graph_and_node_edge_count(*args, **kwargs):
     return
 
 def connect_to_nearest_node(node, graph):
-    # TODO: complete this function in the most optimized way:
-    nearest_node = get_nearest_node(node, graph)
+    nearest_node = get_nearest_nodes(node, graph)[0]
     new_edge = (node, nearest_node)
     graph.add_edge(new_edge)
-    update_the_graph_and_node_edge_count(edges = [new_edge])
     return
 
-def delete_nodes_with_edge_count_greater_than_two(base_node, edges):
-    # TODO: complete this function in the most optimized way:
+def delete_nodes_with_edge_count_greater_than_two(base_node, edges, graph):
+    # create a node_set (set).
+    node_set = {edge for edge in edges}
+    node_set.remove(base_node)
+    # now traverse through the edges and remove the edge with the node having greater than one degree
+    for edge in edges:
+        node = edge[0] if edge[0] != base_node else edge[1]
+        # remove this edge if this edge has a degree greater than 2:
+        if graph.degree(node) > 2:
+            graph.remove_edge(edge)
+    logger.debug(f'Edges with (edge_count > 2) successfully deleted for base_node:{base_node}')
     return
 
 def get_wall_lines_from_graph_edges(graph) -> list:
     # TODO: complete this function in the most optimized way:
     wall_lines = list(graph.edges)
     return wall_lines
+
+
+def get_node_edge_count(graph: nx.Graph) -> dict:
+    """Function to get the node_edge_count.
+
+    Args:
+        graph ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
+    # Edge count dictionary for track_record:
+    node_edge_count = {}
+
+    # 2. Now preprocess the graph by finding out that for how many edges is a node connected with:
+    # - To find this we need to iterate the graph from all the nodes.
+    # - Keep filling the edge_count of all the node in the dictionary to keep a track-record.
+    for node in graph.nodes:
+        edge_count = len(list(graph.edges(node)))
+        node_set = node_edge_count.get(edge_count, set())
+        node_set.insert(node)
+    return node_edge_count
 
 # CODE:
 def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list, node_edge_count: dict):
@@ -81,14 +143,20 @@ def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list, node
     # 1. Then loops through all the one-edge-count nodes.
     for node in one_edge_count_nodes:
         # 1.1. then fetch its nearests node to the point:
-        nearest_node = get_nearest_node(node)
+        nearest_nodes = get_nearest_nodes(node)
         # 1.2. loop through all the edges of the nearest_node:
-        for edge in graph.edges(nearest_node):
-            # 1.2. check if node intersects the edge?
-            if (intersection(edge, node)):
-                # 1.2.1 If they intersects then break the edge into two parts:
-                break_edge_into_two_edges(edge, node, graph)
-                update_the_graph_and_node_edge_count(graph, node_edge_count)
+        for nearest_node in nearest_nodes:
+            intersection_flag = False
+            for edge in graph.edges(nearest_node):
+                # 1.2. check if node intersects the edge?
+                if (intersection(edge, node)):
+                    # 1.2.1 If they intersects then break the edge into two parts:
+                    break_edge_into_two_edges(edge, node, graph)
+                    update_the_graph_and_node_edge_count(graph, node_edge_count)
+                    intersection_flag = True
+                    break
+                
+            if intersection_flag: break
     
     return
 
@@ -130,15 +198,7 @@ def get_cleaned_wall_lines(wall_lines: list) -> list:
     logger.debug('graph initialized.')
     
     # Edge count dictionary for track_record:
-    node_edge_count = {}
-    
-    # 2. Now preprocess the graph by finding out that for how many edges is a node connected with:
-    # - To find this we need to iterate the graph from all the nodes.
-    # - Keep filling the edge_count of all the node in the dictionary to keep a track-record.
-    for node in graph.nodes:
-        edge_count = len(list(graph.edges(node)))
-        node_set = node_edge_count.get(edge_count, set())
-        node_set.insert(node)
+    node_edge_count = get_node_edge_count(graph)
         
     # Clean the wall lines and the nodes:
     clean_wall_lines_and_node_edge_count(wall_lines, node_edge_count)
