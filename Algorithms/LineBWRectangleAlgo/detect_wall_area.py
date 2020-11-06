@@ -12,7 +12,7 @@ Procedure of this module:
 from typing import Tuple
 import logging
 import networkx as nx
-
+from clean_wall_lines import get_cleaned_wall_lines
 
 # Declarations: (later will be moved from the file).
 class WallGroup(object):
@@ -142,83 +142,6 @@ def get_preprocessed_data(identification_json: dict, msp, column_layer: str, *ar
     logger.info('Successfully got the pre-processed data.')
     return columns, doors, windows
 
-
-def get_cleaned_wall_lines(wall_lines: list) -> list:
-    """This function will return cleaned wall_lines using networkx.
-
-    Args:
-        wall_lines (list): The lines which has come after quering the msp with the wall_layer.
-        
-    Procedure:
-        1. Create a networkx graph from the wall_lines in which individual end-points are the nodes
-            and lines are represented as edges.
-        2. Now preprocess the graph by finding out that for how many edges is a node connected with:
-            - To find this we need to iterate the graph from all the nodes.
-            - Keep filling the edge_count of all the node in the dictionary to keep a track-record.
-        3. Clean all the edges of edge_count: 1. (Whenever any node occures in-between intersection point of other node then it is needed to break that edge into 2 edges).
-            Example: A-----(B)-----C {Here node B lies between the edge A and C}.
-            We will convert it into: A-----B-----C
-            And then we will be updating the node counts accordingly.
-        4. Now we need to loop infinitely untill (Condition: No edges with edge_count > 2 exists in the graph):
-        NOTE: This algorithm is based upon the assumtion that eventually every node will be of 2 degree.
-            Procedure of algorithm:
-            4.1 Traverse the nodes with 1-edge connectivity and connect them with the nearest node.
-            4.2 Update the connectivity of the node after that.
-            4.3 Now check if nodes with edge_count > 2 exists and if yes then remove the nearest node of them with edge_count > 2.
-                4.3.1 NOTE: in the process WE DO NOT NEED TO DELETE THE NODE which was recently connected by the 1-edges node (Otherwise the loop will go in infinite).
-                
-        5. Finally form line pairs with final edges.
-        6. Return the new_wall_lines.
-
-    Returns:
-        list: Returns the list of proper wall lines.
-    """
-    logger.info('Now cleaning wall_lines.')
-    # 1. Create a network x graph from the lines
-    graph = nx.Graph()
-    graph.add_edges_from(wall_lines)
-    logger.debug('graph initialized.')
-    
-    # Edge count dictionary for track_record:
-    node_edge_count = {}
-    
-    # 2. Now preprocess the graph by finding out that for how many edges is a node connected with:
-    # - To find this we need to iterate the graph from all the nodes.
-    # - Keep filling the edge_count of all the node in the dictionary to keep a track-record.
-    for node in graph.nodes:
-        edge_count = len(list(graph.edges(node)))
-        node_set = node_edge_count.get(edge_count, set())
-        node_set.insert(node)
-        
-    #3. Loop infinitely until no edge remains of edge_count > 2:
-    def is_edge_count_greater_than_two_exists(node_edge_count: dict) -> bool:
-        """Returns true if there exists keys > 2 in the node_edge_count dictionary"""
-        return len(list(filter(lambda key: key > 2, node_edge_count.keys()))) > 0
-        
-    while (is_edge_count_greater_than_two_exists(node_edge_count)):
-        # 3.1 Traverse the nodes with 1-edge connectivity and connect them with the nearest node.
-        for edge_count_1_node in edge_count.get(1, []):
-            # Connect edge count 1 nodes with the nearest nodes
-            # 3.2 Update the connectivity of the node after that.
-            connect_to_nearest_node(base_node = edge_count_1_node)
-        
-        # Now traverse of nodes with edge_count greater than 3:
-        edge_counts_of_nodes_greater_than_two = list(filter(lambda key: key > 2, 
-                                                            node_edge_count.keys()))
-        
-        for edge_count in edge_counts_of_nodes_greater_than_two:
-            node_set = node_edge_count[edge_count]
-            # Traverse node by node and delete the edge with edge_count > 2:
-            for node in node_set:
-                graph_node = graph.nodes[node]
-                edges = graph.edges(node)
-                # Now loop through all the edges and delete the edge which has the node with edge_count > 2:
-                delete_nodes_with_edge_count_greater_than_two(base_node = node, edges = edges)
-        
-
-    new_wall_lines = get_wall_lines_from_graph_edges(graph)
-
-    return new_wall_lines
 
 def get_detected_wall_groups(msp, wall_layer: str, *args, **kwargs) -> List['WallGroup']:
     """This functions returns list of wall groups are present in the dxf files.
