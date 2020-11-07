@@ -5,6 +5,7 @@
 from math import *
 import sympy as sp
 from ezdxf.math import Vector
+from typing import List
 
 # angle in radians
 
@@ -367,12 +368,42 @@ def check_unnecessary_points_on_polyline(rooms_dict_list):
     else:
         return unnecessary_polyline_layers
 
+# Get Nearest Points:
+def get_nearest_points_from_a_point(point: tuple, points: List[tuple]) -> List[tuple]:
+    """This function takes in a point and a list of points as input and returns the nearest points sorted.
+
+    Complexity:
+        O(nlog(n)) where is n is the number of points.
+
+    Args:
+        point (tuple)
+        points (List[tuple])
+
+    Returns:
+        List[tuple]: Returns a list of point sorted in that order of nearest euclidean distance.
+    """
+    import copy
+    list_of_points = copy.deepcopy(points)
+        
+    distance_cache = {}
+    def point_comparator(p):
+        if p in distance_cache.keys():
+            return distance_cache[p]
+        distance_cache[p] = find_distance(point, p)
+        return distance_cache[p]
+
+    list_of_points.sort(key = point_comparator)
+    
+    return list_of_points
+
+# def get_nearest_points_from_a_point(point)
+
 # Testing
-print(find_rotation((0, 0), (-1, 1)))
-print(find_rotation((0, 0), (-1, -1)))
-print(find_rotation((0, 0), (1, 1)))
-print(find_rotation((0, 0), (1, -1)))
-print(get_side_points((0, 0), 90, None, 10, 10, 10))
+# print(find_rotation((0, 0), (-1, 1)))
+# print(find_rotation((0, 0), (-1, -1)))
+# print(find_rotation((0, 0), (1, 1)))
+# print(find_rotation((0, 0), (1, -1)))
+# print(get_side_points((0, 0), 90, None, 10, 10, 10))
 
 # print(is_inverted((0,0),(1,1),(1,0)))
 # print(find_rotation((1,0),(0,-0.5)))
