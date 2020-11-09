@@ -8,8 +8,9 @@ import networkx as nx
 import logging
 from pillarplus.math import get_nearest_points_from_a_point, is_between
 from typing import List
-import matplotlib.pyplot as plt
-
+import sys
+# import matplotlib.pyplot as plt
+import ezdxf
 
 # Declarations:
 logger = logging.getLogger('main')
@@ -17,25 +18,73 @@ logger.setLevel(logging.DEBUG)
 
 
 # DEBUGGING:
-fig_size = plt.rcParams["figure.figsize"]
-fig_size[0] = 100
-fig_size[1] = 80
-plt.rcParams["figure.figsize"] = fig_size
-
-
+# Through EZDXF:
+dwg = ezdxf.new('R2010')
+dwg.layers.new('WALL')
+msp = dwg.modelspace()
+import os
+filepath = f'dxfFilesOut/debug_dxf/'
 debug_counter = 0
-def draw_graph(directed_graph):
+
+# FURTHER DEBUG:
+_dwg = ezdxf.new('R2010')
+_dwg.layers.new('WALL_DEBUG')
+_msp = _dwg.modelspace()
+
+
+def __debug_location(point, name: str = 'debug', radius = 2, color:int = 2):
+    msp.add_circle(point, radius, dxfattribs={'color': color, 'layer': 'debug'})
+    msp.add_mtext(name, dxfattribs = {'layer': 'debug'}).set_location(point)
+    
+    _msp.add_circle(point, radius, dxfattribs={'color': color, 'layer': 'debug'})
+    _msp.add_mtext(name, dxfattribs = {'layer': 'debug'}).set_location(point)
+    
+def __save_debug_dxf_file():
     global debug_counter
-    plt.figure(figsize =(10,10))
-    nx.draw_networkx(directed_graph)
-    plt.axis('off')
-    plt.tight_layout();
-    plt.savefig(f'dxfFilesOut/debug_graphs/graph_image_{debug_counter}.jpg')
+    dwg.saveas(filepath + f'debug_wall_{debug_counter}.dxf')
+    print('saved dxf file for debug_no: ', debug_counter)
     debug_counter += 1
-    if debug_counter > 10:
-        print('Now terminating the program')
-        import sys
-        sys.exit(1)
+    
+def __save_graph_debug_dxf_file(wall_lines):
+    global debug_counter
+    for wall_line in wall_lines:
+        _msp.add_line(wall_line[0], wall_line[1], dxfattribs = {'layer': 'WALL_DEBUG'})
+
+    _dwg.saveas(filepath + f'debug_graph_wall_{debug_counter}.dxf')
+    print('saved dxf GRAPH file for debug_no: ', debug_counter)
+
+    
+def __add_wall_lines(wall_lines):
+    for wall_line in wall_lines:
+        msp.add_line(wall_line[0], wall_line[1], dxfattribs = {'layer': 'WALL'})
+    __save_debug_dxf_file()
+    
+def __add_graph_wall_lines(wall_lines):
+    # REMOVING PREVIOUS LAYERS:
+    # TODO: REMOVE
+    # for wall_line in wall_lines:
+    #     _msp.add_line(wall_line[0], wall_line[1], dxfattribs = {'layer': 'WALL_DEBUG'})
+    __save_graph_debug_dxf_file(wall_lines)    
+
+# Through MATPLOTLIB:
+# fig_size = plt.rcParams["figure.figsize"]
+# fig_size[0] = 100
+# fig_size[1] = 80
+# plt.rcParams["figure.figsize"] = fig_size
+
+
+# def draw_graph(directed_graph):
+#     global debug_counter
+#     plt.figure(figsize =(10,10))
+#     nx.draw_networkx(directed_graph)
+#     plt.axis('off')
+#     plt.tight_layout();
+#     plt.savefig(f'dxfFilesOut/debug_graphs/graph_image_{debug_counter}.jpg')
+#     debug_counter += 1
+#     if debug_counter > 10:
+#         print('Now terminating the program')
+#         import sys
+#         sys.exit(1)
 
 
 # Helper functions:
@@ -43,6 +92,11 @@ def get_nodes_with_degree(degree: int, graph: nx.Graph) -> list:
     """Returns a list of nodes with degree d"""
     return list(filter(lambda node: graph.degree(node) == degree, graph.nodes))
 
+
+def remove_self_edges_from_the_graph(graph: nx.Graph):
+    """Removes self-edges from the graph"""
+    graph.remove_edges_from(nx.selfloop_edges(graph))
+    print('self-loop edges deleted')
 
 def get_nearest_nodes(node, graph) -> List[tuple]:
     """Function to get the nearest nodes from node in the graph.
@@ -94,14 +148,20 @@ def connect_to_nearest_node(node, graph):
     graph.add_edge(new_edge[0], new_edge[1])
     return
 
-def delete_nodes_with_edge_count_greater_than_two(base_node, edges, graph):
-    # create a node_set (set).
-    node_set = {edge[0] for edge in edges}
-    node_set.update([edge[1] for edge in edges])
-    node_set.remove(base_node)
-    
+def delete_nodes_with_edge_count_greater_than_two(base_node, edges, graph):    
     # to handle problem:
     edges_to_be_removed = []
+    
+    # DEBUG:
+    print('base_node: ', base_node, 'degree: ', graph.degree(base_node))
+    if debug_counter >= 2:
+        debug_mode = True
+        if base_node == (315820.1279, 6131.6141):
+            fishy_mode = True
+            
+    if graph.degree(base_node) == 2:
+        print('This node is not suitable for deletion.')
+        return
     
     # now traverse through the edges and remove the edge with the node having greater than one degree
     for edge in edges:
@@ -112,7 +172,12 @@ def delete_nodes_with_edge_count_greater_than_two(base_node, edges, graph):
             
     graph.remove_edges_from(edges_to_be_removed)
     logger.debug(f'Edges with (edge_count > 2) successfully deleted for base_node:{base_node}')
+    # DEBUG:
     print(f'Edges with (edge_count > 2) successfully deleted for base_node:{base_node}')
+    print(f'for edges_to_be_removed:{edges_to_be_removed if edges_to_be_removed != [] else "NONE"}')
+    __debug_location(base_node)
+    print('after deletion of edges: ', 'base_node: ', base_node, 'degree: ', graph.degree(base_node))
+    
     return
 
 def get_wall_lines_from_graph_edges(graph) -> list:
@@ -224,6 +289,10 @@ def get_cleaned_wall_lines(wall_lines: list) -> list:
     """
     logger.info('Now cleaning wall_lines.')
     print('Now cleaning wall_lines.')
+    
+    #DEBUG:
+    __add_wall_lines(wall_lines)
+    
     # 1. Create a network x graph from the lines
     graph = nx.Graph()
     graph.add_edges_from(wall_lines)
@@ -232,26 +301,37 @@ def get_cleaned_wall_lines(wall_lines: list) -> list:
         
     # Clean the wall lines and the nodes:
     clean_wall_lines_and_node_edge_count(graph, wall_lines)
+    
+    # DEBUG:
+    c_wall_lines = get_wall_lines_from_graph_edges(graph)
+    __add_graph_wall_lines(c_wall_lines)
         
     #4. Loop infinitely until no edge remains of edge_count > 2:
     def is_edge_count_greater_than_two_exists(graph) -> bool:
         """Returns true if there exists keys > 2 in the node_edge_count dictionary"""
         return len(list(filter(lambda node: graph.degree(node) > 2, graph.nodes))) > 0
-    
-    draw_graph
         
     while (is_edge_count_greater_than_two_exists(graph)):
+        # DEBUG:
+        print('DEBUG_COUNTER:', debug_counter)
         print('Current graph edges: ', len(graph.nodes))
+        print('current_wall_lines', len(graph.edges))
+        
         # 4.1 Traverse the nodes with 1-edge connectivity and connect them with the nearest node.
         for edge_count_1_node in get_nodes_with_degree(1, graph):
             # Connect edge count 1 nodes with the nearest nodes
             # 4.2 Update the connectivity of the node after that.
             connect_to_nearest_node(node = edge_count_1_node, graph = graph)
-        
+                            
         # Now traverse of nodes with edge_count greater than 3:        
         edge_counts_of_nodes_greater_than_two = {degree[1] for degree in graph.degree if degree[1] > 2}
         
+        # DEBUG:
+        print('Now deleting nodes with edge_count > 2:')
+        print('edge_counts_of_nodes_greater_than_two', edge_counts_of_nodes_greater_than_two)
+        
         for edge_count in edge_counts_of_nodes_greater_than_two:
+            print('\nedge_count:', edge_count)
             node_set = get_nodes_with_degree(edge_count, graph)
             # Traverse node by node and delete the edge with edge_count > 2:
             for node in node_set:
@@ -261,11 +341,35 @@ def get_cleaned_wall_lines(wall_lines: list) -> list:
                 delete_nodes_with_edge_count_greater_than_two(
                     base_node = node, edges = edges, graph = graph)
                 
-        print('One cycle complete')
+        print('Nodes with edge_count > 2 fixed for this cycle.')
+        # print('Now removing self-edges:')
+        # remove_self_edges_from_the_graph(graph)
+                
+        # DEBUG SPECIAL NODE
+        print('special_node:', graph.degree((315038.6279144774, 6194.614122894351))) #315038.6279144774, 6194.614122894389
+                
+        print('One cycle complete', debug_counter, '\n')
         # DEBUG:
-        draw_graph(graph)
+        __save_debug_dxf_file()
         
-
+        current_wall_lines = get_wall_lines_from_graph_edges(graph)
+        if debug_counter == 0:
+            __add_graph_wall_lines(current_wall_lines)
+        else:
+            __save_graph_debug_dxf_file(current_wall_lines)
+        if not debug_counter <= 4:
+            print('Now terminating')
+            break #sys.exit(1)
+        print()
+        # draw_graph(graph)
+        
+    # DEBUG:
+    from pprint import pprint
+    graph_nodes = list(graph.nodes)
+    graph_nodes.sort()
+    print('Printing graph nodes')
+    pprint(graph_nodes)
+    
     new_wall_lines = get_wall_lines_from_graph_edges(graph)
 
     return new_wall_lines
