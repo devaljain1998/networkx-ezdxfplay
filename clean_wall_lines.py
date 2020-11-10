@@ -206,7 +206,59 @@ def get_node_edge_count(graph: nx.Graph) -> dict:
         node_set.insert(node)
     return node_edge_count
 
+
 # CODE:
+def merge_too_close_edges(graph: nx.Graph):
+    """This function merges the edges which are too close to each other.
+    
+    Procedure:
+        1. First we fetch all the graph_components from the graph. (which are a subgraph of the graph itself)
+        2. Now we need to find which edges is to be removed and which is to be added.
+        Then we iterate over the edges of the graphs and we either opt for the node which:
+            - is making some angle (not 0 or 180 degree) with its successor. [Basically the nodes is not in the straight line.]
+            - if it is making angle of 0 or 180 with its successors then we need to have we need to check whether it has two or more successors which are inclined with it at some angle.
+            NOTE: if the node is not following these properties then we have to remove the node and merge it.
+            2.1: add all the non-selected edges into edges_to_be_removed
+            and corresponding to them make add new edge (from parent-to-succesor) to the edges_to_be_added.
+        3. now remove the edges to be edges to be removed and repeat the same procedure with the next graph_component.
+    
+    Example: if graph has following edges: A -- B and C -- D.
+            and if A is too close to C, then:
+            C = A and => edges will be: A -- B, A -- D.
+    Args:
+        graph (nx.Graph): Networkx Graph.
+    """
+    # PROCEDURE:
+    # 1. traverse the graph edge-by-edge
+    # 2. for edge in edges:
+    #   2.1 find source and target nodes
+    #   2.2 find the nodes connected to the target node (except for the source node).
+    #   2.3 calculate the rotations for each node of the target edge
+    #   2.4 check if the rotation is around 0 or 180 degree.
+    #   2.5 if it 0 or 180 then check if the other rotations are at an angle except for 0 or 180
+    #   2.6 if all the nodes are of 0 or 180 then get new edges and discard the old edge:
+    #       2.6.1 new_edges, edge_to_be_discarded = merge_new_edges(edge), edge
+    # 3. remove the old edges and make the form new_one:
+    #   3.1 graph.add_edges_from(edges_to_be_added)
+    #   3.2 graph.remove_edges_from(edges_to_be_removed)
+    
+    def get_connected_graph_components(graph):
+        """This function returns connected components from the graph"""
+        return [graph.subgraph(component_set) for component_set in nx.connected_components(graph)]
+    
+    # 1. First we fetch all the graph_components from the graph. (which are a subgraph of the graph itself)
+    graph_components = get_connected_graph_components(graph)
+    
+    # 2. iterate over the graph components and for each graph components find which node is to be merged:
+    for graph_component in graph_components:
+        edges_to_be_added, edges_to_be_removed = [], []
+        for edge in graph_component.edges:
+            source_node, target_node = edge[0], edge[1] 
+            #fetch edges connected to that graph:
+            connected_edges = [connected_edge for connected_edge in graph.edges(edge) if connected_edge != edge]
+            
+            
+
 def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list):
     """This function cleans wall_lines and updates node's edge counts accordingly.
     
@@ -228,6 +280,10 @@ def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list):
                     We will convert it into: A-----B-----C
                     Code: break_edge_into_two_edges(edge, node)
                     1.2.1.2: update_the_graph_and_node_edge_count
+        2. Remove the too close edges and coincide their nodes.
+            Example: if graph has following edges: A -- B and C -- D.
+            and if A is too close to C, then:
+            C = A and => edges will be: A -- B, A -- D.
 
     Args:
         graph (nx.Graph): Graph containing wall_lines end-points as node and wall lines as edges.
@@ -253,6 +309,13 @@ def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list):
                     break
                 
             if intersection_flag: break
+            
+        # 2. Remove the too close edges and coincide their nodes.
+        #     Example: if graph has following edges: A -- B and C -- D.
+        #     and if A is too close to C, then:
+        #     C = A and => edges will be: A -- B, A -- D.
+        print('Now merging too close edges.')
+        merge_too_close_edges(graph)
     
     return
 
