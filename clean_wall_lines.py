@@ -6,11 +6,13 @@ Aim: Cleaning the dxf file's walls is really important because due to irregulari
 # IMPORTS:
 import networkx as nx
 import logging
-from pillarplus.math import get_nearest_points_from_a_point, is_between
-from typing import List
+from pillarplus.math import (
+    get_nearest_points_from_a_point, is_between, find_angle)
+from typing import List, Union
 import sys
 # import matplotlib.pyplot as plt
 import ezdxf
+import math
 
 # Declarations:
 logger = logging.getLogger('main')
@@ -64,7 +66,15 @@ def __add_graph_wall_lines(wall_lines):
     # TODO: REMOVE
     # for wall_line in wall_lines:
     #     _msp.add_line(wall_line[0], wall_line[1], dxfattribs = {'layer': 'WALL_DEBUG'})
-    __save_graph_debug_dxf_file(wall_lines)    
+    __save_graph_debug_dxf_file(wall_lines)
+
+
+def label_component_edges(__msp, edges, component_number):
+    import pillarplus
+    for edge in edges:
+        edge_mid_point = pillarplus.math.find_mid_point(edge[0], edge[1])
+        __msp.add_mtext(f'{component_number}', dxfattribs = {'layer' : 'comp_debug_text'}).set_location(edge_mid_point)
+
 
 # Through MATPLOTLIB:
 # fig_size = plt.rcParams["figure.figsize"]
@@ -91,6 +101,11 @@ def __add_graph_wall_lines(wall_lines):
 def get_nodes_with_degree(degree: int, graph: nx.Graph) -> list:
     """Returns a list of nodes with degree d"""
     return list(filter(lambda node: graph.degree(node) == degree, graph.nodes))
+
+
+def get_connected_graph_components(graph):
+    """This function returns connected components from the graph"""
+    return [graph.subgraph(component_set) for component_set in nx.connected_components(graph)]
 
 
 def remove_self_edges_from_the_graph(graph: nx.Graph):
@@ -228,36 +243,107 @@ def merge_too_close_edges(graph: nx.Graph):
     Args:
         graph (nx.Graph): Networkx Graph.
     """
-    # PROCEDURE:
-    # 1. traverse the graph edge-by-edge
-    # 2. for edge in edges:
-    #   2.1 find source and target nodes
-    #   2.2 find the nodes connected to the target node (except for the source node).
-    #   2.3 calculate the rotations for each node of the target edge
-    #   2.4 check if the rotation is around 0 or 180 degree.
-    #   2.5 if it 0 or 180 then check if the other rotations are at an angle except for 0 or 180
-    #   2.6 if all the nodes are of 0 or 180 then get new edges and discard the old edge:
-    #       2.6.1 new_edges, edge_to_be_discarded = merge_new_edges(edge), edge
-    # 3. remove the old edges and make the form new_one:
-    #   3.1 graph.add_edges_from(edges_to_be_added)
-    #   3.2 graph.remove_edges_from(edges_to_be_removed)
+        
+    def is_angle_is_180_or_0_degrees(angle: Union[float, int]) -> bool:
+        from math import pi
+        if type(angle) == int:
+            return 179 <= angle <= 181 or -1 <= angle <= 1
+        return (pi - 0.1) <= angle <= (pi + 0.1) or 0.1 <= angle <= -0.1
     
-    def get_connected_graph_components(graph):
-        """This function returns connected components from the graph"""
-        return [graph.subgraph(component_set) for component_set in nx.connected_components(graph)]
+    def merge_target_node_into_parent_edge(source_node, target_node, child_node, graph,
+                                           component_counter = ''):
+        new_edge = (source_node, child_node)
+        # DEBUG:
+        print(f'target_node: {target_node} DISCARDED. from edge: {(source_node, target_node)}.')
+        print(f'new_edge: {new_edge}.')
+        __debug_location(
+            point = target_node,
+            color = 4,
+            radius = 1,
+            name = f'discarded {component_counter}'
+        )
+        return new_edge
     
     # 1. First we fetch all the graph_components from the graph. (which are a subgraph of the graph itself)
     graph_components = get_connected_graph_components(graph)
     
     # 2. iterate over the graph components and for each graph components find which node is to be merged:
-    for graph_component in graph_components:
-        edges_to_be_added, edges_to_be_removed = [], []
-        for edge in graph_component.edges:
-            source_node, target_node = edge[0], edge[1] 
-            #fetch edges connected to that graph:
-            connected_edges = [connected_edge for connected_edge in graph.edges(edge) if connected_edge != edge]
+    for index, graph_component in enumerate(graph_components):
+        # DEBUG:
+        # print('Now labeling all the component edges for component_number:', index)
+        # label_component_edges(_msp, graph_component.edges, index)
+        
+        # PROCEDURE:
+        # 1. traverse the graph edge-by-edge
+        # 2. for edge in edges:
+        #   2.1 find source and target nodes
+        #   2.2 find the nodes connected to the target node (except for the source node).
+        #   2.3 calculate the rotations for each node of the target edge
+        #   2.4 check if the rotation is around 0 or 180 degree.
+        #   2.5 if it 0 or 180 then check if the other rotations are at an angle except for 0 or 180
+        #   2.6 if all the nodes are of 0 or 180 then get new edges and discard the old edge:
+        #       2.6.1 new_edges, edge_to_be_discarded = merge_new_edges(edge), edge
+        # 3. remove the old edges and make the form new_one:
+        #   3.1 graph.add_edges_from(edges_to_be_added)
+        #   3.2 graph.remove_edges_from(edges_to_be_removed)        
+        
+        # unfreezing the graph-component:
+        graph_component_copy = nx.Graph(graph)
+        
+        counter = 0
+        all_lines_merged = False
+        while not all_lines_merged:
+            # DEBUG:
+            print(f'Iterating ({counter} times) on merging lines for component{index}.')
+            counter += 1
             
+            edges_to_be_added, edges_to_be_removed = [], []
+            # traverse the graph edge-by-edge
+            for edge in graph_component_copy.edges:
+                # find source and target nodes
+                source_node, target_node = edge[0], edge[1] 
+                # find the nodes connected to the target node (except for the source node).
+                child_nodes = [node for node in graph[target_node] if node != source_node]
+                # calculate the rotations for each node of the target edge
+                child_rotations = {child_node : find_angle(source_node, target_node, child_node) for child_node in child_nodes}
+                
+                # check if the rotation is around 0 or 180 degree.
+                # a flag to determine if the angle between them is forming a straight line or not
+                straight_line_flag = False 
+                # a flag to determine if the child_nodes are making other angles as well
+                other_angles_flag = False
+                for child_node, child_rotation in child_rotations.items():
+                    # if it 0 or 180 then check if the other rotations are at an angle except for 0 or 180
+                    # so if the straight_line_flag is True then check if it has other angles also]
+                    if is_angle_is_180_or_0_degrees(child_rotation):
+                        straight_line_flag = True
+                    else:
+                        other_angles_flag = True
+                        
+                # if all the nodes are of 0 or 180 then get new edges and discard the old edge:
+                if straight_line_flag == True and other_angles_flag == False:
+                    for child_node, child_rotation in child_rotations.items():
+                        if is_angle_is_180_or_0_degrees(child_rotation):
+                            # discard this edge and merge into parent_edge
+                            new_edge = merge_target_node_into_parent_edge(
+                                        source_node, target_node, child_node, graph, 
+                                        component_counter = index + 1)
+                            edges_to_be_added.append(new_edge)
+                            
+                            edge_to_be_discarded = edge # basically (source_node, target_node)
+                            edges_to_be_removed.append(edge_to_be_discarded)
             
+            # DEBUG:
+            print(f'len edges_to_be_removed: {len(edges_to_be_removed)}')              
+            all_lines_merged = True if len(edges_to_be_removed) == 0 else False
+
+            # now modifying graph:
+            graph.add_edges_from(edges_to_be_added)
+            graph.remove_edges_from(edges_to_be_removed)
+            
+            # now modifying graph_component:
+            graph_component_copy.add_edges_from(edges_to_be_added)
+            graph_component_copy.remove_edges_from(edges_to_be_removed)
 
 def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list):
     """This function cleans wall_lines and updates node's edge counts accordingly.
@@ -295,6 +381,10 @@ def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list):
     
     # 1. Then loops through all the one-edge-count nodes.
     for node in one_edge_count_nodes:
+        # Exception Handling:
+        if graph.degree(node) != 1:
+            continue
+        
         # 1.1. then fetch its nearests node to the point:
         nearest_nodes = get_nearest_nodes(node, graph)
         # 1.2. loop through all the edges of the nearest_node:
@@ -310,12 +400,18 @@ def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list):
                 
             if intersection_flag: break
             
-        # 2. Remove the too close edges and coincide their nodes.
-        #     Example: if graph has following edges: A -- B and C -- D.
-        #     and if A is too close to C, then:
-        #     C = A and => edges will be: A -- B, A -- D.
-        print('Now merging too close edges.')
-        merge_too_close_edges(graph)
+    # DEBUG:
+    # Before labeling checking if any components are merged or not:
+    print('Now labelling before merging.')
+    for index, graph_component in enumerate(get_connected_graph_components(graph)):
+        label_component_edges(_msp, graph_component.edges, index + 1)
+            
+    # 2. Remove the too close edges and coincide their nodes.
+    #     Example: if graph has following edges: A -- B and C -- D.
+    #     and if A is too close to C, then:
+    #     C = A and => edges will be: A -- B, A -- D.
+    print('Now merging too close edges.')
+    merge_too_close_edges(graph)
     
     return
 
@@ -427,11 +523,11 @@ def get_cleaned_wall_lines(wall_lines: list) -> list:
         # draw_graph(graph)
         
     # DEBUG:
-    from pprint import pprint
-    graph_nodes = list(graph.nodes)
-    graph_nodes.sort()
-    print('Printing graph nodes')
-    pprint(graph_nodes)
+    # from pprint import pprint
+    # graph_nodes = list(graph.nodes)
+    # graph_nodes.sort()
+    # print('Printing graph nodes')
+    # pprint(graph_nodes)
     
     new_wall_lines = get_wall_lines_from_graph_edges(graph)
 
