@@ -288,7 +288,7 @@ def merge_too_close_edges(graph: nx.Graph):
         #   3.2 graph.remove_edges_from(edges_to_be_removed)        
         
         # unfreezing the graph-component:
-        graph_component_copy = nx.Graph(graph)
+        graph_component_copy = nx.Graph(graph_component)
         
         counter = 0
         all_lines_merged = False
