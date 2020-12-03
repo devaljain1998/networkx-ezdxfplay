@@ -41,19 +41,45 @@ def __debug_location(point, name: str = 'debug', radius = 2, color:int = 2):
     _msp.add_circle(point, radius, dxfattribs={'color': color, 'layer': 'debug'})
     _msp.add_mtext(name, dxfattribs = {'layer': 'debug'}).set_location(point)
     
+def __label_all_the_nodes_in_graphs_according_to_their_degree(graph):
+    __dwg = ezdxf.new('R2010')
+    __dwg.layers.new('WALL_DEBUG')
+    __msp = __dwg.modelspace()
+    
+    def __debug_label_location(point, name: str = 'debug', radius = 2, color:int = 2):
+        __msp.add_circle(point, radius, dxfattribs={'color': color, 'layer': 'debug'})
+        __msp.add_mtext(name, dxfattribs = {'layer': 'debug'}).set_location(point)
+        
+    for edge in graph.edges:
+        __msp.add_line(edge[0], edge[1])
+
+    for node in graph.nodes:
+        __debug_label_location(
+            point=node,
+            name = f'{graph.degree(node)}',
+            radius=1,
+            color=5
+        )
+        
+    __dwg.saveas(filepath+f'debug_degree_{debug_counter}.dxf')
+
+
+    
 def __save_debug_dxf_file():
     global debug_counter
     dwg.saveas(filepath + f'debug_wall_{debug_counter}.dxf')
     print('saved dxf file for debug_no: ', debug_counter)
     debug_counter += 1
     
-def __save_graph_debug_dxf_file(wall_lines):
+def __save_graph_debug_dxf_file(wall_lines, graph=None):
     global debug_counter
     for wall_line in wall_lines:
         _msp.add_line(wall_line[0], wall_line[1], dxfattribs = {'layer': 'WALL_DEBUG'})
 
     _dwg.saveas(filepath + f'debug_graph_wall_{debug_counter}.dxf')
     print('saved dxf GRAPH file for debug_no: ', debug_counter)
+    if graph:
+        __label_all_the_nodes_in_graphs_according_to_their_degree(graph)
 
     
 def __add_wall_lines(wall_lines):
@@ -67,7 +93,8 @@ def __add_graph_wall_lines(wall_lines):
     # for wall_line in wall_lines:
     #     _msp.add_line(wall_line[0], wall_line[1], dxfattribs = {'layer': 'WALL_DEBUG'})
     __save_graph_debug_dxf_file(wall_lines)
-
+    
+    
 
 def label_component_edges(__msp, edges, component_number):
     import pillarplus
@@ -416,7 +443,7 @@ def clean_wall_lines_and_node_edge_count(graph: nx.Graph, wall_lines: list):
     return
 
 
-def get_cleaned_wall_lines(wall_lines: list) -> list:
+def get_cleaned_wall_lines(wall_lines: list, *args, **kwargs) -> list:
     """This function will return cleaned wall_lines using networkx.
 
     Args:
@@ -428,7 +455,8 @@ def get_cleaned_wall_lines(wall_lines: list) -> list:
         2. Now preprocess the graph by finding out that for how many edges is a node connected with:
             - To find this we need to iterate the graph from all the nodes.
             - Keep filling the edge_count of all the node in the dictionary to keep a track-record.
-        3. Clean all the edges of edge_count: 1. (Whenever any node occures in-between intersection point of other node then it is needed to break that edge into 2 edges).
+        3. TODO: (Complete the writing the cleaning procedure.) 
+            Clean all the edges of edge_count: 1. (Whenever any node occures in-between intersection point of other node then it is needed to break that edge into 2 edges).
             Example: A-----(B)-----C {Here node B lies between the edge A and C}.
             We will convert it into: A-----B-----C
             And then we will be updating the node counts accordingly.
@@ -446,6 +474,9 @@ def get_cleaned_wall_lines(wall_lines: list) -> list:
     Returns:
         list: Returns the list of proper wall lines.
     """
+    global filepath
+    filepath = kwargs.get('filepath', filepath)
+    
     logger.info('Now cleaning wall_lines.')
     print('Now cleaning wall_lines.')
     
@@ -503,10 +534,7 @@ def get_cleaned_wall_lines(wall_lines: list) -> list:
         print('Nodes with edge_count > 2 fixed for this cycle.')
         # print('Now removing self-edges:')
         # remove_self_edges_from_the_graph(graph)
-                
-        # DEBUG SPECIAL NODE
-        print('special_node:', graph.degree((315038.6279144774, 6194.614122894351))) #315038.6279144774, 6194.614122894389
-                
+                                
         print('One cycle complete', debug_counter, '\n')
         # DEBUG:
         __save_debug_dxf_file()
@@ -515,7 +543,7 @@ def get_cleaned_wall_lines(wall_lines: list) -> list:
         if debug_counter == 0:
             __add_graph_wall_lines(current_wall_lines)
         else:
-            __save_graph_debug_dxf_file(current_wall_lines)
+            __save_graph_debug_dxf_file(current_wall_lines, graph=graph)
         if not debug_counter <= 4:
             print('Now terminating')
             break #sys.exit(1)
