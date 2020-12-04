@@ -418,7 +418,7 @@ def draw_graph(directed_graph):
     nx.draw_networkx(directed_graph)
     plt.axis('off')
     plt.tight_layout();
-    plt.savefig('graph_image.jpg')
+    plt.savefig('dxfFilesOut/debug_graphs/graph_image.jpg')
 
 def draw_bend():
     pass

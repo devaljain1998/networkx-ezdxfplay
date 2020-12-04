@@ -1,0 +1,42 @@
+######## CURRENT CHALLENGES: ################
+Walls are
+
+
+
+
+
+
+Resources:
+Merge overlapping line segments: https://www.geeksforgeeks.org/merging-intervals/#:~:text=A%20simple%20approach%20is%20to,for%20remaining%20intervals%20after%20first.
+
+
+
+
+############# EARLIER RESEARCH::: ############
+
+Issues with the wall grouping:
+
+- There can be common points for the walls.
+- There can be walls with uncomplete end-point.
+
+
+WALL_LINE RESOLUTION ALGORITHM:
+ - There is a case coming in which the nodes are:
+ 	(4: 2, 2, 2, 2).
+ 	- The case comes when there is a mid point.
+
+ 	I can either raise a ValueError or break the point first.
+
+
+
+
+
+
+ # RUNTIME ALGO:
+ 1. (315898.1279, 5966.6141) : Irregularity
+ 2. (315707.6279, 6050.6141) : ContainedWithin 2 edges
+ 3. (315820.1279, 6131.6141): A Node with same edges. (Edge to itself.)
+ 4. Minute distances:
+ Edges with (edge_count > 2) successfully deleted for base_node:(315014.6279, 6346.1141)
+for edges_to_be_removed:[((315014.6279, 6346.1141), (315014.6279, 6337.1141))]
+

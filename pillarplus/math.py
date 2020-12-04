@@ -316,8 +316,9 @@ def check_point_in_polygon(p, l):
 def find_mid_point(start, end):
     x = (start[0] + end[0]) / 2
     y = (start[1] + end[1]) / 2
-    z = (start[2] + end[2]) / 3
-    return (x, y, z)
+    if len(start) > 2:
+        z = (start[2] + end[2]) / 3
+    return (x, y, z) if len(start) > 2 else (x, y)
 
 
 def find_centroid(points):
@@ -336,6 +337,21 @@ def find_centroid(points):
     centroid_z /= length
 
     return centroid_x, centroid_y, centroid_z
+
+def find_centroid_2d(points):
+    centroid_x = 0
+    centroid_y = 0
+    length = len(points)
+
+    for point in points:
+        centroid_x += point[0]
+        centroid_y += point[1]
+
+    centroid_x /= length
+    centroid_y /= length
+
+    return centroid_x, centroid_y
+
 
 def find_angle(p1,p2,p3):
     #in Radian
@@ -395,6 +411,18 @@ def get_nearest_points_from_a_point(point: tuple, points: List[tuple]) -> List[t
     list_of_points.sort(key = point_comparator)
     
     return list_of_points
+
+
+def is_points_close(point1, point2, conversion_factor: float = 1.0):
+    """This functions let us know if the two points are really close.
+
+    Args:
+        point1 
+        point2
+        conversion_factor (float, optional): Conversion factor for the proper measurement. Defaults to 1.0.
+    """
+    MINIMUM_DISTANCE_ALLOWED: int = 1.5 * conversion_factor
+    return find_distance(point1, point2) <= MINIMUM_DISTANCE_ALLOWED
 
 # def get_nearest_points_from_a_point(point)
 

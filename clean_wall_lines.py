@@ -34,6 +34,16 @@ _dwg.layers.new('WALL_DEBUG')
 _msp = _dwg.modelspace()
 
 
+NODE_COLOR = {
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+}
+
+
 def __debug_location(point, name: str = 'debug', radius = 2, color:int = 2):
     msp.add_circle(point, radius, dxfattribs={'color': color, 'layer': 'debug'})
     msp.add_mtext(name, dxfattribs = {'layer': 'debug'}).set_location(point)
@@ -41,7 +51,7 @@ def __debug_location(point, name: str = 'debug', radius = 2, color:int = 2):
     _msp.add_circle(point, radius, dxfattribs={'color': color, 'layer': 'debug'})
     _msp.add_mtext(name, dxfattribs = {'layer': 'debug'}).set_location(point)
     
-def __label_all_the_nodes_in_graphs_according_to_their_degree(graph):
+def __label_all_the_nodes_in_graphs_according_to_their_degree(graph, **kwargs):
     __dwg = ezdxf.new('R2010')
     __dwg.layers.new('WALL_DEBUG')
     __msp = __dwg.modelspace()
@@ -54,14 +64,15 @@ def __label_all_the_nodes_in_graphs_according_to_their_degree(graph):
         __msp.add_line(edge[0], edge[1])
 
     for node in graph.nodes:
+        degree = graph.degree(node)
         __debug_label_location(
             point=node,
             name = f'{graph.degree(node)}',
-            radius=1,
-            color=5
+            radius=1 if degree == 2 else degree,
+            color = 5 if degree == 2 else NODE_COLOR[degree]
         )
         
-    __dwg.saveas(filepath+f'debug_degree_{debug_counter}.dxf')
+    __dwg.saveas(filepath+f'debug_degree_{debug_counter}_{kwargs.get("checkpoint", "")}.dxf')
 
 
     
@@ -489,8 +500,11 @@ def get_cleaned_wall_lines(wall_lines: list, *args, **kwargs) -> list:
     logger.debug('graph initialized.')
     print('graph initialized.')
         
+    __label_all_the_nodes_in_graphs_according_to_their_degree(graph, checkpoint = '01')
     # Clean the wall lines and the nodes:
     clean_wall_lines_and_node_edge_count(graph, wall_lines)
+    __label_all_the_nodes_in_graphs_according_to_their_degree(graph, checkpoint = '02')
+    
     
     # DEBUG:
     c_wall_lines = get_wall_lines_from_graph_edges(graph)
