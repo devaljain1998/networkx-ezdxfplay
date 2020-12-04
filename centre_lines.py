@@ -149,7 +149,7 @@ def preprocess_lines(lines: List[tuple]) -> List[tuple]:
     """
     Lines = []
     for Line in lines:
-        line = [line[0], line[1]]
+        line = [Line[0], Line[1]]
         if is_line_decreasing_on_x_2d(line): line.reverse()
         line_meta[str(line)] = {'polyline': False}
         Lines.append(line)
@@ -322,14 +322,14 @@ def get_parallel_line_pairs(slope_bucket : Dict[int, List[List[tuple]]]) -> List
     
 
 
-def get_Centre_lines_from_pairs(parallel_line_pairs : List[List[tuple]]) -> List[Centre_line]:
-    """This function returns the Centre_line objects that are needed.
+def get_centre_lines_from_pairs(parallel_line_pairs : List[List[tuple]]) -> List["CentreLine"]:
+    """This function returns the CentreLine objects that are needed.
 
     Args:
-        parallel_line_pairs (List[List[tuple]]): These are the valid pairs of parallel lines between which a Centre_line can be constructed.
+        parallel_line_pairs (List[List[tuple]]): These are the valid pairs of parallel lines between which a CentreLine can be constructed.
 
     Returns:
-        List[Centre_line]: A list of Centre_line objects for the 
+        List[CentreLine]: A list of CentreLine objects for the 
     """
     def get_centered_line_segments(line1, line2) -> list:
         """Function which returns a centered line segments from parallel pairs.
@@ -387,7 +387,7 @@ def get_Centre_lines_from_pairs(parallel_line_pairs : List[List[tuple]]) -> List
         return [centre_point1, centre_point2]
     
     
-    Centre_lines = []
+    centre_lines = []
     number = 1
     for pair in parallel_line_pairs:
         line1, line2 = pair
@@ -406,13 +406,13 @@ def get_Centre_lines_from_pairs(parallel_line_pairs : List[List[tuple]]) -> List
                 """)
             
             width = parallel_line_pair_meta[str(pair)]
-            Centre_line = Centre_line(number, line_segment[0], line_segment[1], line_segment[0], line_segment[1], width)
+            centre_line = CentreLine(number, line_segment[0], line_segment[1], line_segment[0], line_segment[1], width)
             
-            Centre_lines.append(Centre_line)
+            centre_lines.append(centre_line)
             
             number += 1
             
-    return Centre_lines
+    return centre_lines
 
 
 def draw_Centre_lines(Centre_lines, msp, dwg, output_file):
@@ -426,7 +426,7 @@ def draw_Centre_lines(Centre_lines, msp, dwg, output_file):
 
 def get_centre_lines(
     msp, dwg, layer_name, conversion_factor, 
-        output_file = 'detected_centrelines.dxf', *args, **kwargs) -> List[Centre_line]:
+        output_file = 'detected_centrelines.dxf', *args, **kwargs) -> List[CentreLine]:
     """This function returns Centre_lines from polylines present in the layer "PP-Centre_line"
     in the dxf file.
 
@@ -441,6 +441,6 @@ def get_centre_lines(
         lines = get_lines(msp, dwg, layer_name)
     slope_bucket = get_slope_bucket(lines)
     parallel_line_pairs = get_parallel_line_pairs(slope_bucket)
-    centre_lines = get_Centre_lines_from_pairs(parallel_line_pairs)
+    centre_lines = get_centre_lines_from_pairs(parallel_line_pairs)
     draw_Centre_lines(centre_lines, msp, dwg, output_file)
     return centre_lines
