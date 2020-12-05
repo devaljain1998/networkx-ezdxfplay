@@ -416,8 +416,15 @@ def get_centre_lines_from_pairs(parallel_line_pairs : List[List[tuple]]) -> List
 
 
 def draw_Centre_lines(Centre_lines, msp, dwg, output_file):
+    def __debug_location(point, name: str = 'debug', radius = 2, color:int = 2):
+        msp.add_circle(point, radius, dxfattribs={'color': color, 'layer': 'debug'})
+        msp.add_mtext(name, dxfattribs = {'layer': 'debug'}).set_location(point)
+
     for Centre_line in Centre_lines:
         msp.add_line(Centre_line.start_point, Centre_line.end_point, dxfattribs={'layer': 'CenterLines'})
+        # Labelling SP and EP
+        __debug_location(point=Centre_line.start_point, name='SP', radius=1, color=2)
+        __debug_location(point=Centre_line.end_point, name='EP', radius=1, color=2)
         
     if output_file:
         dwg.layers.new(name='CenterLines', dxfattribs={'linetype': 'DASHED', 'color': 7})
