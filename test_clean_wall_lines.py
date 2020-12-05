@@ -1,3 +1,4 @@
+from pprint import pprint
 import sys
 import os
 import ezdxf
@@ -28,25 +29,28 @@ from centre_lines import get_centre_lines
 # Now testing on the actual file
 file_path = 'dxfFilesIn/dxf_files/'
 input_files = {
-    'main':'detect_wall.dxf',
-    'sample': 'Sample.dxf'
+    'main': 'detect_wall.dxf',
+    'sample': 'Sample.dxf',
+    'sample2': 'sample2.dxf'
 }
-input_key = 'sample'
+input_key = 'sample2'
 input_file = input_files[input_key]
 
-base_output_file_path = f'dxfFilesOut/{input_key}/' 
+base_output_file_path = f'dxfFilesOut/{input_key}/'
 output_file_path = f'dxfFilesOut/{input_key}/debug_dxf/'
 # Checking and creating a directory for the output filepath
 try:
     import pathlib
-    current_file_path =  str(pathlib.Path(__file__).parent.absolute()) + '/' +base_output_file_path
+    current_file_path = str(pathlib.Path(
+        __file__).parent.absolute()) + '/' + base_output_file_path
     path_to_be_created = os.path.join(current_file_path, 'debug_dxf')
-    mode = 0o666
-    os.mkdir(path_to_be_created, mode);
+    mode = 0o777
+    os.mkdir(path_to_be_created, mode)
     print('success in creating new directory')
 except OSError as error:
     print('Error in creating directory:')
     print(error)
+
 
 input_file_name = input_file.split('.')[0]
 output_file = f'{input_file_name}_output.dxf'
@@ -62,10 +66,11 @@ except ezdxf.DXFStructureError:
     sys.exit(2)
 
 msp = dwg.modelspace()
-print(f'File read success from {file_path}.')    
+print(f'File read success from {file_path}.')
 
 
-wall_layers = {'main':'WALL', 'sample': 'WALLS'}
+wall_layers = {'main': 'WALL', 'sample': 'WALLS', 'sample2': 'WALLS'}
+
 def get_wall_lines():
     wall_layer = wall_layers[input_key]
     dxf_wall_lines = msp.query(f'LINE[layer=="{wall_layer}"]')
@@ -79,15 +84,15 @@ def get_wall_lines():
             print(f'Exception occured while reading line: {e}')
             continue
         # lambda num: round(num, ndigits=4)
-        x1, y1, x2, y2 = map(int, (x1, y1, x2, y2)) 
-            
+        x1, y1, x2, y2 = map(int, (x1, y1, x2, y2))
+
         wall_line = [(x1, y1), (x2, y2)]
         wall_lines.append(wall_line)
-            
+
     return wall_lines
 
+
 wall_lines = get_wall_lines()
-from pprint import pprint
 print('wall_lines: ', len(wall_lines))
 
 # testing components:
@@ -95,7 +100,13 @@ print('wall_lines: ', len(wall_lines))
 # draw_components(wall_lines, msp, dwg)
 # dwg.saveas(output_file_path + output_file)
 # print(f'Success in saving {output_file_path + output_file} for testing components.')
-cleaned_wall_lines = get_cleaned_wall_lines(wall_lines, filepath = output_file_path)
+
+
+# Operations:
+cleaned_wall_lines = get_cleaned_wall_lines(
+    wall_lines, filepath=output_file_path)
+# pprint(cleaned_wall_lines)
+
 # Now getting centrelines from the wall_lines:
 conversion_factor = {
     'mm': 1.0,
@@ -104,4 +115,9 @@ conversion_factor = {
 centre_lines = get_centre_lines(
     msp, dwg, "", conversion_factor=conversion_factor['inch'],
     lines = cleaned_wall_lines)
-# pprint(cleaned_wall_lines)
+pprint([centre_line.__dict__ for centre_line in centre_lines])
+
+#### POC OPERATIONS:
+
+def test_shapely():
+    pass

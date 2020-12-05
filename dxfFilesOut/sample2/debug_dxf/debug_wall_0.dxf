@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2459188.7749074074
+2459189.7610300924
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2459188.7749074074
+2459189.7610300924
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-10D
+9D
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-701C42E8-3631-11EB-B29C-F5A5A491FE13
+CFE72C06-36F7-11EB-A048-AB221E26D0D1
   9
 $VERSIONGUID
   2
-701C42F3-3631-11EB-B29C-F5A5A491FE13
+CFE72C0C-36F7-11EB-A048-AB221E26D0D1
   9
 $EXTNAMES
 290
@@ -1611,7 +1611,7 @@ AcDbSymbolTableRecord
 100
 AcDbLayerTableRecord
   2
-WALL_DEBUG
+WALL
  70
 0
  62
@@ -1725,7 +1725,7 @@ ACAD
   0
 APPID
   5
-10C
+9C
 330
 3
 100
@@ -2033,7 +2033,7 @@ SECTION
   2
 ENTITIES
   0
-MTEXT
+LINE
   5
 2E
 330
@@ -2041,23 +2041,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-375.0
+328.0
  20
-981.0
+537.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+528.0
+ 21
+537.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 2F
 330
@@ -2065,23 +2065,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-422.0
+588.0
  20
-976.5
+537.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+614.0
+ 21
+537.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 30
 330
@@ -2089,23 +2089,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
 337.0
  20
-684.5
+546.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+528.0
+ 21
+546.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 31
 330
@@ -2113,23 +2113,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-424.5
+588.0
  20
-823.0
+546.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+614.0
+ 21
+546.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 32
 330
@@ -2137,23 +2137,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-428.0
+614.0
  20
-537.0
+441.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+642.0
+ 21
+441.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 33
 330
@@ -2161,23 +2161,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-528.0
+646.0
  20
-541.5
+441.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+661.0
+ 21
+441.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 34
 330
@@ -2185,23 +2185,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-512.0
+718.0
  20
-825.5
+441.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+775.0
+ 21
+441.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 35
 330
@@ -2209,23 +2209,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-328.0
+619.0
  20
-759.0
+450.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+661.0
+ 21
+450.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 36
 330
@@ -2233,23 +2233,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-432.5
+718.0
  20
-546.0
+450.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+775.0
+ 21
+450.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 37
 330
@@ -2257,23 +2257,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-337.0
+661.0
  20
-960.0
+640.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+679.0
+ 21
+640.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 38
 330
@@ -2281,23 +2281,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-337.0
+709.0
  20
-888.0
+640.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+775.0
+ 21
+640.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 39
 330
@@ -2305,23 +2305,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-379.5
+614.0
  20
-972.0
+645.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+619.0
+ 21
+645.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 3A
 330
@@ -2329,23 +2329,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-424.5
+661.0
  20
-828.0
+645.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-1
+ 11
+674.0
+ 21
+645.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 3B
 330
@@ -2353,23 +2353,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-653.5
+709.0
  20
-441.0
+645.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+775.0
+ 21
+645.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 3C
 330
@@ -2377,23 +2377,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-646.0
+679.0
  20
-420.0
+718.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+754.0
+ 21
+718.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 3D
 330
@@ -2401,23 +2401,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-628.0
+772.0
  20
-441.0
+718.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+775.0
+ 21
+718.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 3E
 330
@@ -2425,23 +2425,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-614.0
+674.0
  20
-489.0
+723.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+746.0
+ 21
+723.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 3F
 330
@@ -2449,23 +2449,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-601.0
+751.0
  20
-537.0
+723.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+754.0
+ 21
+723.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 40
 330
@@ -2473,23 +2473,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-642.0
+772.0
  20
-415.5
+723.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+775.0
+ 21
+723.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 41
 330
@@ -2497,23 +2497,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-661.0
+554.0
  20
-445.5
+823.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+559.0
+ 21
+823.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 42
 330
@@ -2521,23 +2521,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-588.0
+784.0
  20
-541.5
+390.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+784.0
+ 21
+981.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 43
 330
@@ -2545,23 +2545,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-601.0
+642.0
  20
-546.0
+390.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+642.0
+ 21
+441.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 44
 330
@@ -2569,23 +2569,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-614.0
+646.0
  20
-595.5
+399.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+646.0
+ 21
+441.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 45
 330
@@ -2593,23 +2593,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-640.0
+651.0
  20
-450.0
+390.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+651.0
+ 21
+399.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 46
 330
@@ -2617,23 +2617,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-616.5
+775.0
  20
-645.0
+399.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+775.0
+ 21
+441.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 47
 330
@@ -2641,23 +2641,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-619.0
+775.0
  20
-547.5
+450.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+775.0
+ 21
+640.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 48
 330
@@ -2665,23 +2665,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-646.5
+775.0
  20
-390.0
+645.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+775.0
+ 21
+718.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 49
 330
@@ -2689,23 +2689,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-651.0
+775.0
  20
-394.5
+723.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+775.0
+ 21
+777.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 4A
 330
@@ -2713,23 +2713,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-648.5
+751.0
  20
-399.0
+764.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-2
+ 11
+751.0
+ 21
+777.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 4B
 330
@@ -2737,23 +2737,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-692.5
+746.0
  20
-981.0
+764.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+746.0
+ 21
+777.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 4C
 330
@@ -2761,23 +2761,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-784.0
+775.0
  20
-870.0
+781.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+775.0
+ 21
+882.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 4D
 330
@@ -2785,23 +2785,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
 775.0
  20
-929.0
+886.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+775.0
+ 21
+972.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 4E
 330
@@ -2809,23 +2809,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-688.0
+679.0
  20
-972.0
+640.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+679.0
+ 21
+718.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 4F
 330
@@ -2833,23 +2833,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-754.0
+709.0
  20
-441.0
+640.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+709.0
+ 21
+645.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 50
 330
@@ -2857,23 +2857,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-775.0
+674.0
  20
-420.0
+645.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+674.0
+ 21
+723.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 51
 330
@@ -2881,23 +2881,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-777.0
+674.0
  20
-390.0
+777.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+674.0
+ 21
+781.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 52
 330
@@ -2905,23 +2905,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-770.0
+619.0
  20
-394.5
+450.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+619.0
+ 21
+645.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 53
 330
@@ -2929,23 +2929,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-773.5
+661.0
  20
-723.0
+640.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+661.0
+ 21
+645.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 54
 330
@@ -2953,23 +2953,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-772.0
+614.0
  20
-720.5
+441.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+614.0
+ 21
+537.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 55
 330
@@ -2977,23 +2977,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-773.5
+614.0
  20
-781.0
+546.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+614.0
+ 21
+645.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 56
 330
@@ -3001,23 +3001,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-772.0
+703.0
  20
-779.0
+781.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+703.0
+ 21
+823.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 57
 330
@@ -3025,23 +3025,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-733.0
+703.0
  20
-445.5
+828.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+703.0
+ 21
+912.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 58
 330
@@ -3049,23 +3049,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-754.0
+707.0
  20
-450.0
+781.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+707.0
+ 21
+912.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 59
 330
@@ -3073,23 +3073,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-775.0
+737.0
  20
-545.0
+882.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+737.0
+ 21
+886.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 5A
 330
@@ -3097,23 +3097,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-772.5
+559.0
  20
-399.0
+823.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+559.0
+ 21
+981.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 5B
 330
@@ -3121,23 +3121,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-742.0
+601.0
  20
-645.0
+823.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+601.0
+ 21
+828.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 5C
 330
@@ -3145,23 +3145,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-709.0
+554.0
  20
-642.5
+823.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+554.0
+ 21
+876.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 5D
 330
@@ -3169,23 +3169,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-756.0
+554.0
  20
-886.0
+880.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+554.0
+ 21
+972.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 5E
 330
@@ -3193,23 +3193,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-775.0
+784.0
  20
-681.5
+981.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+601.0
+ 21
+981.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 5F
 330
@@ -3217,23 +3217,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-601.0
+559.0
  20
-976.5
+981.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+505.0
+ 21
+981.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 60
 330
@@ -3241,23 +3241,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-773.5
+487.0
  20
-718.0
+981.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+482.0
+ 21
+981.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 61
 330
@@ -3265,23 +3265,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-773.5
+464.0
  20
-777.0
+981.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+328.0
+ 21
+981.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 62
 330
@@ -3289,23 +3289,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-737.0
+775.0
  20
-884.0
+972.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+601.0
+ 21
+972.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 63
 330
@@ -3313,23 +3313,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-775.0
+554.0
  20
-831.5
+972.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+505.0
+ 21
+972.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 64
 330
@@ -3337,23 +3337,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-756.0
+464.0
  20
-882.0
+972.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+337.0
+ 21
+972.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 65
 330
@@ -3361,23 +3361,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-775.0
+703.0
  20
-732.0
+828.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+601.0
+ 21
+828.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 66
 330
@@ -3385,23 +3385,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-779.5
+703.0
  20
-741.0
+823.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+601.0
+ 21
+823.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 67
 330
@@ -3409,23 +3409,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
 775.0
  20
-750.0
+781.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+772.0
+ 21
+781.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 68
 330
@@ -3433,23 +3433,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-784.0
+754.0
  20
-750.0
+781.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+707.0
+ 21
+781.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 69
 330
@@ -3457,23 +3457,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-784.0
+703.0
  20
-565.5
+781.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+674.0
+ 21
+781.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 6A
 330
@@ -3481,23 +3481,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-779.5
+775.0
  20
-759.0
+777.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+772.0
+ 21
+777.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 6B
 330
@@ -3505,23 +3505,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-742.0
+746.0
  20
-640.0
+777.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+674.0
+ 21
+777.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 6C
 330
@@ -3529,23 +3529,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-775.0
+328.0
  20
-768.0
+537.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-3
+ 11
+328.0
+ 21
+981.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 6D
 330
@@ -3553,23 +3553,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-716.5
+337.0
  20
-718.0
+546.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+337.0
+ 21
+823.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 6E
 330
@@ -3577,23 +3577,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-754.0
+337.0
  20
-720.5
+828.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+337.0
+ 21
+972.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 6F
 330
@@ -3601,23 +3601,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-670.0
+482.0
  20
-640.0
+981.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+482.0
+ 21
+876.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 70
 330
@@ -3625,23 +3625,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-679.0
+487.0
  20
-679.0
+981.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+487.0
+ 21
+876.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 71
 330
@@ -3649,23 +3649,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-661.0
+517.0
  20
-642.5
+880.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+517.0
+ 21
+876.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 72
 330
@@ -3673,23 +3673,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-710.0
+512.0
  20
-723.0
+823.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+337.0
+ 21
+823.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 73
 330
@@ -3697,23 +3697,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-746.0
+512.0
  20
-732.0
+828.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+337.0
+ 21
+828.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 74
 330
@@ -3721,23 +3721,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-752.5
+337.0
  20
-723.0
+948.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+337.0
+ 21
+972.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 75
 330
@@ -3745,23 +3745,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-751.0
+482.0
  20
-732.0
+876.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+487.0
+ 21
+876.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 76
 330
@@ -3769,23 +3769,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-674.0
+517.0
  20
-684.0
+876.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+554.0
+ 21
+876.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 77
 330
@@ -3793,23 +3793,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-667.5
+517.0
  20
-645.0
+880.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+554.0
+ 21
+880.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 78
 330
@@ -3817,23 +3817,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-748.0
+588.0
  20
-741.0
+537.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+588.0
+ 21
+546.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 79
 330
@@ -3841,23 +3841,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-750.5
+528.0
  20
-741.0
+537.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-4
+ 11
+528.0
+ 21
+546.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 7A
 330
@@ -3865,23 +3865,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-559.0
+703.0
  20
-902.0
+912.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-5
+ 11
+707.0
+ 21
+912.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 7B
 330
@@ -3889,23 +3889,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-538.5
+737.0
  20
-981.0
+886.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-5
+ 11
+775.0
+ 21
+886.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 7C
 330
@@ -3913,23 +3913,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-556.5
+737.0
  20
-823.0
+882.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-5
+ 11
+775.0
+ 21
+882.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 7D
 330
@@ -3937,23 +3937,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-554.0
+718.0
  20
-849.5
+450.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-5
+ 11
+718.0
+ 21
+441.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 7E
 330
@@ -3961,23 +3961,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-554.0
+661.0
  20
-926.0
+450.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-5
+ 11
+661.0
+ 21
+441.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 7F
 330
@@ -3985,23 +3985,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-535.5
+700.0
  20
-880.0
+450.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-5
+ 11
+700.0
+ 21
+441.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 80
 330
@@ -4009,23 +4009,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-536.0
+642.0
  20
-972.0
+390.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-5
+ 11
+651.0
+ 21
+390.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 81
 330
@@ -4033,23 +4033,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-518.0
+646.0
  20
-976.5
+399.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-5
+ 11
+651.0
+ 21
+399.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 82
 330
@@ -4057,23 +4057,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-535.5
+512.0
  20
-876.0
+823.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-5
+ 11
+512.0
+ 21
+828.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 83
 330
@@ -4081,23 +4081,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-517.0
+601.0
  20
-878.0
+972.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-5
+ 11
+601.0
+ 21
+981.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 84
 330
@@ -4105,23 +4105,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-601.0
+505.0
  20
-825.5
+972.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+505.0
+ 21
+981.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 85
 330
@@ -4129,23 +4129,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-652.0
+464.0
  20
-823.0
+972.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+464.0
+ 21
+981.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 86
 330
@@ -4153,23 +4153,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-746.0
+772.0
  20
-770.5
+777.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+772.0
+ 21
+781.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 87
 330
@@ -4177,23 +4177,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-710.0
+754.0
  20
 777.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+754.0
+ 21
+781.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 88
 330
@@ -4201,23 +4201,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-706.0
+772.0
  20
-925.5
+723.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+772.0
+ 21
+718.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 89
 330
@@ -4225,23 +4225,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-706.5
+754.0
  20
-912.0
+723.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+754.0
+ 21
+718.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 8A
 330
@@ -4249,23 +4249,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-704.5
+770.0
  20
-912.0
+390.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+784.0
+ 21
+390.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 8B
 330
@@ -4273,23 +4273,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-751.0
+770.0
  20
-770.5
+390.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+770.0
+ 21
+399.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 8C
 330
@@ -4297,23 +4297,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-748.5
+775.0
  20
-764.0
+399.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+770.0
+ 21
+399.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 8D
 330
@@ -4321,23 +4321,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-730.5
+703.0
  20
-781.0
+912.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+703.0
+ 21
+939.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 8E
 330
@@ -4345,23 +4345,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-754.0
+706.0
  20
-779.0
+912.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+706.0
+ 21
+939.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 8F
 330
@@ -4369,23 +4369,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-704.5
+703.0
  20
 939.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+706.0
+ 21
+939.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 90
 330
@@ -4393,23 +4393,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-703.0
+754.0
  20
-802.0
+777.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+751.0
+ 21
+777.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 91
 330
@@ -4417,23 +4417,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-688.5
+775.0
  20
-781.0
+759.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+784.0
+ 21
+759.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 92
 330
@@ -4441,23 +4441,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-652.0
+775.0
  20
-828.0
+741.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+784.0
+ 21
+741.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 93
 330
@@ -4465,23 +4465,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-752.5
+746.0
  20
-777.0
+741.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+750.0
+ 21
+741.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 94
 330
@@ -4489,23 +4489,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-703.0
+746.0
  20
-870.0
+764.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+751.0
+ 21
+764.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 95
 330
@@ -4513,23 +4513,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-703.0
+751.0
  20
-925.5
+741.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+751.0
+ 21
+723.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 96
 330
@@ -4537,23 +4537,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-707.0
+746.0
  20
-846.5
+741.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+746.0
+ 21
+723.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 97
 330
@@ -4561,23 +4561,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-674.0
+746.0
  20
-779.0
+741.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-6
+ 11
+750.0
+ 21
+741.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 98
 330
@@ -4585,23 +4585,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-482.0
+746.0
  20
-928.5
+741.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-7
+ 11
+751.0
+ 21
+741.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 99
 330
@@ -4609,23 +4609,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-484.5
+691.0
  20
-876.0
+450.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-7
+ 11
+700.0
+ 21
+450.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 9A
 330
@@ -4633,23 +4633,23 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
+WALL
 100
-AcDbMText
+AcDbLine
  10
-484.5
+691.0
  20
-981.0
+450.0
  30
 0.0
- 40
-2.5
- 71
-1
-  1
-7
+ 11
+691.0
+ 21
+441.0
+ 31
+0.0
   0
-MTEXT
+LINE
   5
 9B
 330
@@ -4657,2707 +4657,19 @@ MTEXT
 100
 AcDbEntity
   8
-comp_debug_text
-100
-AcDbMText
- 10
-487.0
- 20
-928.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-7
-  0
-MTEXT
-  5
-9C
-330
-17
-100
-AcDbEntity
-  8
-comp_debug_text
-100
-AcDbMText
- 10
-691.0
- 20
-445.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-8
-  0
-LINE
-  5
-9D
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-328.0
- 20
-537.0
- 30
-0.0
- 11
-528.0
- 21
-537.0
- 31
-0.0
-  0
-LINE
-  5
-9E
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-328.0
- 20
-537.0
- 30
-0.0
- 11
-328.0
- 21
-981.0
- 31
-0.0
-  0
-LINE
-  5
-9F
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-528.0
- 20
-537.0
- 30
-0.0
- 11
-528.0
- 21
-546.0
- 31
-0.0
-  0
-LINE
-  5
-A0
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-588.0
- 20
-537.0
- 30
-0.0
- 11
-614.0
- 21
-537.0
- 31
-0.0
-  0
-LINE
-  5
-A1
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-588.0
- 20
-537.0
- 30
-0.0
- 11
-588.0
- 21
-546.0
- 31
-0.0
-  0
-LINE
-  5
-A2
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-614.0
- 20
-537.0
- 30
-0.0
- 11
-614.0
- 21
-441.0
- 31
-0.0
-  0
-LINE
-  5
-A3
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-337.0
- 20
-546.0
- 30
-0.0
- 11
-528.0
- 21
-546.0
- 31
-0.0
-  0
-LINE
-  5
-A4
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-337.0
- 20
-546.0
- 30
-0.0
- 11
-337.0
- 21
-823.0
- 31
-0.0
-  0
-LINE
-  5
-A5
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-588.0
- 20
-546.0
- 30
-0.0
- 11
-614.0
- 21
-546.0
- 31
-0.0
-  0
-LINE
-  5
-A6
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-614.0
- 20
-546.0
- 30
-0.0
- 11
-614.0
- 21
-645.0
- 31
-0.0
-  0
-LINE
-  5
-A7
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-614.0
- 20
-441.0
- 30
-0.0
- 11
-642.0
- 21
-441.0
- 31
-0.0
-  0
-LINE
-  5
-A8
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-642.0
- 20
-441.0
- 30
-0.0
- 11
-642.0
- 21
-390.0
- 31
-0.0
-  0
-LINE
-  5
-A9
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-646.0
- 20
-441.0
- 30
-0.0
- 11
-661.0
- 21
-441.0
- 31
-0.0
-  0
-LINE
-  5
-AA
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-646.0
- 20
-441.0
- 30
-0.0
- 11
-646.0
- 21
-399.0
- 31
-0.0
-  0
-LINE
-  5
-AB
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-661.0
- 20
-441.0
- 30
-0.0
- 11
-661.0
- 21
-450.0
- 31
-0.0
-  0
-LINE
-  5
-AC
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-733.0
- 20
-441.0
- 30
-0.0
- 11
-775.0
- 21
-441.0
- 31
-0.0
-  0
-LINE
-  5
-AD
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-733.0
- 20
-441.0
- 30
-0.0
- 11
-733.0
- 21
-450.0
- 31
-0.0
-  0
-LINE
-  5
-AE
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-441.0
- 30
-0.0
- 11
-775.0
- 21
-399.0
- 31
-0.0
-  0
-LINE
-  5
-AF
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-619.0
- 20
-450.0
- 30
-0.0
- 11
-661.0
- 21
-450.0
- 31
-0.0
-  0
-LINE
-  5
-B0
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-619.0
- 20
-450.0
- 30
-0.0
- 11
-619.0
- 21
-645.0
- 31
-0.0
-  0
-LINE
-  5
-B1
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-733.0
- 20
-450.0
- 30
-0.0
- 11
-775.0
- 21
-450.0
- 31
-0.0
-  0
-LINE
-  5
-B2
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-450.0
- 30
-0.0
- 11
-775.0
- 21
-640.0
- 31
-0.0
-  0
-LINE
-  5
-B3
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-661.0
- 20
-640.0
- 30
-0.0
- 11
-679.0
- 21
-640.0
- 31
-0.0
-  0
-LINE
-  5
-B4
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-661.0
- 20
-640.0
- 30
-0.0
- 11
-661.0
- 21
-645.0
- 31
-0.0
-  0
-LINE
-  5
-B5
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-679.0
- 20
-640.0
- 30
-0.0
- 11
-679.0
- 21
-718.0
- 31
-0.0
-  0
-LINE
-  5
-B6
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-709.0
- 20
-640.0
- 30
-0.0
- 11
-775.0
- 21
-640.0
- 31
-0.0
-  0
-LINE
-  5
-B7
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-709.0
- 20
-640.0
- 30
-0.0
- 11
-709.0
- 21
-645.0
- 31
-0.0
-  0
-LINE
-  5
-B8
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-614.0
- 20
-645.0
- 30
-0.0
- 11
-619.0
- 21
-645.0
- 31
-0.0
-  0
-LINE
-  5
-B9
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-661.0
- 20
-645.0
- 30
-0.0
- 11
-674.0
- 21
-645.0
- 31
-0.0
-  0
-LINE
-  5
-BA
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-674.0
- 20
-645.0
- 30
-0.0
- 11
-674.0
- 21
-723.0
- 31
-0.0
-  0
-LINE
-  5
-BB
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-709.0
- 20
-645.0
- 30
-0.0
- 11
-775.0
- 21
-645.0
- 31
-0.0
-  0
-LINE
-  5
-BC
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-645.0
- 30
-0.0
- 11
-775.0
- 21
-718.0
- 31
-0.0
-  0
-LINE
-  5
-BD
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-679.0
- 20
-718.0
- 30
-0.0
- 11
-754.0
- 21
-718.0
- 31
-0.0
-  0
-LINE
-  5
-BE
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-754.0
- 20
-718.0
- 30
-0.0
- 11
-754.0
- 21
-723.0
- 31
-0.0
-  0
-LINE
-  5
-BF
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-772.0
- 20
-718.0
- 30
-0.0
- 11
-775.0
- 21
-718.0
- 31
-0.0
-  0
-LINE
-  5
-C0
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-772.0
- 20
-718.0
- 30
-0.0
- 11
-772.0
- 21
-723.0
- 31
-0.0
-  0
-LINE
-  5
-C1
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-674.0
- 20
-723.0
- 30
-0.0
- 11
-746.0
- 21
-723.0
- 31
-0.0
-  0
-LINE
-  5
-C2
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-746.0
- 20
-723.0
- 30
-0.0
- 11
-746.0
- 21
-741.0
- 31
-0.0
-  0
-LINE
-  5
-C3
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-751.0
- 20
-723.0
- 30
-0.0
- 11
-754.0
- 21
-723.0
- 31
-0.0
-  0
-LINE
-  5
-C4
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-751.0
- 20
-723.0
- 30
-0.0
- 11
-751.0
- 21
-741.0
- 31
-0.0
-  0
-LINE
-  5
-C5
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-772.0
- 20
-723.0
- 30
-0.0
- 11
-775.0
- 21
-723.0
- 31
-0.0
-  0
-LINE
-  5
-C6
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-723.0
- 30
-0.0
- 11
-775.0
- 21
-741.0
- 31
-0.0
-  0
-LINE
-  5
-C7
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-554.0
- 20
-823.0
- 30
-0.0
- 11
-559.0
- 21
-823.0
- 31
-0.0
-  0
-LINE
-  5
-C8
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-554.0
- 20
-823.0
- 30
-0.0
- 11
-554.0
- 21
-876.0
- 31
-0.0
-  0
-LINE
-  5
-C9
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-559.0
- 20
-823.0
- 30
-0.0
- 11
-559.0
- 21
-981.0
- 31
-0.0
-  0
-LINE
-  5
-CA
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-784.0
- 20
-390.0
- 30
-0.0
- 11
-770.0
- 21
-390.0
- 31
-0.0
-  0
-LINE
-  5
-CB
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-784.0
- 20
-390.0
- 30
-0.0
- 11
-784.0
- 21
-741.0
- 31
-0.0
-  0
-LINE
-  5
-CC
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-784.0
- 20
-981.0
- 30
-0.0
- 11
-601.0
- 21
-981.0
- 31
-0.0
-  0
-LINE
-  5
-CD
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-784.0
- 20
-981.0
- 30
-0.0
- 11
-784.0
- 21
-759.0
- 31
-0.0
-  0
-LINE
-  5
-CE
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-642.0
- 20
-390.0
- 30
-0.0
- 11
-651.0
- 21
-390.0
- 31
-0.0
-  0
-LINE
-  5
-CF
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-646.0
- 20
-399.0
- 30
-0.0
- 11
-651.0
- 21
-399.0
- 31
-0.0
-  0
-LINE
-  5
-D0
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-651.0
- 20
-390.0
- 30
-0.0
- 11
-651.0
- 21
-399.0
- 31
-0.0
-  0
-LINE
-  5
-D1
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-399.0
- 30
-0.0
- 11
-770.0
- 21
-399.0
- 31
-0.0
-  0
-LINE
-  5
-D2
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-777.0
- 30
-0.0
- 11
-772.0
- 21
-777.0
- 31
-0.0
-  0
-LINE
-  5
-D3
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-777.0
- 30
-0.0
- 11
-775.0
- 21
-759.0
- 31
-0.0
-  0
-LINE
-  5
-D4
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-751.0
- 20
-764.0
- 30
-0.0
- 11
-751.0
- 21
-777.0
- 31
-0.0
-  0
-LINE
-  5
-D5
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-751.0
- 20
-764.0
- 30
-0.0
- 11
-746.0
- 21
-764.0
- 31
-0.0
-  0
-LINE
-  5
-D6
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-751.0
- 20
-777.0
- 30
-0.0
- 11
-754.0
- 21
-777.0
- 31
-0.0
-  0
-LINE
-  5
-D7
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-746.0
- 20
-764.0
- 30
-0.0
- 11
-746.0
- 21
-777.0
- 31
-0.0
-  0
-LINE
-  5
-D8
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-746.0
- 20
-777.0
- 30
-0.0
- 11
-674.0
- 21
-777.0
- 31
-0.0
-  0
-LINE
-  5
-D9
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-781.0
- 30
-0.0
- 11
-775.0
- 21
-882.0
- 31
-0.0
-  0
-LINE
-  5
-DA
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-781.0
- 30
-0.0
- 11
-772.0
- 21
-781.0
- 31
-0.0
-  0
-LINE
-  5
-DB
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-882.0
- 30
-0.0
- 11
-737.0
- 21
-882.0
- 31
-0.0
-  0
-LINE
-  5
-DC
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-886.0
- 30
-0.0
- 11
-775.0
- 21
-972.0
- 31
-0.0
-  0
-LINE
-  5
-DD
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-886.0
- 30
-0.0
- 11
-737.0
- 21
-886.0
- 31
-0.0
-  0
-LINE
-  5
-DE
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-972.0
- 30
-0.0
- 11
-601.0
- 21
-972.0
- 31
-0.0
-  0
-LINE
-  5
-DF
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-674.0
- 20
-777.0
- 30
-0.0
- 11
-674.0
- 21
-781.0
- 31
-0.0
-  0
-LINE
-  5
-E0
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-674.0
- 20
-781.0
- 30
-0.0
- 11
-703.0
- 21
-781.0
- 31
-0.0
-  0
-LINE
-  5
-E1
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-703.0
- 20
-781.0
- 30
-0.0
- 11
-703.0
- 21
-823.0
- 31
-0.0
-  0
-LINE
-  5
-E2
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-703.0
- 20
-823.0
- 30
-0.0
- 11
-601.0
- 21
-823.0
- 31
-0.0
-  0
-LINE
-  5
-E3
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-703.0
- 20
-828.0
- 30
-0.0
- 11
-703.0
- 21
-912.0
- 31
-0.0
-  0
-LINE
-  5
-E4
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-703.0
- 20
-828.0
- 30
-0.0
- 11
-601.0
- 21
-828.0
- 31
-0.0
-  0
-LINE
-  5
-E5
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-703.0
- 20
-912.0
- 30
-0.0
- 11
-703.0
- 21
-939.0
- 31
-0.0
-  0
-LINE
-  5
-E6
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-703.0
- 20
-912.0
- 30
-0.0
- 11
-706.0
- 21
-912.0
- 31
-0.0
-  0
-LINE
-  5
-E7
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-707.0
- 20
-781.0
- 30
-0.0
- 11
-707.0
- 21
-912.0
- 31
-0.0
-  0
-LINE
-  5
-E8
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-707.0
- 20
-781.0
- 30
-0.0
- 11
-754.0
- 21
-781.0
- 31
-0.0
-  0
-LINE
-  5
-E9
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-707.0
- 20
-912.0
- 30
-0.0
- 11
-706.0
- 21
-912.0
- 31
-0.0
-  0
-LINE
-  5
-EA
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-737.0
- 20
-882.0
- 30
-0.0
- 11
-737.0
- 21
-886.0
- 31
-0.0
-  0
-LINE
-  5
-EB
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-559.0
- 20
-981.0
- 30
-0.0
- 11
-518.0
- 21
-981.0
- 31
-0.0
-  0
-LINE
-  5
-EC
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-601.0
- 20
-823.0
- 30
-0.0
- 11
-601.0
- 21
-828.0
- 31
-0.0
-  0
-LINE
-  5
-ED
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-554.0
- 20
-876.0
- 30
-0.0
- 11
-517.0
- 21
-876.0
- 31
-0.0
-  0
-LINE
-  5
-EE
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-554.0
- 20
-880.0
- 30
-0.0
- 11
-554.0
- 21
-972.0
- 31
-0.0
-  0
-LINE
-  5
-EF
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-554.0
- 20
-880.0
- 30
-0.0
- 11
-517.0
- 21
-880.0
- 31
-0.0
-  0
-LINE
-  5
-F0
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-554.0
- 20
-972.0
- 30
-0.0
- 11
-518.0
- 21
-972.0
- 31
-0.0
-  0
-LINE
-  5
-F1
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-601.0
- 20
-981.0
- 30
-0.0
- 11
-601.0
- 21
-972.0
- 31
-0.0
-  0
-LINE
-  5
-F2
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-518.0
- 20
-981.0
- 30
-0.0
- 11
-518.0
- 21
-972.0
- 31
-0.0
-  0
-LINE
-  5
-F3
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-487.0
- 20
-981.0
- 30
-0.0
- 11
-482.0
- 21
-981.0
- 31
-0.0
-  0
-LINE
-  5
-F4
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-487.0
- 20
-981.0
- 30
-0.0
- 11
-487.0
- 21
-876.0
- 31
-0.0
-  0
-LINE
-  5
-F5
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-482.0
- 20
-981.0
- 30
-0.0
- 11
-482.0
- 21
-876.0
- 31
-0.0
-  0
-LINE
-  5
-F6
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-422.0
- 20
-981.0
- 30
-0.0
- 11
-328.0
- 21
-981.0
- 31
-0.0
-  0
-LINE
-  5
-F7
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-422.0
- 20
-981.0
- 30
-0.0
- 11
-422.0
- 21
-972.0
- 31
-0.0
-  0
-LINE
-  5
-F8
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-422.0
- 20
-972.0
- 30
-0.0
- 11
-337.0
- 21
-972.0
- 31
-0.0
-  0
-LINE
-  5
-F9
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-337.0
- 20
-972.0
- 30
-0.0
- 11
-337.0
- 21
-948.0
- 31
-0.0
-  0
-LINE
-  5
-FA
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-772.0
- 20
-781.0
- 30
-0.0
- 11
-772.0
- 21
-777.0
- 31
-0.0
-  0
-LINE
-  5
-FB
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-754.0
- 20
-781.0
- 30
-0.0
- 11
-754.0
- 21
-777.0
- 31
-0.0
-  0
-LINE
-  5
-FC
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-337.0
- 20
-823.0
- 30
-0.0
- 11
-512.0
- 21
-823.0
- 31
-0.0
-  0
-LINE
-  5
-FD
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-337.0
- 20
-828.0
- 30
-0.0
- 11
-512.0
- 21
-828.0
- 31
-0.0
-  0
-LINE
-  5
-FE
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-337.0
- 20
-828.0
- 30
-0.0
- 11
-337.0
- 21
-948.0
- 31
-0.0
-  0
-LINE
-  5
-FF
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-482.0
- 20
-876.0
- 30
-0.0
- 11
-487.0
- 21
-876.0
- 31
-0.0
-  0
-LINE
-  5
-100
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-517.0
- 20
-880.0
- 30
-0.0
- 11
-517.0
- 21
-876.0
- 31
-0.0
-  0
-LINE
-  5
-101
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-512.0
- 20
-823.0
- 30
-0.0
- 11
-512.0
- 21
-828.0
- 31
-0.0
-  0
-LINE
-  5
-102
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
+WALL
 100
 AcDbLine
  10
 691.0
  20
-450.0
+441.0
  30
 0.0
  11
-691.0
+700.0
  21
 441.0
- 31
-0.0
-  0
-LINE
-  5
-103
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-770.0
- 20
-390.0
- 30
-0.0
- 11
-770.0
- 21
-399.0
- 31
-0.0
-  0
-LINE
-  5
-104
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-703.0
- 20
-939.0
- 30
-0.0
- 11
-706.0
- 21
-939.0
- 31
-0.0
-  0
-LINE
-  5
-105
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-706.0
- 20
-912.0
- 30
-0.0
- 11
-706.0
- 21
-939.0
- 31
-0.0
-  0
-LINE
-  5
-106
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-759.0
- 30
-0.0
- 11
-784.0
- 21
-759.0
- 31
-0.0
-  0
-LINE
-  5
-107
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-759.0
- 30
-0.0
- 11
-775.0
- 21
-741.0
- 31
-0.0
-  0
-LINE
-  5
-108
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-784.0
- 20
-759.0
- 30
-0.0
- 11
-784.0
- 21
-741.0
- 31
-0.0
-  0
-LINE
-  5
-109
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-775.0
- 20
-741.0
- 30
-0.0
- 11
-784.0
- 21
-741.0
- 31
-0.0
-  0
-LINE
-  5
-10A
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-746.0
- 20
-741.0
- 30
-0.0
- 11
-750.0
- 21
-741.0
- 31
-0.0
-  0
-LINE
-  5
-10B
-330
-17
-100
-AcDbEntity
-  8
-WALL_DEBUG
-100
-AcDbLine
- 10
-750.0
- 20
-741.0
- 30
-0.0
- 11
-751.0
- 21
-741.0
  31
 0.0
   0
