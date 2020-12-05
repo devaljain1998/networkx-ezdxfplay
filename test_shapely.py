@@ -467,7 +467,7 @@ centre_lines = [{'end_point': (332.5, 823.0),
                  'width': 18.0}]
 
 try:
-    with open('dxfFilesIn/identification_json/detect_wall.json') as identification_json_file:
+    with open('dxfFilesIn/identification_json/sample2.json') as identification_json_file:
         identification_json = json.load(identification_json_file)
         print('Success in reading the JSON file.')
 except Exception:
