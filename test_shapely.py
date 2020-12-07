@@ -1,7 +1,7 @@
 import shapely
 import json
 import pprint
-from pillarplus.math import find_rotation
+from pillarplus.math import find_rotation, find_angle
 # from test_clean_wall_lines import centre_lines, msp, dwg
 
 centre_lines = [{'end_point': (332.5, 823.0),
@@ -518,6 +518,9 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             nearest_centre_lines = get_nearest_lines_to_a_point(point = entity_location, lines = centre_lines)
         4. For the first two nearest lines, extend the wall:
             extended_lines = get_extended_wall_lines_with_nearest_lines(graph, nearest_line1, nearest_line2)
+        5. Adjust the extended lines:
+            adjust_extend_lines(graph, entity_location, extended_lines)
+        6. return
 
     Args:
         entity (dict: "Entity"): Either of type "door" or "wall".
@@ -525,38 +528,69 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         graph (nx.Graph): A networkx graph.
     """
     def get_extended_wall_lines_with_nearest_lines(
-        graph: 'nx.Graph', nearest_line1: "CentreLine", nearest_line2: "CentreLine") -> List[tuple]:
+        entity_location: float, graph: 'nx.Graph', nearest_line1: "CentreLine", nearest_line2: "CentreLine") -> List[tuple]:
         """This function extends the walls by taking in the input two nearest lines.
         
         Procedure:
-            1. find angles of both the lines:
-                angle1: nearest_line_1
-                angle2: nearest_line_2
-            2. only angles that can be accepted is (0 | 180) degree or (90 | 270) degree. [+- 1 degree acceptable]
-            3. define left_end_point:
-                left_end_point = closest_point(nearest_line) if rotation_1 == (0 | 180) else perpendicular_point(entity_location, nearest_line1)
-            4. define right_end_point:
-                right_end_point = closest_point(nearest_line) if rotation_1 == (0 | 180) else perpendicular_point(entity_location, nearest_line1)
-            5. Now get points above the lines:
-                left_end_points = directed_points(point, (rotation1 - 90), nearest_line1.width)
-                right_end_points = directed_points(point, (rotation2 - 90), nearest_line2.width)
-            6. Now we have to adjust the extend_lines by manipulating the graph:
-            adjust_extended_wall_lines(extended_lines, graph, rotation1, rotation2)
-
-            7. return [(left_end_points[0], right_end_points[0]), (left_end_points[1], right_end_points[1])]
+        ###### NEW PROCEDURE #######
+            1. label both the nearest lines as "parallel" or "perpendicular".
+                1.1 by looping each line: nearest_line
+                1.2 getting the closest point of the nearest line.
+                1.3 find the angle from the point, mid_point(point, closest_point), closest_point
+                1.4 if the angle is approx(0 | 180) degree then label it is as "parallel"
+                    otherwise "perpendicular".
+            2. for parallel line: get_directed_points for width / 2 and those are the end points of the new lines, (rotation + 90) of the nearest line.
+            3. for perpendicular line: 
+                3.1 perp_point = get_directed_point for width / 2 which is near to the point
+                3.2 end_points =  get_directed_points for width / 2, perp_point, rotation of the nearest_line
+            4. now just match both the end points to form lines:
+                end_points = match_both_the_end_points(l1, l2, r1, r2)
+            5. return end_points
             
-
         Args:
+            entity_location (float)
             graph (nx.Graph)
             nearest_line1 ("CentreLine"): nearest_line[0]
             nearest_line2 ("CentreLine"): nearest_line[1]
         """
-        # 1. find rotations of both the lines:
-        rotation1: float = find_rotation(nearest_line1.start_point, nearest_line1.end_point)
-        rotation2: float = find_rotation(nearest_line2.start_point, nearest_line2.end_point)
+    
+    def adjust_extended_lines(entity_location: float, graph: 'nx.Graph', extended_lines: List[tuple]):
+        """This function adjusts the extended_lines from the entity.
         
-        # 2. define left_end_point:
-        left_end_point = get_closest_point(nearest_line1) if rotation_1 == (0 | 180) else perpendicular_point(entity_location, nearest_line1)
+        Procedure:
+            1. loop on extended lines:
+                for extended_line in extended_lines:
+            2 check for the left side first:
+                2.1 check the left point lies on which edge: (intersection.)
+                left_edge = get_edge_for_point()
+                    intersection
+                        for edge in graph.edges:
+                            return is_between(point, edge)
+                2.2 check if any node if left_end_points are nodes of the edge:
+                    is_left_end_point1_a_node = check if it is in any of the nodes of edge
+                    is_left_end_point2_a_node = check if it is in any of the nodes of edge
+                2.3 if both the points are node 
+                    2.3.1 then simply remove the edge
+                2.4 elif if one of the point is node:
+                    break the line from edge partially using the function break edge into two using the node which is not on the edge.
+                2.5 elif none of the node is forming the edge:
+                    then make the deconstruct the line into sequence using the unary_union (shapely method):
+                        Example:
+                        Current Scenario:
+                        A----(B)----(C)-----D, we have edges as (A-D), (B-C)
+                        which means that edges B-C is overlapping upon the A-D.
+                        we want a output like: edges: A-B, B-C, C-D
+                        which will be fetched using the unary_union.
+            3. Repeat the point 2 for the right end points.
+
+        Args:
+            entity_location (float): [description]
+            graph (nx.Graph): [description]
+            extended_lines (List[tuple]): [description]
+
+        Raises:
+            ValueError: [description]
+        """
 
     # 1. Do some exception handling to check the type of the entity is "door" or "window".
     ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED = ('door', 'window')
