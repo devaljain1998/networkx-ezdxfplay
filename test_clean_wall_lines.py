@@ -103,19 +103,21 @@ print('wall_lines: ', len(wall_lines))
 
 
 # Operations:
-cleaned_wall_lines = get_cleaned_wall_lines(
+cleaned_wall_lines, graph = get_cleaned_wall_lines(
     wall_lines, filepath=output_file_path)
 # pprint(cleaned_wall_lines)
+print('edges: ', list(graph.edges))
+print(len(graph.edges))
 
 # Now getting centrelines from the wall_lines:
-conversion_factor = {
-    'mm': 1.0,
-    'inch': 0.0393701
-}
-centre_lines = get_centre_lines(
-    msp, dwg, "", conversion_factor=conversion_factor['inch'],
-    lines = cleaned_wall_lines)
-pprint([centre_line.__dict__ for centre_line in centre_lines])
+# conversion_factor = {
+#     'mm': 1.0,
+#     'inch': 0.0393701
+# }
+# centre_lines = get_centre_lines(
+#     msp, dwg, "", conversion_factor=conversion_factor['inch'],
+#     lines = cleaned_wall_lines)
+# pprint([centre_line.__dict__ for centre_line in centre_lines])
 
 #### POC OPERATIONS:
 

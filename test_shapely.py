@@ -648,6 +648,11 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             if len(end_points) != 2:
                 raise ValueError(
                     f"The points provided for the endpoints are not forming the endpoints or any polygons for the points: {(left_point1, left_point2, right_point1, right_point2)}.")
+                
+            # Cleaning endpoints before returning:
+            # Converting them into int:
+            end_points[0] = tuple(map(lambda point: (int(point[0]), int(point[1])), end_points[0]))
+            end_points[1] = tuple(map(lambda point: (int(point[0]), int(point[1])), end_points[1]))
 
             return end_points
         
@@ -689,8 +694,8 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                 end_point_sets.append(set(nearest_line_end_points))
 
         # mapping sets to int
-        end_point_sets[0] = set(map(int, end_point_sets[0]))
-        end_point_sets[1] = set(map(int, end_point_sets[1]))
+        end_point_sets[0] = set(map(lambda point: (int(point[0]), int(point[1])), end_point_sets[0]))
+        end_point_sets[1] = set(map(lambda point: (int(point[0]), int(point[1])), end_point_sets[1]))
         
         left_end_points = list(end_point_sets[0])
         right_end_points = list(end_point_sets[1])
@@ -740,6 +745,11 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         Raises:
             ValueError: [description]
         """
+        # DEBUG: Sorting the extended lines before:
+        extended_lines[0] = list(extended_lines[0]); extended_lines[0].sort(); extended_lines[0] = tuple(extended_lines[0])
+
+        extended_lines[1] = list(extended_lines[1]); extended_lines[1].sort(); extended_lines[1] = tuple(extended_lines[1])
+
         left_nodes = list(map(lambda extended_line: extended_line[0], extended_lines))
         right_nodes = list(map(lambda extended_line: extended_line[1], extended_lines))
 
@@ -869,14 +879,14 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
 current_entity = windows[0]
 extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
 
-# print('Now plotting on msp')
-# import ezdxf
-# dwg = ezdxf.new()
-# msp = dwg.modelspace()
+print('Now plotting on msp')
+import ezdxf
+dwg = ezdxf.new()
+msp = dwg.modelspace()
 
-# for edge in graph.edges():
-#     msp.add_line(edge[0], edge[1])
-# msp.add_circle(current_entity['location'], radius=2)
+for edge in graph.edges():
+    msp.add_line(edge[0], edge[1])
+msp.add_circle(current_entity['location'], radius=2)
 
-# dwg.saveas('dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines2.dxf')
-# print('Success.')
+dwg.saveas('dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines2.dxf')
+print('Success.')

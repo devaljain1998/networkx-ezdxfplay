@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/deval/.vscode/extensions/ms-python.python-2020.11.371526539/pythonFiles/shell_exec.py", line 26, in <module>
+    subprocess.check_call(shell_args, stdout=sys.stdout, stderr=sys.stderr)
+  File "/usr/lib/python3.8/subprocess.py", line 364, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['/home/deval/Projects/PillarPlus/pillarenv/bin/python', '/home/deval/.vscode/extensions/ms-python.python-2020.11.371526539/pythonFiles/pyvsc-run-isolated.py', 'pip', 'install', '-U']' returned non-zero exit status 1.

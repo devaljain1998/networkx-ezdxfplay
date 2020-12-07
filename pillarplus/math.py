@@ -8,6 +8,7 @@ from ezdxf.math import Vector
 from typing import List
 import ezdxf
 from ezdxf.math.vector import Vec2
+import shapely.geometry
 
 # angle in radians
 
@@ -413,6 +414,36 @@ def get_nearest_points_from_a_point(point: tuple, points: List[tuple]) -> List[t
     list_of_points.sort(key = point_comparator)
     
     return list_of_points
+
+def get_nearest_lines_from_a_point(point: tuple, lines: List[tuple]) -> List[tuple]:
+    """This function takes in a point and a list of lines as input and returns the nearest lines sorted.
+
+    Complexity:
+        O(nlog(n)) where is n is the number of lines.
+
+    Args:
+        point (tuple)
+        lines (List[tuple])
+
+    Returns:
+        List[tuple]: Returns a list of point sorted in that order of nearest euclidean distance.
+    """
+    import copy
+    list_of_lines = copy.deepcopy(lines)
+    
+    point_object = shapely.geometry.Point(point)
+        
+    distance_cache = {}
+    def line_comparator(line):
+        if line in distance_cache.keys():
+            return distance_cache[line]
+        line_object = shapely.geometry.LineString(line)
+        distance_cache[line] = point_object.distance(line_object)
+        return distance_cache[line]
+
+    list_of_lines.sort(key = line_comparator)
+    
+    return list_of_lines
 
 
 def is_points_close(point1, point2, conversion_factor: float = 1.0):

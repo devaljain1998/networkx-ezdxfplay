@@ -573,4 +573,7 @@ def get_cleaned_wall_lines(wall_lines: list, *args, **kwargs) -> list:
     
     new_wall_lines = get_wall_lines_from_graph_edges(graph)
 
+    # DEBUG:
+    return new_wall_lines, graph
+
     return new_wall_lines
