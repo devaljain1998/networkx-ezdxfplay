@@ -638,11 +638,11 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                 # Logic
                 point, next_point = polygon_coordinates[i], polygon_coordinates[i + 1]
                 # 4.1 if the p1, p2 belong to the same set of points then reject
-                for point_set in (left_point_set, right_point_set):
-                    if point in point_set and next_point in point_set:
-                        continue
-                    else:
-                        end_points.append((point, next_point))
+
+                if (point in left_point_set and next_point in left_point_set) or (point in right_point_set and next_point in right_point_set):
+                    continue
+                else:
+                    end_points.append((point, next_point))
             
             # exception handling:
             if len(end_points) != 2:
@@ -688,10 +688,18 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                     closest_point, rotation, nearest_line.width / 2)
                 end_point_sets.append(set(nearest_line_end_points))
 
+        # mapping sets to int
+        end_point_sets[0] = set(map(int, end_point_sets[0]))
+        end_point_sets[1] = set(map(int, end_point_sets[1]))
+        
         left_end_points = list(end_point_sets[0])
         right_end_points = list(end_point_sets[1])
         end_points = match_both_end_points(
             left_end_points[0], left_end_points[1], right_end_points[0], right_end_points[1])
+        
+        # DEBUG:
+        # for end_point in end_points
+        
         return end_points
         
     
@@ -841,14 +849,14 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     for edge in graph.edges:
         _msp.add_line(edge[0], edge[1], dxfattribs={'layer':'wall'})
     _dwg.saveas('dxfFilesOut/sample2/debug_dxf/extended_wall_lines/nearest_centre_lines.dxf')
-    import sys
-    sys.exit(1)
+    # import sys
+    # sys.exit(1)
     
     # DEBUG:
     print('Got nearest centre lines')
     
     # 4. For the first two nearest lines, extend the wall:
-    nearest_line1, nearest_line2 = nearest_centre_lines[0], nearest_centre_lines[1]
+    nearest_line1, nearest_line2 = nearest_centre_lines[1], nearest_centre_lines[2]    # DEBUG
     extended_lines = get_extended_wall_lines_with_nearest_lines(
                         entity_location, graph, nearest_line1, nearest_line2)
     print('got extended lines.', extended_lines)
