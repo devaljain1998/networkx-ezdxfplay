@@ -532,7 +532,6 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         """This function extends the walls by taking in the input two nearest lines.
         
         Procedure:
-        ###### NEW PROCEDURE #######
             1. label both the nearest lines as "parallel" or "perpendicular".
                 1.1 by looping each line: nearest_line
                 1.2 getting the closest point of the nearest line.
@@ -553,6 +552,28 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             nearest_line1 ("CentreLine"): nearest_line[0]
             nearest_line2 ("CentreLine"): nearest_line[1]
         """
+        def match_both_end_points(left_point1, left_point2, right_point1, right_point2):
+            """This function should take in the points and should return the end_points in the following order like:
+            left_point1 ------------- right_point1
+            left_point2 ------------- right_point2
+            (forms a straight line).
+            
+            Procedure:
+                1. Create a left_point_set = {left_end_point1, left_end_point2}
+                2. Create a right_point_set = {right_end_point1, right_end_point2}
+                3. Create a polygon out of those 4 points (using convex hull):
+                    polygon = convex_hull([left_point1, left_point2, right_point1, right_point2])
+                4. loops over the polygon coordinates, [Loop until len(end_points) == 2]
+                    4.1 if the p1, p2 belong to the same set of points then reject
+                    4.2 otherwise add it into the end_points 2
+                5. return end_points
+
+            Args:
+                left_point1
+                left_point2
+                right_point1
+                right_point2
+            """
     
     def adjust_extended_lines(entity_location: float, graph: 'nx.Graph', extended_lines: List[tuple]):
         """This function adjusts the extended_lines from the entity.
@@ -582,7 +603,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                         we want a output like: edges: A-B, B-C, C-D
                         which will be fetched using the unary_union.
             3. Repeat the point 2 for the right end points.
-
+            4. return
         Args:
             entity_location (float): [description]
             graph (nx.Graph): [description]
