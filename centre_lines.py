@@ -1,6 +1,12 @@
-from typing import List, Dict
 import math
-from pillarplus.math import is_line_decreasing_on_x_2d, is_polyline_closed, are_lines_overlapping, get_length_of_line_segment, get_distance_between_two_parallel_lines, find_perpendicular_point, is_between, get_mid_points_between_points, get_line_points_2d, find_slope
+from typing import Dict, List
+
+from pillarplus.math import (are_lines_overlapping, find_distance,
+                             find_perpendicular_point, find_slope,
+                             get_distance_between_two_parallel_lines,
+                             get_length_of_line_segment, get_line_points_2d,
+                             get_mid_points_between_points, is_between,
+                             is_line_decreasing_on_x_2d, is_polyline_closed)
 
 
 class CentreLine:
@@ -25,10 +31,17 @@ class CentreLine:
         self.width = width
         
     def __repr__(self):
-        return f'Centre_line<number:{self.number}, start_point:{self.start_point}, end_point:{self.end_point}, screen_start_point:{self.screen_start_point}, screen_end_point:{self.screen_end_point}, width:{self.width}>'
+        return f'CentreLine<number:{self.number}, start_point:{self.start_point}, end_point:{self.end_point}, screen_start_point:{self.screen_start_point}, screen_end_point:{self.screen_end_point}, width:{self.width}>'
     
     def __str__(self):
         return self.__repr__()
+    
+    def get_closest_point(self, point):
+        """This function returns the closest point (either start_point or end_point) from 
+        a given point."""
+        distance_to_start_point = find_distance(self.start_point, point)
+        distance_to_end_point = find_distance(self.end_point, point)
+        return self.start_point if distance_to_start_point <= distance_to_end_point else self.end_point
 
 #CONSTANTS:
 MAXIMUM_DISTANCE_BETWEEN_CENTRE_LINES = 500 #It is needed to be decided
