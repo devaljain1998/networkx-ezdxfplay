@@ -7,6 +7,8 @@ import shapely
 from pillarplus.math import directed_points_on_line, find_angle, find_distance, find_intersection_point_1, find_mid_point, find_rotation, is_between, get_nearest_lines_from_a_point
 
 from typing import Union, List, Tuple
+from shapely.strtree import STRtree
+from shapely.geometry import LineString, Point
 
 from centre_lines import CentreLine
 import networkx as nx
@@ -525,6 +527,15 @@ print('doors:', len(doors))
 
 
 ### HELPER FUNCTION:
+centre_line_tree = None
+def fill_str_tree(centre_lines):
+    lines = []
+    for centre_line in centre_lines:
+        line = LineString(centre_line.start_point, centre_line.end_point)
+        lines.append(line)
+    centre_line_tree = STRtree(lines)
+    print('Tree builded.')
+
 def is_angle_is_180_or_0_degrees(angle: Union[float, int]) -> bool:
     from math import pi
     if type(angle) == int:
@@ -541,15 +552,31 @@ def break_edge_into_two_edges(edge, node, graph):
     graph.remove_edge(edge[0], edge[1])
     return
 
-def get_nearest_centre_lines_from_a_point(point: tuple, centre_lines: List["CentreLine"]) -> List["CentreLine"]:
+
+def get_nearest_centre_lines_from_a_point(
+        point: tuple, centre_lines: List["CentreLine"], entity_location: tuple) -> List["CentreLine"]:
     """
     The function returns nearest centre_lines to a point.
     """
     centre_line_dict = {(centre_line.start_point, centre_line.end_point):centre_line for centre_line in centre_lines}
     nearest_lines = get_nearest_lines_from_a_point(point = point, lines = list(centre_line_dict.keys()))
+
+    index = 0
+    # DEBUG
+    conversion_factor = 0.0393701
+    DISTANCE_FOR_WALL_WITH_ENTITY = 10 * conversion_factor
+    query = Point(entity_location).buffer(DISTANCE_FOR_WALL_WITH_ENTITY)
+    # Check whether the starting lines are not too close for the entity_location    
+    close_lines_to_the_entity_location = centre_line_tree.query(query)
+    if len(close_lines_to_the_entity_location) > 0:
+        for close_line in close_lines_to_the_entity_location:
+            item_index = nearest_lines.index(close_line)
+            index = item_index + 1
+    
     # Now map the nearest lines to the values of centrelines:
     nearest_lines = list(map(lambda nearest_line: centre_line_dict[nearest_line], nearest_lines))
-    return nearest_lines
+    
+    return nearest_lines[index], nearest_lines[index + 1]
 
 def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"], graph: "nx.Graph"):
     """This function extends the wall_lines(edges) and updates the graph by the extending the walls for that entity.
@@ -841,16 +868,24 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         raise ValueError(
             f'Only entities with types in {ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED} can be extended.')
         
+    # DEBUG
+    fill_str_tree(centre_lines=centre_lines)
+        
     # 2. Get entity location:
     entity_location = entity["location"]
 
     # 3. Get nearest centre lines to that entity:
-    nearest_centre_lines = get_nearest_centre_lines_from_a_point(point = entity_location, centre_lines = centre_lines)
+    nearest_line1, nearest_line2 = get_nearest_centre_lines_from_a_point(point = entity_location, centre_lines = centre_lines)
     
     # DEBUG:
     import ezdxf
     _dwg = ezdxf.new()
     _msp = _dwg.modelspace()
+    _msp.add_circle(entity_location, radius=0.2)
+    loc_text = _msp.add_mtext(f'{int(entity_location[0])}, {int(entity_location[1])}', dxfattribs={'layer':'debug'})
+    loc_text.set_location(entity_location)
+    loc_text.dxf.char_height = 0.2
+    
     for index, line in enumerate(nearest_centre_lines):
         _msp.add_line(line.start_point, line.end_point, dxfattribs={'layer':'centrelines'})
         mtext = _msp.add_mtext(str(index), dxfattribs={'layer':'centrelines'})
@@ -866,7 +901,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     print('Got nearest centre lines')
     
     # 4. For the first two nearest lines, extend the wall:
-    nearest_line1, nearest_line2 = nearest_centre_lines[1], nearest_centre_lines[2]    # DEBUG
+    # nearest_line1, nearest_line2 = nearest_centre_lines[1], nearest_centre_lines[2]    # DEBUG
     extended_lines = get_extended_wall_lines_with_nearest_lines(
                         entity_location, graph, nearest_line1, nearest_line2)
     print('got extended lines.', extended_lines)
