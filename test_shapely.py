@@ -1,6 +1,7 @@
 import shapely
 import json
 import pprint
+from pillarplus.math import find_rotation
 # from test_clean_wall_lines import centre_lines, msp, dwg
 
 centre_lines = [{'end_point': (332.5, 823.0),
@@ -528,10 +529,10 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         """This function extends the walls by taking in the input two nearest lines.
         
         Procedure:
-            1. find rotations of both the lines:
-                rotation1: nearest_line_1
-                rotation2: nearest_line_2
-            2. only rotations that can be accepted is (0 | 180) degree or (90 | 270) degree. [+- 1 degree acceptable]
+            1. find angles of both the lines:
+                angle1: nearest_line_1
+                angle2: nearest_line_2
+            2. only angles that can be accepted is (0 | 180) degree or (90 | 270) degree. [+- 1 degree acceptable]
             3. define left_end_point:
                 left_end_point = closest_point(nearest_line) if rotation_1 == (0 | 180) else perpendicular_point(entity_location, nearest_line1)
             4. define right_end_point:
@@ -539,16 +540,35 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             5. Now get points above the lines:
                 left_end_points = directed_points(point, (rotation1 - 90), nearest_line1.width)
                 right_end_points = directed_points(point, (rotation2 - 90), nearest_line2.width)
-            6. return [(left_end_points[0], right_end_points[0]), (left_end_points[1], right_end_points[1])]
+            6. Now we have to adjust the extend_lines by manipulating the graph:
+            adjust_extended_wall_lines(extended_lines, graph, rotation1, rotation2)
+
+            7. return [(left_end_points[0], right_end_points[0]), (left_end_points[1], right_end_points[1])]
+            
 
         Args:
             graph (nx.Graph)
             nearest_line1 ("CentreLine"): nearest_line[0]
             nearest_line2 ("CentreLine"): nearest_line[1]
         """
+        # 1. find rotations of both the lines:
+        rotation1: float = find_rotation(nearest_line1.start_point, nearest_line1.end_point)
+        rotation2: float = find_rotation(nearest_line2.start_point, nearest_line2.end_point)
+        
+        # 2. define left_end_point:
+        left_end_point = get_closest_point(nearest_line1) if rotation_1 == (0 | 180) else perpendicular_point(entity_location, nearest_line1)
 
     # 1. Do some exception handling to check the type of the entity is "door" or "window".
     ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED = ('door', 'window')
     if not entity['type'] in ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED:
         raise ValueError(
             f'Only entities with types in {ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED} can be extended.')
+        
+    # 2. Get entity location:
+    entity_location = entity["location"]
+
+    # 3. Get nearest centre lines to that entity:
+    nearest_centre_lines = get_nearest_lines_to_a_point(point = entity_location, lines = centre_lines)
+    
+    # 4. For the first two nearest lines, extend the wall:
+    extended_lines = get_extended_wall_lines_with_nearest_lines(graph, nearest_line1, nearest_line2)
