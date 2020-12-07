@@ -1,8 +1,30 @@
-import shapely
 import json
+import math
 import pprint
-from pillarplus.math import find_rotation, find_angle
+
+import shapely
+
+from pillarplus.math import directed_points_on_line, find_angle, find_distance, find_intersection_point_1, find_mid_point, find_rotation, is_between, get_nearest_lines_from_a_point
+
+from typing import Union, List, Tuple
+
+from centre_lines import CentreLine
+import networkx as nx
+
 # from test_clean_wall_lines import centre_lines, msp, dwg
+edges = [((328, 537), (528, 537)), ((328, 537), (328, 981)), ((528, 537), (528, 546)), ((588, 537), (614, 537)), ((588, 537), (588, 546)), ((614, 537), (614, 441)), ((337, 546), (528, 546)), ((337, 546), (337, 823)), ((588, 546), (614, 546)), ((614, 546), (614, 645)), ((614, 441), (642, 441)), ((642, 441), (642, 390)), ((646, 441), (661, 441)), ((646, 441), (646, 399)), ((661, 441), (661, 450)), ((718, 441), (775, 441)), ((718, 441), (718, 450)), ((775, 441), (775, 399)), ((619, 450), (661, 450)), ((619, 450), (619, 645)), ((718, 450), (775, 450)), ((775, 450), (775, 640)), ((661, 640), (679, 640)), ((661, 640), (661, 645)), ((679, 640), (679, 718)), ((709, 640), (775, 640)), ((709, 640), (709, 645)), ((614, 645), (619, 645)), ((661, 645), (674, 645)), ((674, 645), (674, 723)), ((709, 645), (775, 645)), ((775, 645), (775, 718)), ((679, 718), (754, 718)), ((754, 718), (754, 723)), ((772, 718), (775, 718)), ((772, 718), (772, 723)), ((674, 723), (746, 723)), ((746, 723), (746, 741)), ((751, 723), (754, 723)), ((751, 723), (751, 741)), ((772, 723), (775, 723)), ((775, 723), (775, 741)), ((554, 823), (559, 823)), ((554, 823), (554, 876)), ((559, 823), (559, 981)), ((784, 390), (770, 390)), ((784, 390), (784, 741)), ((784, 981), (601, 981)), ((784, 981), (784, 759)), ((642, 390), (651, 390)), ((646, 399), (651, 399)), ((651, 390), (651, 399)), ((775, 399), (770, 399)), ((775, 777), (772, 777)), ((775, 777), (775, 759)), ((751, 764), (751, 777)), ((751, 764), (746, 764)), ((751, 777), (754, 777)), ((746, 764), (746, 777)), ((746, 777), (674, 777)), ((775, 781), (775, 882)), ((775, 781), (772, 781)), ((775, 882), (737, 882)), ((775, 886), (775, 972)), ((775, 886), (737, 886)), ((775, 972), (601, 972)), ((674, 777), (674, 781)), ((674, 781), (703, 781)), ((703, 781), (703, 823)), ((703, 823), (601, 823)), ((703, 828), (703, 912)), ((703, 828), (601, 828)), ((703, 912), (703, 939)), ((707, 781), (707, 912)), ((707, 781), (754, 781)), ((707, 912), (706, 912)), ((737, 882), (737, 886)), ((559, 981), (505, 981)), ((601, 823), (601, 828)), ((554, 876), (517, 876)), ((554, 880), (554, 972)), ((554, 880), (517, 880)), ((554, 972), (505, 972)), ((601, 981), (601, 972)), ((505, 981), (505, 972)), ((487, 981), (482, 981)), ((487, 981), (487, 876)), ((482, 981), (482, 876)), ((464, 981), (328, 981)), ((464, 981), (464, 972)), ((464, 972), (337, 972)), ((337, 972), (337, 948)), ((772, 781), (772, 777)), ((754, 781), (754, 777)), ((337, 823), (512, 823)), ((337, 828), (512, 828)), ((337, 828), (337, 948)), ((482, 876), (487, 876)), ((517, 880), (517, 876)), ((512, 823), (512, 828)), ((700, 450), (700, 441)), ((700, 450), (691, 450)), ((700, 441), (691, 441)), ((770, 390), (770, 399)), ((703, 939), (706, 939)), ((706, 912), (706, 939)), ((775, 759), (784, 759)), ((775, 741), (784, 741)), ((746, 741), (750, 741)), ((750, 741), (751, 741)), ((691, 450), (691, 441))]
+
+
+graph = nx.Graph()
+graph.add_edges_from(edges)
+print('graph creation success.', len(graph.edges))
+# TEST
+import ezdxf
+_dwg = ezdxf.new()
+_msp = _dwg.modelspace()
+for edge in graph.edges:
+    _msp.add_line(edge[0], edge[1])
+_dwg.saveas('dxfFilesOut/sample2/debug_dxf/extended_wall_lines/before_extended_wall_lines2.dxf')
 
 centre_lines = [{'end_point': (332.5, 823.0),
                  'number': 1,
@@ -490,6 +512,9 @@ centre_lines = [{'end_point': (332.5, 823.0),
                  'screen_start_point': (784.0, 750.0),
                  'start_point': (775.0, 750.0),
                  'width': 18.0}]
+
+centre_lines = list(map(lambda centre_line_dict: CentreLine(**centre_line_dict), centre_lines))
+
 try:
     with open('dxfFilesIn/identification_json/sample2.json') as identification_json_file:
         identification_json = json.load(identification_json_file)
@@ -501,11 +526,37 @@ windows = list(filter(lambda entity: entity['type']=='window', identification_js
 doors = list(filter(lambda entity: entity['type']=='door', identification_json['entities']))
 
 print('windows:', len(windows))
-pprint.pprint(windows)
 
 print('doors:', len(doors))
-pprint.pprint(doors)
 
+
+
+### HELPER FUNCTION:
+def is_angle_is_180_or_0_degrees(angle: Union[float, int]) -> bool:
+    from math import pi
+    if type(angle) == int:
+        return 179 <= angle <= 181 or -1 <= angle <= 1
+    return (pi - 0.1) <= angle <= (pi + 0.1) or 0.1 <= angle <= -0.1
+
+def break_edge_into_two_edges(edge, node, graph):
+    # Fetch points from edge
+    p1, p2 = edge
+    # Create new edges
+    new_edges = [(p1, node), (node, p2)]
+    graph.add_edges_from(new_edges)
+    # Delete the current edge
+    graph.remove_edge(edge[0], edge[1])
+    return
+
+def get_nearest_centre_lines_from_a_point(point: tuple, centre_lines: List["CentreLine"]) -> List["CentreLine"]:
+    """
+    The function returns nearest centre_lines to a point.
+    """
+    centre_line_dict = {(centre_line.start_point, centre_line.end_point):centre_line for centre_line in centre_lines}
+    nearest_lines = get_nearest_lines_from_a_point(point = point, lines = list(centre_line_dict.keys()))
+    # Now map the nearest lines to the values of centrelines:
+    nearest_lines = list(map(lambda nearest_line: centre_line_dict[nearest_line], nearest_lines))
+    return nearest_lines
 
 def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"], graph: "nx.Graph"):
     """This function extends the wall_lines(edges) and updates the graph by the extending the walls for that entity.
@@ -535,7 +586,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             1. label both the nearest lines as "parallel" or "perpendicular".
                 1.1 by looping each line: nearest_line
                 1.2 getting the closest point of the nearest line.
-                1.3 find the angle from the point, mid_point(point, closest_point), closest_point
+                1.3 find the angle from the point, closest_point, distant_point
                 1.4 if the angle is approx(0 | 180) degree then label it is as "parallel"
                     otherwise "perpendicular".
             2. for parallel line: get_directed_points for width / 2 and those are the end points of the new lines, (rotation + 90) of the nearest line.
@@ -574,6 +625,82 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                 right_point1
                 right_point2
             """
+            
+            # 1. Create a left_point_set = {left_point1, left_point2}
+            left_point_set = {left_point1, left_point2}
+            # 2. Create a right_point_set = {right_point1, right_point2}
+            right_point_set = {right_point1, right_point2}
+            # 3. Create a polygon out of those 4 points (using convex hull):
+            #     polygon = convex_hull([left_point1, left_point2, right_point1, right_point2])
+            from shapely.geometry import MultiPoint
+            multi_point = MultiPoint([left_point1, left_point2, right_point1, right_point2])
+            polygon = multi_point.convex_hull
+            polygon_coordinates = list(polygon.exterior.coords)
+            
+            end_points = []
+            for i in range(len(polygon_coordinates) - 1):
+                # Exit condition:
+                if len(end_points) == 2:
+                    break
+                # Logic
+                point, next_point = polygon_coordinates[i], polygon_coordinates[i + 1]
+                # 4.1 if the p1, p2 belong to the same set of points then reject
+                for point_set in (left_point_set, right_point_set):
+                    if point in point_set and next_point in point_set:
+                        continue
+                    else:
+                        end_points.append((point, next_point))
+            
+            # exception handling:
+            if len(end_points) != 2:
+                raise ValueError(
+                    f"The points provided for the endpoints are not forming the endpoints or any polygons for the points: {(left_point1, left_point2, right_point1, right_point2)}.")
+
+            return end_points
+        
+        # labels:
+        PARALLEL = "PARALLEL"
+        PERPENDICULAR = "PERPENDICULAR"
+        
+        # 1. label both the nearest lines as "parallel" or "perpendicular".
+        # 1.1 by looping each line: nearest_line
+        for nearest_line in (nearest_line1, nearest_line2):
+            closest_point = nearest_line.get_closest_point(entity_location)
+            distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.start_point
+            # angle between entity location and closest point
+            angle = find_angle(entity_location, closest_point, distant_point)
+            
+            nearest_line.type = PARALLEL if is_angle_is_180_or_0_degrees(angle) else PERPENDICULAR
+            
+        end_point_sets = []
+        # 2. Now find the end_points of each nearest_line:
+        for nearest_line in (nearest_line1, nearest_line2):
+            closest_point = nearest_line.get_closest_point(entity_location)
+            distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.start_point
+            rotation = find_rotation(closest_point, distant_point)
+            
+            if nearest_line.type == PARALLEL:
+                # get the end_points:
+                nearest_line_end_point_rotation = math.radians(rotation + 90)
+                nearest_line_end_points = directed_points_on_line(
+                    closest_point, nearest_line_end_point_rotation, nearest_line.width / 2)
+                end_point_sets.append(set(nearest_line_end_points))
+            # for perpendicular
+            else:
+                perp_points = directed_points_on_line(
+                    closest_point, math.radians(rotation + 90), nearest_line.width / 2)
+                closest_perp_point = perp_points[0] if \
+                    find_distance(entity_location, perp_points[0]) <= find_distance(entity_location, perp_points[1]) else perp_points[1]
+                nearest_line_end_points = directed_points_on_line(
+                    closest_point, rotation, nearest_line.width / 2)
+                end_point_sets.append(set(nearest_line_end_points))
+
+        left_end_points = list(end_point_sets[0])
+        right_end_points = list(end_point_sets[1])
+        end_points = match_both_end_points(
+            left_end_points[0], left_end_points[1], right_end_points[0], right_end_points[1])
+        return end_points
+        
     
     def adjust_extended_lines(entity_location: float, graph: 'nx.Graph', extended_lines: List[tuple]):
         """This function adjusts the extended_lines from the entity.
@@ -612,6 +739,90 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         Raises:
             ValueError: [description]
         """
+        left_nodes = list(map(lambda extended_line: extended_line[0], extended_lines))
+        right_nodes = list(map(lambda extended_line: extended_line[1], extended_lines))
+
+        # FOR LEFT NODE:
+        # 1. only choosing the first left node as if first node is found on an edge then most probably the second node will also be on the edge
+        first_left_node, second_left_node = left_nodes[0], left_nodes[1]
+        for edge in graph.edges():
+            if is_between(point=first_left_node, line_start=edge[0], line_end=edge[1]) and is_between(point=second_left_node, line_start=edge[0], line_end=edge[1]):
+                left_edge = edge
+                break
+        
+        # 2.2 check if any node if left_end_points are nodes of the edge:
+        #     is_left_end_point1_a_node = check if it is in any of the nodes of edge
+        #     is_left_end_point2_a_node = check if it is in any of the nodes of edge
+        is_left_end_point1_a_node = first_left_node in {left_edge[0], left_edge[1]}
+        is_left_end_point2_a_node = second_left_node in {left_edge[0], left_edge[1]}
+        
+        # 2.3 if both the points are node 
+        if is_left_end_point1_a_node and is_left_end_point2_a_node:
+            # edge is to be removed:
+            graph.remove_edge(left_edge[0], left_edge[1])
+        # 2.4 elif if one of the point is node:
+        elif is_left_end_point1_a_node or is_left_end_point2_a_node:
+            node_to_be_broken = first_left_node if is_left_end_point1_a_node else second_left_node
+            break_edge_into_two_edges(edge=left_edge, node=node_to_be_broken, graph=graph)
+        # 2.5 None of the edge is a node of any other edge
+        else:
+            from shapely.ops import unary_union
+            from shapely.geometry import LineString
+            lines = [
+                LineString([first_left_node, second_left_node]),
+                LineString([left_edge[0], left_edge[1]]),
+            ]
+            line_segments = unary_union(lines)
+            # Now remove the middle segment
+            edges_to_be_added = (line_segments[0], line_segments[2])
+            edges_to_be_removed = [line_segments[1]]
+            
+            graph.remove_edges_from(edges_to_be_removed)
+            graph.add_edges_from(edges_to_be_added)
+
+
+        # FOR RIGHT NODE:
+        # 1. only choosing the first right node as if first node is found on an edge then most probably the second node will also be on the edge
+        first_right_node, second_right_node = right_nodes[0], right_nodes[1]
+        for edge in graph.edges():
+            if is_between(point=first_right_node, line_start=edge[0], line_end=edge[1]) and is_between(point=second_right_node, line_start=edge[0], line_end=edge[1]):
+                right_edge = edge
+                break
+        
+        # 2.2 check if any node if right_end_points are nodes of the edge:
+        #     is_right_end_point1_a_node = check if it is in any of the nodes of edge
+        #     is_right_end_point2_a_node = check if it is in any of the nodes of edge
+        is_right_end_point1_a_node = first_right_node in {right_edge[0], right_edge[1]}
+        is_right_end_point2_a_node = second_right_node in {right_edge[0], right_edge[1]}
+        
+        # 2.3 if both the points are node 
+        if is_right_end_point1_a_node and is_right_end_point2_a_node:
+            # edge is to be removed:
+            graph.remove_edge(right_edge[0], right_edge[1])
+        # 2.4 elif if one of the point is node:
+        elif is_right_end_point1_a_node or is_right_end_point2_a_node:
+            node_to_be_broken = first_right_node if is_right_end_point1_a_node else second_right_node
+            break_edge_into_two_edges(edge=right_edge, node=node_to_be_broken, graph=graph)
+        # 2.5 None of the edge is a node of any other edge
+        else:
+            from shapely.ops import unary_union
+            from shapely.geometry import LineString
+            lines = [
+                LineString([first_right_node, second_right_node]),
+                LineString([right_edge[0], right_edge[1]]),
+            ]
+            line_segments = unary_union(lines)
+            # Now remove the middle segment
+            edges_to_be_added = (line_segments[0], line_segments[2])
+            edges_to_be_removed = [line_segments[1]]
+            
+            graph.remove_edges_from(edges_to_be_removed)
+            graph.add_edges_from(edges_to_be_added)
+
+        # finally adding both the lines edges:
+        graph.add_edges_from(extended_lines)
+        
+        return
 
     # 1. Do some exception handling to check the type of the entity is "door" or "window".
     ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED = ('door', 'window')
@@ -623,7 +834,33 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     entity_location = entity["location"]
 
     # 3. Get nearest centre lines to that entity:
-    nearest_centre_lines = get_nearest_lines_to_a_point(point = entity_location, lines = centre_lines)
+    nearest_centre_lines = get_nearest_centre_lines_from_a_point(point = entity_location, centre_lines = centre_lines)
+    
+    # DEBUG:
+    print('Got nearest centre lines')
     
     # 4. For the first two nearest lines, extend the wall:
-    extended_lines = get_extended_wall_lines_with_nearest_lines(graph, nearest_line1, nearest_line2)
+    nearest_line1, nearest_line2 = nearest_centre_lines[0], nearest_centre_lines[1]
+    extended_lines = get_extended_wall_lines_with_nearest_lines(
+                        entity_location, graph, nearest_line1, nearest_line2)
+    print('got extended lines.', extended_lines)
+    
+    print('adjusting graph: ', len(graph.edges))
+    adjust_extended_lines(graph=graph, extended_lines=extended_lines, entity_location=entity_location)
+    print('adjusted graph', len(graph.edges))
+    return
+
+# current_entity = windows[0]
+# extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
+
+# print('Now plotting on msp')
+# import ezdxf
+# dwg = ezdxf.new()
+# msp = dwg.modelspace()
+
+# for edge in graph.edges():
+#     msp.add_line(edge[0], edge[1])
+# msp.add_circle(current_entity['location'], radius=2)
+
+# dwg.saveas('dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines2.dxf')
+# print('Success.')
