@@ -18,13 +18,6 @@ edges = [((328, 537), (528, 537)), ((328, 537), (328, 981)), ((528, 537), (528, 
 graph = nx.Graph()
 graph.add_edges_from(edges)
 print('graph creation success.', len(graph.edges))
-# TEST
-import ezdxf
-_dwg = ezdxf.new()
-_msp = _dwg.modelspace()
-for edge in graph.edges:
-    _msp.add_line(edge[0], edge[1])
-_dwg.saveas('dxfFilesOut/sample2/debug_dxf/extended_wall_lines/before_extended_wall_lines2.dxf')
 
 centre_lines = [{'end_point': (332.5, 823.0),
                  'number': 1,
@@ -837,6 +830,21 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     nearest_centre_lines = get_nearest_centre_lines_from_a_point(point = entity_location, centre_lines = centre_lines)
     
     # DEBUG:
+    import ezdxf
+    _dwg = ezdxf.new()
+    _msp = _dwg.modelspace()
+    for index, line in enumerate(nearest_centre_lines):
+        _msp.add_line(line.start_point, line.end_point, dxfattribs={'layer':'centrelines'})
+        mtext = _msp.add_mtext(str(index), dxfattribs={'layer':'centrelines'})
+        mtext.set_location(find_mid_point(line.start_point, line.end_point))
+        mtext.dxf.char_height = 0.3
+    for edge in graph.edges:
+        _msp.add_line(edge[0], edge[1], dxfattribs={'layer':'wall'})
+    _dwg.saveas('dxfFilesOut/sample2/debug_dxf/extended_wall_lines/nearest_centre_lines.dxf')
+    import sys
+    sys.exit(1)
+    
+    # DEBUG:
     print('Got nearest centre lines')
     
     # 4. For the first two nearest lines, extend the wall:
@@ -850,8 +858,8 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     print('adjusted graph', len(graph.edges))
     return
 
-# current_entity = windows[0]
-# extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
+current_entity = windows[0]
+extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
 
 # print('Now plotting on msp')
 # import ezdxf
