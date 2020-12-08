@@ -522,11 +522,37 @@ except Exception:
 windows = list(filter(lambda entity: entity['type']=='window', identification_json['entities']))
 doors = list(filter(lambda entity: entity['type']=='door', identification_json['entities']))
 
+# DEBUG:
 print('windows:', len(windows))
 
 print('doors:', len(doors))
 
+def debug_display_all_windows_and_doors():
+    dwg = ezdxf.new()
+    msp = dwg.modelspace()
+    
+    # Adding edges from the graph
+    for edge in graph.edges:
+        msp.add_line(edge[0], edge[1], dxfattribs={'layer': 'walls'})
+    
+    for window in windows:
+        window_location = window['location']
+        msp.add_circle(window_location, radius=1, dxfattribs={'color':2})
+        window_text = msp.add_mtext('W')
+        window_text.set_location(window_location)
+        window_text.dxf.char_height = 0.3
 
+    for door in doors:
+        door_location = door['location']
+        msp.add_circle(door_location, radius=1, dxfattribs={'color':2})
+        door_text = msp.add_mtext('D')
+        door_text.set_location(door_location)
+        door_text.dxf.char_height = 0.3
+        
+    dwg.saveas('dxfFilesOut/sample2/debug_dxf/extended_wall_lines/only_windows_and_doors_points.dxf')
+    print('Windows and doors file saved at:', 'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/only_windows_and_doors_points.dxf')
+    exit()
+# debug_display_all_windows_and_doors()
 
 ### HELPER FUNCTION:
 centre_line_tree = None
@@ -584,7 +610,7 @@ def get_nearest_centre_lines_from_a_point(
     import ezdxf
     _dwg = ezdxf.new()
     _msp = _dwg.modelspace()
-    _msp.add_circle(entity_location, radius=0.2)
+    _msp.add_circle(entity_location, radius=0.2, dxfattribs={'layer': 'entity_location'})
     loc_text = _msp.add_mtext(f'{int(entity_location[0])}, {int(entity_location[1])}', dxfattribs={'layer':'debug'})
     loc_text.set_location(entity_location)
     loc_text.dxf.char_height = 0.2
@@ -597,6 +623,7 @@ def get_nearest_centre_lines_from_a_point(
     for edge in graph.edges:
         _msp.add_line(edge[0], edge[1], dxfattribs={'layer':'wall'})
     _dwg.saveas('dxfFilesOut/sample2/debug_dxf/extended_wall_lines/nearest_centre_lines.dxf')
+    print('')
     # import sys
     # sys.exit(1)    
     
@@ -798,11 +825,22 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         """
         # DEBUG: Sorting the extended lines before:
         extended_lines[0] = list(extended_lines[0]); extended_lines[0].sort(); extended_lines[0] = tuple(extended_lines[0])
-
         extended_lines[1] = list(extended_lines[1]); extended_lines[1].sort(); extended_lines[1] = tuple(extended_lines[1])
 
         left_nodes = list(map(lambda extended_line: extended_line[0], extended_lines))
         right_nodes = list(map(lambda extended_line: extended_line[1], extended_lines))
+        
+        # DEBUG
+        _dwg = ezdxf.new()
+        _msp = _dwg.modelspace();
+        for edge in graph.edges:
+            _msp.add_line(edge[0], edge[1])
+        for loc in (left_nodes + right_nodes):
+            _msp.add_circle(loc, radius=1)
+        _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/endpoints_{counter}.dxf')
+        
+        if counter == 1:
+            debug_mode = True
 
         # FOR LEFT NODE:
         # 1. only choosing the first left node as if first node is found on an edge then most probably the second node will also be on the edge
@@ -920,13 +958,13 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
 for counter, current_entity in enumerate(windows):
     extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
 
-print('Now plotting on msp')
-dwg = ezdxf.new()
-msp = dwg.modelspace()
+    print('Now plotting on msp', counter)
+    dwg = ezdxf.new()
+    msp = dwg.modelspace()
 
-for edge in graph.edges():
-    msp.add_line(edge[0], edge[1])
-msp.add_circle(current_entity['location'], radius=2)
+    for edge in graph.edges():
+        msp.add_line(edge[0], edge[1])
+    msp.add_circle(current_entity['location'], radius=2)
 
-dwg.saveas('dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines2.dxf')
-print('Success.')
+    dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
+    print('Success.')
