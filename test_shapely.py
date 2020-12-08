@@ -519,10 +519,16 @@ try:
 except Exception:
     print('Failed to open identification JSON.')
 
-windows = list(filter(lambda entity: entity['type']=='window', identification_json['entities']))
-doors = list(filter(lambda entity: entity['type']=='door', identification_json['entities']))
+windows = list(filter(lambda entity: entity['type']=='window' and entity['category'] == 'p', identification_json['entities']))
+doors = list(filter(lambda entity: entity['type']=='door' and entity['category'] == 'p', identification_json['entities']))
 
 # DEBUG:
+def __debug_location(msp, point, name: str = 'debug', radius = 2, color:int = 2):
+    msp.add_circle(point, radius, dxfattribs={'color': color, 'layer': 'debug'})
+    msp.add_mtext(name, dxfattribs = {'layer': 'debug'}).set_location(point)
+
+
+
 print('windows:', len(windows))
 
 print('doors:', len(doors))
@@ -593,12 +599,13 @@ def get_nearest_centre_lines_from_a_point(
     index = 0
     # DEBUG
     conversion_factor = 0.0393701
-    DISTANCE_FOR_WALL_WITH_ENTITY = 10 * conversion_factor
+    DISTANCE_FOR_WALL_WITH_ENTITY = 20 * conversion_factor
     query = Point(entity_location).buffer(DISTANCE_FOR_WALL_WITH_ENTITY)
     # Check whether the starting lines are not too close for the entity_location    
     close_lines_to_the_entity_location = centre_line_tree.query(query)
     if len(close_lines_to_the_entity_location) > 0:
         for close_line in close_lines_to_the_entity_location:
+            print(f"counter: {counter}", "increasing the index and neglecting the close centre_line")
             close_line_coords = tuple(close_line.coords)
             item_index = nearest_lines.index(close_line_coords)
             index = item_index + 1
@@ -617,13 +624,22 @@ def get_nearest_centre_lines_from_a_point(
     
     for idx, line in enumerate(nearest_lines):
         _msp.add_line(line.start_point, line.end_point, dxfattribs={'layer':'centrelines'})
-        mtext = _msp.add_mtext(str(index), dxfattribs={'layer':'centrelines'})
+        mtext = _msp.add_mtext(str(idx), dxfattribs={'layer':'centrelines'})
         mtext.set_location(find_mid_point(line.start_point, line.end_point))
         mtext.dxf.char_height = 0.3
     for edge in graph.edges:
         _msp.add_line(edge[0], edge[1], dxfattribs={'layer':'wall'})
-    _dwg.saveas('dxfFilesOut/sample2/debug_dxf/extended_wall_lines/nearest_centre_lines.dxf')
-    print('')
+    
+    # label the chosen lines:
+    n1, n2 = nearest_lines[index], nearest_lines[index+1]
+    for n in (n1, n2):
+        mtext = _msp.add_mtext('chosen', dxfattribs={
+                              'layer': 'chosen_line', 'color': 3})
+        mtext.set_location(find_mid_point(n.start_point, n.end_point))
+        mtext.dxf.char_height = 0.5
+    
+    _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/nearest_centre_lines_{counter}.dxf')
+    print('Done saving nearest line', f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/nearest_centre_lines_{counter}.dxf')
     # import sys
     # sys.exit(1)    
     
@@ -748,11 +764,33 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             
             nearest_line.type = PARALLEL if is_angle_is_180_or_0_degrees(angle) else PERPENDICULAR
             
+        # DEBUG:
+        _dwg = ezdxf.new()
+        _msp = _dwg.modelspace()
+        for edge in graph.edges:
+            _msp.add_line(edge[0], edge[1])
+        __debug_location(
+            msp = _msp, 
+            point = find_mid_point(nearest_line1.start_point, nearest_line1.end_point),
+            name= nearest_line1.type,
+            radius=3,
+            color=5
+        )
+        __debug_location(
+            msp = _msp, 
+            point = find_mid_point(nearest_line2.start_point, nearest_line2.end_point),
+            name= nearest_line2.type,
+            radius=3,
+            color=5
+        )
+        _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/parallel_or_perpendicular_{counter}.dxf')
+        print('saved', f'parallel_or_perpendicular_{counter}.dxf')
+            
         end_point_sets = []
         # 2. Now find the end_points of each nearest_line:
         for nearest_line in (nearest_line1, nearest_line2):
             closest_point = nearest_line.get_closest_point(entity_location)
-            distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.start_point
+            distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.end_point
             rotation = find_rotation(closest_point, distant_point)
             
             if nearest_line.type == PARALLEL:
@@ -838,6 +876,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         for loc in (left_nodes + right_nodes):
             _msp.add_circle(loc, radius=1)
         _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/endpoints_{counter}.dxf')
+        print('saved', f'endpoints_{counter}.dxf')
         
         if counter == 1:
             debug_mode = True
@@ -912,6 +951,14 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                 LineString([right_edge[0], right_edge[1]]),
             ]
             line_segments = unary_union(lines)
+            
+            # EXCEPTION HANDLING:
+            if len(list(line_segments)) != 3:
+                print("EXCEPTION OCCURED, LENGTH OF LINE SEGMENT IS NOT 3!")
+                print(f'line_segments: {line_segments.wkt}')
+                print({"first_right_node": first_right_node, "second_right_node": second_right_node, "right_edge": {right_edge}})
+                raise ValueError("LineSegments cannot be segregated.")
+            
             # Now remove the middle segment
             edges_to_be_added = (line_segments[0], line_segments[2])
             edges_to_be_removed = [line_segments[1]]
@@ -956,6 +1003,9 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     return
 
 for counter, current_entity in enumerate(windows):
+    # DEBUG
+    print('COUNTER', counter)
+    
     extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
 
     print('Now plotting on msp', counter)
@@ -967,4 +1017,5 @@ for counter, current_entity in enumerate(windows):
     msp.add_circle(current_entity['location'], radius=2)
 
     dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
-    print('Success.')
+    print('saved: ', f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
+print('Success.')
