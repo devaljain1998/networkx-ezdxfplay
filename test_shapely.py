@@ -13,7 +13,8 @@ from centre_lines import CentreLine
 from pillarplus.math import (directed_points_on_line, find_angle,
                              find_distance, find_intersection_point_1,
                              find_mid_point, find_rotation,
-                             get_nearest_lines_from_a_point, is_between)
+                             get_nearest_lines_from_a_point, is_between,
+                             find_perpendicular_point)
 
 # from test_clean_wall_lines import centre_lines, msp, dwg
 edges = [((328, 537), (528, 537)), ((328, 537), (328, 981)), ((528, 537), (528, 546)), ((588, 537), (614, 537)), ((588, 537), (588, 546)), ((614, 537), (614, 441)), ((337, 546), (528, 546)), ((337, 546), (337, 823)), ((588, 546), (614, 546)), ((614, 546), (614, 645)), ((614, 441), (642, 441)), ((642, 441), (642, 390)), ((646, 441), (661, 441)), ((646, 441), (646, 399)), ((661, 441), (661, 450)), ((718, 441), (775, 441)), ((718, 441), (718, 450)), ((775, 441), (775, 399)), ((619, 450), (661, 450)), ((619, 450), (619, 645)), ((718, 450), (775, 450)), ((775, 450), (775, 640)), ((661, 640), (679, 640)), ((661, 640), (661, 645)), ((679, 640), (679, 718)), ((709, 640), (775, 640)), ((709, 640), (709, 645)), ((614, 645), (619, 645)), ((661, 645), (674, 645)), ((674, 645), (674, 723)), ((709, 645), (775, 645)), ((775, 645), (775, 718)), ((679, 718), (754, 718)), ((754, 718), (754, 723)), ((772, 718), (775, 718)), ((772, 718), (772, 723)), ((674, 723), (746, 723)), ((746, 723), (746, 741)), ((751, 723), (754, 723)), ((751, 723), (751, 741)), ((772, 723), (775, 723)), ((775, 723), (775, 741)), ((554, 823), (559, 823)), ((554, 823), (554, 876)), ((559, 823), (559, 981)), ((784, 390), (770, 390)), ((784, 390), (784, 741)), ((784, 981), (601, 981)), ((784, 981), (784, 759)), ((642, 390), (651, 390)), ((646, 399), (651, 399)), ((651, 390), (651, 399)), ((775, 399), (770, 399)), ((775, 777), (772, 777)), ((775, 777), (775, 759)), ((751, 764), (751, 777)), ((751, 764), (746, 764)), ((751, 777), (754, 777)), ((746, 764), (746, 777)), ((746, 777), (674, 777)), ((775, 781), (775, 882)), ((775, 781), (772, 781)), ((775, 882), (737, 882)), ((775, 886), (775, 972)), ((775, 886), (737, 886)), ((775, 972), (601, 972)), ((674, 777), (674, 781)), ((674, 781), (703, 781)), ((703, 781), (703, 823)), ((703, 823), (601, 823)), ((703, 828), (703, 912)), ((703, 828), (601, 828)), ((703, 912), (703, 939)), ((707, 781), (707, 912)), ((707, 781), (754, 781)), ((707, 912), (706, 912)), ((737, 882), (737, 886)), ((559, 981), (505, 981)), ((601, 823), (601, 828)), ((554, 876), (517, 876)), ((554, 880), (554, 972)), ((554, 880), (517, 880)), ((554, 972), (505, 972)), ((601, 981), (601, 972)), ((505, 981), (505, 972)), ((487, 981), (482, 981)), ((487, 981), (487, 876)), ((482, 981), (482, 876)), ((464, 981), (328, 981)), ((464, 981), (464, 972)), ((464, 972), (337, 972)), ((337, 972), (337, 948)), ((772, 781), (772, 777)), ((754, 781), (754, 777)), ((337, 823), (512, 823)), ((337, 828), (512, 828)), ((337, 828), (337, 948)), ((482, 876), (487, 876)), ((517, 880), (517, 876)), ((512, 823), (512, 828)), ((700, 450), (700, 441)), ((700, 450), (691, 450)), ((700, 441), (691, 441)), ((770, 390), (770, 399)), ((703, 939), (706, 939)), ((706, 912), (706, 939)), ((775, 759), (784, 759)), ((775, 741), (784, 741)), ((746, 741), (750, 741)), ((750, 741), (751, 741)), ((691, 450), (691, 441))]
@@ -523,9 +524,11 @@ windows = list(filter(lambda entity: entity['type']=='window' and entity['catego
 doors = list(filter(lambda entity: entity['type']=='door' and entity['category'] == 'p', identification_json['entities']))
 
 # DEBUG:
-def __debug_location(msp, point, name: str = 'debug', radius = 2, color:int = 2):
+def __debug_location(msp, point, name: str = 'debug', radius = 2, color:int = 2, char_height=0.5):
     msp.add_circle(point, radius, dxfattribs={'color': color, 'layer': 'debug'})
-    msp.add_mtext(name, dxfattribs = {'layer': 'debug'}).set_location(point)
+    mtext = msp.add_mtext(name, dxfattribs = {'layer': 'debug'})
+    mtext.set_location(point)
+    mtext.dxf.char_height = char_height
 
 
 
@@ -533,6 +536,7 @@ print('windows:', len(windows))
 
 print('doors:', len(doors))
 
+# all_doors = list(filter(lambda entity: entity['type']=='door', identification_json['entities']))
 def debug_display_all_windows_and_doors():
     dwg = ezdxf.new()
     msp = dwg.modelspace()
@@ -544,14 +548,14 @@ def debug_display_all_windows_and_doors():
     for window in windows:
         window_location = window['location']
         msp.add_circle(window_location, radius=1, dxfattribs={'color':2})
-        window_text = msp.add_mtext('W')
+        window_text = msp.add_mtext(f'W{window["category"]}')
         window_text.set_location(window_location)
         window_text.dxf.char_height = 0.3
 
-    for door in doors:
+    for door in doors: #all_doors
         door_location = door['location']
         msp.add_circle(door_location, radius=1, dxfattribs={'color':2})
-        door_text = msp.add_mtext('D')
+        door_text = msp.add_mtext(f'D{door["category"]}')
         door_text.set_location(door_location)
         door_text.dxf.char_height = 0.3
         
@@ -787,6 +791,11 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         print('saved', f'parallel_or_perpendicular_{counter}.dxf')
             
         end_point_sets = []
+        
+        #DEBUG:
+        _dwg = ezdxf.new()
+        _msp = _dwg.modelspace();
+        
         # 2. Now find the end_points of each nearest_line:
         for nearest_line in (nearest_line1, nearest_line2):
             closest_point = nearest_line.get_closest_point(entity_location)
@@ -801,13 +810,50 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                 end_point_sets.append(set(nearest_line_end_points))
             # for perpendicular
             else:
+                perpendicular_point_on_the_centre_line = find_perpendicular_point(
+                                    center=entity_location, line_start=closest_point, line_end=distant_point)
                 perp_points = directed_points_on_line(
-                    closest_point, math.radians(rotation + 90), nearest_line.width / 2)
+                    perpendicular_point_on_the_centre_line, math.radians(rotation + 90), nearest_line.width / 2)
                 closest_perp_point = perp_points[0] if \
                     find_distance(entity_location, perp_points[0]) <= find_distance(entity_location, perp_points[1]) else perp_points[1]
                 nearest_line_end_points = directed_points_on_line(
-                    closest_point, rotation, nearest_line.width / 2)
+                    closest_perp_point, math.radians(rotation), nearest_line.width / 2)
                 end_point_sets.append(set(nearest_line_end_points))
+                
+                # DEBUG
+                __debug_location(
+                    msp=_msp,
+                    point=perpendicular_point_on_the_centre_line,
+                    name='PERPPOINT',
+                    radius=1,
+                    color=4,
+                    char_height=0.3
+                );
+                __debug_location(
+                    msp=_msp,
+                    point=closest_perp_point,
+                    name='CPP',
+                    radius=0.2,
+                    color=2,
+                    char_height=0.3
+                );                
+                __debug_location(
+                    msp=_msp,
+                    point=nearest_line_end_points[0],
+                    name='nlep1',
+                    radius=0.2,
+                    color=5,
+                    char_height=0.3
+                );                
+                __debug_location(
+                    msp=_msp,
+                    point=nearest_line_end_points[1],
+                    name='nlep2',
+                    radius=0.2,
+                    color=5,
+                    char_height=0.3
+                );                
+
 
         # mapping sets to int
         end_point_sets[0] = set(map(lambda point: (int(point[0]), int(point[1])), end_point_sets[0]))
@@ -815,6 +861,17 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         
         left_end_points = list(end_point_sets[0])
         right_end_points = list(end_point_sets[1])
+        
+        # DEBUG
+        for edge in graph.edges:
+            _msp.add_line(edge[0], edge[1])
+        for loc in (left_end_points + right_end_points):
+            _msp.add_circle(loc, radius=1, dxfattribs={'color':3})
+        _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/endpoints_{counter}.dxf')
+        print('saved', f'endpoints_{counter}.dxf')
+
+        
+        
         end_points = match_both_end_points(
             left_end_points[0], left_end_points[1], right_end_points[0], right_end_points[1])
         
@@ -867,20 +924,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
 
         left_nodes = list(map(lambda extended_line: extended_line[0], extended_lines))
         right_nodes = list(map(lambda extended_line: extended_line[1], extended_lines))
-        
-        # DEBUG
-        _dwg = ezdxf.new()
-        _msp = _dwg.modelspace();
-        for edge in graph.edges:
-            _msp.add_line(edge[0], edge[1])
-        for loc in (left_nodes + right_nodes):
-            _msp.add_circle(loc, radius=1)
-        _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/endpoints_{counter}.dxf')
-        print('saved', f'endpoints_{counter}.dxf')
-        
-        if counter == 1:
-            debug_mode = True
-
+                
         # FOR LEFT NODE:
         # 1. only choosing the first left node as if first node is found on an edge then most probably the second node will also be on the edge
         first_left_node, second_left_node = left_nodes[0], left_nodes[1]
@@ -912,11 +956,30 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                 LineString([left_edge[0], left_edge[1]]),
             ]
             line_segments = unary_union(lines)
-            # Now remove the middle segment
-            edges_to_be_added = (line_segments[0], line_segments[2])
-            edges_to_be_removed = [line_segments[1]]
             
-            graph.remove_edges_from(edges_to_be_removed)
+            # EXCEPTION HANDLING:
+            if len(list(line_segments)) != 3:
+                print("EXCEPTION OCCURED, LENGTH OF LINE SEGMENT IS NOT 3!")
+                print(f'line_segments: {line_segments.wkt}')
+                print({"first_right_node": first_right_node, "second_right_node": second_right_node, "right_edge": {right_edge}})
+                raise ValueError("LineSegments cannot be segregated.")            
+            
+            # Cleaning line segments:
+            edges = []
+            for line_segment in line_segments:
+                coords = list(line_segment.coords)
+                for coord in coords:
+                    coord = tuple(map(int, coord))
+                coords.sort()
+                coords = tuple(coords)
+                edges.append(coords)
+            edges.sort()
+            
+            # Now remove the middle segment
+            edges_to_be_added = (edges[0], edges[1])
+            edges_to_be_removed = [edges[1]]
+            
+            # graph.remove_edges_from(edges_to_be_removed)
             graph.add_edges_from(edges_to_be_added)
 
 
@@ -959,11 +1022,22 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                 print({"first_right_node": first_right_node, "second_right_node": second_right_node, "right_edge": {right_edge}})
                 raise ValueError("LineSegments cannot be segregated.")
             
-            # Now remove the middle segment
-            edges_to_be_added = (line_segments[0], line_segments[2])
-            edges_to_be_removed = [line_segments[1]]
+            # Cleaning line segments:
+            edges = []
+            for line_segment in line_segments:
+                coords = list(line_segment.coords)
+                for coord in coords:
+                    coord = tuple(map(int, coord))
+                coords.sort()
+                coords = tuple(coords)
+                edges.append(coords)
+            edges.sort()
             
-            graph.remove_edges_from(edges_to_be_removed)
+            # Now remove the middle segment
+            edges_to_be_added = (edges[0], edges[1])
+            edges_to_be_removed = [edges[1]]
+            
+            # graph.remove_edges_from(edges_to_be_removed)
             graph.add_edges_from(edges_to_be_added)
 
         # finally adding both the lines edges:
@@ -1018,4 +1092,25 @@ for counter, current_entity in enumerate(windows):
 
     dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
     print('saved: ', f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
+
+window_counter = counter   
+print('WINDOWS COMPLETE!!\n')
+for counter, current_entity in enumerate(doors):
+    counter = window_counter + counter
+    # DEBUG
+    print('COUNTER', counter)
+    
+    extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
+
+    print('Now plotting on msp', counter)
+    dwg = ezdxf.new()
+    msp = dwg.modelspace()
+
+    for edge in graph.edges():
+        msp.add_line(edge[0], edge[1])
+    msp.add_circle(current_entity['location'], radius=2)
+
+    dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
+    print('saved: ', f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
+
 print('Success.')
