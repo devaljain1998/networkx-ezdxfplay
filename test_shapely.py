@@ -767,6 +767,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             angle = find_angle(entity_location, closest_point, distant_point)
             
             nearest_line.type = PARALLEL if is_angle_is_180_or_0_degrees(angle) else PERPENDICULAR
+            nearest_line.type_angle = angle
             
         # DEBUG:
         _dwg = ezdxf.new()
@@ -776,14 +777,14 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         __debug_location(
             msp = _msp, 
             point = find_mid_point(nearest_line1.start_point, nearest_line1.end_point),
-            name= nearest_line1.type,
+            name= f'{nearest_line1.type} {int(math.degrees(nearest_line1.type_angle))}',
             radius=3,
             color=5
         )
         __debug_location(
             msp = _msp, 
             point = find_mid_point(nearest_line2.start_point, nearest_line2.end_point),
-            name= nearest_line2.type,
+            name= f'{nearest_line2.type} {int(math.degrees(nearest_line2.type_angle))}',
             radius=3,
             color=5
         )
@@ -1051,9 +1052,6 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         raise ValueError(
             f'Only entities with types in {ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED} can be extended.')
         
-    # DEBUG
-    fill_str_tree(centre_lines=centre_lines)
-        
     # 2. Get entity location:
     entity_location = entity["location"]
 
@@ -1076,6 +1074,9 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     print('adjusted graph', len(graph.edges))
     return
 
+
+fill_str_tree(centre_lines=centre_lines)
+
 for counter, current_entity in enumerate(windows):
     # DEBUG
     print('COUNTER', counter)
@@ -1095,12 +1096,18 @@ for counter, current_entity in enumerate(windows):
 
 window_counter = counter   
 print('WINDOWS COMPLETE!!\n')
+# Now iterating for doors
 for counter, current_entity in enumerate(doors):
-    counter = window_counter + counter
+    counter = window_counter + counter + 1
     # DEBUG
     print('COUNTER', counter)
     
-    extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
+    try:
+        extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
+    except:
+        print(f'Skipping for door: {current_entity}', 'counter ', counter)
+        exit()
+        continue
 
     print('Now plotting on msp', counter)
     dwg = ezdxf.new()
