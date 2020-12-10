@@ -576,10 +576,12 @@ def fill_str_tree(centre_lines):
     centre_line_tree = STRtree(lines)
     print('Tree builded.')
 
-def is_angle_is_180_or_0_degrees(angle: Union[float, int]) -> bool:
+def is_angle_is_180_or_0_degrees(angle: Union[float, int], buffer: float = None) -> bool:
     from math import pi
     if type(angle) == int:
         return 179 <= angle <= 181 or -1 <= angle <= 1
+    if buffer:
+        return (pi - buffer) <= angle <= (pi + buffer) or buffer <= angle <= -buffer
     return (pi - 0.1) <= angle <= (pi + 0.1) or 0.1 <= angle <= -0.1
 
 def break_edge_into_two_edges(edge, node, graph):
@@ -655,6 +657,9 @@ def get_nearest_centre_lines_from_a_point(
 # labels:
 PARALLEL = "PARALLEL"
 PERPENDICULAR = "PERPENDICULAR"
+
+# DEBUG:
+extra_data = {}
 
 
 def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"], graph: "nx.Graph"):
@@ -1123,7 +1128,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             perpendicular_line = nearest_line1 if nearest_line1.type == PERPENDICULAR else nearest_line2
             
             # 3. find perpendicular point from the closest_point of parallel_line to perpendicular_line.
-            closest_point_of_parallel_line = parallel_line.get_closest_line(entity_location)
+            closest_point_of_parallel_line = parallel_line.get_closest_point(entity_location)
             perpendicular_point = find_perpendicular_point(
                 closest_point_of_parallel_line, perpendicular_line.start_point, perpendicular_line.end_point)
             
@@ -1133,14 +1138,20 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         def get_door_centre_points_from_perpendicular_lines(nearest_line1, nearest_line2, entity_location):
             pass
         
+        # TEST
+        conversion_factor = {'mm': 1.0, 'inch': 0.0393701}
+        DISTANCE_FOR_POINT_TO_FIND_ANGLE: float = 4 * conversion_factor['inch']
+        # point_to_find_angle = directed_points_on_line(entity_location, math.pi/2, DISTANCE_FOR_POINT_TO_FIND_ANGLE)[0]
+        point_to_find_angle = entity_location
+        
         # 1. Get angle from both nl1 and nl2 and label them as "parallel" or "perpendicular" with respect to the entity location:
         for nearest_line in (nearest_line1, nearest_line2):
-            closest_point = nearest_line.get_closest_point(entity_location)
+            closest_point = nearest_line.get_closest_point(point_to_find_angle)
             distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.start_point
             # angle between entity location and closest point
-            angle = find_angle(entity_location, closest_point, distant_point)
+            angle = find_angle(point_to_find_angle, closest_point, distant_point)
             
-            nearest_line.type = PARALLEL if is_angle_is_180_or_0_degrees(angle) else PERPENDICULAR
+            nearest_line.type = PARALLEL if is_angle_is_180_or_0_degrees(angle, buffer=0.2) else PERPENDICULAR
             nearest_line.type_angle = angle
             
         # DEBUG:
@@ -1148,6 +1159,15 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         _msp = _dwg.modelspace()
         for edge in graph.edges:
             _msp.add_line(edge[0], edge[1])
+            
+        __debug_location(
+            msp = _msp, 
+            point = point_to_find_angle,
+            name= f'PTFA: {point_to_find_angle}',
+            radius=1,
+            color=3
+        )
+
         __debug_location(
             msp = _msp, 
             point = find_mid_point(nearest_line1.start_point, nearest_line1.end_point),
@@ -1164,6 +1184,10 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         )
         _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/DOOR_parallel_or_perpendicular_{counter}.dxf')
         print('saved', f'DOOR_parallel_or_perpendicular_{counter}.dxf')
+        extra_data[counter] = {
+            'nl1': f'{nearest_line1.type + str(int(math.degrees(nearest_line1.type_angle)))}',
+            'nl2': f'{nearest_line2.type + str(int(math.degrees(nearest_line2.type_angle)))}',
+        }
 
             
         # Fill wall_counter dict: (used to keep the count of no of parallel or perpendicular walls.)
@@ -1252,7 +1276,8 @@ for counter, current_entity in enumerate(doors):
     
     try:
         extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
-    except:
+    except Exception as e:
+        raise e;
         continue
         exit()
 
@@ -1267,4 +1292,6 @@ for counter, current_entity in enumerate(doors):
     dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
     print('saved: ', f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
 
+print('extra_data')
+pprint.pprint(extra_data)
 print('Success.')
