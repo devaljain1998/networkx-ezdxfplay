@@ -15,6 +15,7 @@ from pillarplus.math import (directed_points_on_line, find_angle,
                              find_mid_point, find_rotation,
                              get_nearest_lines_from_a_point, is_between,
                              find_perpendicular_point)
+from collections import OrderedDict
 
 # from test_clean_wall_lines import centre_lines, msp, dwg
 edges = [((328, 537), (528, 537)), ((328, 537), (328, 981)), ((528, 537), (528, 546)), ((588, 537), (614, 537)), ((588, 537), (588, 546)), ((614, 537), (614, 441)), ((337, 546), (528, 546)), ((337, 546), (337, 823)), ((588, 546), (614, 546)), ((614, 546), (614, 645)), ((614, 441), (642, 441)), ((642, 441), (642, 390)), ((646, 441), (661, 441)), ((646, 441), (646, 399)), ((661, 441), (661, 450)), ((718, 441), (775, 441)), ((718, 441), (718, 450)), ((775, 441), (775, 399)), ((619, 450), (661, 450)), ((619, 450), (619, 645)), ((718, 450), (775, 450)), ((775, 450), (775, 640)), ((661, 640), (679, 640)), ((661, 640), (661, 645)), ((679, 640), (679, 718)), ((709, 640), (775, 640)), ((709, 640), (709, 645)), ((614, 645), (619, 645)), ((661, 645), (674, 645)), ((674, 645), (674, 723)), ((709, 645), (775, 645)), ((775, 645), (775, 718)), ((679, 718), (754, 718)), ((754, 718), (754, 723)), ((772, 718), (775, 718)), ((772, 718), (772, 723)), ((674, 723), (746, 723)), ((746, 723), (746, 741)), ((751, 723), (754, 723)), ((751, 723), (751, 741)), ((772, 723), (775, 723)), ((775, 723), (775, 741)), ((554, 823), (559, 823)), ((554, 823), (554, 876)), ((559, 823), (559, 981)), ((784, 390), (770, 390)), ((784, 390), (784, 741)), ((784, 981), (601, 981)), ((784, 981), (784, 759)), ((642, 390), (651, 390)), ((646, 399), (651, 399)), ((651, 390), (651, 399)), ((775, 399), (770, 399)), ((775, 777), (772, 777)), ((775, 777), (775, 759)), ((751, 764), (751, 777)), ((751, 764), (746, 764)), ((751, 777), (754, 777)), ((746, 764), (746, 777)), ((746, 777), (674, 777)), ((775, 781), (775, 882)), ((775, 781), (772, 781)), ((775, 882), (737, 882)), ((775, 886), (775, 972)), ((775, 886), (737, 886)), ((775, 972), (601, 972)), ((674, 777), (674, 781)), ((674, 781), (703, 781)), ((703, 781), (703, 823)), ((703, 823), (601, 823)), ((703, 828), (703, 912)), ((703, 828), (601, 828)), ((703, 912), (703, 939)), ((707, 781), (707, 912)), ((707, 781), (754, 781)), ((707, 912), (706, 912)), ((737, 882), (737, 886)), ((559, 981), (505, 981)), ((601, 823), (601, 828)), ((554, 876), (517, 876)), ((554, 880), (554, 972)), ((554, 880), (517, 880)), ((554, 972), (505, 972)), ((601, 981), (601, 972)), ((505, 981), (505, 972)), ((487, 981), (482, 981)), ((487, 981), (487, 876)), ((482, 981), (482, 876)), ((464, 981), (328, 981)), ((464, 981), (464, 972)), ((464, 972), (337, 972)), ((337, 972), (337, 948)), ((772, 781), (772, 777)), ((754, 781), (754, 777)), ((337, 823), (512, 823)), ((337, 828), (512, 828)), ((337, 828), (337, 948)), ((482, 876), (487, 876)), ((517, 880), (517, 876)), ((512, 823), (512, 828)), ((700, 450), (700, 441)), ((700, 450), (691, 450)), ((700, 441), (691, 441)), ((770, 390), (770, 399)), ((703, 939), (706, 939)), ((706, 912), (706, 939)), ((775, 759), (784, 759)), ((775, 741), (784, 741)), ((746, 741), (750, 741)), ((750, 741), (751, 741)), ((691, 450), (691, 441))]
@@ -552,10 +553,10 @@ def debug_display_all_windows_and_doors():
         window_text.set_location(window_location)
         window_text.dxf.char_height = 0.3
 
-    for door in doors: #all_doors
+    for ix, door in enumerate(doors): #all_doors
         door_location = door['location']
         msp.add_circle(door_location, radius=1, dxfattribs={'color':2})
-        door_text = msp.add_mtext(f'D{door["category"]}')
+        door_text = msp.add_mtext(f'D{door["category"]}{ix + 1}')
         door_text.set_location(door_location)
         door_text.dxf.char_height = 0.3
         
@@ -648,6 +649,13 @@ def get_nearest_centre_lines_from_a_point(
     # sys.exit(1)    
     
     return nearest_lines[index], nearest_lines[index + 1]
+
+
+
+# labels:
+PARALLEL = "PARALLEL"
+PERPENDICULAR = "PERPENDICULAR"
+
 
 def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"], graph: "nx.Graph"):
     """This function extends the wall_lines(edges) and updates the graph by the extending the walls for that entity.
@@ -754,9 +762,6 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
 
             return end_points
         
-        # labels:
-        PARALLEL = "PARALLEL"
-        PERPENDICULAR = "PERPENDICULAR"
         
         # 1. label both the nearest lines as "parallel" or "perpendicular".
         # 1.1 by looping each line: nearest_line
@@ -1046,6 +1051,143 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         
         return
 
+
+    def get_entity_location_for_door_at_the_centre(nearest_line1: "CentreLine", nearest_line2: "CentreLine", entity_location: float) -> float:
+        """This function gives a centrepoint (entity_location) for the door.
+        Reason for this function:
+            This function is required because the door's location (original entity_location) is not located at the center and this is
+            the reason why the walls can not be extended untill and unless we adjust the entity_location.
+        
+        Procedure:
+            1. Get angle from both nl1 and nl2 and label them as "parallel" or "perpendicular" with respect to the entity location:
+                for nearest_line in (nearest_line1, nearest_line2):
+                    closest_point = nearest_line.get_closest_point(entity_location)
+                    distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.start_point
+                    # angle between entity location and closest point
+                    angle = find_angle(entity_location, closest_point, distant_point)
+                    
+                    nearest_line.type = PARALLEL if is_angle_is_180_or_0_degrees(angle) else PERPENDICULAR
+                    nearest_line.type_angle = angle
+                    
+            2. Now we have to find the centre-point for three cases:
+                2.1 Case1: Parallel, Parallel
+                2.2 Case2: Parallel, Perpendicular
+                2.3 Case3: Perpendicular, Perpendicular
+                    door_centre_point = get_door_centre_point(nl1, nl2)
+                
+            3. Return door centre points
+
+
+        Args:
+            nearest_line1 (CentreLine): [description]
+            nearest_line2 (CentreLine): [description]
+
+        Raises:
+            ValueError: [description]
+
+        Returns:
+            float: [description]
+        """
+        def get_door_centre_points_from_parallel_lines(nearest_line1, nearest_line2, entity_location):
+            """This function finds the centre line if both the lines are PARALLEL.
+            Procedure:
+                1. Validate both the lines are parallel.
+                2. Find closest_point1 and closest_point2
+                3. Return mid_point(closest_point1, closest_point2)
+            """
+            # 1. Validate both the lines are parallel.
+            if not (nearest_line1.type == PARALLEL and nearest_line2.type == PARALLEL):
+                raise ValueError(f"Only parallel lines wrt to the entity location is allowed in the function.Instead got: 1:{nearest_line1.type}, 2:{nearest_line1.type}.")
+            
+            # 2. Find closest_point1 and closest_point2
+            closest_point1 = nearest_line.get_closest_point(entity_location)
+            closest_point2 = nearest_line.get_closest_point(entity_location)
+            
+            # Return mid_point(closest_point1, closest_point2)
+            return find_mid_point(closest_point1, closest_point2)
+        
+        def get_door_centre_points_from_mixed_lines(nearest_line1, nearest_line2, entity_location):
+            """This function finds the centre line if one line is PARALLEL and one is PERPENDICULAR.
+            Procedure:
+                1. Validate the lines.
+                2. Find parallel_line and perpendicular_line.
+                3. find perpendicular point from the closest_point of parallel_line to perpendicular_line.
+                4. Return mid_point(closest_point, perpendicular_point)
+            """
+            # 1. Validate the lines.
+            if not {nearest_line1.type, nearest_line2.type} == {PARALLEL, PERPENDICULAR}:
+                raise ValueError(f"Only parallel and perpendicular lines wrt to the entity location is allowed in the function.Instead got: 1:{nearest_line1.type}, 2:{nearest_line1.type}.")
+            
+            # 2. Find parallel_line and perpendicular_line.
+            parallel_line = nearest_line1 if nearest_line1.type == PARALLEL else nearest_line2
+            perpendicular_line = nearest_line1 if nearest_line1.type == PERPENDICULAR else nearest_line2
+            
+            # 3. find perpendicular point from the closest_point of parallel_line to perpendicular_line.
+            closest_point_of_parallel_line = parallel_line.get_closest_line(entity_location)
+            perpendicular_point = find_perpendicular_point(
+                closest_point_of_parallel_line, perpendicular_line.start_point, perpendicular_line.end_point)
+            
+            # 4. Return mid_point(closest_point, perpendicular_point)
+            return find_mid_point(closest_point_of_parallel_line, perpendicular_point)
+        
+        def get_door_centre_points_from_perpendicular_lines(nearest_line1, nearest_line2, entity_location):
+            pass
+        
+        # 1. Get angle from both nl1 and nl2 and label them as "parallel" or "perpendicular" with respect to the entity location:
+        for nearest_line in (nearest_line1, nearest_line2):
+            closest_point = nearest_line.get_closest_point(entity_location)
+            distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.start_point
+            # angle between entity location and closest point
+            angle = find_angle(entity_location, closest_point, distant_point)
+            
+            nearest_line.type = PARALLEL if is_angle_is_180_or_0_degrees(angle) else PERPENDICULAR
+            nearest_line.type_angle = angle
+            
+        # DEBUG:
+        _dwg = ezdxf.new()
+        _msp = _dwg.modelspace()
+        for edge in graph.edges:
+            _msp.add_line(edge[0], edge[1])
+        __debug_location(
+            msp = _msp, 
+            point = find_mid_point(nearest_line1.start_point, nearest_line1.end_point),
+            name= f'{nearest_line1.type} {int(math.degrees(nearest_line1.type_angle))}',
+            radius=3,
+            color=5
+        )
+        __debug_location(
+            msp = _msp, 
+            point = find_mid_point(nearest_line2.start_point, nearest_line2.end_point),
+            name= f'{nearest_line2.type} {int(math.degrees(nearest_line2.type_angle))}',
+            radius=3,
+            color=5
+        )
+        _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/DOOR_parallel_or_perpendicular_{counter}.dxf')
+        print('saved', f'DOOR_parallel_or_perpendicular_{counter}.dxf')
+
+            
+        # Fill wall_counter dict: (used to keep the count of no of parallel or perpendicular walls.)
+        wall_counter_dict = OrderedDict.fromkeys((PARALLEL, PERPENDICULAR), value=0)
+        for nearest_line in (nearest_line1, nearest_line2):
+            wall_counter_dict[nearest_line.type] += 1
+            
+        door_centre_point_function_mapper = {
+            ((PARALLEL, 2), (PERPENDICULAR, 0)): get_door_centre_points_from_parallel_lines,
+            ((PARALLEL, 1), (PERPENDICULAR, 1)): get_door_centre_points_from_mixed_lines,
+            ((PARALLEL, 0), (PERPENDICULAR, 2)): get_door_centre_points_from_perpendicular_lines,
+        }
+        
+        centre_point_function = door_centre_point_function_mapper[tuple(sorted(wall_counter_dict.items()))]
+        
+        door_centre_point = centre_point_function(
+            nearest_line1=nearest_line1,
+            nearest_line2=nearest_line2,
+            entity_location=entity_location
+        )
+        
+        return door_centre_point
+
+        
     # 1. Do some exception handling to check the type of the entity is "door" or "window".
     ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED = ('door', 'window')
     if not entity['type'] in ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED:
@@ -1059,17 +1201,21 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     nearest_line1, nearest_line2 = get_nearest_centre_lines_from_a_point(
                 point = entity_location, centre_lines = centre_lines, entity_location= entity_location)
     
-    
     # DEBUG:
     print('Got nearest centre lines')
     
-    # 4. For the first two nearest lines, extend the wall:
-    # nearest_line1, nearest_line2 = nearest_centre_lines[1], nearest_centre_lines[2]    # DEBUG
+    # 4. Check if the entity is a "door", if it is then modify the entity_location
+    if entity["type"] == "door":
+        entity_location = get_entity_location_for_door_at_the_centre(nearest_line1, nearest_line2, entity_location)
+        print('Changed entity_location for the door object.')
+        
+    # 5. For the first two nearest lines, extend the wall:
     extended_lines = get_extended_wall_lines_with_nearest_lines(
                         entity_location, graph, nearest_line1, nearest_line2)
     print('got extended lines.', extended_lines)
     
     print('adjusting graph: ', len(graph.edges))
+    # 6. Adjust the extended lines on the graph:
     adjust_extended_lines(graph=graph, extended_lines=extended_lines, entity_location=entity_location)
     print('adjusted graph', len(graph.edges))
     return
@@ -1098,6 +1244,8 @@ window_counter = counter
 print('WINDOWS COMPLETE!!\n')
 # Now iterating for doors
 for counter, current_entity in enumerate(doors):
+    if counter in (0, 1, 9, 10):
+            continue
     counter = window_counter + counter + 1
     # DEBUG
     print('COUNTER', counter)
@@ -1105,9 +1253,8 @@ for counter, current_entity in enumerate(doors):
     try:
         extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
     except:
-        print(f'Skipping for door: {current_entity}', 'counter ', counter)
-        exit()
         continue
+        exit()
 
     print('Now plotting on msp', counter)
     dwg = ezdxf.new()
