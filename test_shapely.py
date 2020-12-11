@@ -878,6 +878,13 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             _msp.add_line(edge[0], edge[1])
         for loc in (left_end_points + right_end_points):
             _msp.add_circle(loc, radius=1, dxfattribs={'color':3})
+        __debug_location(
+            msp=_msp,
+            name='EL',
+            point=entity_location,
+            radius=1,
+            color=4
+        )
         _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/endpoints_{counter}.dxf')
         print('saved', f'endpoints_{counter}.dxf')
 
@@ -1151,12 +1158,15 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         # 1. Get angle from both nl1 and nl2 and label them as "parallel" or "perpendicular" with respect to the entity location:
         for nearest_line in (nearest_line1, nearest_line2):
             closest_point = nearest_line.get_closest_point(point_to_find_angle)
-            distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.start_point
+            distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.end_point
             # angle between entity location and closest point
             angle = find_angle(point_to_find_angle, closest_point, distant_point)
             
             nearest_line.type = PARALLEL if is_angle_is_180_or_0_degrees(angle, buffer=0.2) else PERPENDICULAR
             nearest_line.type_angle = angle
+            
+            nearest_line.__closest_point = closest_point
+            nearest_line.__distant_point = distant_point
             
         # DEBUG:
         _dwg = ezdxf.new()
@@ -1167,7 +1177,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         __debug_location(
             msp = _msp, 
             point = point_to_find_angle,
-            name= f'PTFA: {point_to_find_angle}',
+            name= f'PTFA: {int(point_to_find_angle[0]), int(point_to_find_angle[1])}',
             radius=1,
             color=3
         )
@@ -1179,6 +1189,23 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             radius=3,
             color=5
         )
+        
+        
+        __debug_location(
+            msp = _msp, 
+            point = nearest_line1.__closest_point,
+            name= f'CP: {str(nearest_line1.__closest_point)}',
+            radius=1,
+            color=2
+        )
+        __debug_location(
+            msp = _msp, 
+            point = nearest_line1.__distant_point,
+            name= f'DP: {str(nearest_line1.__distant_point)}',
+            radius=1,
+            color=2
+        )
+        
         __debug_location(
             msp = _msp, 
             point = find_mid_point(nearest_line2.start_point, nearest_line2.end_point),
@@ -1186,6 +1213,22 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             radius=3,
             color=5
         )
+        __debug_location(
+            msp = _msp, 
+            point = nearest_line2.__closest_point,
+            name= f'CP: {str(nearest_line2.__closest_point)}',
+            radius=1,
+            color=2
+        )
+        __debug_location(
+            msp = _msp, 
+            point = nearest_line2.__distant_point,
+            name= f'DP: {str(nearest_line2.__distant_point)}',
+            radius=1,
+            color=2
+        )
+        
+        
         _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/DOOR_parallel_or_perpendicular_{counter}.dxf')
         print('saved', f'DOOR_parallel_or_perpendicular_{counter}.dxf')
         extra_data[counter] = {
@@ -1283,7 +1326,7 @@ for counter, current_entity in enumerate(doors):
     try:
         extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
     except Exception as e:
-        raise e;
+        # raise e;
         continue
         exit()
 
