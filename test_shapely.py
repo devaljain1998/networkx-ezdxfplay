@@ -1049,10 +1049,10 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             print('saved', f'multiple_edges_{counter}.dxf')
             
             # Now remove the middle segment
-            edges_to_be_added = (edges[0], edges[1])
+            edges_to_be_added = (edges[0], edges[2])
             edges_to_be_removed = [edges[1]]
             
-            # graph.remove_edge(left_edge[0], left_edge[1])
+            graph.remove_edge(left_edge[0], left_edge[1])
             graph.add_edges_from(edges_to_be_added)
 
 
@@ -1162,10 +1162,10 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             print('saved', f'multiple_edges_{counter}.dxf')
             
             # Now remove the middle segment
-            edges_to_be_added = (edges[0], edges[1])
+            edges_to_be_added = (edges[0], edges[2])
             edges_to_be_removed = [edges[1]]
             
-            # graph.remove_edge(right_edge[0], right_edge[1])
+            graph.remove_edge(right_edge[0], right_edge[1])
             graph.add_edges_from(edges_to_be_added)
 
         # finally adding both the lines edges:

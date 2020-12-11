@@ -493,7 +493,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2459195.9629050926
+2459195.973587963
   9
 $TDUCREATE
  40
@@ -501,7 +501,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2459195.9629050926
+2459195.973587963
   9
 $TDUUPDATE
  40
@@ -553,7 +553,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-B0
+AD
   9
 $SURFTAB1
  70
@@ -933,11 +933,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-6994E41A-3BD7-11EB-B55A-D5D9711C4E4D
+90521D90-3BD9-11EB-B55A-D5D9711C4E4D
   9
 $VERSIONGUID
   2
-6994E41C-3BD7-11EB-B55A-D5D9711C4E4D
+90521D92-3BD9-11EB-B55A-D5D9711C4E4D
   9
 $EXTNAMES
 290
@@ -1327,9 +1327,9 @@ ISM
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -1343,9 +1343,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -1705,7 +1705,7 @@ ACAD
   0
 APPID
   5
-AF
+AC
 330
 3
 100
@@ -4715,7 +4715,7 @@ AcDbLine
  11
 487.0
  21
-876.0
+979.0
  31
 0.0
   0
@@ -4739,7 +4739,7 @@ AcDbLine
  11
 482.0
  21
-876.0
+979.0
  31
 0.0
   0
@@ -4787,7 +4787,7 @@ AcDbLine
  11
 487.0
  21
-974.0
+875.0
  31
 0.0
   0
@@ -4803,54 +4803,6 @@ AcDbEntity
 100
 AcDbLine
  10
-487.0
- 20
-876.0
- 30
-0.0
- 11
-487.0
- 21
-875.0
- 31
-0.0
-  0
-LINE
-  5
-A2
-330
-17
-100
-AcDbEntity
-  8
-0
-100
-AcDbLine
- 10
-487.0
- 20
-876.0
- 30
-0.0
- 11
-487.0
- 21
-880.0
- 31
-0.0
-  0
-LINE
-  5
-A3
-330
-17
-100
-AcDbEntity
-  8
-0
-100
-AcDbLine
- 10
 482.0
  20
 876.0
@@ -4865,7 +4817,7 @@ AcDbLine
   0
 LINE
   5
-A4
+A2
 330
 17
 100
@@ -4889,7 +4841,7 @@ AcDbLine
   0
 LINE
   5
-A5
+A3
 330
 17
 100
@@ -4913,7 +4865,7 @@ AcDbLine
   0
 LINE
   5
-A6
+A4
 330
 17
 100
@@ -4937,7 +4889,7 @@ AcDbLine
   0
 LINE
   5
-A7
+A5
 330
 17
 100
@@ -4961,7 +4913,7 @@ AcDbLine
   0
 LINE
   5
-A8
+A6
 330
 17
 100
@@ -4985,7 +4937,7 @@ AcDbLine
   0
 LINE
   5
-A9
+A7
 330
 17
 100
@@ -5009,7 +4961,7 @@ AcDbLine
   0
 LINE
   5
-AA
+A8
 330
 17
 100
@@ -5033,6 +4985,54 @@ AcDbLine
   0
 LINE
   5
+A9
+330
+17
+100
+AcDbEntity
+  8
+0
+100
+AcDbLine
+ 10
+700.0
+ 20
+450.0
+ 30
+0.0
+ 11
+691.0
+ 21
+450.0
+ 31
+0.0
+  0
+LINE
+  5
+AA
+330
+17
+100
+AcDbEntity
+  8
+0
+100
+AcDbLine
+ 10
+700.0
+ 20
+441.0
+ 30
+0.0
+ 11
+691.0
+ 21
+441.0
+ 31
+0.0
+  0
+LINE
+  5
 AB
 330
 17
@@ -5043,54 +5043,6 @@ AcDbEntity
 100
 AcDbLine
  10
-700.0
- 20
-450.0
- 30
-0.0
- 11
-691.0
- 21
-450.0
- 31
-0.0
-  0
-LINE
-  5
-AC
-330
-17
-100
-AcDbEntity
-  8
-0
-100
-AcDbLine
- 10
-700.0
- 20
-441.0
- 30
-0.0
- 11
-691.0
- 21
-441.0
- 31
-0.0
-  0
-LINE
-  5
-AD
-330
-17
-100
-AcDbEntity
-  8
-0
-100
-AcDbLine
- 10
 487.0
  20
 974.0
@@ -5099,31 +5051,7 @@ AcDbLine
  11
 487.0
  21
-979.0
- 31
-0.0
-  0
-LINE
-  5
-AE
-330
-17
-100
-AcDbEntity
-  8
-0
-100
-AcDbLine
- 10
-482.0
- 20
-974.0
- 30
-0.0
- 11
-482.0
- 21
-979.0
+880.0
  31
 0.0
   0

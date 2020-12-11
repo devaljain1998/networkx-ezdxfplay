@@ -493,7 +493,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2459195.9628935186
+2459195.973587963
   9
 $TDUCREATE
  40
@@ -501,7 +501,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2459195.9628935186
+2459195.973587963
   9
 $TDUUPDATE
  40
@@ -553,7 +553,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-B4
+B2
   9
 $SURFTAB1
  70
@@ -933,11 +933,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-6994E3DE-3BD7-11EB-B55A-D5D9711C4E4D
+90521D54-3BD9-11EB-B55A-D5D9711C4E4D
   9
 $VERSIONGUID
   2
-6994E3E0-3BD7-11EB-B55A-D5D9711C4E4D
+90521D56-3BD9-11EB-B55A-D5D9711C4E4D
   9
 $EXTNAMES
 290
@@ -1327,9 +1327,9 @@ ISM
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -1343,9 +1343,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -1705,7 +1705,7 @@ ACAD
   0
 APPID
   5
-B3
+B1
 330
 3
 100
@@ -4689,7 +4689,7 @@ AcDbLine
  11
 487.0
  21
-876.0
+979.0
  31
 0.0
   0
@@ -4713,7 +4713,7 @@ AcDbLine
  11
 482.0
  21
-876.0
+979.0
  31
 0.0
   0
@@ -5029,7 +5029,7 @@ AcDbLine
  31
 0.0
   0
-LINE
+CIRCLE
   5
 AB
 330
@@ -5038,22 +5038,20 @@ AB
 AcDbEntity
   8
 0
+ 62
+3
 100
-AcDbLine
+AcDbCircle
  10
-487.0
+512.0
  20
-974.0
+828.0
  30
 0.0
- 11
-487.0
- 21
-979.0
- 31
-0.0
+ 40
+1.0
   0
-LINE
+CIRCLE
   5
 AC
 330
@@ -5062,20 +5060,18 @@ AC
 AcDbEntity
   8
 0
+ 62
+3
 100
-AcDbLine
+AcDbCircle
  10
-482.0
+512.0
  20
-974.0
+823.0
  30
 0.0
- 11
-482.0
- 21
-979.0
- 31
-0.0
+ 40
+1.0
   0
 CIRCLE
   5
@@ -5091,7 +5087,7 @@ AcDbEntity
 100
 AcDbCircle
  10
-512.0
+554.0
  20
 828.0
  30
@@ -5113,7 +5109,7 @@ AcDbEntity
 100
 AcDbCircle
  10
-512.0
+554.0
  20
 823.0
  30
@@ -5124,50 +5120,6 @@ AcDbCircle
 CIRCLE
   5
 AF
-330
-17
-100
-AcDbEntity
-  8
-0
- 62
-3
-100
-AcDbCircle
- 10
-554.0
- 20
-828.0
- 30
-0.0
- 40
-1.0
-  0
-CIRCLE
-  5
-B0
-330
-17
-100
-AcDbEntity
-  8
-0
- 62
-3
-100
-AcDbCircle
- 10
-554.0
- 20
-823.0
- 30
-0.0
- 40
-1.0
-  0
-CIRCLE
-  5
-B1
 330
 17
 100
@@ -5189,7 +5141,7 @@ AcDbCircle
   0
 MTEXT
   5
-B2
+B0
 330
 17
 100
