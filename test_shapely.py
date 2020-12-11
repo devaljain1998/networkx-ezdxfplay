@@ -748,8 +748,8 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                     break
                 # Logic
                 point, next_point = polygon_coordinates[i], polygon_coordinates[i + 1]
+                
                 # 4.1 if the p1, p2 belong to the same set of points then reject
-
                 if (point in left_point_set and next_point in left_point_set) or (point in right_point_set and next_point in right_point_set):
                     continue
                 else:
@@ -956,8 +956,10 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             graph.remove_edge(left_edge[0], left_edge[1])
         # 2.4 elif if one of the point is node:
         elif is_left_end_point1_a_node or is_left_end_point2_a_node:
-            node_to_be_broken = first_left_node if is_left_end_point1_a_node else second_left_node
+            node_to_be_broken = second_left_node if is_left_end_point1_a_node else first_left_node
             break_edge_into_two_edges(edge=left_edge, node=node_to_be_broken, graph=graph)
+            # Now remove the edge for the left_end points:
+            graph.remove_edge(first_left_node, second_left_node)
         # 2.5 None of the edge is a node of any other edge
         else:
             from shapely.geometry import LineString
@@ -1014,8 +1016,10 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             graph.remove_edge(right_edge[0], right_edge[1])
         # 2.4 elif if one of the point is node:
         elif is_right_end_point1_a_node or is_right_end_point2_a_node:
-            node_to_be_broken = first_right_node if is_right_end_point1_a_node else second_right_node
+            node_to_be_broken = second_right_node if is_right_end_point1_a_node else first_right_node
             break_edge_into_two_edges(edge=right_edge, node=node_to_be_broken, graph=graph)
+            # Now remove the edge for the right_end points:
+            graph.remove_edge(first_right_node, second_right_node)
         # 2.5 None of the edge is a node of any other edge
         else:
             from shapely.geometry import LineString
@@ -1232,7 +1236,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     if entity["type"] == "door":
         entity_location = get_entity_location_for_door_at_the_centre(nearest_line1, nearest_line2, entity_location)
         if entity_location is None:
-            raise AttributeError()
+            raise ValueError(f"entity_location cannot be None for door: {entity}")
         print('Changed entity_location for the door object.')
         
     # 5. For the first two nearest lines, extend the wall:
