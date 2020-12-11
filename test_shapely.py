@@ -1215,7 +1215,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     # 1. Do some exception handling to check the type of the entity is "door" or "window".
     ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED = ('door', 'window')
     if not entity['type'] in ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED:
-        raise ValueError(
+        raise AttributeError(
             f'Only entities with types in {ENTITY_TYPES_FOR_WHICH_WALLS_SHOULD_BE_EXTENDED} can be extended.')
         
     # 2. Get entity location:
@@ -1231,6 +1231,8 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     # 4. Check if the entity is a "door", if it is then modify the entity_location
     if entity["type"] == "door":
         entity_location = get_entity_location_for_door_at_the_centre(nearest_line1, nearest_line2, entity_location)
+        if entity_location is None:
+            raise AttributeError()
         print('Changed entity_location for the door object.')
         
     # 5. For the first two nearest lines, extend the wall:

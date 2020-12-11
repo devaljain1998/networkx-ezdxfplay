@@ -1,3 +1,53 @@
+ONGOING:
+	1. Extend the walls successfully.
+	2. Complete the inner polylines of a room:
+		2.1 For closed room
+		2.2 For open room
+=> I would be able to give the floor area for each room.
+
+
+
+1. Excel generation => Excel.
+2. Direct JSON tasks:
+	2.1 Find out doors on a wall
+	2.2 Find out windows on a wall
+	2.3 Attach walls with a room.
+
+
+
+#######################################################
+############# DISCUSSION WITH HEMANT BHAIYA:: #########
+Room:
+	- Floor area
+	- Wall-wise length (5, 6):
+		- No of windows and no. of doors:
+			length of doors and windows
+
+Wall:
+	- width
+	- length
+	- how many doors and windows:
+		length of doors and windows
+
+
+(Height manual input by Hemant bhaiya and then it will be deducing the area)
+
+{{{{{DOUBTS FOR NAMAN}}}}}:
+- DOORS:
+	- room_number and wall_number are they always null?
+	- to study and understand the wall json
+
+
+
+
+
+
+
+
+
+
+
+
 ######## CURRENT CHALLENGES: ################
 Walls are
 
