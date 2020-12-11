@@ -981,7 +981,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         # 2.5 None of the edge is a node of any other edge
         else:
             from shapely.geometry import LineString
-            from shapely.ops import unary_union
+            from shapely.ops import unary_union, linemerge
             lines = [
                 LineString([first_left_node, second_left_node]),
                 LineString([left_edge[0], left_edge[1]]),
@@ -997,6 +997,16 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             
             # Cleaning line segments:
             edges = []
+            # TEST:
+            merged_line = linemerge(list(line_segments))
+            line = []
+            # for coordinate in merged_line.coords:
+            #     line.append(coordinate)
+            #     if len(line) == 2:
+            #         edges.append(tuple(line))
+            #         line = line[1:]
+            
+            
             for line_segment in line_segments:
                 coords = list(line_segment.coords)
                 for coord in coords:
@@ -1006,11 +1016,43 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                 edges.append(coords)
             edges.sort()
             
+            # DEBUG:
+            _dwg = ezdxf.new()
+            _msp = _dwg.modelspace()
+            
+            __debug_location(
+                msp = _msp,
+                point = find_mid_point(edges[0][0], edges[0][1]),
+                name = 'E1',
+                radius = 1,
+                color=3
+            )
+            __debug_location(
+                msp = _msp,
+                point = find_mid_point(edges[1][0], edges[1][1]),
+                name = 'E2',
+                radius = 1,
+                color=3
+            )
+            __debug_location(
+                msp = _msp,
+                point = find_mid_point(edges[2][0], edges[2][1]),
+                name = 'E3',
+                radius = 1,
+                color=3
+            )
+            
+            for edge in graph.edges:
+                _msp.add_line(edge[0], edge[1])
+                
+            _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/multiple_edges_left_{counter}.dxf')
+            print('saved', f'multiple_edges_{counter}.dxf')
+            
             # Now remove the middle segment
             edges_to_be_added = (edges[0], edges[1])
             edges_to_be_removed = [edges[1]]
             
-            graph.remove_edge(left_edge[0], left_edge[1])
+            # graph.remove_edge(left_edge[0], left_edge[1])
             graph.add_edges_from(edges_to_be_added)
 
 
@@ -1022,6 +1064,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         for edge in graph.edges():
             if is_between(point=first_right_node, line_start=edge[0], line_end=edge[1]) and is_between(point=second_right_node, line_start=edge[0], line_end=edge[1]):
                 right_edge = edge
+                found_right_edge = True
                 break
             
         # Case where edge is not between both the nodes.
@@ -1052,7 +1095,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         # 2.5 None of the edge is a node of any other edge
         else:
             from shapely.geometry import LineString
-            from shapely.ops import unary_union
+            from shapely.ops import unary_union, linemerge
             lines = [
                 LineString([first_right_node, second_right_node]),
                 LineString([right_edge[0], right_edge[1]]),
@@ -1068,6 +1111,15 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             
             # Cleaning line segments:
             edges = []
+            # TEST:
+            merged_line = linemerge(list(line_segments))
+            # line = []
+            # for coordinate in merged_line.coords:
+            #     line.append(coordinate)
+            #     if len(line) == 2:
+            #         edges.append(tuple(line))
+            #         line = line[1:]
+                    
             for line_segment in line_segments:
                 coords = list(line_segment.coords)
                 for coord in coords:
@@ -1077,15 +1129,71 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                 edges.append(coords)
             edges.sort()
             
+            # DEBUG:
+            _dwg = ezdxf.new()
+            _msp = _dwg.modelspace()
+            
+            __debug_location(
+                msp = _msp,
+                point = find_mid_point(edges[0][0], edges[0][1]),
+                name = 'E1',
+                radius = 1,
+                color=3
+            )
+            __debug_location(
+                msp = _msp,
+                point = find_mid_point(edges[1][0], edges[1][1]),
+                name = 'E2',
+                radius = 1,
+                color=3
+            )
+            __debug_location(
+                msp = _msp,
+                point = find_mid_point(edges[2][0], edges[2][1]),
+                name = 'E3',
+                radius = 1,
+                color=3
+            )
+            
+            for edge in graph.edges:
+                _msp.add_line(edge[0], edge[1])
+                
+            _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/multiple_edges_right_{counter}.dxf')
+            print('saved', f'multiple_edges_{counter}.dxf')
+            
             # Now remove the middle segment
             edges_to_be_added = (edges[0], edges[1])
             edges_to_be_removed = [edges[1]]
             
-            graph.remove_edge(right_edge[0], right_edge[1])
+            # graph.remove_edge(right_edge[0], right_edge[1])
             graph.add_edges_from(edges_to_be_added)
 
         # finally adding both the lines edges:
         graph.add_edges_from(extended_lines)
+        
+        # DEBUG:
+        _dwg = ezdxf.new()
+        _msp = _dwg.modelspace()
+        __debug_location(
+            msp= _msp,
+            point= find_mid_point(left_edge[0], left_edge[1]),
+            name='left_edge',
+            radius=1,
+            color=4,
+            char_height=1
+        )
+        __debug_location(
+            msp= _msp,
+            point= find_mid_point(right_edge[0], right_edge[1]),
+            name='right_edge',
+            radius=1,
+            color=4,
+            char_height=1
+        )
+        for edge in graph.edges:
+            _msp.add_line(edge[0], edge[1])
+        _dwg.saveas(f'dxfFilesOut/sample2/debug_dxf/extended_wall_lines/chosen_edges_{counter}.dxf')
+        print('saved', f'chosen_edges_{counter}.dxf')
         
         return
 
