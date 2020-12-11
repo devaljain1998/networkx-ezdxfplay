@@ -1010,17 +1010,28 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             edges_to_be_added = (edges[0], edges[1])
             edges_to_be_removed = [edges[1]]
             
-            graph.remove_edges_from(edges_to_be_removed)
+            graph.remove_edge(left_edge[0], left_edge[1])
             graph.add_edges_from(edges_to_be_added)
 
 
         # FOR RIGHT NODE:
         # 1. only choosing the first right node as if first node is found on an edge then most probably the second node will also be on the edge
         first_right_node, second_right_node = right_nodes[0], right_nodes[1]
+        
+        found_right_edge, both_nodes_lie_on_a_single_edge = False, True
         for edge in graph.edges():
             if is_between(point=first_right_node, line_start=edge[0], line_end=edge[1]) and is_between(point=second_right_node, line_start=edge[0], line_end=edge[1]):
                 right_edge = edge
                 break
+            
+        # Case where edge is not between both the nodes.
+        if not found_right_edge:
+            for edge in graph.edges():
+                if is_between(point=first_right_node, line_start=edge[0], line_end=edge[1]) or is_between(point=second_right_node, line_start=edge[0], line_end=edge[1]):
+                    right_edge = edge
+                    both_nodes_lie_on_a_single_edge = False
+                    break
+            
         
         # 2.2 check if any node if right_end_points are nodes of the edge:
         #     is_right_end_point1_a_node = check if it is in any of the nodes of edge
@@ -1070,7 +1081,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             edges_to_be_added = (edges[0], edges[1])
             edges_to_be_removed = [edges[1]]
             
-            # graph.remove_edges_from(edges_to_be_removed)
+            graph.remove_edge(right_edge[0], right_edge[1])
             graph.add_edges_from(edges_to_be_added)
 
         # finally adding both the lines edges:
@@ -1337,8 +1348,8 @@ for counter, current_entity in enumerate(doors):
     try:
         extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
     except Exception as e:
-        # raise e;
-        continue
+        raise e;
+        # continue
         exit()
 
     print('Now plotting on msp', counter)
