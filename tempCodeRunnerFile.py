@@ -1,2 +1,1 @@
-
-import ezdxf
+ f'PTFA: {int(point_to_find_angle[0]), int(point_to_find_angle[1])}',

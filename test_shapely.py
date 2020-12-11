@@ -946,10 +946,21 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         # FOR LEFT NODE:
         # 1. only choosing the first left node as if first node is found on an edge then most probably the second node will also be on the edge
         first_left_node, second_left_node = left_nodes[0], left_nodes[1]
+        
+        found_left_edge, both_nodes_lie_on_a_single_edge = False, True
         for edge in graph.edges():
             if is_between(point=first_left_node, line_start=edge[0], line_end=edge[1]) and is_between(point=second_left_node, line_start=edge[0], line_end=edge[1]):
                 left_edge = edge
+                found_left_edge = True
                 break
+        
+        # Case where edge is not between both the nodes.
+        if not found_left_edge:
+            for edge in graph.edges():
+                if is_between(point=first_left_node, line_start=edge[0], line_end=edge[1]) or is_between(point=second_left_node, line_start=edge[0], line_end=edge[1]):
+                    left_edge = edge
+                    both_nodes_lie_on_a_single_edge = False
+                    break
         
         # 2.2 check if any node if left_end_points are nodes of the edge:
         #     is_left_end_point1_a_node = check if it is in any of the nodes of edge
@@ -981,8 +992,8 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             if len(list(line_segments)) != 3:
                 print("EXCEPTION OCCURED, LENGTH OF LINE SEGMENT IS NOT 3!")
                 print(f'line_segments: {line_segments.wkt}')
-                print({"first_right_node": first_right_node, "second_right_node": second_right_node, "right_edge": {right_edge}})
-                raise ValueError("LineSegments cannot be segregated.")            
+                print({"first_left_node": first_left_node, "second_left_node": second_left_node, "left_edge": {left_edge}})
+                raise ValueError("LineSegments cannot be segregated.")
             
             # Cleaning line segments:
             edges = []
@@ -999,7 +1010,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             edges_to_be_added = (edges[0], edges[1])
             edges_to_be_removed = [edges[1]]
             
-            # graph.remove_edges_from(edges_to_be_removed)
+            graph.remove_edges_from(edges_to_be_removed)
             graph.add_edges_from(edges_to_be_added)
 
 
@@ -1162,7 +1173,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             # angle between entity location and closest point
             angle = find_angle(point_to_find_angle, closest_point, distant_point)
             
-            nearest_line.type = PARALLEL if is_angle_is_180_or_0_degrees(angle, buffer=0.2) else PERPENDICULAR
+            nearest_line.type = PARALLEL if is_angle_is_180_or_0_degrees(angle, buffer=0.4) else PERPENDICULAR
             nearest_line.type_angle = angle
             
             nearest_line.__closest_point = closest_point

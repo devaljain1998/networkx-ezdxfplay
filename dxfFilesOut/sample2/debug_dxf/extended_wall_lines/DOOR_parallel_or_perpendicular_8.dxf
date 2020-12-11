@@ -493,7 +493,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2459195.4911574074
+2459195.8497916665
   9
 $TDUCREATE
  40
@@ -501,7 +501,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2459195.4911574074
+2459195.8497916665
   9
 $TDUUPDATE
  40
@@ -553,7 +553,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-A9
+B1
   9
 $SURFTAB1
  70
@@ -933,11 +933,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-836640AD-3B78-11EB-B55A-D5D9711C4E4D
+A8E670C1-3BC0-11EB-B55A-D5D9711C4E4D
   9
 $VERSIONGUID
   2
-836640AF-3B78-11EB-B55A-D5D9711C4E4D
+A8E670C3-3BC0-11EB-B55A-D5D9711C4E4D
   9
 $EXTNAMES
 290
@@ -1705,7 +1705,7 @@ ACAD
   0
 APPID
   5
-A8
+B0
 330
 3
 100
@@ -4865,7 +4865,7 @@ AcDbMText
  71
 1
   1
-PTFA: [640.2593252767356, 645.1019844537768, 0.0]
+PTFA: (640, 645)
   0
 CIRCLE
   5
@@ -4923,6 +4923,98 @@ AcDbEntity
   8
 debug
  62
+2
+100
+AcDbCircle
+ 10
+661.0
+ 20
+642.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+A7
+330
+17
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+661.0
+ 20
+642.5
+ 30
+0.0
+ 40
+0.5
+ 71
+1
+  1
+CP: (661.0, 642.5)
+  0
+CIRCLE
+  5
+A8
+330
+17
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+674.0
+ 20
+642.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+A9
+330
+17
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+674.0
+ 20
+642.5
+ 30
+0.0
+ 40
+0.5
+ 71
+1
+  1
+DP: (674.0, 642.5)
+  0
+CIRCLE
+  5
+AA
+330
+17
+100
+AcDbEntity
+  8
+debug
+ 62
 5
 100
 AcDbCircle
@@ -4937,7 +5029,7 @@ AcDbCircle
   0
 MTEXT
   5
-A7
+AB
 330
 17
 100
@@ -4958,6 +5050,98 @@ AcDbMText
 1
   1
 PERPENDICULAR 269
+  0
+CIRCLE
+  5
+AC
+330
+17
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+616.5
+ 20
+645.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+AD
+330
+17
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+616.5
+ 20
+645.0
+ 30
+0.0
+ 40
+0.5
+ 71
+1
+  1
+CP: (616.5, 645.0)
+  0
+CIRCLE
+  5
+AE
+330
+17
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+616.5
+ 20
+546.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+AF
+330
+17
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+616.5
+ 20
+546.0
+ 30
+0.0
+ 40
+0.5
+ 71
+1
+  1
+DP: (616.5, 546.0)
   0
 ENDSEC
   0

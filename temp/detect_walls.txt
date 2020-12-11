@@ -1,0 +1,5 @@
+Walls on which the changes are needed to done:
+12
+Sometimes angle is not coming proper. {13}
+
+- Need to remove the edges where both the edge is not nodes.
