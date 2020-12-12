@@ -31,9 +31,10 @@ file_path = 'dxfFilesIn/dxf_files/'
 input_files = {
     'main': 'detect_wall.dxf',
     'sample': 'Sample.dxf',
-    'sample2': 'sample2.dxf'
+    'sample2': 'sample2.dxf',
+    'sample3': 'sample3.dxf'
 }
-input_key = 'sample2'
+input_key = 'sample3'
 input_file = input_files[input_key]
 
 base_output_file_path = f'dxfFilesOut/{input_key}/'
@@ -69,7 +70,8 @@ msp = dwg.modelspace()
 print(f'File read success from {file_path}.')
 
 
-wall_layers = {'main': 'WALL', 'sample': 'WALLS', 'sample2': 'WALLS'}
+wall_layers = {'main': 'WALL', 'sample': 'WALLS',
+               'sample2': 'WALLS', 'sample3': 'WALLS'}
 
 def get_wall_lines():
     wall_layer = wall_layers[input_key]
@@ -110,14 +112,14 @@ print('edges: ', list(graph.edges))
 print(len(graph.edges))
 
 # Now getting centrelines from the wall_lines:
-# conversion_factor = {
-#     'mm': 1.0,
-#     'inch': 0.0393701
-# }
-# centre_lines = get_centre_lines(
-#     msp, dwg, "", conversion_factor=conversion_factor['inch'],
-#     lines = cleaned_wall_lines)
-# pprint([centre_line.__dict__ for centre_line in centre_lines])
+conversion_factor = {
+    'mm': 1.0,
+    'inch': 0.0393701
+}
+centre_lines = get_centre_lines(
+    msp, dwg, "", conversion_factor=conversion_factor['inch'],
+    lines = cleaned_wall_lines)
+pprint([centre_line.__dict__ for centre_line in centre_lines])
 
 #### POC OPERATIONS:
 
