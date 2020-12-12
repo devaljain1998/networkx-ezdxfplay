@@ -770,7 +770,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         # 1.1 by looping each line: nearest_line
         for nearest_line in (nearest_line1, nearest_line2):
             closest_point = nearest_line.get_closest_point(entity_location)
-            distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.start_point
+            distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.end_point
             # angle between entity location and closest point
             angle = find_angle(entity_location, closest_point, distant_point)
             
@@ -1250,7 +1250,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             # 1. Validate both the lines are parallel.
             if not (nearest_line1.type == PARALLEL and nearest_line2.type == PARALLEL):
                 raise ValueError(f"Only parallel lines wrt to the entity location is allowed in the function.Instead got: 1:{nearest_line1.type}, 2:{nearest_line1.type}.")
-            
+                        
             # 2. Find closest_point1 and closest_point2
             closest_point1 = nearest_line1.get_closest_point(entity_location)
             closest_point2 = nearest_line2.get_closest_point(entity_location)
@@ -1377,10 +1377,7 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         wall_counter_dict = OrderedDict.fromkeys((PARALLEL, PERPENDICULAR), value=0)
         for nearest_line in (nearest_line1, nearest_line2):
             wall_counter_dict[nearest_line.type] += 1
-            
-        if counter == 15:
-            debug_mode = True
-            
+                        
         door_centre_point_function_mapper = {
             ((PARALLEL, 2), (PERPENDICULAR, 0)): get_door_centre_points_from_parallel_lines,
             ((PARALLEL, 1), (PERPENDICULAR, 1)): get_door_centre_points_from_mixed_lines,

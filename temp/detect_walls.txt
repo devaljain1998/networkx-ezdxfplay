@@ -1,5 +1,9 @@
-Walls on which the changes are needed to done:
-12
-Sometimes angle is not coming proper. {13}
+Sometimes in the cases where all the lines are (broken between each other) then in this case,
+    I have to clean the data first.
 
-- Need to remove the edges where both the edge is not nodes.
+
+WITH PRANAV AND NAMAN:
+    How to deal with the cases where the nearest_lines are not adjacent to the wall.
+
+IN EDGE NO 15:
+    Why is it coming as PERPENDICULAR and 90.
