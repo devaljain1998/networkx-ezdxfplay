@@ -1420,55 +1420,262 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     print('adjusted graph', len(graph.edges))
     return
 
+def extend_lines_for_doors_and_windows():
+    fill_str_tree(centre_lines=centre_lines)
 
-fill_str_tree(centre_lines=centre_lines)
-
-for counter, current_entity in enumerate(windows):
-    # DEBUG
-    print('COUNTER', counter)
-    
-    if input_key == 'sample3' and counter in [6]:
-        continue
-    
-    extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
-
-    print('Now plotting on msp', counter)
-    dwg = ezdxf.new()
-    msp = dwg.modelspace()
-
-    for edge in graph.edges():
-        msp.add_line(edge[0], edge[1])
-    msp.add_circle(current_entity['location'], radius=2)
-
-    dwg.saveas(f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
-    print('saved: ', f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
-
-window_counter = counter   
-print('WINDOWS COMPLETE!!\n')
-# Now iterating for doors
-for counter, current_entity in enumerate(doors):
-    counter = window_counter + counter + 1
-    # DEBUG
-    print('COUNTER', counter)
-    
-    try:
+    for counter, current_entity in enumerate(windows):
+        # DEBUG
+        print('COUNTER', counter)
+        
+        if input_key == 'sample3' and counter in [6]:
+            continue
+        
         extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
-    except Exception as e:
-        raise e;
-        # continue
-        exit()
 
-    print('Now plotting on msp', counter)
-    dwg = ezdxf.new()
-    msp = dwg.modelspace()
+        print('Now plotting on msp', counter)
+        dwg = ezdxf.new()
+        msp = dwg.modelspace()
 
-    for edge in graph.edges():
-        msp.add_line(edge[0], edge[1])
-    msp.add_circle(current_entity['location'], radius=2)
+        for edge in graph.edges():
+            msp.add_line(edge[0], edge[1])
+        msp.add_circle(current_entity['location'], radius=2)
 
-    dwg.saveas(f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
-    print('saved: ', f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
+        dwg.saveas(f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
+        print('saved: ', f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
 
-print('extra_data')
-pprint.pprint(extra_data)
-print('Success.')
+    window_counter = counter   
+    print('WINDOWS COMPLETE!!\n')
+    # Now iterating for doors
+    for counter, current_entity in enumerate(doors):
+        counter = window_counter + counter + 1
+        # DEBUG
+        print('COUNTER', counter)
+        
+        try:
+            extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
+        except Exception as e:
+            raise e;
+            # continue
+            exit()
+
+        print('Now plotting on msp', counter)
+        dwg = ezdxf.new()
+        msp = dwg.modelspace()
+
+        for edge in graph.edges():
+            msp.add_line(edge[0], edge[1])
+        msp.add_circle(current_entity['location'], radius=2)
+
+        dwg.saveas(f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
+        print('saved: ', f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
+
+    print('extra_data')
+    pprint.pprint(extra_data)
+    print('Success.')
+
+print('graph.edges: ', pprint.pprint(list(graph.edges)))
+
+# Now Finding area of the extended edges:
+extended_edges = [((328, 537), (528, 537)),
+ ((328, 537), (328, 981)),
+ ((528, 537), (558, 537)),
+ ((328, 981), (464, 981)),
+ ((528, 546), (337, 546)),
+ ((528, 546), (558, 546)),
+ ((558, 537), (614, 537)),
+ ((614, 537), (614, 441)),
+ ((558, 546), (614, 546)),
+ ((614, 441), (642, 441)),
+ ((337, 546), (337, 823)),
+ ((337, 823), (512, 823)),
+ ((614, 546), (614, 645)),
+ ((614, 645), (619, 645)),
+ ((642, 441), (642, 390)),
+ ((642, 390), (651, 390)),
+ ((646, 441), (661, 441)),
+ ((646, 441), (646, 399)),
+ ((661, 441), (691, 441)),
+ ((646, 399), (651, 399)),
+ ((661, 450), (619, 450)),
+ ((661, 450), (691, 450)),
+ ((718, 441), (775, 441)),
+ ((718, 441), (700, 441)),
+ ((775, 441), (775, 399)),
+ ((718, 450), (775, 450)),
+ ((718, 450), (700, 450)),
+ ((775, 399), (770, 399)),
+ ((619, 450), (619, 640)),
+ ((619, 645), (661, 645)),
+ ((775, 450), (775, 640)),
+ ((775, 640), (709, 640)),
+ ((661, 640), (679, 640)),
+ ((661, 640), (619, 640)),
+ ((679, 640), (709, 640)),
+ ((661, 645), (674, 645)),
+ ((679, 718), (754, 718)),
+ ((679, 718), (679, 645)),
+ ((709, 645), (775, 645)),
+ ((709, 645), (679, 645)),
+ ((674, 645), (674, 723)),
+ ((674, 723), (746, 723)),
+ ((775, 645), (775, 718)),
+ ((775, 718), (772, 718)),
+ ((754, 718), (772, 718)),
+ ((754, 723), (751, 723)),
+ ((754, 723), (772, 723)),
+ ((772, 723), (775, 723)),
+ ((746, 723), (746, 741)),
+ ((746, 741), (746, 752)),
+ ((751, 723), (751, 741)),
+ ((751, 741), (751, 752)),
+ ((775, 723), (775, 741)),
+ ((775, 741), (775, 759)),
+ ((554, 823), (559, 823)),
+ ((554, 823), (512, 823)),
+ ((559, 823), (601, 823)),
+ ((554, 876), (517, 876)),
+ ((554, 876), (554, 828)),
+ ((559, 981), (505, 981)),
+ ((559, 981), (559.0, 979.0)),
+ ((784, 390), (770, 390)),
+ ((784, 390), (784, 741)),
+ ((770, 390), (770, 399)),
+ ((784, 741), (784, 759)),
+ ((784, 981), (601, 981)),
+ ((784, 981), (784, 759)),
+ ((601, 981), (559, 979)),
+ ((651, 390), (651, 399)),
+ ((775, 777), (772, 777)),
+ ((775, 777), (775, 759)),
+ ((772, 777), (754, 777)),
+ ((751, 752), (751, 777)),
+ ((751, 777), (754, 777)),
+ ((746, 752), (746, 777)),
+ ((746, 777), (674, 777)),
+ ((674, 777), (674, 781)),
+ ((775, 781), (775, 882)),
+ ((775, 781), (772, 781)),
+ ((775, 882), (737, 882)),
+ ((772, 781), (754, 781)),
+ ((737, 882), (707, 882)),
+ ((775, 886), (775, 972)),
+ ((775, 886), (737, 886)),
+ ((775, 972), (601, 972)),
+ ((737, 886), (707, 886)),
+ ((601, 972), (559, 974)),
+ ((674, 781), (703, 781)),
+ ((703, 781), (703, 823)),
+ ((703, 823), (601, 823)),
+ ((703, 828), (703, 912)),
+ ((703, 828), (601, 828)),
+ ((703, 912), (703, 939)),
+ ((601, 828), (559, 828)),
+ ((703, 939), (706, 939)),
+ ((707, 781), (754, 781)),
+ ((707, 781), (707.0, 882.0)),
+ ((707, 912), (706, 912)),
+ ((707, 912), (707.0, 886.0)),
+ ((706, 912), (706, 939)),
+ ((505, 981), (487, 979)),
+ ((517, 876), (487, 875)),
+ ((554, 880), (554, 972)),
+ ((554, 880), (517, 880)),
+ ((554, 972), (505, 972)),
+ ((517, 880), (487, 880)),
+ ((505, 972), (487, 974)),
+ ((487, 981), (482, 981)),
+ ((487, 981), (487.0, 979.0)),
+ ((482, 981), (482.0, 979.0)),
+ ((487, 876), (482, 876)),
+ ((487, 876), (487.0, 875.0)),
+ ((482, 876), (482.0, 974.0)),
+ ((464, 981), (482, 979)),
+ ((464, 972), (337, 972)),
+ ((464, 972), (482, 974)),
+ ((337, 972), (337, 828)),
+ ((337, 828), (512, 828)),
+ ((512, 828), (554, 828)),
+ ((700, 450), (691, 450)),
+ ((700, 441), (691, 441)),
+ ((487.0, 974.0), (487.0, 880.0)),
+ ((559, 828), (559.0, 974.0))]
+
+
+# Creating new graph:
+graph = nx.Graph()
+graph.add_edges_from(extended_edges)
+print('graph creation success.', len(graph.edges))
+
+def get_area_from_the_room_texts(msp, graph: 'nx.Graph', ROOM_TEXT_LAYER: str = 'PP-ROOM Text') -> dict:
+    """This function returns the dict containing information about the Rooms and areas.
+    NOTE: This function assumes that the graph contains all the nodes that are 2-degree.
+    
+    Procedure:
+        1. Fetch the rooms.
+            rooms = get_rooms(msp, ROOM_LAYER)
+        1.1 Initialize the meta data:
+            rooms_information = {}
+        2. For each room:
+            for room in rooms:
+        2.1. Fetch the room-text coordinates
+            room_coordinate = get_room_coordinates(room)
+        2.2 Find the nearest lines (from the graph) from the room coordinates.
+            nearest_lines = get_nearest_lines_from_a_point(point=room_coordinate, lines=graph.edges)
+        2.3 Fetch the first nearest line:
+            nearest_line = nearest_lines[0]
+        2.4 Get the graph component from that contains that nearest-line:
+            graph_component = get_graph_component_containing_edge(edge= nearest_line, graph= graph)
+        2.5 Check if the graph component is closed:
+            if graph_component.has_cycle():
+                2.5.1  Fetch The room_area:
+                    room_area = get_area_of_polygon(polygon=graph_component.edges)
+                2.5.2 Populate Room information
+                    room_information[room] = get_room_information(room)
+        2.6 Else: print(Room {room.number} is not open.)
+        3. return room_information          
+
+    Args:
+        graph (nx.Graph)
+        ROOM_TEXT_LAYER (str, optional): The layer in which texts of the rooms are stored. Defaults to 'PP-ROOM Text'.
+
+    Returns:
+        dict: [description]
+    """
+    def get_rooms(msp, ROOM_TEXT_LAYER: str):
+        pass
+
+    def get_room_coordinates(room):
+        pass
+
+    def get_graph_component_containing_edge(edge, graph):
+        pass
+
+    def get_area_of_polygon(polygon):
+        pass
+
+    def get_room_information(room):
+        pass
+
+    # 1. Fetch the rooms.
+    rooms = get_rooms(msp, ROOM_TEXT_LAYER)
+    rooms_information = {}
+    
+    # 2. For each room:
+    for room in rooms:
+        # 2.1. Fetch the room-text coordinates
+        room_coordinate = get_room_coordinates(room)
+        # 2.2 Find the nearest lines (from the graph) from the room coordinates.
+        nearest_lines = get_nearest_lines_from_a_point(point=room_coordinate, lines=graph.edges)
+        # 2.3 Fetch the first nearest line:
+        nearest_line = nearest_lines[0]
+        # 2.4 Get the graph component from that contains that nearest-line:
+        graph_component = get_graph_component_containing_edge(edge= nearest_line, graph= graph)
+        # 2.5 Check if the graph component is closed:
+        if graph_component.has_cycle():
+            # 2.5.1  Fetch The room_area:
+            room_area = get_area_of_polygon(polygon=graph_component.edges)
+            # 2.5.2 Populate Room information
+            room_information[room] = get_room_information(room)
+        # 2.6 Else: print(Room {room.number} is not open.)
+        else:
+            print(f'Room {room.number} is not open.')
