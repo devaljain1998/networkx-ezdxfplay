@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2459196.6970949075
+2459198.4698148146
   9
 $TDUCREATE
  40
@@ -497,19 +497,19 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2459196.6970949075
+2459198.4698148146
   9
 $TDUUPDATE
  40
-2459196.280299178
+2459196.73397434
   9
 $TDINDWG
  40
-0.088940382
+0.090788484
   9
 $TDUSRTIMER
  40
-0.088938993
+0.090787095
   9
 $USRTIMER
  70
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-858
+868
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-1BE306EC-3C6B-11EB-BA31-DDE66F98053E
+B815BBBC-3DCF-11EB-9988-71C7EC300BE2
   9
 $VERSIONGUID
   2
-1BE30700-3C6B-11EB-BA31-DDE66F98053E
+B815BBD0-3DCF-11EB-9988-71C7EC300BE2
   9
 $EXTNAMES
 290
@@ -1513,9 +1513,9 @@ AcDbViewportTableRecord
  21
 1.0
  12
-585.5151270279556
+560.0500729880523
  22
-853.8051453804259
+804.0418999934068
  13
 0.0
  23
@@ -1541,9 +1541,9 @@ AcDbViewportTableRecord
  37
 0.0
  40
-424.6195738629459
+424.6195738629467
  41
-1.820359281437125
+2.874251497005987
  42
 50.0
  43
@@ -2343,7 +2343,7 @@ AcAecLayerStandard
   0
 LAYER
   5
-856
+866
 330
 2
 100
@@ -2713,7 +2713,7 @@ AcDbDynamicBlockTrueName
   0
 APPID
   5
-857
+867
 330
 9
 100
@@ -6641,7 +6641,7 @@ AcDbLine
  30
 0.0
  11
-4.503281077859467
+4.503281077859466
  21
 -18.00327291011513
  31
@@ -8203,7 +8203,7 @@ WALLS
 100
 AcDbLine
  10
-464.7593247648728
+464.7593247648727
  20
 981.2882305859977
  30
@@ -8649,30 +8649,6 @@ AcDbLine
   0
 LINE
   5
-3A4
-330
-1F
-100
-AcDbEntity
-  8
-WALLS
-100
-AcDbLine
- 10
-337.2593243232418
- 20
-948.2943359928363
- 30
-0.0
- 11
-337.2593243232418
- 21
-972.2943359928436
- 31
-0.0
-  0
-LINE
-  5
 3A5
 330
 1F
@@ -8931,7 +8907,7 @@ AcDbLine
  11
 700.2593631349768
  21
-441.2943829723397
+441.2943829723396
  31
 0.0
   0
@@ -9861,30 +9837,6 @@ AcDbLine
  31
 0.0
   0
-LINE
-  5
-3FB
-330
-1F
-100
-AcDbEntity
-  8
-WALLS
-100
-AcDbLine
- 10
-746.7593243232345
- 20
-741.5781879967749
- 30
-0.0
- 11
-750.1279849749347
- 21
-741.5781879967749
- 31
-0.0
-  0
 INSERT
   5
 3FD
@@ -10527,7 +10479,7 @@ WALLS
 100
 AcDbLine
  10
-691.2593243232388
+691.2593243232387
  20
 450.2943359928567
  30
@@ -10969,7 +10921,7 @@ PP-Room Text
 100
 AcDbMText
  10
-648.1232520424478
+648.1232520424477
  20
 551.8345072649252
  30
@@ -11173,631 +11125,29 @@ DOOR
   0
 LINE
   5
-6C6
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-332.5
- 20
-546.0
- 30
-0.0
- 11
-332.5
- 21
-823.0
- 31
-0.0
-  0
-CIRCLE
-  5
-6C7
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-332.5
- 20
-546.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6C8
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-332.5
- 20
-546.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-6C9
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-332.5
- 20
-823.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6CA
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-332.5
- 20
-823.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-6CB
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-332.5
- 20
-828.0
- 30
-0.0
- 11
-332.5
- 21
-948.0
- 31
-0.0
-  0
-CIRCLE
-  5
-6CC
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-332.5
- 20
-828.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6CD
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-332.5
- 20
-828.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-6CE
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-332.5
- 20
-948.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6CF
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-332.5
- 20
-948.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-6D0
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-332.5
- 20
-972.0
- 30
-0.0
- 11
-332.5
- 21
-948.0
- 31
-0.0
-  0
-CIRCLE
-  5
-6D1
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-332.5
- 20
-972.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6D2
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-332.5
- 20
-972.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-6D3
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-332.5
- 20
-948.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6D4
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-332.5
- 20
-948.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-6D5
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-473.0
- 20
-981.0
- 30
-0.0
- 11
-473.0
- 21
-972.0
- 31
-0.0
-  0
-CIRCLE
-  5
-6D6
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-473.0
- 20
-981.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6D7
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-473.0
- 20
-981.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-6D8
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-473.0
- 20
-972.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6D9
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-473.0
- 20
-972.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-6DA
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-484.5
- 20
-981.0
- 30
-0.0
- 11
-484.5
- 21
-876.0
- 31
-0.0
-  0
-CIRCLE
-  5
-6DB
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-484.5
- 20
-981.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6DC
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-484.5
- 20
-981.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-6DD
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-484.5
- 20
-876.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6DE
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-484.5
- 20
-876.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-6DF
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-496.0
- 20
-981.0
- 30
-0.0
- 11
-496.0
- 21
-972.0
- 31
-0.0
-  0
-CIRCLE
-  5
 6E0
 330
 1F
 100
 AcDbEntity
   8
-debug
- 62
-2
+CenterLines
 100
-AcDbCircle
+AcDbLine
  10
-496.0
+332.5
  20
-981.0
+546.0
  30
 0.0
- 40
-1.0
+ 11
+332.5
+ 21
+823.0
+ 31
+0.0
   0
-MTEXT
+CIRCLE
   5
 6E1
 330
@@ -11806,6 +11156,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+332.5
+ 20
+546.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+6E2
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+332.5
+ 20
+546.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+6E3
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+332.5
+ 20
+823.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+6E4
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+332.5
+ 20
+823.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+6E5
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+332.5
+ 20
+972.0
+ 30
+0.0
+ 11
+332.5
+ 21
+828.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+6E6
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+332.5
+ 20
+972.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+6E7
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+332.5
+ 20
+972.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+6E8
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+332.5
+ 20
+828.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+6E9
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+332.5
+ 20
+828.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+6EA
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+473.0
+ 20
+981.0
+ 30
+0.0
+ 11
+473.0
+ 21
+972.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+6EB
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+473.0
+ 20
+981.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+6EC
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+473.0
+ 20
+981.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+6ED
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+473.0
+ 20
+972.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+6EE
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+473.0
+ 20
+972.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+6EF
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+484.5
+ 20
+981.0
+ 30
+0.0
+ 11
+484.5
+ 21
+876.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+6F0
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+484.5
+ 20
+981.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+6F1
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+484.5
+ 20
+981.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+6F2
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+484.5
+ 20
+876.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+6F3
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+484.5
+ 20
+876.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+6F4
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+496.0
+ 20
+981.0
+ 30
+0.0
+ 11
+496.0
+ 21
+972.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+6F5
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+496.0
+ 20
+981.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+6F6
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -11823,492 +11659,6 @@ SP
   0
 CIRCLE
   5
-6E2
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-496.0
- 20
-972.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6E3
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-496.0
- 20
-972.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-6E4
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-556.5
- 20
-823.0
- 30
-0.0
- 11
-556.5
- 21
-876.0
- 31
-0.0
-  0
-CIRCLE
-  5
-6E5
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-556.5
- 20
-823.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6E6
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-556.5
- 20
-823.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-6E7
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-556.5
- 20
-876.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6E8
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-556.5
- 20
-876.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-6E9
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-556.5
- 20
-880.0
- 30
-0.0
- 11
-556.5
- 21
-972.0
- 31
-0.0
-  0
-CIRCLE
-  5
-6EA
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-556.5
- 20
-880.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6EB
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-556.5
- 20
-880.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-6EC
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-556.5
- 20
-972.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6ED
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-556.5
- 20
-972.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-6EE
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-616.5
- 20
-537.0
- 30
-0.0
- 11
-616.5
- 21
-450.0
- 31
-0.0
-  0
-CIRCLE
-  5
-6EF
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-616.5
- 20
-537.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6F0
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-616.5
- 20
-537.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-6F1
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-616.5
- 20
-450.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6F2
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-616.5
- 20
-450.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-6F3
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-616.5
- 20
-546.0
- 30
-0.0
- 11
-616.5
- 21
-645.0
- 31
-0.0
-  0
-CIRCLE
-  5
-6F4
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-616.5
- 20
-546.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6F5
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-616.5
- 20
-546.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-6F6
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-616.5
- 20
-645.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
 6F7
 330
 1F
@@ -12316,12 +11666,34 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+496.0
+ 20
+972.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+6F8
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
-616.5
+496.0
  20
-645.0
+972.0
  30
 0.0
  40
@@ -12333,7 +11705,7 @@ EP
   0
 LINE
   5
-6F8
+6F9
 330
 1F
 100
@@ -12343,41 +11715,19 @@ CenterLines
 100
 AcDbLine
  10
-644.0
+556.5
  20
-441.0
+823.0
  30
 0.0
  11
-644.0
+556.5
  21
-399.0
+876.0
  31
 0.0
   0
 CIRCLE
-  5
-6F9
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-644.0
- 20
-441.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
   5
 6FA
 330
@@ -12386,22 +11736,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-644.0
+556.5
  20
-441.0
+823.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 6FB
 330
@@ -12410,20 +11758,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-644.0
+556.5
  20
-399.0
+823.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 6FC
 330
@@ -12432,6 +11782,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+556.5
+ 20
+876.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+6FD
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+556.5
+ 20
+876.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+6FE
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+556.5
+ 20
+880.0
+ 30
+0.0
+ 11
+556.5
+ 21
+972.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+6FF
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+556.5
+ 20
+880.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+700
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+556.5
+ 20
+880.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+701
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+556.5
+ 20
+972.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+702
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+556.5
+ 20
+972.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+703
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+616.5
+ 20
+537.0
+ 30
+0.0
+ 11
+616.5
+ 21
+450.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+704
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+616.5
+ 20
+537.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+705
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+616.5
+ 20
+537.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+706
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+616.5
+ 20
+450.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+707
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+616.5
+ 20
+450.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+708
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+616.5
+ 20
+546.0
+ 30
+0.0
+ 11
+616.5
+ 21
+645.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+709
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+616.5
+ 20
+546.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+70A
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+616.5
+ 20
+546.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+70B
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+616.5
+ 20
+645.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+70C
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+616.5
+ 20
+645.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+70D
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+644.0
+ 20
+441.0
+ 30
+0.0
+ 11
+644.0
+ 21
+399.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+70E
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+644.0
+ 20
+441.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+70F
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+644.0
+ 20
+441.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+710
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+644.0
+ 20
+399.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+711
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -12449,515 +12285,29 @@ EP
   0
 LINE
   5
-6FD
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-646.5
- 20
-390.0
- 30
-0.0
- 11
-646.5
- 21
-399.0
- 31
-0.0
-  0
-CIRCLE
-  5
-6FE
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-646.5
- 20
-390.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-6FF
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-646.5
- 20
-390.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-700
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-646.5
- 20
-399.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-701
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-646.5
- 20
-399.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-702
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-651.5
- 20
-441.0
- 30
-0.0
- 11
-651.5
- 21
-441.0
- 31
-0.0
-  0
-CIRCLE
-  5
-703
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-651.5
- 20
-441.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-704
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-651.5
- 20
-441.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-705
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-651.5
- 20
-441.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-706
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-651.5
- 20
-441.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-707
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-648.5
- 20
-399.0
- 30
-0.0
- 11
-648.5
- 21
-399.0
- 31
-0.0
-  0
-CIRCLE
-  5
-708
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-648.5
- 20
-399.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-709
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-648.5
- 20
-399.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-70A
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-648.5
- 20
-399.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-70B
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-648.5
- 20
-399.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-70C
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-653.5
- 20
-441.0
- 30
-0.0
- 11
-653.5
- 21
-441.0
- 31
-0.0
-  0
-CIRCLE
-  5
-70D
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-653.5
- 20
-441.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-70E
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-653.5
- 20
-441.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-70F
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-653.5
- 20
-441.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-710
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-653.5
- 20
-441.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-711
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-667.5
- 20
-645.0
- 30
-0.0
- 11
-667.5
- 21
-645.0
- 31
-0.0
-  0
-CIRCLE
-  5
 712
 330
 1F
 100
 AcDbEntity
   8
-debug
- 62
-2
+CenterLines
 100
-AcDbCircle
+AcDbLine
  10
-667.5
+646.5
  20
-645.0
+390.0
  30
 0.0
- 40
-1.0
+ 11
+646.5
+ 21
+399.0
+ 31
+0.0
   0
-MTEXT
+CIRCLE
   5
 713
 330
@@ -12966,22 +12316,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-667.5
+646.5
  20
-645.0
+390.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 714
 330
@@ -12990,20 +12338,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-667.5
+646.5
  20
-645.0
+390.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 715
 330
@@ -13012,6 +12362,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+646.5
+ 20
+399.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+716
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+646.5
+ 20
+399.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+717
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+651.5
+ 20
+441.0
+ 30
+0.0
+ 11
+651.5
+ 21
+441.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+718
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+651.5
+ 20
+441.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+719
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+651.5
+ 20
+441.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+71A
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+651.5
+ 20
+441.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+71B
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+651.5
+ 20
+441.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+71C
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+648.5
+ 20
+399.0
+ 30
+0.0
+ 11
+648.5
+ 21
+399.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+71D
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+648.5
+ 20
+399.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+71E
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+648.5
+ 20
+399.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+71F
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+648.5
+ 20
+399.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+720
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+648.5
+ 20
+399.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+721
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+653.5
+ 20
+441.0
+ 30
+0.0
+ 11
+653.5
+ 21
+441.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+722
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+653.5
+ 20
+441.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+723
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+653.5
+ 20
+441.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+724
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+653.5
+ 20
+441.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+725
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+653.5
+ 20
+441.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+726
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+667.5
+ 20
+645.0
+ 30
+0.0
+ 11
+667.5
+ 21
+645.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+727
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+667.5
+ 20
+645.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+728
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+667.5
+ 20
+645.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+729
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+667.5
+ 20
+645.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+72A
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -13029,515 +12865,29 @@ EP
   0
 LINE
   5
-716
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-670.0
- 20
-640.0
- 30
-0.0
- 11
-670.0
- 21
-645.0
- 31
-0.0
-  0
-CIRCLE
-  5
-717
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-670.0
- 20
-640.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-718
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-670.0
- 20
-640.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-719
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-670.0
- 20
-645.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-71A
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-670.0
- 20
-645.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-71B
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-676.5
- 20
-645.0
- 30
-0.0
- 11
-676.5
- 21
-718.0
- 31
-0.0
-  0
-CIRCLE
-  5
-71C
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-676.5
- 20
-645.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-71D
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-676.5
- 20
-645.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-71E
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-676.5
- 20
-718.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-71F
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-676.5
- 20
-718.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-720
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-695.5
- 20
-450.0
- 30
-0.0
- 11
-695.5
- 21
-441.0
- 31
-0.0
-  0
-CIRCLE
-  5
-721
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-695.5
- 20
-450.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-722
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-695.5
- 20
-450.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-723
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-695.5
- 20
-441.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-724
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-695.5
- 20
-441.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-725
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-709.0
- 20
-450.0
- 30
-0.0
- 11
-709.0
- 21
-441.0
- 31
-0.0
-  0
-CIRCLE
-  5
-726
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-709.0
- 20
-450.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-727
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-709.0
- 20
-450.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-728
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-709.0
- 20
-441.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-729
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-709.0
- 20
-441.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-72A
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-705.0
- 20
-781.0
- 30
-0.0
- 11
-705.0
- 21
-823.0
- 31
-0.0
-  0
-CIRCLE
-  5
 72B
 330
 1F
 100
 AcDbEntity
   8
-debug
- 62
-2
+CenterLines
 100
-AcDbCircle
+AcDbLine
  10
-705.0
+670.0
  20
-781.0
+640.0
  30
 0.0
- 40
-1.0
+ 11
+670.0
+ 21
+645.0
+ 31
+0.0
   0
-MTEXT
+CIRCLE
   5
 72C
 330
@@ -13546,22 +12896,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-705.0
+670.0
  20
-781.0
+640.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 72D
 330
@@ -13570,20 +12918,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-705.0
+670.0
  20
-823.0
+640.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 72E
 330
@@ -13592,6 +12942,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+670.0
+ 20
+645.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+72F
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+670.0
+ 20
+645.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+730
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+676.5
+ 20
+645.0
+ 30
+0.0
+ 11
+676.5
+ 21
+718.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+731
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+676.5
+ 20
+645.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+732
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+676.5
+ 20
+645.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+733
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+676.5
+ 20
+718.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+734
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+676.5
+ 20
+718.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+735
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+695.5
+ 20
+450.0
+ 30
+0.0
+ 11
+695.5
+ 21
+441.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+736
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+695.5
+ 20
+450.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+737
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+695.5
+ 20
+450.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+738
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+695.5
+ 20
+441.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+739
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+695.5
+ 20
+441.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+73A
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+709.0
+ 20
+450.0
+ 30
+0.0
+ 11
+709.0
+ 21
+441.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+73B
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+709.0
+ 20
+450.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+73C
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+709.0
+ 20
+450.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+73D
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+709.0
+ 20
+441.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+73E
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+709.0
+ 20
+441.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+73F
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+705.0
+ 20
+781.0
+ 30
+0.0
+ 11
+705.0
+ 21
+823.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+740
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+705.0
+ 20
+781.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+741
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+705.0
+ 20
+781.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+742
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+705.0
+ 20
+823.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+743
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -13609,515 +13445,29 @@ EP
   0
 LINE
   5
-72F
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-704.5
- 20
-912.0
- 30
-0.0
- 11
-704.5
- 21
-912.0
- 31
-0.0
-  0
-CIRCLE
-  5
-730
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-704.5
- 20
-912.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-731
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-704.5
- 20
-912.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-732
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-704.5
- 20
-912.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-733
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-704.5
- 20
-912.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-734
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-705.0
- 20
-828.0
- 30
-0.0
- 11
-705.0
- 21
-912.0
- 31
-0.0
-  0
-CIRCLE
-  5
-735
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-705.0
- 20
-828.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-736
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-705.0
- 20
-828.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-737
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-705.0
- 20
-912.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-738
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-705.0
- 20
-912.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-739
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-704.5
- 20
-912.0
- 30
-0.0
- 11
-704.5
- 21
-939.0
- 31
-0.0
-  0
-CIRCLE
-  5
-73A
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-704.5
- 20
-912.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-73B
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-704.5
- 20
-912.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-73C
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-704.5
- 20
-939.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-73D
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-704.5
- 20
-939.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-73E
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-705.0
- 20
-912.0
- 30
-0.0
- 11
-705.0
- 21
-912.0
- 31
-0.0
-  0
-CIRCLE
-  5
-73F
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-705.0
- 20
-912.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-740
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-705.0
- 20
-912.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-741
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-705.0
- 20
-912.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-742
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-705.0
- 20
-912.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-743
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-706.5
- 20
-912.0
- 30
-0.0
- 11
-706.5
- 21
-912.0
- 31
-0.0
-  0
-CIRCLE
-  5
 744
 330
 1F
 100
 AcDbEntity
   8
-debug
- 62
-2
+CenterLines
 100
-AcDbCircle
+AcDbLine
  10
-706.5
+704.5
  20
 912.0
  30
 0.0
- 40
-1.0
+ 11
+704.5
+ 21
+912.0
+ 31
+0.0
   0
-MTEXT
+CIRCLE
   5
 745
 330
@@ -14126,22 +13476,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-706.5
+704.5
  20
 912.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 746
 330
@@ -14150,20 +13498,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-706.5
+704.5
  20
 912.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 747
 330
@@ -14172,6 +13522,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+704.5
+ 20
+912.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+748
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+704.5
+ 20
+912.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+749
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+705.0
+ 20
+828.0
+ 30
+0.0
+ 11
+705.0
+ 21
+912.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+74A
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+705.0
+ 20
+828.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+74B
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+705.0
+ 20
+828.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+74C
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+705.0
+ 20
+912.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+74D
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+705.0
+ 20
+912.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+74E
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+704.5
+ 20
+912.0
+ 30
+0.0
+ 11
+704.5
+ 21
+939.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+74F
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+704.5
+ 20
+912.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+750
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+704.5
+ 20
+912.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+751
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+704.5
+ 20
+939.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+752
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+704.5
+ 20
+939.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+753
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+705.0
+ 20
+912.0
+ 30
+0.0
+ 11
+705.0
+ 21
+912.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+754
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+705.0
+ 20
+912.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+755
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+705.0
+ 20
+912.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+756
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+705.0
+ 20
+912.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+757
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+705.0
+ 20
+912.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+758
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+706.5
+ 20
+912.0
+ 30
+0.0
+ 11
+706.5
+ 21
+912.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+759
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+706.5
+ 20
+912.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+75A
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+706.5
+ 20
+912.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+75B
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+706.5
+ 20
+912.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+75C
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -14189,515 +14025,29 @@ EP
   0
 LINE
   5
-748
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-748.5
- 20
-723.0
- 30
-0.0
- 11
-748.5
- 21
-741.0
- 31
-0.0
-  0
-CIRCLE
-  5
-749
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-748.5
- 20
-723.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-74A
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-748.5
- 20
-723.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-74B
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-748.5
- 20
-741.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-74C
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-748.5
- 20
-741.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-74D
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-750.0
- 20
-723.0
- 30
-0.0
- 11
-750.0
- 21
-723.0
- 31
-0.0
-  0
-CIRCLE
-  5
-74E
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-750.0
- 20
-723.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-74F
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-750.0
- 20
-723.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-750
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-750.0
- 20
-723.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-751
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-750.0
- 20
-723.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-752
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-748.5
- 20
-752.0
- 30
-0.0
- 11
-748.5
- 21
-777.0
- 31
-0.0
-  0
-CIRCLE
-  5
-753
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-748.5
- 20
-752.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-754
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-748.5
- 20
-752.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-755
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-748.5
- 20
-777.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-756
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-748.5
- 20
-777.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-757
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-750.0
- 20
-777.0
- 30
-0.0
- 11
-750.0
- 21
-777.0
- 31
-0.0
-  0
-CIRCLE
-  5
-758
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-750.0
- 20
-777.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-759
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-750.0
- 20
-777.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-75A
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-750.0
- 20
-777.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-75B
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-750.0
- 20
-777.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-75C
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-752.5
- 20
-723.0
- 30
-0.0
- 11
-752.5
- 21
-723.0
- 31
-0.0
-  0
-CIRCLE
-  5
 75D
 330
 1F
 100
 AcDbEntity
   8
-debug
- 62
-2
+CenterLines
 100
-AcDbCircle
+AcDbLine
  10
-752.5
+748.5
  20
 723.0
  30
 0.0
- 40
-1.0
+ 11
+748.5
+ 21
+741.0
+ 31
+0.0
   0
-MTEXT
+CIRCLE
   5
 75E
 330
@@ -14706,22 +14056,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-752.5
+748.5
  20
 723.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 75F
 330
@@ -14730,20 +14078,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-752.5
+748.5
  20
 723.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 760
 330
@@ -14752,12 +14102,34 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+748.5
+ 20
+741.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+761
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
-752.5
+748.5
  20
-723.0
+741.0
  30
 0.0
  40
@@ -14769,7 +14141,7 @@ EP
   0
 LINE
   5
-761
+762
 330
 1F
 100
@@ -14779,41 +14151,19 @@ CenterLines
 100
 AcDbLine
  10
-752.5
+750.0
  20
-777.0
+723.0
  30
 0.0
  11
-752.5
+750.0
  21
-777.0
+723.0
  31
 0.0
   0
 CIRCLE
-  5
-762
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-752.5
- 20
-777.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
   5
 763
 330
@@ -14822,22 +14172,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-752.5
+750.0
  20
-777.0
+723.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 764
 330
@@ -14846,20 +14194,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-752.5
+750.0
  20
-777.0
+723.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 765
 330
@@ -14868,6 +14218,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+750.0
+ 20
+723.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+766
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+750.0
+ 20
+723.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+767
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+748.5
+ 20
+752.0
+ 30
+0.0
+ 11
+748.5
+ 21
+777.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+768
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+748.5
+ 20
+752.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+769
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+748.5
+ 20
+752.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+76A
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+748.5
+ 20
+777.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+76B
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+748.5
+ 20
+777.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+76C
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+750.0
+ 20
+777.0
+ 30
+0.0
+ 11
+750.0
+ 21
+777.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+76D
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+750.0
+ 20
+777.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+76E
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+750.0
+ 20
+777.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+76F
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+750.0
+ 20
+777.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+770
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+750.0
+ 20
+777.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+771
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+752.5
+ 20
+723.0
+ 30
+0.0
+ 11
+752.5
+ 21
+723.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+772
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+752.5
+ 20
+723.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+773
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+752.5
+ 20
+723.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+774
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+752.5
+ 20
+723.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+775
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+752.5
+ 20
+723.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+776
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+752.5
+ 20
+777.0
+ 30
+0.0
+ 11
+752.5
+ 21
+777.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+777
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+752.5
+ 20
+777.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+778
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+752.5
+ 20
+777.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+779
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+752.5
+ 20
+777.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+77A
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -14885,515 +14721,29 @@ EP
   0
 LINE
   5
-766
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-763.0
- 20
-718.0
- 30
-0.0
- 11
-763.0
- 21
-723.0
- 31
-0.0
-  0
-CIRCLE
-  5
-767
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-763.0
- 20
-718.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-768
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-763.0
- 20
-718.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-769
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-763.0
- 20
-723.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-76A
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-763.0
- 20
-723.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-76B
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-763.0
- 20
-781.0
- 30
-0.0
- 11
-763.0
- 21
-777.0
- 31
-0.0
-  0
-CIRCLE
-  5
-76C
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-763.0
- 20
-781.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-76D
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-763.0
- 20
-781.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-76E
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-763.0
- 20
-777.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-76F
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-763.0
- 20
-777.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-770
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-772.5
- 20
-399.0
- 30
-0.0
- 11
-772.5
- 21
-399.0
- 31
-0.0
-  0
-CIRCLE
-  5
-771
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-772.5
- 20
-399.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-772
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-772.5
- 20
-399.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-773
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-772.5
- 20
-399.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-774
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-772.5
- 20
-399.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-775
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-777.0
- 20
-390.0
- 30
-0.0
- 11
-777.0
- 21
-399.0
- 31
-0.0
-  0
-CIRCLE
-  5
-776
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-777.0
- 20
-390.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-777
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-777.0
- 20
-390.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-778
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-777.0
- 20
-399.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-779
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-777.0
- 20
-399.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-77A
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-773.5
- 20
-718.0
- 30
-0.0
- 11
-773.5
- 21
-718.0
- 31
-0.0
-  0
-CIRCLE
-  5
 77B
 330
 1F
 100
 AcDbEntity
   8
-debug
- 62
-2
+CenterLines
 100
-AcDbCircle
+AcDbLine
  10
-773.5
+763.0
  20
 718.0
  30
 0.0
- 40
-1.0
+ 11
+763.0
+ 21
+723.0
+ 31
+0.0
   0
-MTEXT
+CIRCLE
   5
 77C
 330
@@ -15402,22 +14752,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-773.5
+763.0
  20
 718.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 77D
 330
@@ -15426,20 +14774,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-773.5
+763.0
  20
 718.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 77E
 330
@@ -15448,12 +14798,34 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+763.0
+ 20
+723.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+77F
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
-773.5
+763.0
  20
-718.0
+723.0
  30
 0.0
  40
@@ -15465,7 +14837,7 @@ EP
   0
 LINE
   5
-77F
+780
 330
 1F
 100
@@ -15475,41 +14847,19 @@ CenterLines
 100
 AcDbLine
  10
-773.5
+763.0
  20
-723.0
+781.0
  30
 0.0
  11
-773.5
+763.0
  21
-723.0
+777.0
  31
 0.0
   0
 CIRCLE
-  5
-780
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-773.5
- 20
-723.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
   5
 781
 330
@@ -15518,22 +14868,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-773.5
+763.0
  20
-723.0
+781.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 782
 330
@@ -15542,20 +14890,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-773.5
+763.0
  20
-723.0
+781.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 783
 330
@@ -15564,12 +14914,34 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+763.0
+ 20
+777.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+784
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
-773.5
+763.0
  20
-723.0
+777.0
  30
 0.0
  40
@@ -15581,7 +14953,7 @@ EP
   0
 LINE
   5
-784
+785
 330
 1F
 100
@@ -15591,41 +14963,19 @@ CenterLines
 100
 AcDbLine
  10
-778.0
+772.5
  20
-718.0
+399.0
  30
 0.0
  11
-778.0
+772.5
  21
-723.0
+399.0
  31
 0.0
   0
 CIRCLE
-  5
-785
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-778.0
- 20
-718.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
   5
 786
 330
@@ -15634,22 +14984,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-778.0
+772.5
  20
-718.0
+399.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 787
 330
@@ -15658,20 +15006,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-778.0
+772.5
  20
-723.0
+399.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 788
 330
@@ -15680,12 +15030,34 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+772.5
+ 20
+399.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+789
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
-778.0
+772.5
  20
-723.0
+399.0
  30
 0.0
  40
@@ -15697,7 +15069,7 @@ EP
   0
 LINE
   5
-789
+78A
 330
 1F
 100
@@ -15707,41 +15079,19 @@ CenterLines
 100
 AcDbLine
  10
-773.5
- 20
 777.0
+ 20
+390.0
  30
 0.0
  11
-773.5
- 21
 777.0
+ 21
+399.0
  31
 0.0
   0
 CIRCLE
-  5
-78A
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-773.5
- 20
-777.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
   5
 78B
 330
@@ -15750,22 +15100,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-773.5
- 20
 777.0
+ 20
+390.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 78C
 330
@@ -15774,20 +15122,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-773.5
- 20
 777.0
+ 20
+390.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 78D
 330
@@ -15796,12 +15146,34 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+777.0
+ 20
+399.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+78E
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
-773.5
- 20
 777.0
+ 20
+399.0
  30
 0.0
  40
@@ -15813,7 +15185,7 @@ EP
   0
 LINE
   5
-78E
+78F
 330
 1F
 100
@@ -15825,39 +15197,17 @@ AcDbLine
  10
 773.5
  20
-781.0
+718.0
  30
 0.0
  11
 773.5
  21
-781.0
+718.0
  31
 0.0
   0
 CIRCLE
-  5
-78F
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-773.5
- 20
-781.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
   5
 790
 330
@@ -15866,22 +15216,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
 773.5
  20
-781.0
+718.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 791
 330
@@ -15890,20 +15238,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
 773.5
  20
-781.0
+718.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 792
 330
@@ -15912,6 +15262,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+773.5
+ 20
+718.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+793
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+773.5
+ 20
+718.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+794
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+773.5
+ 20
+723.0
+ 30
+0.0
+ 11
+773.5
+ 21
+723.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+795
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+773.5
+ 20
+723.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+796
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+773.5
+ 20
+723.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+797
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+773.5
+ 20
+723.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+798
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+773.5
+ 20
+723.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+799
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+778.0
+ 20
+718.0
+ 30
+0.0
+ 11
+778.0
+ 21
+723.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+79A
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+778.0
+ 20
+718.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+79B
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+778.0
+ 20
+718.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+79C
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+778.0
+ 20
+723.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+79D
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+778.0
+ 20
+723.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+79E
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+773.5
+ 20
+777.0
+ 30
+0.0
+ 11
+773.5
+ 21
+777.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+79F
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+773.5
+ 20
+777.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7A0
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+773.5
+ 20
+777.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7A1
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+773.5
+ 20
+777.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7A2
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+773.5
+ 20
+777.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7A3
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+773.5
+ 20
+781.0
+ 30
+0.0
+ 11
+773.5
+ 21
+781.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+7A4
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+773.5
+ 20
+781.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7A5
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+773.5
+ 20
+781.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7A6
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+773.5
+ 20
+781.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7A7
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -15929,515 +15765,29 @@ EP
   0
 LINE
   5
-793
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-778.0
- 20
-781.0
- 30
-0.0
- 11
-778.0
- 21
-777.0
- 31
-0.0
-  0
-CIRCLE
-  5
-794
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-778.0
- 20
-781.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-795
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-778.0
- 20
-781.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-796
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-778.0
- 20
-777.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-797
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-778.0
- 20
-777.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-798
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-779.5
- 20
-441.0
- 30
-0.0
- 11
-779.5
- 21
-399.0
- 31
-0.0
-  0
-CIRCLE
-  5
-799
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-441.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-79A
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-441.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-79B
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-399.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-79C
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-399.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-79D
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-779.5
- 20
-450.0
- 30
-0.0
- 11
-779.5
- 21
-640.0
- 31
-0.0
-  0
-CIRCLE
-  5
-79E
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-450.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-79F
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-450.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7A0
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-640.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7A1
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-640.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7A2
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-779.5
- 20
-645.0
- 30
-0.0
- 11
-779.5
- 21
-718.0
- 31
-0.0
-  0
-CIRCLE
-  5
-7A3
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-645.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7A4
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-645.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7A5
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-718.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7A6
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-718.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7A7
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-779.5
- 20
-723.0
- 30
-0.0
- 11
-779.5
- 21
-741.0
- 31
-0.0
-  0
-CIRCLE
-  5
 7A8
 330
 1F
 100
 AcDbEntity
   8
-debug
- 62
-2
+CenterLines
 100
-AcDbCircle
+AcDbLine
  10
-779.5
+778.0
  20
-723.0
+781.0
  30
 0.0
- 40
-1.0
+ 11
+778.0
+ 21
+777.0
+ 31
+0.0
   0
-MTEXT
+CIRCLE
   5
 7A9
 330
@@ -16446,6 +15796,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+778.0
+ 20
+781.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7AA
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+778.0
+ 20
+781.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7AB
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+778.0
+ 20
+777.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7AC
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+778.0
+ 20
+777.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7AD
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+779.5
+ 20
+441.0
+ 30
+0.0
+ 11
+779.5
+ 21
+399.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+7AE
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+441.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7AF
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+779.5
+ 20
+441.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7B0
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+399.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7B1
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+779.5
+ 20
+399.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7B2
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+779.5
+ 20
+450.0
+ 30
+0.0
+ 11
+779.5
+ 21
+640.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+7B3
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+450.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7B4
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+779.5
+ 20
+450.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7B5
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+640.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7B6
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+779.5
+ 20
+640.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7B7
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+779.5
+ 20
+645.0
+ 30
+0.0
+ 11
+779.5
+ 21
+718.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+7B8
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+645.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7B9
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+779.5
+ 20
+645.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7BA
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+718.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7BB
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+779.5
+ 20
+718.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7BC
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+779.5
+ 20
+723.0
+ 30
+0.0
+ 11
+779.5
+ 21
+741.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+7BD
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+723.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7BE
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -16463,492 +16299,6 @@ SP
   0
 CIRCLE
   5
-7AA
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-741.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7AB
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-741.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7AC
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-779.5
- 20
-777.0
- 30
-0.0
- 11
-779.5
- 21
-759.0
- 31
-0.0
-  0
-CIRCLE
-  5
-7AD
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-777.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7AE
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-777.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7AF
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-759.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7B0
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-759.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7B1
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-779.5
- 20
-781.0
- 30
-0.0
- 11
-779.5
- 21
-882.0
- 31
-0.0
-  0
-CIRCLE
-  5
-7B2
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-781.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7B3
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-781.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7B4
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-882.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7B5
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-882.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7B6
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-779.5
- 20
-886.0
- 30
-0.0
- 11
-779.5
- 21
-972.0
- 31
-0.0
-  0
-CIRCLE
-  5
-7B7
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-886.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7B8
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-886.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7B9
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-779.5
- 20
-972.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7BA
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-779.5
- 20
-972.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7BB
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-337.0
- 20
-541.5
- 30
-0.0
- 11
-528.0
- 21
-541.5
- 31
-0.0
-  0
-CIRCLE
-  5
-7BC
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-337.0
- 20
-541.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7BD
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-337.0
- 20
-541.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7BE
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-528.0
- 20
-541.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
 7BF
 330
 1F
@@ -16956,12 +16306,34 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+741.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7C0
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
-528.0
+779.5
  20
-541.5
+741.0
  30
 0.0
  40
@@ -16973,7 +16345,7 @@ EP
   0
 LINE
   5
-7C0
+7C1
 330
 1F
 100
@@ -16983,41 +16355,19 @@ CenterLines
 100
 AcDbLine
  10
-337.0
+779.5
  20
-976.5
+777.0
  30
 0.0
  11
-464.0
+779.5
  21
-976.5
+759.0
  31
 0.0
   0
 CIRCLE
-  5
-7C1
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-337.0
- 20
-976.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
   5
 7C2
 330
@@ -17026,22 +16376,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-337.0
+779.5
  20
-976.5
+777.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 7C3
 330
@@ -17050,20 +16398,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-464.0
+779.5
  20
-976.5
+777.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 7C4
 330
@@ -17072,6 +16422,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+759.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7C5
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+779.5
+ 20
+759.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7C6
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+779.5
+ 20
+781.0
+ 30
+0.0
+ 11
+779.5
+ 21
+882.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+7C7
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+781.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7C8
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+779.5
+ 20
+781.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7C9
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+882.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7CA
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+779.5
+ 20
+882.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7CB
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+779.5
+ 20
+886.0
+ 30
+0.0
+ 11
+779.5
+ 21
+972.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+7CC
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+886.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7CD
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+779.5
+ 20
+886.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7CE
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+779.5
+ 20
+972.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7CF
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+779.5
+ 20
+972.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7D0
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+337.0
+ 20
+541.5
+ 30
+0.0
+ 11
+528.0
+ 21
+541.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+7D1
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+337.0
+ 20
+541.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7D2
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+337.0
+ 20
+541.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7D3
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+528.0
+ 20
+541.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7D4
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+528.0
+ 20
+541.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7D5
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+337.0
+ 20
+976.5
+ 30
+0.0
+ 11
+464.0
+ 21
+976.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+7D6
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+337.0
+ 20
+976.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7D7
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+337.0
+ 20
+976.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7D8
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+464.0
+ 20
+976.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7D9
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -17089,515 +16925,29 @@ EP
   0
 LINE
   5
-7C5
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-337.0
- 20
-825.5
- 30
-0.0
- 11
-512.0
- 21
-825.5
- 31
-0.0
-  0
-CIRCLE
-  5
-7C6
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-337.0
- 20
-825.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7C7
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-337.0
- 20
-825.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7C8
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-512.0
- 20
-825.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7C9
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-512.0
- 20
-825.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7CA
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-505.0
- 20
-976.5
- 30
-0.0
- 11
-554.0
- 21
-976.5
- 31
-0.0
-  0
-CIRCLE
-  5
-7CB
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-505.0
- 20
-976.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7CC
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-505.0
- 20
-976.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7CD
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-554.0
- 20
-976.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7CE
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-554.0
- 20
-976.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7CF
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-517.0
- 20
-878.0
- 30
-0.0
- 11
-554.0
- 21
-878.0
- 31
-0.0
-  0
-CIRCLE
-  5
-7D0
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-517.0
- 20
-878.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7D1
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-517.0
- 20
-878.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7D2
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-554.0
- 20
-878.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7D3
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-554.0
- 20
-878.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7D4
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-558.0
- 20
-541.5
- 30
-0.0
- 11
-614.0
- 21
-541.5
- 31
-0.0
-  0
-CIRCLE
-  5
-7D5
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-558.0
- 20
-541.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7D6
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-558.0
- 20
-541.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7D7
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-614.0
- 20
-541.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7D8
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-614.0
- 20
-541.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7D9
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-601.0
- 20
-825.5
- 30
-0.0
- 11
-703.0
- 21
-825.5
- 31
-0.0
-  0
-CIRCLE
-  5
 7DA
 330
 1F
 100
 AcDbEntity
   8
-debug
- 62
-2
+CenterLines
 100
-AcDbCircle
+AcDbLine
  10
-601.0
+337.0
  20
 825.5
  30
 0.0
- 40
-1.0
+ 11
+512.0
+ 21
+825.5
+ 31
+0.0
   0
-MTEXT
+CIRCLE
   5
 7DB
 330
@@ -17606,22 +16956,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-601.0
+337.0
  20
 825.5
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 7DC
 330
@@ -17630,20 +16978,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-703.0
+337.0
  20
 825.5
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 7DD
 330
@@ -17652,6 +17002,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+512.0
+ 20
+825.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7DE
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+512.0
+ 20
+825.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7DF
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+505.0
+ 20
+976.5
+ 30
+0.0
+ 11
+554.0
+ 21
+976.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+7E0
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+505.0
+ 20
+976.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7E1
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+505.0
+ 20
+976.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7E2
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+554.0
+ 20
+976.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7E3
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+554.0
+ 20
+976.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7E4
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+517.0
+ 20
+878.0
+ 30
+0.0
+ 11
+554.0
+ 21
+878.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+7E5
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+517.0
+ 20
+878.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7E6
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+517.0
+ 20
+878.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7E7
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+554.0
+ 20
+878.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7E8
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+554.0
+ 20
+878.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7E9
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+558.0
+ 20
+541.5
+ 30
+0.0
+ 11
+614.0
+ 21
+541.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+7EA
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+558.0
+ 20
+541.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7EB
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+558.0
+ 20
+541.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7EC
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+614.0
+ 20
+541.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7ED
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+614.0
+ 20
+541.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7EE
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+601.0
+ 20
+825.5
+ 30
+0.0
+ 11
+703.0
+ 21
+825.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+7EF
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+601.0
+ 20
+825.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7F0
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+601.0
+ 20
+825.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7F1
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+703.0
+ 20
+825.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7F2
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -17669,515 +17505,29 @@ EP
   0
 LINE
   5
-7DE
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-601.0
- 20
-976.5
- 30
-0.0
- 11
-775.0
- 21
-976.5
- 31
-0.0
-  0
-CIRCLE
-  5
-7DF
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-601.0
- 20
-976.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7E0
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-601.0
- 20
-976.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7E1
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-775.0
- 20
-976.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7E2
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-775.0
- 20
-976.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7E3
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-619.0
- 20
-445.5
- 30
-0.0
- 11
-642.0
- 21
-445.5
- 31
-0.0
-  0
-CIRCLE
-  5
-7E4
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-619.0
- 20
-445.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7E5
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-619.0
- 20
-445.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7E6
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-642.0
- 20
-445.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7E7
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-642.0
- 20
-445.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7E8
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-646.0
- 20
-445.5
- 30
-0.0
- 11
-661.0
- 21
-445.5
- 31
-0.0
-  0
-CIRCLE
-  5
-7E9
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-646.0
- 20
-445.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7EA
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-646.0
- 20
-445.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7EB
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-661.0
- 20
-445.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7EC
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-661.0
- 20
-445.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7ED
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-646.0
- 20
-394.5
- 30
-0.0
- 11
-651.0
- 21
-394.5
- 31
-0.0
-  0
-CIRCLE
-  5
-7EE
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-646.0
- 20
-394.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7EF
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-646.0
- 20
-394.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7F0
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-651.0
- 20
-394.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7F1
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-651.0
- 20
-394.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7F2
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-661.0
- 20
-642.5
- 30
-0.0
- 11
-674.0
- 21
-642.5
- 31
-0.0
-  0
-CIRCLE
-  5
 7F3
 330
 1F
 100
 AcDbEntity
   8
-debug
- 62
-2
+CenterLines
 100
-AcDbCircle
+AcDbLine
  10
-661.0
+601.0
  20
-642.5
+976.5
  30
 0.0
- 40
-1.0
+ 11
+775.0
+ 21
+976.5
+ 31
+0.0
   0
-MTEXT
+CIRCLE
   5
 7F4
 330
@@ -18186,6 +17536,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+601.0
+ 20
+976.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7F5
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+601.0
+ 20
+976.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7F6
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+775.0
+ 20
+976.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7F7
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+775.0
+ 20
+976.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7F8
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+619.0
+ 20
+445.5
+ 30
+0.0
+ 11
+642.0
+ 21
+445.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+7F9
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+619.0
+ 20
+445.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7FA
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+619.0
+ 20
+445.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+7FB
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+642.0
+ 20
+445.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7FC
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+642.0
+ 20
+445.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+7FD
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+646.0
+ 20
+445.5
+ 30
+0.0
+ 11
+661.0
+ 21
+445.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+7FE
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+646.0
+ 20
+445.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+7FF
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+646.0
+ 20
+445.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+800
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+661.0
+ 20
+445.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+801
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+661.0
+ 20
+445.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+802
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+646.0
+ 20
+394.5
+ 30
+0.0
+ 11
+651.0
+ 21
+394.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+803
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+646.0
+ 20
+394.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+804
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+646.0
+ 20
+394.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+805
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+651.0
+ 20
+394.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+806
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+651.0
+ 20
+394.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+807
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+661.0
+ 20
+642.5
+ 30
+0.0
+ 11
+674.0
+ 21
+642.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+808
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+661.0
+ 20
+642.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+809
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -18203,492 +18039,6 @@ SP
   0
 CIRCLE
   5
-7F5
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-674.0
- 20
-642.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7F6
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-674.0
- 20
-642.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7F7
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-679.0
- 20
-720.5
- 30
-0.0
- 11
-746.0
- 21
-720.5
- 31
-0.0
-  0
-CIRCLE
-  5
-7F8
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-679.0
- 20
-720.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7F9
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-679.0
- 20
-720.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7FA
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-746.0
- 20
-720.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7FB
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-746.0
- 20
-720.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-7FC
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-746.0
- 20
-732.0
- 30
-0.0
- 11
-746.0
- 21
-732.0
- 31
-0.0
-  0
-CIRCLE
-  5
-7FD
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-746.0
- 20
-732.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-7FE
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-746.0
- 20
-732.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-7FF
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-746.0
- 20
-732.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-800
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-746.0
- 20
-732.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-801
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-674.0
- 20
-779.0
- 30
-0.0
- 11
-703.0
- 21
-779.0
- 31
-0.0
-  0
-CIRCLE
-  5
-802
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-674.0
- 20
-779.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-803
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-674.0
- 20
-779.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-804
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-703.0
- 20
-779.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-805
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-703.0
- 20
-779.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-806
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-707.0
- 20
-779.0
- 30
-0.0
- 11
-746.0
- 21
-779.0
- 31
-0.0
-  0
-CIRCLE
-  5
-807
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-707.0
- 20
-779.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-808
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-707.0
- 20
-779.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-809
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-746.0
- 20
-779.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
 80A
 330
 1F
@@ -18696,12 +18046,34 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+674.0
+ 20
+642.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+80B
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
-746.0
+674.0
  20
-779.0
+642.5
  30
 0.0
  40
@@ -18713,7 +18085,7 @@ EP
   0
 LINE
   5
-80B
+80C
 330
 1F
 100
@@ -18723,41 +18095,19 @@ CenterLines
 100
 AcDbLine
  10
-751.0
+679.0
  20
 720.5
  30
 0.0
  11
-754.0
+746.0
  21
 720.5
  31
 0.0
   0
 CIRCLE
-  5
-80C
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-751.0
- 20
-720.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
   5
 80D
 330
@@ -18766,22 +18116,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-751.0
+679.0
  20
 720.5
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 80E
 330
@@ -18790,20 +18138,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-754.0
+679.0
  20
 720.5
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 80F
 330
@@ -18812,10 +18162,32 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+746.0
+ 20
+720.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+810
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
-754.0
+746.0
  20
 720.5
  30
@@ -18829,7 +18201,7 @@ EP
   0
 LINE
   5
-810
+811
 330
 1F
 100
@@ -18839,41 +18211,19 @@ CenterLines
 100
 AcDbLine
  10
-691.0
+746.0
  20
-445.5
+732.0
  30
 0.0
  11
-700.0
+746.0
  21
-445.5
+732.0
  31
 0.0
   0
 CIRCLE
-  5
-811
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-691.0
- 20
-445.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
   5
 812
 330
@@ -18882,6 +18232,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+746.0
+ 20
+732.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+813
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+746.0
+ 20
+732.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+814
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+746.0
+ 20
+732.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+815
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+746.0
+ 20
+732.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+816
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+674.0
+ 20
+779.0
+ 30
+0.0
+ 11
+703.0
+ 21
+779.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+817
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+674.0
+ 20
+779.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+818
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+674.0
+ 20
+779.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+819
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+703.0
+ 20
+779.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+81A
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+703.0
+ 20
+779.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+81B
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+707.0
+ 20
+779.0
+ 30
+0.0
+ 11
+746.0
+ 21
+779.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+81C
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+707.0
+ 20
+779.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+81D
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+707.0
+ 20
+779.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+81E
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+746.0
+ 20
+779.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+81F
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+746.0
+ 20
+779.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+820
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+751.0
+ 20
+720.5
+ 30
+0.0
+ 11
+754.0
+ 21
+720.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+821
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+751.0
+ 20
+720.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+822
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+751.0
+ 20
+720.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+823
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+754.0
+ 20
+720.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+824
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+754.0
+ 20
+720.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+825
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+691.0
+ 20
+445.5
+ 30
+0.0
+ 11
+700.0
+ 21
+445.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+826
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+691.0
+ 20
+445.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+827
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -18899,492 +18735,6 @@ SP
   0
 CIRCLE
   5
-813
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-700.0
- 20
-445.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-814
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-700.0
- 20
-445.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-815
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-751.0
- 20
-779.0
- 30
-0.0
- 11
-754.0
- 21
-779.0
- 31
-0.0
-  0
-CIRCLE
-  5
-816
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-751.0
- 20
-779.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-817
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-751.0
- 20
-779.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-818
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-754.0
- 20
-779.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-819
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-754.0
- 20
-779.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-81A
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-709.0
- 20
-642.5
- 30
-0.0
- 11
-775.0
- 21
-642.5
- 31
-0.0
-  0
-CIRCLE
-  5
-81B
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-709.0
- 20
-642.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-81C
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-709.0
- 20
-642.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-81D
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-775.0
- 20
-642.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-81E
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-775.0
- 20
-642.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-81F
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-718.0
- 20
-445.5
- 30
-0.0
- 11
-775.0
- 21
-445.5
- 31
-0.0
-  0
-CIRCLE
-  5
-820
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-718.0
- 20
-445.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-821
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-718.0
- 20
-445.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-822
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-775.0
- 20
-445.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-823
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-775.0
- 20
-445.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-824
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-737.0
- 20
-884.0
- 30
-0.0
- 11
-775.0
- 21
-884.0
- 31
-0.0
-  0
-CIRCLE
-  5
-825
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-737.0
- 20
-884.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-826
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-737.0
- 20
-884.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-827
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-775.0
- 20
-884.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
 828
 330
 1F
@@ -19392,12 +18742,34 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+700.0
+ 20
+445.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+829
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
-775.0
+700.0
  20
-884.0
+445.5
  30
 0.0
  40
@@ -19409,7 +18781,7 @@ EP
   0
 LINE
   5
-829
+82A
 330
 1F
 100
@@ -19419,41 +18791,19 @@ CenterLines
 100
 AcDbLine
  10
-746.0
+751.0
  20
-746.5
+779.0
  30
 0.0
  11
-750.0
+754.0
  21
-746.5
+779.0
  31
 0.0
   0
 CIRCLE
-  5
-82A
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-746.0
- 20
-746.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
   5
 82B
 330
@@ -19462,6 +18812,492 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+751.0
+ 20
+779.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+82C
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+751.0
+ 20
+779.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+82D
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+754.0
+ 20
+779.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+82E
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+754.0
+ 20
+779.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+82F
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+709.0
+ 20
+642.5
+ 30
+0.0
+ 11
+775.0
+ 21
+642.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+830
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+709.0
+ 20
+642.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+831
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+709.0
+ 20
+642.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+832
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+775.0
+ 20
+642.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+833
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+775.0
+ 20
+642.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+834
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+718.0
+ 20
+445.5
+ 30
+0.0
+ 11
+775.0
+ 21
+445.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+835
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+718.0
+ 20
+445.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+836
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+718.0
+ 20
+445.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+837
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+775.0
+ 20
+445.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+838
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+775.0
+ 20
+445.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+839
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+737.0
+ 20
+884.0
+ 30
+0.0
+ 11
+775.0
+ 21
+884.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+83A
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+737.0
+ 20
+884.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+83B
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+737.0
+ 20
+884.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+83C
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+775.0
+ 20
+884.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+83D
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+775.0
+ 20
+884.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+83E
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+746.0
+ 20
+746.5
+ 30
+0.0
+ 11
+751.0
+ 21
+746.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+83F
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+746.0
+ 20
+746.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+840
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -19479,492 +19315,6 @@ SP
   0
 CIRCLE
   5
-82C
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-750.0
- 20
-746.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-82D
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-750.0
- 20
-746.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-82E
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-750.0
- 20
-746.5
- 30
-0.0
- 11
-751.0
- 21
-746.5
- 31
-0.0
-  0
-CIRCLE
-  5
-82F
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-750.0
- 20
-746.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-830
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-750.0
- 20
-746.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-831
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-751.0
- 20
-746.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-832
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-751.0
- 20
-746.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-833
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-751.0
- 20
-732.0
- 30
-0.0
- 11
-751.0
- 21
-732.0
- 31
-0.0
-  0
-CIRCLE
-  5
-834
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-751.0
- 20
-732.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-835
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-751.0
- 20
-732.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-836
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-751.0
- 20
-732.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-837
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-751.0
- 20
-732.0
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-838
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-770.0
- 20
-394.5
- 30
-0.0
- 11
-775.0
- 21
-394.5
- 31
-0.0
-  0
-CIRCLE
-  5
-839
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-770.0
- 20
-394.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-83A
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-770.0
- 20
-394.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-83B
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-775.0
- 20
-394.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-83C
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-775.0
- 20
-394.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-EP
-  0
-LINE
-  5
-83D
-330
-1F
-100
-AcDbEntity
-  8
-CenterLines
-100
-AcDbLine
- 10
-772.0
- 20
-720.5
- 30
-0.0
- 11
-775.0
- 21
-720.5
- 31
-0.0
-  0
-CIRCLE
-  5
-83E
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-772.0
- 20
-720.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
-83F
-330
-1F
-100
-AcDbEntity
-  8
-debug
-100
-AcDbMText
- 10
-772.0
- 20
-720.5
- 30
-0.0
- 40
-2.5
- 71
-1
-  1
-SP
-  0
-CIRCLE
-  5
-840
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-775.0
- 20
-720.5
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
-  5
 841
 330
 1F
@@ -19972,12 +19322,34 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+751.0
+ 20
+746.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+842
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
-775.0
+751.0
  20
-720.5
+746.5
  30
 0.0
  40
@@ -19989,7 +19361,7 @@ EP
   0
 LINE
   5
-842
+843
 330
 1F
 100
@@ -19999,41 +19371,19 @@ CenterLines
 100
 AcDbLine
  10
-775.0
+751.0
  20
 732.0
  30
 0.0
  11
-775.0
+751.0
  21
 732.0
  31
 0.0
   0
 CIRCLE
-  5
-843
-330
-1F
-100
-AcDbEntity
-  8
-debug
- 62
-2
-100
-AcDbCircle
- 10
-775.0
- 20
-732.0
- 30
-0.0
- 40
-1.0
-  0
-MTEXT
   5
 844
 330
@@ -20042,22 +19392,20 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
 100
-AcDbMText
+AcDbCircle
  10
-775.0
+751.0
  20
 732.0
  30
 0.0
  40
-2.5
- 71
-1
-  1
-SP
+1.0
   0
-CIRCLE
+MTEXT
   5
 845
 330
@@ -20066,20 +19414,22 @@ CIRCLE
 AcDbEntity
   8
 debug
- 62
-2
 100
-AcDbCircle
+AcDbMText
  10
-775.0
+751.0
  20
 732.0
  30
 0.0
  40
-1.0
+2.5
+ 71
+1
+  1
+SP
   0
-MTEXT
+CIRCLE
   5
 846
 330
@@ -20088,6 +19438,376 @@ MTEXT
 AcDbEntity
   8
 debug
+ 62
+2
+100
+AcDbCircle
+ 10
+751.0
+ 20
+732.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+847
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+751.0
+ 20
+732.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+848
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+770.0
+ 20
+394.5
+ 30
+0.0
+ 11
+775.0
+ 21
+394.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+849
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+770.0
+ 20
+394.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+84A
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+770.0
+ 20
+394.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+84B
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+775.0
+ 20
+394.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+84C
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+775.0
+ 20
+394.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+84D
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+772.0
+ 20
+720.5
+ 30
+0.0
+ 11
+775.0
+ 21
+720.5
+ 31
+0.0
+  0
+CIRCLE
+  5
+84E
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+772.0
+ 20
+720.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+84F
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+772.0
+ 20
+720.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+850
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+775.0
+ 20
+720.5
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+851
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+775.0
+ 20
+720.5
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+EP
+  0
+LINE
+  5
+852
+330
+1F
+100
+AcDbEntity
+  8
+CenterLines
+100
+AcDbLine
+ 10
+775.0
+ 20
+732.0
+ 30
+0.0
+ 11
+775.0
+ 21
+732.0
+ 31
+0.0
+  0
+CIRCLE
+  5
+853
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+775.0
+ 20
+732.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+854
+330
+1F
+100
+AcDbEntity
+  8
+debug
+100
+AcDbMText
+ 10
+775.0
+ 20
+732.0
+ 30
+0.0
+ 40
+2.5
+ 71
+1
+  1
+SP
+  0
+CIRCLE
+  5
+855
+330
+1F
+100
+AcDbEntity
+  8
+debug
+ 62
+2
+100
+AcDbCircle
+ 10
+775.0
+ 20
+732.0
+ 30
+0.0
+ 40
+1.0
+  0
+MTEXT
+  5
+856
+330
+1F
+100
+AcDbEntity
+  8
+debug
 100
 AcDbMText
  10
@@ -20105,7 +19825,7 @@ EP
   0
 LINE
   5
-847
+857
 330
 1F
 100
@@ -20129,7 +19849,7 @@ AcDbLine
   0
 CIRCLE
   5
-848
+858
 330
 1F
 100
@@ -20151,7 +19871,7 @@ AcDbCircle
   0
 MTEXT
   5
-849
+859
 330
 1F
 100
@@ -20175,7 +19895,7 @@ SP
   0
 CIRCLE
   5
-84A
+85A
 330
 1F
 100
@@ -20197,7 +19917,7 @@ AcDbCircle
   0
 MTEXT
   5
-84B
+85B
 330
 1F
 100
@@ -20221,7 +19941,7 @@ EP
   0
 LINE
   5
-84C
+85C
 330
 1F
 100
@@ -20245,7 +19965,7 @@ AcDbLine
   0
 CIRCLE
   5
-84D
+85D
 330
 1F
 100
@@ -20267,7 +19987,7 @@ AcDbCircle
   0
 MTEXT
   5
-84E
+85E
 330
 1F
 100
@@ -20291,7 +20011,7 @@ SP
   0
 CIRCLE
   5
-84F
+85F
 330
 1F
 100
@@ -20313,7 +20033,7 @@ AcDbCircle
   0
 MTEXT
   5
-850
+860
 330
 1F
 100
@@ -20337,7 +20057,7 @@ EP
   0
 LINE
   5
-851
+861
 330
 1F
 100
@@ -20361,7 +20081,7 @@ AcDbLine
   0
 CIRCLE
   5
-852
+862
 330
 1F
 100
@@ -20383,7 +20103,7 @@ AcDbCircle
   0
 MTEXT
   5
-853
+863
 330
 1F
 100
@@ -20407,7 +20127,7 @@ SP
   0
 CIRCLE
   5
-854
+864
 330
 1F
 100
@@ -20429,7 +20149,7 @@ AcDbCircle
   0
 MTEXT
   5
-855
+865
 330
 1F
 100
@@ -27299,7 +27019,7 @@ AcDbDictionary
   3
 ADSK_XREC_LAYOUTTHUMBNAIL
 360
-698
+6B2
   0
 DICTIONARY
   5
@@ -27347,7 +27067,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-699
+6B3
   0
 DICTIONARY
   5
@@ -27363,7 +27083,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-69A
+6B4
   0
 DICTIONARY
   5
@@ -27379,7 +27099,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-69B
+6B5
   0
 DICTIONARY
   5
@@ -27395,7 +27115,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-69C
+6B6
   0
 DICTIONARY
   5
@@ -27411,7 +27131,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-69D
+6B7
   0
 DICTIONARY
   5
@@ -27427,7 +27147,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-69E
+6B8
   0
 DICTIONARY
   5
@@ -27443,7 +27163,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-69F
+6B9
   0
 DICTIONARY
   5
@@ -27459,7 +27179,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6A0
+6BA
   0
 DICTIONARY
   5
@@ -27475,7 +27195,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6A1
+6BB
   0
 DICTIONARY
   5
@@ -27491,7 +27211,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6A2
+6BC
   0
 DICTIONARY
   5
@@ -27507,7 +27227,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6A3
+6BD
   0
 DICTIONARY
   5
@@ -27523,7 +27243,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6A4
+6BE
   0
 DICTIONARY
   5
@@ -27539,7 +27259,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6A5
+6BF
   0
 DICTIONARY
   5
@@ -27555,7 +27275,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6A6
+6C0
   0
 DICTIONARY
   5
@@ -27571,7 +27291,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6A7
+6C1
   0
 DICTIONARY
   5
@@ -27587,7 +27307,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6A8
+6C2
   0
 DICTIONARY
   5
@@ -27603,7 +27323,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6A9
+6C3
   0
 DICTIONARY
   5
@@ -27619,7 +27339,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6AA
+6C4
   0
 DICTIONARY
   5
@@ -27635,7 +27355,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6AB
+6C5
   0
 DICTIONARY
   5
@@ -27651,7 +27371,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6AC
+6C6
   0
 DICTIONARY
   5
@@ -27667,7 +27387,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6AD
+6C7
   0
 DICTIONARY
   5
@@ -27683,7 +27403,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6AE
+6C8
   0
 DICTIONARY
   5
@@ -27699,7 +27419,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6AF
+6C9
   0
 DICTIONARY
   5
@@ -27715,7 +27435,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-6B0
+6CA
   0
 XRECORD
   5
@@ -27743,7 +27463,7 @@ FLAGS
   0
 XRECORD
   5
-698
+6B2
 102
 {ACAD_REACTORS
 330
@@ -28635,7 +28355,7 @@ FLAGS
   0
 XRECORD
   5
-699
+6B3
 102
 {ACAD_REACTORS
 330
@@ -28903,7 +28623,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-69A
+6B4
 102
 {ACAD_REACTORS
 330
@@ -29171,7 +28891,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-69B
+6B5
 102
 {ACAD_REACTORS
 330
@@ -29439,7 +29159,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-69C
+6B6
 102
 {ACAD_REACTORS
 330
@@ -29707,7 +29427,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-69D
+6B7
 102
 {ACAD_REACTORS
 330
@@ -29975,7 +29695,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-69E
+6B8
 102
 {ACAD_REACTORS
 330
@@ -30243,7 +29963,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-69F
+6B9
 102
 {ACAD_REACTORS
 330
@@ -30511,7 +30231,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6A0
+6BA
 102
 {ACAD_REACTORS
 330
@@ -30779,7 +30499,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6A1
+6BB
 102
 {ACAD_REACTORS
 330
@@ -31047,7 +30767,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6A2
+6BC
 102
 {ACAD_REACTORS
 330
@@ -31315,7 +31035,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6A3
+6BD
 102
 {ACAD_REACTORS
 330
@@ -31583,7 +31303,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6A4
+6BE
 102
 {ACAD_REACTORS
 330
@@ -31851,7 +31571,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6A5
+6BF
 102
 {ACAD_REACTORS
 330
@@ -32119,7 +31839,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6A6
+6C0
 102
 {ACAD_REACTORS
 330
@@ -32387,7 +32107,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6A7
+6C1
 102
 {ACAD_REACTORS
 330
@@ -32655,7 +32375,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6A8
+6C2
 102
 {ACAD_REACTORS
 330
@@ -32923,7 +32643,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6A9
+6C3
 102
 {ACAD_REACTORS
 330
@@ -33191,7 +32911,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6AA
+6C4
 102
 {ACAD_REACTORS
 330
@@ -33459,7 +33179,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6AB
+6C5
 102
 {ACAD_REACTORS
 330
@@ -33727,7 +33447,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6AC
+6C6
 102
 {ACAD_REACTORS
 330
@@ -33995,7 +33715,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6AD
+6C7
 102
 {ACAD_REACTORS
 330
@@ -34263,7 +33983,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6AE
+6C8
 102
 {ACAD_REACTORS
 330
@@ -34531,7 +34251,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6AF
+6C9
 102
 {ACAD_REACTORS
 330
@@ -34799,7 +34519,7 @@ RTVSPost2010PropOp57
   0
 XRECORD
   5
-6B0
+6CA
 102
 {ACAD_REACTORS
 330
