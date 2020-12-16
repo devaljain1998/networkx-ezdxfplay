@@ -1,3 +1,10 @@
+###### Verbal Questions #####
+1. Can height, widths and lengths of doors and windows be fetched through the json.
+2.
+
+
+
+###### Verbal Points #######
 Sometimes in the cases where all the lines are (broken between each other) then in this case,
     I have to clean the data first.
 
