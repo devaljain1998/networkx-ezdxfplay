@@ -1784,8 +1784,16 @@ def get_area_from_the_room_texts(msp, graph: 'nx.Graph', ROOM_TEXT_LAYER: str = 
         """This function detects if the graph has cycle present in it or not."""
         return len(nx.find_cycle(graph_component)) > 0
 
-    def get_area_of_polygon(polygon):
-        polygon_input_points = pointslist_from_lines(polygon)
+    def get_area_of_polygon(graph_component):
+        def get_ordered_edges(graph_component):
+            from networkx.algorithms.traversal.depth_first_search import dfs_edges
+            dfs_traversal = list(dfs_edges(graph_component))
+            first_node, last_node = dfs_traversal[0][0], dfs_traversal[-1][1]
+            dfs_traversal.append((first_node, last_node))
+            return dfs_traversal
+
+        ordered_edges = get_ordered_edges(graph_component)
+        polygon_input_points = pointslist_from_lines(ordered_edges)
         polygon_object = define_polygons(polygon_input_points)
         area = find_polygon_area(polygon_object)
         return area
@@ -1818,7 +1826,7 @@ def get_area_from_the_room_texts(msp, graph: 'nx.Graph', ROOM_TEXT_LAYER: str = 
         # 2.5 Check if the graph component is closed:
         if has_cycle(graph_component):
             # 2.5.1  Fetch The room_area:
-            room_area = get_area_of_polygon(polygon=graph_component.edges)
+            room_area = get_area_of_polygon(graph_component)
             # 2.5.2 Populate Room information
             room_information = get_room_information(room, room_area, graph_component)
             rooms_information.append(room_information) 
