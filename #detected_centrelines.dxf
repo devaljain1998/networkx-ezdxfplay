@@ -1115,9 +1115,9 @@ AcDbViewportTableRecord
  21
 1
  12
-417.6574714617919
+412.6096627663812
  22
-390.7025780066539
+233.3669642903553
  13
 0
  23
@@ -1143,7 +1143,7 @@ AcDbViewportTableRecord
  37
 0
  40
-80.00441780833501
+112.0643425766078
  41
 2.051971326164875
  42
@@ -2279,7 +2279,7 @@ AcDbLayerTableRecord
   2
 CenterLines
  70
-    1
+    0
  62
     7
   6
@@ -2347,7 +2347,7 @@ AcDbLayerTableRecord
   2
 PP-Door
  70
-    0
+    1
  62
     4
   6
@@ -2611,7 +2611,7 @@ AcDbLayerTableRecord
   2
 PP-Window
  70
-    0
+    1
  62
     1
   6
@@ -5637,7 +5637,7 @@ AcDbLine
  20
 -0.003272910115129
  11
-4.503281077859467
+4.503281077859466
  21
 -18.00327291011513
   0
@@ -7199,7 +7199,7 @@ ByLayer
 100
 AcDbLine
  10
-464.7593247648728
+464.7593247648727
  20
 981.2882305859977
  11
@@ -7655,13 +7655,13 @@ ByLayer
 100
 AcDbLine
  10
-337.2593243232418
+482.7593243232563
  20
-948.2943359928363
+876.2943359928526
  11
-337.2593243232418
+487.2593243232564
  21
-972.2943359928436
+876.2943359928526
   0
 LINE
   5
@@ -7679,11 +7679,11 @@ ByLayer
 100
 AcDbLine
  10
-482.7593243232563
+517.2593243232564
  20
 876.2943359928526
  11
-487.2593243232564
+554.7593243232564
  21
 876.2943359928526
   0
@@ -7705,39 +7705,15 @@ AcDbLine
  10
 517.2593243232564
  20
-876.2943359928526
+880.7943359928527
  11
 554.7593243232564
  21
-876.2943359928526
+880.7943359928527
   0
 LINE
   5
 F4
-100
-AcDbEntity
-  8
-WALLS
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-517.2593243232564
- 20
-880.7943359928527
- 11
-554.7593243232564
- 21
-880.7943359928527
-  0
-LINE
-  5
-F5
 100
 AcDbEntity
   8
@@ -7761,7 +7737,7 @@ AcDbLine
   0
 LINE
   5
-F6
+F5
 100
 AcDbEntity
   8
@@ -7785,7 +7761,7 @@ AcDbLine
   0
 LINE
   5
-F7
+F6
 100
 AcDbEntity
   8
@@ -7809,7 +7785,7 @@ AcDbLine
   0
 LINE
   5
-F8
+F7
 100
 AcDbEntity
   8
@@ -7833,7 +7809,7 @@ AcDbLine
   0
 LINE
   5
-F9
+F8
 100
 AcDbEntity
   8
@@ -7857,7 +7833,7 @@ AcDbLine
   0
 LINE
   5
-FA
+F9
 100
 AcDbEntity
   8
@@ -7881,7 +7857,7 @@ AcDbLine
   0
 LINE
   5
-FB
+FA
 100
 AcDbEntity
   8
@@ -7905,7 +7881,7 @@ AcDbLine
   0
 LINE
   5
-FC
+FB
 100
 AcDbEntity
   8
@@ -7925,11 +7901,11 @@ AcDbLine
  11
 700.2593631349768
  21
-441.2943829723397
+441.2943829723396
   0
 INSERT
   5
-FD
+FC
 100
 AcDbEntity
   8
@@ -7969,7 +7945,7 @@ DOOR
   0
 LINE
   5
-FE
+FD
 100
 AcDbEntity
   8
@@ -7993,7 +7969,7 @@ AcDbLine
   0
 LINE
   5
-FF
+FE
 100
 AcDbEntity
   8
@@ -8017,7 +7993,7 @@ AcDbLine
   0
 INSERT
   5
-100
+FF
 100
 AcDbEntity
   8
@@ -8057,7 +8033,7 @@ DOOR
   0
 INSERT
   5
-101
+100
 100
 AcDbEntity
   8
@@ -8097,7 +8073,7 @@ DOOR
   0
 INSERT
   5
-102
+101
 100
 AcDbEntity
   8
@@ -8137,7 +8113,7 @@ DOOR
   0
 LINE
   5
-103
+102
 100
 AcDbEntity
   8
@@ -8161,7 +8137,7 @@ AcDbLine
   0
 INSERT
   5
-104
+103
 100
 AcDbEntity
   8
@@ -8201,7 +8177,7 @@ DOOR
   0
 LINE
   5
-105
+104
 100
 AcDbEntity
   8
@@ -8225,7 +8201,7 @@ AcDbLine
   0
 INSERT
   5
-106
+105
 100
 AcDbEntity
   8
@@ -8265,7 +8241,7 @@ basin2
   0
 LINE
   5
-107
+106
 100
 AcDbEntity
   8
@@ -8289,7 +8265,7 @@ AcDbLine
   0
 INSERT
   5
-108
+107
 100
 AcDbEntity
   8
@@ -8329,7 +8305,7 @@ DOOR
   0
 LINE
   5
-109
+108
 100
 AcDbEntity
   8
@@ -8353,7 +8329,7 @@ AcDbLine
   0
 INSERT
   5
-10A
+109
 100
 AcDbEntity
   8
@@ -8393,7 +8369,7 @@ DOOR
   0
 LINE
   5
-10B
+10A
 100
 AcDbEntity
   8
@@ -8417,7 +8393,7 @@ AcDbLine
   0
 LINE
   5
-10C
+10B
 100
 AcDbEntity
   8
@@ -8441,7 +8417,7 @@ AcDbLine
   0
 LINE
   5
-10D
+10C
 100
 AcDbEntity
   8
@@ -8460,6 +8436,30 @@ AcDbLine
 777.2943359928398
  11
 772.2593243232345
+ 21
+781.7943359928398
+  0
+LINE
+  5
+10D
+100
+AcDbEntity
+  8
+WALLS
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+754.2593243232345
+ 20
+777.2943359928398
+ 11
+754.2593243232345
  21
 781.7943359928398
   0
@@ -8479,13 +8479,13 @@ ByLayer
 100
 AcDbLine
  10
-754.2593243232345
+772.2593243232345
  20
-777.2943359928398
+723.2943359928398
  11
-754.2593243232345
+772.2593243232345
  21
-781.7943359928398
+718.7943359928397
   0
 LINE
   5
@@ -8503,41 +8503,17 @@ ByLayer
 100
 AcDbLine
  10
-772.2593243232345
+754.2593243232345
  20
 723.2943359928398
  11
-772.2593243232345
+754.2593243232345
  21
 718.7943359928397
   0
 LINE
   5
 110
-100
-AcDbEntity
-  8
-WALLS
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-754.2593243232345
- 20
-723.2943359928398
- 11
-754.2593243232345
- 21
-718.7943359928397
-  0
-LINE
-  5
-111
 100
 AcDbEntity
   8
@@ -8561,7 +8537,7 @@ AcDbLine
   0
 LINE
   5
-112
+111
 100
 AcDbEntity
   8
@@ -8585,7 +8561,7 @@ AcDbLine
   0
 LINE
   5
-113
+112
 100
 AcDbEntity
   8
@@ -8609,6 +8585,30 @@ AcDbLine
   0
 LINE
   5
+113
+100
+AcDbEntity
+  8
+WALLS
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+703.2593243232562
+ 20
+912.2943359928372
+ 11
+703.2593243232562
+ 21
+939.1034808927782
+  0
+LINE
+  5
 114
 100
 AcDbEntity
@@ -8623,41 +8623,17 @@ ByLayer
 100
 AcDbLine
  10
-703.2593243232562
+706.2593243232562
  20
 912.2943359928372
  11
-703.2593243232562
+706.2593243232562
  21
 939.1034808927782
   0
 LINE
   5
 115
-100
-AcDbEntity
-  8
-WALLS
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-706.2593243232562
- 20
-912.2943359928372
- 11
-706.2593243232562
- 21
-939.1034808927782
-  0
-LINE
-  5
-116
 100
 AcDbEntity
   8
@@ -8681,7 +8657,7 @@ AcDbLine
   0
 INSERT
   5
-117
+116
 100
 AcDbEntity
   8
@@ -8721,7 +8697,7 @@ DOOR
   0
 LINE
   5
-118
+117
 100
 AcDbEntity
   8
@@ -8745,7 +8721,7 @@ AcDbLine
   0
 LINE
   5
-119
+118
 100
 AcDbEntity
   8
@@ -8769,7 +8745,7 @@ AcDbLine
   0
 INSERT
   5
-11A
+119
 100
 AcDbEntity
   8
@@ -8809,7 +8785,7 @@ basin2
   0
 INSERT
   5
-11B
+11A
 100
 AcDbEntity
   8
@@ -8849,7 +8825,7 @@ A$C43EB1948
   0
 LINE
   5
-11C
+11B
 100
 AcDbEntity
   8
@@ -8873,7 +8849,7 @@ AcDbLine
   0
 LINE
   5
-11D
+11C
 100
 AcDbEntity
   8
@@ -8897,7 +8873,7 @@ AcDbLine
   0
 INSERT
   5
-11E
+11D
 100
 AcDbEntity
   8
@@ -8937,7 +8913,7 @@ basin2
   0
 LINE
   5
-11F
+11E
 100
 AcDbEntity
   8
@@ -8961,6 +8937,30 @@ AcDbLine
   0
 LINE
   5
+11F
+100
+AcDbEntity
+  8
+WALLS
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+775.259324323238
+ 20
+759.6415627507507
+ 11
+784.259324323249
+ 21
+759.6415627507507
+  0
+LINE
+  5
 120
 100
 AcDbEntity
@@ -8977,63 +8977,15 @@ AcDbLine
  10
 775.259324323238
  20
-759.6415627507507
- 11
-784.259324323249
- 21
-759.6415627507507
-  0
-LINE
-  5
-121
-100
-AcDbEntity
-  8
-WALLS
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-775.259324323238
- 20
 741.6415627507507
  11
 784.259324323249
  21
 741.6415627507507
-  0
-LINE
-  5
-122
-100
-AcDbEntity
-  8
-WALLS
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-746.7593243232345
- 20
-741.5781879967749
- 11
-750.1279849749347
- 21
-741.5781879967749
   0
 INSERT
   5
-123
+121
 100
 AcDbEntity
   8
@@ -9073,7 +9025,7 @@ DOOR
   0
 LINE
   5
-124
+122
 100
 AcDbEntity
   8
@@ -9097,55 +9049,55 @@ AcDbLine
   0
 LINE
   5
+123
+100
+AcDbEntity
+  8
+WALLS
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+751.2593243232345
+ 20
+741.578187996764
+ 11
+751.2593243232345
+ 21
+723.2943359928418
+  0
+LINE
+  5
+124
+100
+AcDbEntity
+  8
+WALLS
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+746.7593243232345
+ 20
+741.578187996764
+ 11
+746.7593243232345
+ 21
+723.2943359928418
+  0
+LINE
+  5
 125
-100
-AcDbEntity
-  8
-WALLS
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-751.2593243232345
- 20
-741.578187996764
- 11
-751.2593243232345
- 21
-723.2943359928418
-  0
-LINE
-  5
-126
-100
-AcDbEntity
-  8
-WALLS
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-746.7593243232345
- 20
-741.578187996764
- 11
-746.7593243232345
- 21
-723.2943359928418
-  0
-LINE
-  5
-127
 100
 AcDbEntity
   8
@@ -9169,7 +9121,7 @@ AcDbLine
   0
 LWPOLYLINE
   5
-128
+126
 100
 AcDbEntity
   8
@@ -9219,7 +9171,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-129
+127
 100
 AcDbEntity
   8
@@ -9285,7 +9237,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-12A
+128
 100
 AcDbEntity
   8
@@ -9327,7 +9279,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-12B
+129
 100
 AcDbEntity
   8
@@ -9369,7 +9321,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-12C
+12A
 100
 AcDbEntity
   8
@@ -9443,7 +9395,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-12D
+12B
 100
 AcDbEntity
   8
@@ -9485,7 +9437,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-12E
+12C
 100
 AcDbEntity
   8
@@ -9527,7 +9479,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-12F
+12D
 100
 AcDbEntity
   8
@@ -9569,7 +9521,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-130
+12E
 100
 AcDbEntity
   8
@@ -9611,7 +9563,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-131
+12F
 100
 AcDbEntity
   8
@@ -9649,7 +9601,7 @@ AcDbPolyline
   0
 INSERT
   5
-132
+130
 100
 AcDbEntity
   8
@@ -9689,7 +9641,7 @@ Window
   0
 INSERT
   5
-133
+131
 100
 AcDbEntity
   8
@@ -9729,7 +9681,7 @@ Window
   0
 INSERT
   5
-134
+132
 100
 AcDbEntity
   8
@@ -9769,7 +9721,7 @@ Window 2
   0
 INSERT
   5
-135
+133
 100
 AcDbEntity
   8
@@ -9809,7 +9761,7 @@ Window 2
   0
 LINE
   5
-136
+134
 100
 AcDbEntity
   8
@@ -9823,7 +9775,7 @@ ByLayer
 100
 AcDbLine
  10
-691.2593243232388
+691.2593243232387
  20
 450.2943359928567
  11
@@ -9833,7 +9785,7 @@ AcDbLine
   0
 LINE
   5
-137
+135
 100
 AcDbEntity
   8
@@ -9857,7 +9809,7 @@ AcDbLine
   0
 LINE
   5
-138
+136
 100
 AcDbEntity
   8
@@ -9881,7 +9833,7 @@ AcDbLine
   0
 INSERT
   5
-139
+137
 100
 AcDbEntity
   8
@@ -9921,7 +9873,7 @@ Window 2
   0
 INSERT
   5
-13A
+138
 100
 AcDbEntity
   8
@@ -9961,7 +9913,7 @@ Window 2
   0
 MTEXT
   5
-13B
+139
 100
 AcDbEntity
   8
@@ -10007,7 +9959,7 @@ standard
   0
 MTEXT
   5
-13C
+13A
 100
 AcDbEntity
   8
@@ -10053,7 +10005,7 @@ standard
   0
 MTEXT
   5
-13D
+13B
 100
 AcDbEntity
   8
@@ -10099,7 +10051,7 @@ standard
   0
 MTEXT
   5
-13E
+13C
 100
 AcDbEntity
   8
@@ -10145,7 +10097,7 @@ standard
   0
 MTEXT
   5
-13F
+13D
 100
 AcDbEntity
   8
@@ -10191,7 +10143,7 @@ standard
   0
 MTEXT
   5
-140
+13E
 100
 AcDbEntity
   8
@@ -10237,7 +10189,7 @@ standard
   0
 MTEXT
   5
-141
+13F
 100
 AcDbEntity
   8
@@ -10251,7 +10203,7 @@ ByLayer
 100
 AcDbMText
  10
-648.1232520424478
+648.1232520424477
  20
 551.8345072649252
  30
@@ -10283,7 +10235,7 @@ standard
   0
 MTEXT
   5
-142
+140
 100
 AcDbEntity
   8
@@ -10329,7 +10281,7 @@ standard
   0
 MTEXT
   5
-143
+141
 100
 AcDbEntity
   8
@@ -10375,7 +10327,7 @@ standard
   0
 INSERT
   5
-144
+142
 100
 AcDbEntity
   8
@@ -10415,7 +10367,7 @@ PP-Balcony Window
   0
 INSERT
   5
-145
+143
 100
 AcDbEntity
   8
@@ -10455,7 +10407,7 @@ DOOR
   0
 LINE
   5
-146
+144
 100
 AcDbEntity
   8
@@ -10479,7 +10431,7 @@ AcDbLine
   0
 CIRCLE
   5
-147
+145
 100
 AcDbEntity
   8
@@ -10501,7 +10453,7 @@ AcDbCircle
   0
 MTEXT
   5
-148
+146
 100
 AcDbEntity
   8
@@ -10547,7 +10499,7 @@ standard
   0
 CIRCLE
   5
-149
+147
 100
 AcDbEntity
   8
@@ -10569,7 +10521,7 @@ AcDbCircle
   0
 MTEXT
   5
-14A
+148
 100
 AcDbEntity
   8
@@ -10615,7 +10567,7 @@ standard
   0
 LINE
   5
-14B
+149
 100
 AcDbEntity
   8
@@ -10631,11 +10583,79 @@ AcDbLine
  10
 332.5
  20
-828
+972
  11
 332.5
  21
-948
+828
+  0
+CIRCLE
+  5
+14A
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+332.5
+ 20
+972
+ 40
+1
+  0
+MTEXT
+  5
+14B
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+332.5
+ 20
+972
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -10683,74 +10703,6 @@ AcDbMText
  40
 2.5
  41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-14E
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-332.5
- 20
-948
- 40
-1
-  0
-MTEXT
-  5
-14F
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-332.5
- 20
-948
- 30
-0
- 40
-2.5
- 41
 3.333333333333334
  71
     1
@@ -10775,7 +10727,7 @@ standard
   0
 LINE
   5
-150
+14E
 100
 AcDbEntity
   8
@@ -10789,13 +10741,81 @@ ByLayer
 100
 AcDbLine
  10
-332.5
+473
  20
-972
+981
  11
-332.5
+473
  21
-948
+972
+  0
+CIRCLE
+  5
+14F
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+473
+ 20
+981
+ 40
+1
+  0
+MTEXT
+  5
+150
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+473
+ 20
+981
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -10813,7 +10833,7 @@ ByLayer
 100
 AcDbCircle
  10
-332.5
+473
  20
 972
  40
@@ -10835,77 +10855,9 @@ ByLayer
 100
 AcDbMText
  10
-332.5
+473
  20
 972
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-153
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-332.5
- 20
-948
- 40
-1
-  0
-MTEXT
-  5
-154
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-332.5
- 20
-948
  30
 0
  40
@@ -10935,7 +10887,7 @@ standard
   0
 LINE
   5
-155
+153
 100
 AcDbEntity
   8
@@ -10949,13 +10901,81 @@ ByLayer
 100
 AcDbLine
  10
-473
+484.5
  20
 981
  11
-473
+484.5
  21
-972
+876
+  0
+CIRCLE
+  5
+154
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+484.5
+ 20
+981
+ 40
+1
+  0
+MTEXT
+  5
+155
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+484.5
+ 20
+981
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -10973,9 +10993,9 @@ ByLayer
 100
 AcDbCircle
  10
-473
+484.5
  20
-981
+876
  40
 1
   0
@@ -10995,7 +11015,99 @@ ByLayer
 100
 AcDbMText
  10
-473
+484.5
+ 20
+876
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+158
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+496
+ 20
+981
+ 11
+496
+ 21
+972
+  0
+CIRCLE
+  5
+159
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+496
+ 20
+981
+ 40
+1
+  0
+MTEXT
+  5
+15A
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+496
  20
 981
  30
@@ -11027,98 +11139,6 @@ standard
   0
 CIRCLE
   5
-158
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-473
- 20
-972
- 40
-1
-  0
-MTEXT
-  5
-159
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-473
- 20
-972
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-15A
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-484.5
- 20
-981
- 11
-484.5
- 21
-876
-  0
-CIRCLE
-  5
 15B
 100
 AcDbEntity
@@ -11133,9 +11153,9 @@ ByLayer
 100
 AcDbCircle
  10
-484.5
+496
  20
-981
+972
  40
 1
   0
@@ -11155,77 +11175,9 @@ ByLayer
 100
 AcDbMText
  10
-484.5
+496
  20
-981
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-15D
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-484.5
- 20
-876
- 40
-1
-  0
-MTEXT
-  5
-15E
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-484.5
- 20
-876
+972
  30
 0
  40
@@ -11255,7 +11207,7 @@ standard
   0
 LINE
   5
-15F
+15D
 100
 AcDbEntity
   8
@@ -11269,13 +11221,81 @@ ByLayer
 100
 AcDbLine
  10
-496
+556.5
  20
-981
+823
  11
-496
+556.5
  21
-972
+876
+  0
+CIRCLE
+  5
+15E
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+556.5
+ 20
+823
+ 40
+1
+  0
+MTEXT
+  5
+15F
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+556.5
+ 20
+823
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -11293,9 +11313,9 @@ ByLayer
 100
 AcDbCircle
  10
-496
+556.5
  20
-981
+876
  40
 1
   0
@@ -11315,77 +11335,9 @@ ByLayer
 100
 AcDbMText
  10
-496
+556.5
  20
-981
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-162
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-496
- 20
-972
- 40
-1
-  0
-MTEXT
-  5
-163
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-496
- 20
-972
+876
  30
 0
  40
@@ -11415,7 +11367,7 @@ standard
   0
 LINE
   5
-164
+162
 100
 AcDbEntity
   8
@@ -11431,11 +11383,79 @@ AcDbLine
  10
 556.5
  20
-823
+880
  11
 556.5
  21
-876
+972
+  0
+CIRCLE
+  5
+163
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+556.5
+ 20
+880
+ 40
+1
+  0
+MTEXT
+  5
+164
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+556.5
+ 20
+880
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -11455,7 +11475,7 @@ AcDbCircle
  10
 556.5
  20
-823
+972
  40
 1
   0
@@ -11477,19 +11497,19 @@ AcDbMText
  10
 556.5
  20
-823
+972
  30
 0
  40
 2.5
  41
-3.611110581105738
+3.333333333333334
  71
     1
  72
     5
   1
-SP
+EP
   7
 standard
 210
@@ -11505,237 +11525,9 @@ standard
  44
 1
   0
-CIRCLE
+LINE
   5
 167
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-556.5
- 20
-876
- 40
-1
-  0
-MTEXT
-  5
-168
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-556.5
- 20
-876
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-169
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-556.5
- 20
-880
- 11
-556.5
- 21
-972
-  0
-CIRCLE
-  5
-16A
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-556.5
- 20
-880
- 40
-1
-  0
-MTEXT
-  5
-16B
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-556.5
- 20
-880
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-16C
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-556.5
- 20
-972
- 40
-1
-  0
-MTEXT
-  5
-16D
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-556.5
- 20
-972
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-16E
 100
 AcDbEntity
   8
@@ -11759,7 +11551,7 @@ AcDbLine
   0
 CIRCLE
   5
-16F
+168
 100
 AcDbEntity
   8
@@ -11776,6 +11568,234 @@ AcDbCircle
 616.5
  20
 537
+ 40
+1
+  0
+MTEXT
+  5
+169
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+616.5
+ 20
+537
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+16A
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+616.5
+ 20
+450
+ 40
+1
+  0
+MTEXT
+  5
+16B
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+616.5
+ 20
+450
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+16C
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+616.5
+ 20
+546
+ 11
+616.5
+ 21
+645
+  0
+CIRCLE
+  5
+16D
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+616.5
+ 20
+546
+ 40
+1
+  0
+MTEXT
+  5
+16E
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+616.5
+ 20
+546
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+16F
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+616.5
+ 20
+645
  40
 1
   0
@@ -11797,75 +11817,7 @@ AcDbMText
  10
 616.5
  20
-537
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-171
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-616.5
- 20
-450
- 40
-1
-  0
-MTEXT
-  5
-172
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-616.5
- 20
-450
+645
  30
 0
  40
@@ -11895,7 +11847,7 @@ standard
   0
 LINE
   5
-173
+171
 100
 AcDbEntity
   8
@@ -11909,13 +11861,81 @@ ByLayer
 100
 AcDbLine
  10
-616.5
+644
  20
-546
+441
  11
-616.5
+644
  21
-645
+399
+  0
+CIRCLE
+  5
+172
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+644
+ 20
+441
+ 40
+1
+  0
+MTEXT
+  5
+173
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+644
+ 20
+441
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -11933,9 +11953,9 @@ ByLayer
 100
 AcDbCircle
  10
-616.5
+644
  20
-546
+399
  40
 1
   0
@@ -11955,77 +11975,9 @@ ByLayer
 100
 AcDbMText
  10
-616.5
+644
  20
-546
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-176
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-616.5
- 20
-645
- 40
-1
-  0
-MTEXT
-  5
-177
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-616.5
- 20
-645
+399
  30
 0
  40
@@ -12055,7 +12007,7 @@ standard
   0
 LINE
   5
-178
+176
 100
 AcDbEntity
   8
@@ -12069,13 +12021,81 @@ ByLayer
 100
 AcDbLine
  10
-644
+646.5
  20
-441
+390
  11
-644
+646.5
  21
 399
+  0
+CIRCLE
+  5
+177
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+646.5
+ 20
+390
+ 40
+1
+  0
+MTEXT
+  5
+178
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+646.5
+ 20
+390
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -12093,9 +12113,9 @@ ByLayer
 100
 AcDbCircle
  10
-644
+646.5
  20
-441
+399
  40
 1
   0
@@ -12115,75 +12135,7 @@ ByLayer
 100
 AcDbMText
  10
-644
- 20
-441
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-17B
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-644
- 20
-399
- 40
-1
-  0
-MTEXT
-  5
-17C
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-644
+646.5
  20
 399
  30
@@ -12215,7 +12167,7 @@ standard
   0
 LINE
   5
-17D
+17B
 100
 AcDbEntity
   8
@@ -12229,13 +12181,81 @@ ByLayer
 100
 AcDbLine
  10
-646.5
+651.5
  20
-390
+441
  11
-646.5
+651.5
  21
-399
+441
+  0
+CIRCLE
+  5
+17C
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+651.5
+ 20
+441
+ 40
+1
+  0
+MTEXT
+  5
+17D
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+651.5
+ 20
+441
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -12253,9 +12273,9 @@ ByLayer
 100
 AcDbCircle
  10
-646.5
+651.5
  20
-390
+441
  40
 1
   0
@@ -12275,77 +12295,9 @@ ByLayer
 100
 AcDbMText
  10
-646.5
+651.5
  20
-390
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-180
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-646.5
- 20
-399
- 40
-1
-  0
-MTEXT
-  5
-181
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-646.5
- 20
-399
+441
  30
 0
  40
@@ -12375,7 +12327,7 @@ standard
   0
 LINE
   5
-182
+180
 100
 AcDbEntity
   8
@@ -12389,13 +12341,81 @@ ByLayer
 100
 AcDbLine
  10
-651.5
+648.5
  20
-441
+399
  11
-651.5
+648.5
  21
-441
+399
+  0
+CIRCLE
+  5
+181
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+648.5
+ 20
+399
+ 40
+1
+  0
+MTEXT
+  5
+182
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+648.5
+ 20
+399
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -12413,9 +12433,9 @@ ByLayer
 100
 AcDbCircle
  10
-651.5
+648.5
  20
-441
+399
  40
 1
   0
@@ -12435,7 +12455,99 @@ ByLayer
 100
 AcDbMText
  10
-651.5
+648.5
+ 20
+399
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+185
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+653.5
+ 20
+441
+ 11
+653.5
+ 21
+441
+  0
+CIRCLE
+  5
+186
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+653.5
+ 20
+441
+ 40
+1
+  0
+MTEXT
+  5
+187
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+653.5
  20
 441
  30
@@ -12467,98 +12579,6 @@ standard
   0
 CIRCLE
   5
-185
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-651.5
- 20
-441
- 40
-1
-  0
-MTEXT
-  5
-186
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-651.5
- 20
-441
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-187
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-648.5
- 20
-399
- 11
-648.5
- 21
-399
-  0
-CIRCLE
-  5
 188
 100
 AcDbEntity
@@ -12573,9 +12593,9 @@ ByLayer
 100
 AcDbCircle
  10
-648.5
+653.5
  20
-399
+441
  40
 1
   0
@@ -12595,77 +12615,9 @@ ByLayer
 100
 AcDbMText
  10
-648.5
+653.5
  20
-399
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-18A
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-648.5
- 20
-399
- 40
-1
-  0
-MTEXT
-  5
-18B
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-648.5
- 20
-399
+441
  30
 0
  40
@@ -12695,7 +12647,7 @@ standard
   0
 LINE
   5
-18C
+18A
 100
 AcDbEntity
   8
@@ -12709,13 +12661,81 @@ ByLayer
 100
 AcDbLine
  10
-653.5
+667.5
  20
-441
+645
  11
-653.5
+667.5
  21
-441
+645
+  0
+CIRCLE
+  5
+18B
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+667.5
+ 20
+645
+ 40
+1
+  0
+MTEXT
+  5
+18C
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+667.5
+ 20
+645
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -12733,9 +12753,9 @@ ByLayer
 100
 AcDbCircle
  10
-653.5
+667.5
  20
-441
+645
  40
 1
   0
@@ -12755,77 +12775,9 @@ ByLayer
 100
 AcDbMText
  10
-653.5
+667.5
  20
-441
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-18F
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-653.5
- 20
-441
- 40
-1
-  0
-MTEXT
-  5
-190
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-653.5
- 20
-441
+645
  30
 0
  40
@@ -12855,7 +12807,7 @@ standard
   0
 LINE
   5
-191
+18F
 100
 AcDbEntity
   8
@@ -12869,13 +12821,81 @@ ByLayer
 100
 AcDbLine
  10
-667.5
+670
  20
-645
+640
  11
-667.5
+670
  21
 645
+  0
+CIRCLE
+  5
+190
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+670
+ 20
+640
+ 40
+1
+  0
+MTEXT
+  5
+191
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+670
+ 20
+640
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -12893,7 +12913,7 @@ ByLayer
 100
 AcDbCircle
  10
-667.5
+670
  20
 645
  40
@@ -12915,75 +12935,7 @@ ByLayer
 100
 AcDbMText
  10
-667.5
- 20
-645
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-194
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-667.5
- 20
-645
- 40
-1
-  0
-MTEXT
-  5
-195
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-667.5
+670
  20
 645
  30
@@ -13015,7 +12967,7 @@ standard
   0
 LINE
   5
-196
+194
 100
 AcDbEntity
   8
@@ -13029,13 +12981,81 @@ ByLayer
 100
 AcDbLine
  10
-670
+676.5
  20
-640
- 11
-670
- 21
 645
+ 11
+676.5
+ 21
+718
+  0
+CIRCLE
+  5
+195
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+676.5
+ 20
+645
+ 40
+1
+  0
+MTEXT
+  5
+196
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+676.5
+ 20
+645
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -13053,9 +13073,9 @@ ByLayer
 100
 AcDbCircle
  10
-670
+676.5
  20
-640
+718
  40
 1
   0
@@ -13075,77 +13095,9 @@ ByLayer
 100
 AcDbMText
  10
-670
+676.5
  20
-640
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-199
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-670
- 20
-645
- 40
-1
-  0
-MTEXT
-  5
-19A
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-670
- 20
-645
+718
  30
 0
  40
@@ -13175,7 +13127,7 @@ standard
   0
 LINE
   5
-19B
+199
 100
 AcDbEntity
   8
@@ -13189,13 +13141,81 @@ ByLayer
 100
 AcDbLine
  10
-676.5
+695.5
  20
-645
+450
  11
-676.5
+695.5
  21
-718
+441
+  0
+CIRCLE
+  5
+19A
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+695.5
+ 20
+450
+ 40
+1
+  0
+MTEXT
+  5
+19B
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+695.5
+ 20
+450
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -13213,9 +13233,9 @@ ByLayer
 100
 AcDbCircle
  10
-676.5
+695.5
  20
-645
+441
  40
 1
   0
@@ -13235,77 +13255,9 @@ ByLayer
 100
 AcDbMText
  10
-676.5
+695.5
  20
-645
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-19E
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-676.5
- 20
-718
- 40
-1
-  0
-MTEXT
-  5
-19F
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-676.5
- 20
-718
+441
  30
 0
  40
@@ -13335,7 +13287,7 @@ standard
   0
 LINE
   5
-1A0
+19E
 100
 AcDbEntity
   8
@@ -13349,13 +13301,81 @@ ByLayer
 100
 AcDbLine
  10
-695.5
+709
  20
 450
  11
-695.5
+709
  21
 441
+  0
+CIRCLE
+  5
+19F
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+709
+ 20
+450
+ 40
+1
+  0
+MTEXT
+  5
+1A0
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+709
+ 20
+450
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -13373,9 +13393,9 @@ ByLayer
 100
 AcDbCircle
  10
-695.5
+709
  20
-450
+441
  40
 1
   0
@@ -13395,75 +13415,7 @@ ByLayer
 100
 AcDbMText
  10
-695.5
- 20
-450
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1A3
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-695.5
- 20
-441
- 40
-1
-  0
-MTEXT
-  5
-1A4
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-695.5
+709
  20
 441
  30
@@ -13495,7 +13447,7 @@ standard
   0
 LINE
   5
-1A5
+1A3
 100
 AcDbEntity
   8
@@ -13509,13 +13461,81 @@ ByLayer
 100
 AcDbLine
  10
-709
+705
  20
-450
+781
  11
-709
+705
  21
-441
+823
+  0
+CIRCLE
+  5
+1A4
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+705
+ 20
+781
+ 40
+1
+  0
+MTEXT
+  5
+1A5
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+705
+ 20
+781
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -13533,9 +13553,9 @@ ByLayer
 100
 AcDbCircle
  10
-709
+705
  20
-450
+823
  40
 1
   0
@@ -13555,77 +13575,9 @@ ByLayer
 100
 AcDbMText
  10
-709
+705
  20
-450
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1A8
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-709
- 20
-441
- 40
-1
-  0
-MTEXT
-  5
-1A9
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-709
- 20
-441
+823
  30
 0
  40
@@ -13655,7 +13607,7 @@ standard
   0
 LINE
   5
-1AA
+1A8
 100
 AcDbEntity
   8
@@ -13669,13 +13621,81 @@ ByLayer
 100
 AcDbLine
  10
-705
+704.5
  20
-781
+912
  11
-705
+704.5
  21
-823
+912
+  0
+CIRCLE
+  5
+1A9
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+704.5
+ 20
+912
+ 40
+1
+  0
+MTEXT
+  5
+1AA
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+704.5
+ 20
+912
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -13693,9 +13713,9 @@ ByLayer
 100
 AcDbCircle
  10
-705
+704.5
  20
-781
+912
  40
 1
   0
@@ -13715,77 +13735,9 @@ ByLayer
 100
 AcDbMText
  10
-705
+704.5
  20
-781
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1AD
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-705
- 20
-823
- 40
-1
-  0
-MTEXT
-  5
-1AE
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-705
- 20
-823
+912
  30
 0
  40
@@ -13815,7 +13767,7 @@ standard
   0
 LINE
   5
-1AF
+1AD
 100
 AcDbEntity
   8
@@ -13829,13 +13781,81 @@ ByLayer
 100
 AcDbLine
  10
-704.5
+705
  20
-912
+828
  11
-704.5
+705
  21
 912
+  0
+CIRCLE
+  5
+1AE
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+705
+ 20
+828
+ 40
+1
+  0
+MTEXT
+  5
+1AF
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+705
+ 20
+828
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -13853,7 +13873,7 @@ ByLayer
 100
 AcDbCircle
  10
-704.5
+705
  20
 912
  40
@@ -13875,7 +13895,7 @@ ByLayer
 100
 AcDbMText
  10
-704.5
+705
  20
 912
  30
@@ -13883,13 +13903,13 @@ AcDbMText
  40
 2.5
  41
-3.611110581105738
+3.333333333333334
  71
     1
  72
     5
   1
-SP
+EP
   7
 standard
 210
@@ -13905,237 +13925,9 @@ standard
  44
 1
   0
-CIRCLE
+LINE
   5
 1B2
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-704.5
- 20
-912
- 40
-1
-  0
-MTEXT
-  5
-1B3
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-704.5
- 20
-912
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-1B4
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-705
- 20
-828
- 11
-705
- 21
-912
-  0
-CIRCLE
-  5
-1B5
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-705
- 20
-828
- 40
-1
-  0
-MTEXT
-  5
-1B6
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-705
- 20
-828
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1B7
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-705
- 20
-912
- 40
-1
-  0
-MTEXT
-  5
-1B8
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-705
- 20
-912
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-1B9
 100
 AcDbEntity
   8
@@ -14159,7 +13951,7 @@ AcDbLine
   0
 CIRCLE
   5
-1BA
+1B3
 100
 AcDbEntity
   8
@@ -14174,6 +13966,234 @@ ByLayer
 AcDbCircle
  10
 704.5
+ 20
+912
+ 40
+1
+  0
+MTEXT
+  5
+1B4
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+704.5
+ 20
+912
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+1B5
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+704.5
+ 20
+939
+ 40
+1
+  0
+MTEXT
+  5
+1B6
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+704.5
+ 20
+939
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+1B7
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+705
+ 20
+912
+ 11
+705
+ 21
+912
+  0
+CIRCLE
+  5
+1B8
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+705
+ 20
+912
+ 40
+1
+  0
+MTEXT
+  5
+1B9
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+705
+ 20
+912
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+1BA
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+705
  20
 912
  40
@@ -14195,7 +14215,99 @@ ByLayer
 100
 AcDbMText
  10
-704.5
+705
+ 20
+912
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+1BC
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+706.5
+ 20
+912
+ 11
+706.5
+ 21
+912
+  0
+CIRCLE
+  5
+1BD
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+706.5
+ 20
+912
+ 40
+1
+  0
+MTEXT
+  5
+1BE
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+706.5
  20
 912
  30
@@ -14227,98 +14339,6 @@ standard
   0
 CIRCLE
   5
-1BC
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-704.5
- 20
-939
- 40
-1
-  0
-MTEXT
-  5
-1BD
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-704.5
- 20
-939
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-1BE
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-705
- 20
-912
- 11
-705
- 21
-912
-  0
-CIRCLE
-  5
 1BF
 100
 AcDbEntity
@@ -14333,7 +14353,7 @@ ByLayer
 100
 AcDbCircle
  10
-705
+706.5
  20
 912
  40
@@ -14355,7 +14375,7 @@ ByLayer
 100
 AcDbMText
  10
-705
+706.5
  20
 912
  30
@@ -14363,13 +14383,13 @@ AcDbMText
  40
 2.5
  41
-3.611110581105738
+3.333333333333334
  71
     1
  72
     5
   1
-SP
+EP
   7
 standard
 210
@@ -14385,237 +14405,9 @@ standard
  44
 1
   0
-CIRCLE
+LINE
   5
 1C1
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-705
- 20
-912
- 40
-1
-  0
-MTEXT
-  5
-1C2
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-705
- 20
-912
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-1C3
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-706.5
- 20
-912
- 11
-706.5
- 21
-912
-  0
-CIRCLE
-  5
-1C4
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-706.5
- 20
-912
- 40
-1
-  0
-MTEXT
-  5
-1C5
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-706.5
- 20
-912
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1C6
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-706.5
- 20
-912
- 40
-1
-  0
-MTEXT
-  5
-1C7
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-706.5
- 20
-912
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-1C8
 100
 AcDbEntity
   8
@@ -14639,7 +14431,7 @@ AcDbLine
   0
 CIRCLE
   5
-1C9
+1C2
 100
 AcDbEntity
   8
@@ -14654,6 +14446,234 @@ ByLayer
 AcDbCircle
  10
 748.5
+ 20
+723
+ 40
+1
+  0
+MTEXT
+  5
+1C3
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+748.5
+ 20
+723
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+1C4
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+748.5
+ 20
+741
+ 40
+1
+  0
+MTEXT
+  5
+1C5
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+748.5
+ 20
+741
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+1C6
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+750
+ 20
+723
+ 11
+750
+ 21
+723
+  0
+CIRCLE
+  5
+1C7
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+750
+ 20
+723
+ 40
+1
+  0
+MTEXT
+  5
+1C8
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+750
+ 20
+723
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+1C9
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+750
  20
 723
  40
@@ -14675,77 +14695,9 @@ ByLayer
 100
 AcDbMText
  10
-748.5
+750
  20
 723
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1CB
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-748.5
- 20
-741
- 40
-1
-  0
-MTEXT
-  5
-1CC
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-748.5
- 20
-741
  30
 0
  40
@@ -14775,7 +14727,7 @@ standard
   0
 LINE
   5
-1CD
+1CB
 100
 AcDbEntity
   8
@@ -14789,13 +14741,81 @@ ByLayer
 100
 AcDbLine
  10
-750
+748.5
  20
-723
+752
  11
-750
+748.5
  21
-723
+777
+  0
+CIRCLE
+  5
+1CC
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+748.5
+ 20
+752
+ 40
+1
+  0
+MTEXT
+  5
+1CD
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+748.5
+ 20
+752
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -14813,9 +14833,9 @@ ByLayer
 100
 AcDbCircle
  10
-750
+748.5
  20
-723
+777
  40
 1
   0
@@ -14835,77 +14855,9 @@ ByLayer
 100
 AcDbMText
  10
-750
+748.5
  20
-723
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1D0
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-750
- 20
-723
- 40
-1
-  0
-MTEXT
-  5
-1D1
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-750
- 20
-723
+777
  30
 0
  40
@@ -14935,7 +14887,7 @@ standard
   0
 LINE
   5
-1D2
+1D0
 100
 AcDbEntity
   8
@@ -14949,13 +14901,81 @@ ByLayer
 100
 AcDbLine
  10
-748.5
+750
  20
-752
+777
  11
-748.5
+750
  21
 777
+  0
+CIRCLE
+  5
+1D1
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+750
+ 20
+777
+ 40
+1
+  0
+MTEXT
+  5
+1D2
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+750
+ 20
+777
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -14973,9 +14993,9 @@ ByLayer
 100
 AcDbCircle
  10
-748.5
+750
  20
-752
+777
  40
 1
   0
@@ -14995,75 +15015,7 @@ ByLayer
 100
 AcDbMText
  10
-748.5
- 20
-752
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1D5
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-748.5
- 20
-777
- 40
-1
-  0
-MTEXT
-  5
-1D6
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-748.5
+750
  20
 777
  30
@@ -15095,7 +15047,7 @@ standard
   0
 LINE
   5
-1D7
+1D5
 100
 AcDbEntity
   8
@@ -15109,13 +15061,81 @@ ByLayer
 100
 AcDbLine
  10
-750
+752.5
  20
-777
+723
  11
-750
+752.5
  21
-777
+723
+  0
+CIRCLE
+  5
+1D6
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+752.5
+ 20
+723
+ 40
+1
+  0
+MTEXT
+  5
+1D7
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+752.5
+ 20
+723
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -15133,9 +15153,9 @@ ByLayer
 100
 AcDbCircle
  10
-750
+752.5
  20
-777
+723
  40
 1
   0
@@ -15155,7 +15175,99 @@ ByLayer
 100
 AcDbMText
  10
-750
+752.5
+ 20
+723
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+1DA
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+752.5
+ 20
+777
+ 11
+752.5
+ 21
+777
+  0
+CIRCLE
+  5
+1DB
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+752.5
+ 20
+777
+ 40
+1
+  0
+MTEXT
+  5
+1DC
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+752.5
  20
 777
  30
@@ -15187,98 +15299,6 @@ standard
   0
 CIRCLE
   5
-1DA
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-750
- 20
-777
- 40
-1
-  0
-MTEXT
-  5
-1DB
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-750
- 20
-777
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-1DC
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-752.5
- 20
-723
- 11
-752.5
- 21
-723
-  0
-CIRCLE
-  5
 1DD
 100
 AcDbEntity
@@ -15295,7 +15315,7 @@ AcDbCircle
  10
 752.5
  20
-723
+777
  40
 1
   0
@@ -15317,75 +15337,7 @@ AcDbMText
  10
 752.5
  20
-723
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1DF
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-752.5
- 20
-723
- 40
-1
-  0
-MTEXT
-  5
-1E0
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-752.5
- 20
-723
+777
  30
 0
  40
@@ -15415,7 +15367,7 @@ standard
   0
 LINE
   5
-1E1
+1DF
 100
 AcDbEntity
   8
@@ -15429,13 +15381,81 @@ ByLayer
 100
 AcDbLine
  10
-752.5
+763
  20
-777
+718
  11
-752.5
+763
  21
-777
+723
+  0
+CIRCLE
+  5
+1E0
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+763
+ 20
+718
+ 40
+1
+  0
+MTEXT
+  5
+1E1
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+763
+ 20
+718
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -15453,9 +15473,9 @@ ByLayer
 100
 AcDbCircle
  10
-752.5
+763
  20
-777
+723
  40
 1
   0
@@ -15475,77 +15495,9 @@ ByLayer
 100
 AcDbMText
  10
-752.5
+763
  20
-777
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1E4
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-752.5
- 20
-777
- 40
-1
-  0
-MTEXT
-  5
-1E5
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-752.5
- 20
-777
+723
  30
 0
  40
@@ -15575,7 +15527,7 @@ standard
   0
 LINE
   5
-1E6
+1E4
 100
 AcDbEntity
   8
@@ -15591,11 +15543,79 @@ AcDbLine
  10
 763
  20
-718
+781
  11
 763
  21
-723
+777
+  0
+CIRCLE
+  5
+1E5
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+763
+ 20
+781
+ 40
+1
+  0
+MTEXT
+  5
+1E6
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+763
+ 20
+781
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -15615,7 +15635,7 @@ AcDbCircle
  10
 763
  20
-718
+777
  40
 1
   0
@@ -15637,75 +15657,7 @@ AcDbMText
  10
 763
  20
-718
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1E9
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-763
- 20
-723
- 40
-1
-  0
-MTEXT
-  5
-1EA
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-763
- 20
-723
+777
  30
 0
  40
@@ -15735,7 +15687,7 @@ standard
   0
 LINE
   5
-1EB
+1E9
 100
 AcDbEntity
   8
@@ -15749,13 +15701,81 @@ ByLayer
 100
 AcDbLine
  10
-763
+772.5
  20
-781
+399
  11
-763
+772.5
  21
-777
+399
+  0
+CIRCLE
+  5
+1EA
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+772.5
+ 20
+399
+ 40
+1
+  0
+MTEXT
+  5
+1EB
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+772.5
+ 20
+399
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -15773,9 +15793,9 @@ ByLayer
 100
 AcDbCircle
  10
-763
+772.5
  20
-781
+399
  40
 1
   0
@@ -15795,77 +15815,9 @@ ByLayer
 100
 AcDbMText
  10
-763
+772.5
  20
-781
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1EE
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-763
- 20
-777
- 40
-1
-  0
-MTEXT
-  5
-1EF
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-763
- 20
-777
+399
  30
 0
  40
@@ -15895,7 +15847,7 @@ standard
   0
 LINE
   5
-1F0
+1EE
 100
 AcDbEntity
   8
@@ -15909,13 +15861,81 @@ ByLayer
 100
 AcDbLine
  10
-772.5
+777
  20
-399
+390
  11
-772.5
+777
  21
 399
+  0
+CIRCLE
+  5
+1EF
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+777
+ 20
+390
+ 40
+1
+  0
+MTEXT
+  5
+1F0
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+777
+ 20
+390
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -15933,7 +15953,7 @@ ByLayer
 100
 AcDbCircle
  10
-772.5
+777
  20
 399
  40
@@ -15955,75 +15975,7 @@ ByLayer
 100
 AcDbMText
  10
-772.5
- 20
-399
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1F3
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-772.5
- 20
-399
- 40
-1
-  0
-MTEXT
-  5
-1F4
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-772.5
+777
  20
 399
  30
@@ -16055,7 +16007,7 @@ standard
   0
 LINE
   5
-1F5
+1F3
 100
 AcDbEntity
   8
@@ -16069,13 +16021,81 @@ ByLayer
 100
 AcDbLine
  10
-777
+773.5
  20
-390
+718
  11
-777
+773.5
  21
-399
+718
+  0
+CIRCLE
+  5
+1F4
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+773.5
+ 20
+718
+ 40
+1
+  0
+MTEXT
+  5
+1F5
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+773.5
+ 20
+718
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -16093,9 +16113,9 @@ ByLayer
 100
 AcDbCircle
  10
-777
+773.5
  20
-390
+718
  40
 1
   0
@@ -16115,77 +16135,9 @@ ByLayer
 100
 AcDbMText
  10
-777
+773.5
  20
-390
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-1F8
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-777
- 20
-399
- 40
-1
-  0
-MTEXT
-  5
-1F9
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-777
- 20
-399
+718
  30
 0
  40
@@ -16215,7 +16167,7 @@ standard
   0
 LINE
   5
-1FA
+1F8
 100
 AcDbEntity
   8
@@ -16231,11 +16183,79 @@ AcDbLine
  10
 773.5
  20
-718
+723
  11
 773.5
  21
-718
+723
+  0
+CIRCLE
+  5
+1F9
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+773.5
+ 20
+723
+ 40
+1
+  0
+MTEXT
+  5
+1FA
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+773.5
+ 20
+723
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -16255,7 +16275,7 @@ AcDbCircle
  10
 773.5
  20
-718
+723
  40
 1
   0
@@ -16277,6 +16297,98 @@ AcDbMText
  10
 773.5
  20
+723
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+1FD
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+778
+ 20
+718
+ 11
+778
+ 21
+723
+  0
+CIRCLE
+  5
+1FE
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+778
+ 20
+718
+ 40
+1
+  0
+MTEXT
+  5
+1FF
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+778
+ 20
 718
  30
 0
@@ -16307,98 +16419,6 @@ standard
   0
 CIRCLE
   5
-1FD
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-773.5
- 20
-718
- 40
-1
-  0
-MTEXT
-  5
-1FE
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-773.5
- 20
-718
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-1FF
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-773.5
- 20
-723
- 11
-773.5
- 21
-723
-  0
-CIRCLE
-  5
 200
 100
 AcDbEntity
@@ -16413,7 +16433,7 @@ ByLayer
 100
 AcDbCircle
  10
-773.5
+778
  20
 723
  40
@@ -16435,75 +16455,7 @@ ByLayer
 100
 AcDbMText
  10
-773.5
- 20
-723
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-202
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-773.5
- 20
-723
- 40
-1
-  0
-MTEXT
-  5
-203
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-773.5
+778
  20
 723
  30
@@ -16535,7 +16487,7 @@ standard
   0
 LINE
   5
-204
+202
 100
 AcDbEntity
   8
@@ -16549,13 +16501,81 @@ ByLayer
 100
 AcDbLine
  10
-778
+773.5
  20
-718
+777
  11
-778
+773.5
  21
-723
+777
+  0
+CIRCLE
+  5
+203
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+773.5
+ 20
+777
+ 40
+1
+  0
+MTEXT
+  5
+204
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+773.5
+ 20
+777
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -16573,9 +16593,9 @@ ByLayer
 100
 AcDbCircle
  10
-778
+773.5
  20
-718
+777
  40
 1
   0
@@ -16595,77 +16615,9 @@ ByLayer
 100
 AcDbMText
  10
-778
+773.5
  20
-718
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-207
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-778
- 20
-723
- 40
-1
-  0
-MTEXT
-  5
-208
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-778
- 20
-723
+777
  30
 0
  40
@@ -16695,7 +16647,7 @@ standard
   0
 LINE
   5
-209
+207
 100
 AcDbEntity
   8
@@ -16711,11 +16663,79 @@ AcDbLine
  10
 773.5
  20
-777
+781
  11
 773.5
  21
-777
+781
+  0
+CIRCLE
+  5
+208
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+773.5
+ 20
+781
+ 40
+1
+  0
+MTEXT
+  5
+209
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+773.5
+ 20
+781
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -16735,7 +16755,7 @@ AcDbCircle
  10
 773.5
  20
-777
+781
  40
 1
   0
@@ -16757,75 +16777,7 @@ AcDbMText
  10
 773.5
  20
-777
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-20C
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-773.5
- 20
-777
- 40
-1
-  0
-MTEXT
-  5
-20D
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-773.5
- 20
-777
+781
  30
 0
  40
@@ -16855,7 +16807,7 @@ standard
   0
 LINE
   5
-20E
+20C
 100
 AcDbEntity
   8
@@ -16869,13 +16821,81 @@ ByLayer
 100
 AcDbLine
  10
-773.5
+778
  20
 781
  11
-773.5
+778
  21
+777
+  0
+CIRCLE
+  5
+20D
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+778
+ 20
 781
+ 40
+1
+  0
+MTEXT
+  5
+20E
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+778
+ 20
+781
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -16893,9 +16913,9 @@ ByLayer
 100
 AcDbCircle
  10
-773.5
+778
  20
-781
+777
  40
 1
   0
@@ -16915,21 +16935,21 @@ ByLayer
 100
 AcDbMText
  10
-773.5
+778
  20
-781
+777
  30
 0
  40
 2.5
  41
-3.611110581105738
+3.333333333333334
  71
     1
  72
     5
   1
-SP
+EP
   7
 standard
 210
@@ -16945,237 +16965,9 @@ standard
  44
 1
   0
-CIRCLE
+LINE
   5
 211
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-773.5
- 20
-781
- 40
-1
-  0
-MTEXT
-  5
-212
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-773.5
- 20
-781
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-213
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-778
- 20
-781
- 11
-778
- 21
-777
-  0
-CIRCLE
-  5
-214
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-778
- 20
-781
- 40
-1
-  0
-MTEXT
-  5
-215
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-778
- 20
-781
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-216
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-778
- 20
-777
- 40
-1
-  0
-MTEXT
-  5
-217
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-778
- 20
-777
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-218
 100
 AcDbEntity
   8
@@ -17199,7 +16991,7 @@ AcDbLine
   0
 CIRCLE
   5
-219
+212
 100
 AcDbEntity
   8
@@ -17216,6 +17008,234 @@ AcDbCircle
 779.5
  20
 441
+ 40
+1
+  0
+MTEXT
+  5
+213
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+779.5
+ 20
+441
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+214
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+779.5
+ 20
+399
+ 40
+1
+  0
+MTEXT
+  5
+215
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+779.5
+ 20
+399
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+216
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+779.5
+ 20
+450
+ 11
+779.5
+ 21
+640
+  0
+CIRCLE
+  5
+217
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+779.5
+ 20
+450
+ 40
+1
+  0
+MTEXT
+  5
+218
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+779.5
+ 20
+450
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+219
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+779.5
+ 20
+640
  40
 1
   0
@@ -17237,75 +17257,7 @@ AcDbMText
  10
 779.5
  20
-441
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-21B
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-779.5
- 20
-399
- 40
-1
-  0
-MTEXT
-  5
-21C
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-779.5
- 20
-399
+640
  30
 0
  40
@@ -17335,7 +17287,7 @@ standard
   0
 LINE
   5
-21D
+21B
 100
 AcDbEntity
   8
@@ -17351,11 +17303,79 @@ AcDbLine
  10
 779.5
  20
-450
+645
  11
 779.5
  21
-640
+718
+  0
+CIRCLE
+  5
+21C
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+779.5
+ 20
+645
+ 40
+1
+  0
+MTEXT
+  5
+21D
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+779.5
+ 20
+645
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -17375,7 +17395,7 @@ AcDbCircle
  10
 779.5
  20
-450
+718
  40
 1
   0
@@ -17397,75 +17417,7 @@ AcDbMText
  10
 779.5
  20
-450
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-220
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-779.5
- 20
-640
- 40
-1
-  0
-MTEXT
-  5
-221
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-779.5
- 20
-640
+718
  30
 0
  40
@@ -17495,7 +17447,7 @@ standard
   0
 LINE
   5
-222
+220
 100
 AcDbEntity
   8
@@ -17511,11 +17463,79 @@ AcDbLine
  10
 779.5
  20
-645
+723
  11
 779.5
  21
-718
+741
+  0
+CIRCLE
+  5
+221
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+779.5
+ 20
+723
+ 40
+1
+  0
+MTEXT
+  5
+222
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+779.5
+ 20
+723
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -17535,7 +17555,7 @@ AcDbCircle
  10
 779.5
  20
-645
+741
  40
 1
   0
@@ -17557,75 +17577,7 @@ AcDbMText
  10
 779.5
  20
-645
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-225
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-779.5
- 20
-718
- 40
-1
-  0
-MTEXT
-  5
-226
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-779.5
- 20
-718
+741
  30
 0
  40
@@ -17655,7 +17607,7 @@ standard
   0
 LINE
   5
-227
+225
 100
 AcDbEntity
   8
@@ -17671,11 +17623,79 @@ AcDbLine
  10
 779.5
  20
-723
+777
  11
 779.5
  21
-741
+759
+  0
+CIRCLE
+  5
+226
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+779.5
+ 20
+777
+ 40
+1
+  0
+MTEXT
+  5
+227
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+779.5
+ 20
+777
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -17695,7 +17715,7 @@ AcDbCircle
  10
 779.5
  20
-723
+759
  40
 1
   0
@@ -17717,75 +17737,7 @@ AcDbMText
  10
 779.5
  20
-723
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-22A
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-779.5
- 20
-741
- 40
-1
-  0
-MTEXT
-  5
-22B
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-779.5
- 20
-741
+759
  30
 0
  40
@@ -17815,7 +17767,7 @@ standard
   0
 LINE
   5
-22C
+22A
 100
 AcDbEntity
   8
@@ -17831,11 +17783,79 @@ AcDbLine
  10
 779.5
  20
-777
+781
  11
 779.5
  21
-759
+882
+  0
+CIRCLE
+  5
+22B
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+779.5
+ 20
+781
+ 40
+1
+  0
+MTEXT
+  5
+22C
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+779.5
+ 20
+781
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -17855,7 +17875,7 @@ AcDbCircle
  10
 779.5
  20
-777
+882
  40
 1
   0
@@ -17877,75 +17897,7 @@ AcDbMText
  10
 779.5
  20
-777
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-22F
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-779.5
- 20
-759
- 40
-1
-  0
-MTEXT
-  5
-230
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-779.5
- 20
-759
+882
  30
 0
  40
@@ -17975,7 +17927,7 @@ standard
   0
 LINE
   5
-231
+22F
 100
 AcDbEntity
   8
@@ -17991,11 +17943,79 @@ AcDbLine
  10
 779.5
  20
-781
+886
  11
 779.5
  21
-882
+972
+  0
+CIRCLE
+  5
+230
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+779.5
+ 20
+886
+ 40
+1
+  0
+MTEXT
+  5
+231
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+779.5
+ 20
+886
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -18015,7 +18035,7 @@ AcDbCircle
  10
 779.5
  20
-781
+972
  40
 1
   0
@@ -18037,75 +18057,7 @@ AcDbMText
  10
 779.5
  20
-781
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-234
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-779.5
- 20
-882
- 40
-1
-  0
-MTEXT
-  5
-235
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-779.5
- 20
-882
+972
  30
 0
  40
@@ -18135,7 +18087,7 @@ standard
   0
 LINE
   5
-236
+234
 100
 AcDbEntity
   8
@@ -18149,13 +18101,81 @@ ByLayer
 100
 AcDbLine
  10
-779.5
+337
  20
-886
+541.5
  11
-779.5
+528
  21
-972
+541.5
+  0
+CIRCLE
+  5
+235
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+337
+ 20
+541.5
+ 40
+1
+  0
+MTEXT
+  5
+236
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+337
+ 20
+541.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -18173,9 +18193,9 @@ ByLayer
 100
 AcDbCircle
  10
-779.5
+528
  20
-886
+541.5
  40
 1
   0
@@ -18195,77 +18215,9 @@ ByLayer
 100
 AcDbMText
  10
-779.5
+528
  20
-886
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-239
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-779.5
- 20
-972
- 40
-1
-  0
-MTEXT
-  5
-23A
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-779.5
- 20
-972
+541.5
  30
 0
  40
@@ -18295,7 +18247,7 @@ standard
   0
 LINE
   5
-23B
+239
 100
 AcDbEntity
   8
@@ -18311,11 +18263,79 @@ AcDbLine
  10
 337
  20
-541.5
+976.5
  11
-528
+464
  21
-541.5
+976.5
+  0
+CIRCLE
+  5
+23A
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+337
+ 20
+976.5
+ 40
+1
+  0
+MTEXT
+  5
+23B
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+337
+ 20
+976.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -18333,9 +18353,9 @@ ByLayer
 100
 AcDbCircle
  10
-337
+464
  20
-541.5
+976.5
  40
 1
   0
@@ -18355,77 +18375,9 @@ ByLayer
 100
 AcDbMText
  10
-337
+464
  20
-541.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-23E
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-528
- 20
-541.5
- 40
-1
-  0
-MTEXT
-  5
-23F
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-528
- 20
-541.5
+976.5
  30
 0
  40
@@ -18455,7 +18407,7 @@ standard
   0
 LINE
   5
-240
+23E
 100
 AcDbEntity
   8
@@ -18471,11 +18423,79 @@ AcDbLine
  10
 337
  20
-976.5
+825.5
  11
-464
+512
  21
-976.5
+825.5
+  0
+CIRCLE
+  5
+23F
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+337
+ 20
+825.5
+ 40
+1
+  0
+MTEXT
+  5
+240
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+337
+ 20
+825.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -18493,9 +18513,9 @@ ByLayer
 100
 AcDbCircle
  10
-337
+512
  20
-976.5
+825.5
  40
 1
   0
@@ -18515,7 +18535,99 @@ ByLayer
 100
 AcDbMText
  10
-337
+512
+ 20
+825.5
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+243
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+505
+ 20
+976.5
+ 11
+554
+ 21
+976.5
+  0
+CIRCLE
+  5
+244
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+505
+ 20
+976.5
+ 40
+1
+  0
+MTEXT
+  5
+245
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+505
  20
 976.5
  30
@@ -18547,98 +18659,6 @@ standard
   0
 CIRCLE
   5
-243
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-464
- 20
-976.5
- 40
-1
-  0
-MTEXT
-  5
-244
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-464
- 20
-976.5
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-245
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-337
- 20
-825.5
- 11
-512
- 21
-825.5
-  0
-CIRCLE
-  5
 246
 100
 AcDbEntity
@@ -18653,9 +18673,9 @@ ByLayer
 100
 AcDbCircle
  10
-337
+554
  20
-825.5
+976.5
  40
 1
   0
@@ -18675,77 +18695,9 @@ ByLayer
 100
 AcDbMText
  10
-337
+554
  20
-825.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-248
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-512
- 20
-825.5
- 40
-1
-  0
-MTEXT
-  5
-249
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-512
- 20
-825.5
+976.5
  30
 0
  40
@@ -18775,7 +18727,7 @@ standard
   0
 LINE
   5
-24A
+248
 100
 AcDbEntity
   8
@@ -18789,13 +18741,81 @@ ByLayer
 100
 AcDbLine
  10
-505
+517
  20
-976.5
+878
  11
 554
  21
-976.5
+878
+  0
+CIRCLE
+  5
+249
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+517
+ 20
+878
+ 40
+1
+  0
+MTEXT
+  5
+24A
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+517
+ 20
+878
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -18813,9 +18833,9 @@ ByLayer
 100
 AcDbCircle
  10
-505
+554
  20
-976.5
+878
  40
 1
   0
@@ -18835,77 +18855,9 @@ ByLayer
 100
 AcDbMText
  10
-505
- 20
-976.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-24D
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
 554
  20
-976.5
- 40
-1
-  0
-MTEXT
-  5
-24E
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-554
- 20
-976.5
+878
  30
 0
  40
@@ -18935,7 +18887,7 @@ standard
   0
 LINE
   5
-24F
+24D
 100
 AcDbEntity
   8
@@ -18949,13 +18901,81 @@ ByLayer
 100
 AcDbLine
  10
-517
+558
  20
-878
+541.5
  11
-554
+614
  21
-878
+541.5
+  0
+CIRCLE
+  5
+24E
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+558
+ 20
+541.5
+ 40
+1
+  0
+MTEXT
+  5
+24F
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+558
+ 20
+541.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -18973,9 +18993,9 @@ ByLayer
 100
 AcDbCircle
  10
-517
+614
  20
-878
+541.5
  40
 1
   0
@@ -18995,77 +19015,9 @@ ByLayer
 100
 AcDbMText
  10
-517
+614
  20
-878
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-252
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-554
- 20
-878
- 40
-1
-  0
-MTEXT
-  5
-253
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-554
- 20
-878
+541.5
  30
 0
  40
@@ -19095,7 +19047,7 @@ standard
   0
 LINE
   5
-254
+252
 100
 AcDbEntity
   8
@@ -19109,13 +19061,81 @@ ByLayer
 100
 AcDbLine
  10
-558
+601
  20
-541.5
+825.5
  11
-614
+703
  21
-541.5
+825.5
+  0
+CIRCLE
+  5
+253
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+601
+ 20
+825.5
+ 40
+1
+  0
+MTEXT
+  5
+254
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+601
+ 20
+825.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -19133,9 +19153,9 @@ ByLayer
 100
 AcDbCircle
  10
-558
+703
  20
-541.5
+825.5
  40
 1
   0
@@ -19155,77 +19175,9 @@ ByLayer
 100
 AcDbMText
  10
-558
+703
  20
-541.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-257
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-614
- 20
-541.5
- 40
-1
-  0
-MTEXT
-  5
-258
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-614
- 20
-541.5
+825.5
  30
 0
  40
@@ -19255,7 +19207,7 @@ standard
   0
 LINE
   5
-259
+257
 100
 AcDbEntity
   8
@@ -19271,11 +19223,79 @@ AcDbLine
  10
 601
  20
-825.5
+976.5
  11
-703
+775
  21
-825.5
+976.5
+  0
+CIRCLE
+  5
+258
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+601
+ 20
+976.5
+ 40
+1
+  0
+MTEXT
+  5
+259
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+601
+ 20
+976.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -19293,9 +19313,9 @@ ByLayer
 100
 AcDbCircle
  10
-601
+775
  20
-825.5
+976.5
  40
 1
   0
@@ -19315,21 +19335,21 @@ ByLayer
 100
 AcDbMText
  10
-601
+775
  20
-825.5
+976.5
  30
 0
  40
 2.5
  41
-3.611110581105738
+3.333333333333334
  71
     1
  72
     5
   1
-SP
+EP
   7
 standard
 210
@@ -19345,237 +19365,9 @@ standard
  44
 1
   0
-CIRCLE
+LINE
   5
 25C
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-703
- 20
-825.5
- 40
-1
-  0
-MTEXT
-  5
-25D
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-703
- 20
-825.5
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-25E
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-601
- 20
-976.5
- 11
-775
- 21
-976.5
-  0
-CIRCLE
-  5
-25F
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-601
- 20
-976.5
- 40
-1
-  0
-MTEXT
-  5
-260
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-601
- 20
-976.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-261
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-775
- 20
-976.5
- 40
-1
-  0
-MTEXT
-  5
-262
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-775
- 20
-976.5
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-263
 100
 AcDbEntity
   8
@@ -19599,7 +19391,7 @@ AcDbLine
   0
 CIRCLE
   5
-264
+25D
 100
 AcDbEntity
   8
@@ -19614,6 +19406,234 @@ ByLayer
 AcDbCircle
  10
 619
+ 20
+445.5
+ 40
+1
+  0
+MTEXT
+  5
+25E
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+619
+ 20
+445.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+25F
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+642
+ 20
+445.5
+ 40
+1
+  0
+MTEXT
+  5
+260
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+642
+ 20
+445.5
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+261
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+646
+ 20
+445.5
+ 11
+661
+ 21
+445.5
+  0
+CIRCLE
+  5
+262
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+646
+ 20
+445.5
+ 40
+1
+  0
+MTEXT
+  5
+263
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+646
+ 20
+445.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+264
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+661
  20
 445.5
  40
@@ -19635,75 +19655,7 @@ ByLayer
 100
 AcDbMText
  10
-619
- 20
-445.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-266
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-642
- 20
-445.5
- 40
-1
-  0
-MTEXT
-  5
-267
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-642
+661
  20
 445.5
  30
@@ -19735,7 +19687,7 @@ standard
   0
 LINE
   5
-268
+266
 100
 AcDbEntity
   8
@@ -19751,11 +19703,79 @@ AcDbLine
  10
 646
  20
-445.5
+394.5
  11
-661
+651
  21
-445.5
+394.5
+  0
+CIRCLE
+  5
+267
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+646
+ 20
+394.5
+ 40
+1
+  0
+MTEXT
+  5
+268
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+646
+ 20
+394.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -19773,9 +19793,9 @@ ByLayer
 100
 AcDbCircle
  10
-646
+651
  20
-445.5
+394.5
  40
 1
   0
@@ -19795,77 +19815,9 @@ ByLayer
 100
 AcDbMText
  10
-646
+651
  20
-445.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-26B
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-661
- 20
-445.5
- 40
-1
-  0
-MTEXT
-  5
-26C
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-661
- 20
-445.5
+394.5
  30
 0
  40
@@ -19895,7 +19847,7 @@ standard
   0
 LINE
   5
-26D
+26B
 100
 AcDbEntity
   8
@@ -19909,13 +19861,81 @@ ByLayer
 100
 AcDbLine
  10
-646
+661
  20
-394.5
+642.5
  11
-651
+674
  21
-394.5
+642.5
+  0
+CIRCLE
+  5
+26C
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+661
+ 20
+642.5
+ 40
+1
+  0
+MTEXT
+  5
+26D
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+661
+ 20
+642.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -19933,9 +19953,9 @@ ByLayer
 100
 AcDbCircle
  10
-646
+674
  20
-394.5
+642.5
  40
 1
   0
@@ -19955,77 +19975,9 @@ ByLayer
 100
 AcDbMText
  10
-646
+674
  20
-394.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-270
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-651
- 20
-394.5
- 40
-1
-  0
-MTEXT
-  5
-271
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-651
- 20
-394.5
+642.5
  30
 0
  40
@@ -20055,7 +20007,7 @@ standard
   0
 LINE
   5
-272
+270
 100
 AcDbEntity
   8
@@ -20069,13 +20021,81 @@ ByLayer
 100
 AcDbLine
  10
-661
+679
  20
-642.5
+720.5
  11
-674
+746
  21
-642.5
+720.5
+  0
+CIRCLE
+  5
+271
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+679
+ 20
+720.5
+ 40
+1
+  0
+MTEXT
+  5
+272
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+679
+ 20
+720.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -20093,9 +20113,9 @@ ByLayer
 100
 AcDbCircle
  10
-661
+746
  20
-642.5
+720.5
  40
 1
   0
@@ -20115,77 +20135,9 @@ ByLayer
 100
 AcDbMText
  10
-661
+746
  20
-642.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-275
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-674
- 20
-642.5
- 40
-1
-  0
-MTEXT
-  5
-276
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-674
- 20
-642.5
+720.5
  30
 0
  40
@@ -20215,7 +20167,7 @@ standard
   0
 LINE
   5
-277
+275
 100
 AcDbEntity
   8
@@ -20229,13 +20181,81 @@ ByLayer
 100
 AcDbLine
  10
-679
+746
  20
-720.5
+732
  11
 746
  21
-720.5
+732
+  0
+CIRCLE
+  5
+276
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+746
+ 20
+732
+ 40
+1
+  0
+MTEXT
+  5
+277
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+746
+ 20
+732
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -20253,9 +20273,9 @@ ByLayer
 100
 AcDbCircle
  10
-679
+746
  20
-720.5
+732
  40
 1
   0
@@ -20275,21 +20295,21 @@ ByLayer
 100
 AcDbMText
  10
-679
+746
  20
-720.5
+732
  30
 0
  40
 2.5
  41
-3.611110581105738
+3.333333333333334
  71
     1
  72
     5
   1
-SP
+EP
   7
 standard
 210
@@ -20305,237 +20325,9 @@ standard
  44
 1
   0
-CIRCLE
+LINE
   5
 27A
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-746
- 20
-720.5
- 40
-1
-  0
-MTEXT
-  5
-27B
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-746
- 20
-720.5
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-27C
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-746
- 20
-732
- 11
-746
- 21
-732
-  0
-CIRCLE
-  5
-27D
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-746
- 20
-732
- 40
-1
-  0
-MTEXT
-  5
-27E
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-746
- 20
-732
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-27F
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-746
- 20
-732
- 40
-1
-  0
-MTEXT
-  5
-280
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-746
- 20
-732
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-281
 100
 AcDbEntity
   8
@@ -20559,7 +20351,7 @@ AcDbLine
   0
 CIRCLE
   5
-282
+27B
 100
 AcDbEntity
   8
@@ -20574,6 +20366,234 @@ ByLayer
 AcDbCircle
  10
 674
+ 20
+779
+ 40
+1
+  0
+MTEXT
+  5
+27C
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+674
+ 20
+779
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+27D
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+703
+ 20
+779
+ 40
+1
+  0
+MTEXT
+  5
+27E
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+703
+ 20
+779
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+27F
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+707
+ 20
+779
+ 11
+746
+ 21
+779
+  0
+CIRCLE
+  5
+280
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+707
+ 20
+779
+ 40
+1
+  0
+MTEXT
+  5
+281
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+707
+ 20
+779
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+CIRCLE
+  5
+282
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+746
  20
 779
  40
@@ -20595,75 +20615,7 @@ ByLayer
 100
 AcDbMText
  10
-674
- 20
-779
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-284
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-703
- 20
-779
- 40
-1
-  0
-MTEXT
-  5
-285
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-703
+746
  20
 779
  30
@@ -20695,7 +20647,7 @@ standard
   0
 LINE
   5
-286
+284
 100
 AcDbEntity
   8
@@ -20709,13 +20661,81 @@ ByLayer
 100
 AcDbLine
  10
-707
+751
  20
-779
+720.5
  11
-746
+754
  21
-779
+720.5
+  0
+CIRCLE
+  5
+285
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+751
+ 20
+720.5
+ 40
+1
+  0
+MTEXT
+  5
+286
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+751
+ 20
+720.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -20733,9 +20753,9 @@ ByLayer
 100
 AcDbCircle
  10
-707
+754
  20
-779
+720.5
  40
 1
   0
@@ -20755,77 +20775,9 @@ ByLayer
 100
 AcDbMText
  10
-707
+754
  20
-779
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-289
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-746
- 20
-779
- 40
-1
-  0
-MTEXT
-  5
-28A
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-746
- 20
-779
+720.5
  30
 0
  40
@@ -20855,7 +20807,7 @@ standard
   0
 LINE
   5
-28B
+289
 100
 AcDbEntity
   8
@@ -20869,13 +20821,81 @@ ByLayer
 100
 AcDbLine
  10
-751
+691
  20
-720.5
+445.5
  11
-754
+700
  21
-720.5
+445.5
+  0
+CIRCLE
+  5
+28A
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+691
+ 20
+445.5
+ 40
+1
+  0
+MTEXT
+  5
+28B
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+691
+ 20
+445.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -20893,9 +20913,9 @@ ByLayer
 100
 AcDbCircle
  10
-751
+700
  20
-720.5
+445.5
  40
 1
   0
@@ -20915,77 +20935,9 @@ ByLayer
 100
 AcDbMText
  10
-751
+700
  20
-720.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-28E
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-754
- 20
-720.5
- 40
-1
-  0
-MTEXT
-  5
-28F
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-754
- 20
-720.5
+445.5
  30
 0
  40
@@ -21015,7 +20967,7 @@ standard
   0
 LINE
   5
-290
+28E
 100
 AcDbEntity
   8
@@ -21029,13 +20981,81 @@ ByLayer
 100
 AcDbLine
  10
-691
+751
  20
-445.5
+779
  11
-700
+754
  21
-445.5
+779
+  0
+CIRCLE
+  5
+28F
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+751
+ 20
+779
+ 40
+1
+  0
+MTEXT
+  5
+290
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+751
+ 20
+779
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -21053,9 +21073,9 @@ ByLayer
 100
 AcDbCircle
  10
-691
+754
  20
-445.5
+779
  40
 1
   0
@@ -21075,77 +21095,9 @@ ByLayer
 100
 AcDbMText
  10
-691
+754
  20
-445.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-293
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-700
- 20
-445.5
- 40
-1
-  0
-MTEXT
-  5
-294
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-700
- 20
-445.5
+779
  30
 0
  40
@@ -21175,7 +21127,7 @@ standard
   0
 LINE
   5
-295
+293
 100
 AcDbEntity
   8
@@ -21189,13 +21141,81 @@ ByLayer
 100
 AcDbLine
  10
-751
+709
  20
-779
+642.5
  11
-754
+775
  21
-779
+642.5
+  0
+CIRCLE
+  5
+294
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+709
+ 20
+642.5
+ 40
+1
+  0
+MTEXT
+  5
+295
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+709
+ 20
+642.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -21213,9 +21233,9 @@ ByLayer
 100
 AcDbCircle
  10
-751
+775
  20
-779
+642.5
  40
 1
   0
@@ -21235,77 +21255,9 @@ ByLayer
 100
 AcDbMText
  10
-751
+775
  20
-779
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-298
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-754
- 20
-779
- 40
-1
-  0
-MTEXT
-  5
-299
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-754
- 20
-779
+642.5
  30
 0
  40
@@ -21335,7 +21287,7 @@ standard
   0
 LINE
   5
-29A
+298
 100
 AcDbEntity
   8
@@ -21349,13 +21301,81 @@ ByLayer
 100
 AcDbLine
  10
-709
+718
  20
-642.5
+445.5
  11
 775
  21
-642.5
+445.5
+  0
+CIRCLE
+  5
+299
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+718
+ 20
+445.5
+ 40
+1
+  0
+MTEXT
+  5
+29A
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+718
+ 20
+445.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -21373,9 +21393,9 @@ ByLayer
 100
 AcDbCircle
  10
-709
+775
  20
-642.5
+445.5
  40
 1
   0
@@ -21395,77 +21415,9 @@ ByLayer
 100
 AcDbMText
  10
-709
- 20
-642.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-29D
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
 775
  20
-642.5
- 40
-1
-  0
-MTEXT
-  5
-29E
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-775
- 20
-642.5
+445.5
  30
 0
  40
@@ -21495,7 +21447,7 @@ standard
   0
 LINE
   5
-29F
+29D
 100
 AcDbEntity
   8
@@ -21509,13 +21461,81 @@ ByLayer
 100
 AcDbLine
  10
-718
+737
  20
-445.5
+884
  11
 775
  21
-445.5
+884
+  0
+CIRCLE
+  5
+29E
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+737
+ 20
+884
+ 40
+1
+  0
+MTEXT
+  5
+29F
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+737
+ 20
+884
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -21533,9 +21553,9 @@ ByLayer
 100
 AcDbCircle
  10
-718
+775
  20
-445.5
+884
  40
 1
   0
@@ -21555,77 +21575,9 @@ ByLayer
 100
 AcDbMText
  10
-718
- 20
-445.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-2A2
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
 775
  20
-445.5
- 40
-1
-  0
-MTEXT
-  5
-2A3
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-775
- 20
-445.5
+884
  30
 0
  40
@@ -21655,7 +21607,7 @@ standard
   0
 LINE
   5
-2A4
+2A2
 100
 AcDbEntity
   8
@@ -21669,13 +21621,81 @@ ByLayer
 100
 AcDbLine
  10
-737
+746
  20
-884
+746.5
  11
-775
+751
  21
-884
+746.5
+  0
+CIRCLE
+  5
+2A3
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+746
+ 20
+746.5
+ 40
+1
+  0
+MTEXT
+  5
+2A4
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+746
+ 20
+746.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -21693,9 +21713,9 @@ ByLayer
 100
 AcDbCircle
  10
-737
+751
  20
-884
+746.5
  40
 1
   0
@@ -21715,77 +21735,9 @@ ByLayer
 100
 AcDbMText
  10
-737
+751
  20
-884
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-2A7
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-775
- 20
-884
- 40
-1
-  0
-MTEXT
-  5
-2A8
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-775
- 20
-884
+746.5
  30
 0
  40
@@ -21815,7 +21767,7 @@ standard
   0
 LINE
   5
-2A9
+2A7
 100
 AcDbEntity
   8
@@ -21829,13 +21781,81 @@ ByLayer
 100
 AcDbLine
  10
-746
+751
  20
-746.5
+732
  11
-750
+751
  21
-746.5
+732
+  0
+CIRCLE
+  5
+2A8
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+751
+ 20
+732
+ 40
+1
+  0
+MTEXT
+  5
+2A9
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+751
+ 20
+732
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -21853,9 +21873,9 @@ ByLayer
 100
 AcDbCircle
  10
-746
+751
  20
-746.5
+732
  40
 1
   0
@@ -21875,77 +21895,9 @@ ByLayer
 100
 AcDbMText
  10
-746
+751
  20
-746.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-2AC
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-750
- 20
-746.5
- 40
-1
-  0
-MTEXT
-  5
-2AD
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-750
- 20
-746.5
+732
  30
 0
  40
@@ -21975,7 +21927,7 @@ standard
   0
 LINE
   5
-2AE
+2AC
 100
 AcDbEntity
   8
@@ -21989,13 +21941,81 @@ ByLayer
 100
 AcDbLine
  10
-750
+770
  20
-746.5
+394.5
  11
-751
+775
  21
-746.5
+394.5
+  0
+CIRCLE
+  5
+2AD
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+770
+ 20
+394.5
+ 40
+1
+  0
+MTEXT
+  5
+2AE
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+770
+ 20
+394.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -22013,9 +22033,9 @@ ByLayer
 100
 AcDbCircle
  10
-750
+775
  20
-746.5
+394.5
  40
 1
   0
@@ -22035,77 +22055,9 @@ ByLayer
 100
 AcDbMText
  10
-750
+775
  20
-746.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-2B1
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-751
- 20
-746.5
- 40
-1
-  0
-MTEXT
-  5
-2B2
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-751
- 20
-746.5
+394.5
  30
 0
  40
@@ -22135,7 +22087,7 @@ standard
   0
 LINE
   5
-2B3
+2B1
 100
 AcDbEntity
   8
@@ -22149,13 +22101,81 @@ ByLayer
 100
 AcDbLine
  10
-751
+772
  20
-732
+720.5
  11
-751
+775
  21
-732
+720.5
+  0
+CIRCLE
+  5
+2B2
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+772
+ 20
+720.5
+ 40
+1
+  0
+MTEXT
+  5
+2B3
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+772
+ 20
+720.5
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -22173,9 +22193,9 @@ ByLayer
 100
 AcDbCircle
  10
-751
+775
  20
-732
+720.5
  40
 1
   0
@@ -22195,7 +22215,99 @@ ByLayer
 100
 AcDbMText
  10
-751
+775
+ 20
+720.5
+ 30
+0
+ 40
+2.5
+ 41
+3.333333333333334
+ 71
+    1
+ 72
+    5
+  1
+EP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
+  0
+LINE
+  5
+2B6
+100
+AcDbEntity
+  8
+CenterLines
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbLine
+ 10
+775
+ 20
+732
+ 11
+775
+ 21
+732
+  0
+CIRCLE
+  5
+2B7
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+775
+ 20
+732
+ 40
+1
+  0
+MTEXT
+  5
+2B8
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+775
  20
 732
  30
@@ -22227,98 +22339,6 @@ standard
   0
 CIRCLE
   5
-2B6
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-751
- 20
-732
- 40
-1
-  0
-MTEXT
-  5
-2B7
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-751
- 20
-732
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-2B8
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-770
- 20
-394.5
- 11
-775
- 21
-394.5
-  0
-CIRCLE
-  5
 2B9
 100
 AcDbEntity
@@ -22333,9 +22353,9 @@ ByLayer
 100
 AcDbCircle
  10
-770
+775
  20
-394.5
+732
  40
 1
   0
@@ -22355,77 +22375,9 @@ ByLayer
 100
 AcDbMText
  10
-770
- 20
-394.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-2BB
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
 775
  20
-394.5
- 40
-1
-  0
-MTEXT
-  5
-2BC
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-775
- 20
-394.5
+732
  30
 0
  40
@@ -22455,7 +22407,7 @@ standard
   0
 LINE
   5
-2BD
+2BB
 100
 AcDbEntity
   8
@@ -22471,11 +22423,79 @@ AcDbLine
  10
 772
  20
-720.5
+779
  11
 775
  21
-720.5
+779
+  0
+CIRCLE
+  5
+2BC
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+772
+ 20
+779
+ 40
+1
+  0
+MTEXT
+  5
+2BD
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+772
+ 20
+779
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -22493,9 +22513,9 @@ ByLayer
 100
 AcDbCircle
  10
-772
+775
  20
-720.5
+779
  40
 1
   0
@@ -22515,77 +22535,9 @@ ByLayer
 100
 AcDbMText
  10
-772
- 20
-720.5
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-2C0
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
 775
  20
-720.5
- 40
-1
-  0
-MTEXT
-  5
-2C1
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-775
- 20
-720.5
+779
  30
 0
  40
@@ -22615,7 +22567,7 @@ standard
   0
 LINE
   5
-2C2
+2C0
 100
 AcDbEntity
   8
@@ -22631,11 +22583,79 @@ AcDbLine
  10
 775
  20
-732
+768
  11
 775
  21
-732
+768
+  0
+CIRCLE
+  5
+2C1
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+775
+ 20
+768
+ 40
+1
+  0
+MTEXT
+  5
+2C2
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+775
+ 20
+768
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -22655,7 +22675,7 @@ AcDbCircle
  10
 775
  20
-732
+768
  40
 1
   0
@@ -22677,75 +22697,7 @@ AcDbMText
  10
 775
  20
-732
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-2C5
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-775
- 20
-732
- 40
-1
-  0
-MTEXT
-  5
-2C6
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-775
- 20
-732
+768
  30
 0
  40
@@ -22775,7 +22727,7 @@ standard
   0
 LINE
   5
-2C7
+2C5
 100
 AcDbEntity
   8
@@ -22789,13 +22741,81 @@ ByLayer
 100
 AcDbLine
  10
-772
- 20
-779
- 11
 775
+ 20
+750
+ 11
+784
  21
-779
+750
+  0
+CIRCLE
+  5
+2C6
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+    2
+370
+   -1
+100
+AcDbCircle
+ 10
+775
+ 20
+750
+ 40
+1
+  0
+MTEXT
+  5
+2C7
+100
+AcDbEntity
+  8
+debug
+  6
+ByLayer
+ 62
+  256
+370
+   -1
+100
+AcDbMText
+ 10
+775
+ 20
+750
+ 30
+0
+ 40
+2.5
+ 41
+3.611110581105738
+ 71
+    1
+ 72
+    5
+  1
+SP
+  7
+standard
+210
+0
+220
+0
+230
+1
+ 50
+0
+ 73
+    1
+ 44
+1
   0
 CIRCLE
   5
@@ -22813,403 +22833,15 @@ ByLayer
 100
 AcDbCircle
  10
-772
+784
  20
-779
+750
  40
 1
   0
 MTEXT
   5
 2C9
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-772
- 20
-779
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-2CA
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-775
- 20
-779
- 40
-1
-  0
-MTEXT
-  5
-2CB
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-775
- 20
-779
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-2CC
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-775
- 20
-768
- 11
-775
- 21
-768
-  0
-CIRCLE
-  5
-2CD
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-775
- 20
-768
- 40
-1
-  0
-MTEXT
-  5
-2CE
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-775
- 20
-768
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-2CF
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-775
- 20
-768
- 40
-1
-  0
-MTEXT
-  5
-2D0
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-775
- 20
-768
- 30
-0
- 40
-2.5
- 41
-3.333333333333334
- 71
-    1
- 72
-    5
-  1
-EP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-LINE
-  5
-2D1
-100
-AcDbEntity
-  8
-CenterLines
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbLine
- 10
-775
- 20
-750
- 11
-784
- 21
-750
-  0
-CIRCLE
-  5
-2D2
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-775
- 20
-750
- 40
-1
-  0
-MTEXT
-  5
-2D3
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-  256
-370
-   -1
-100
-AcDbMText
- 10
-775
- 20
-750
- 30
-0
- 40
-2.5
- 41
-3.611110581105738
- 71
-    1
- 72
-    5
-  1
-SP
-  7
-standard
-210
-0
-220
-0
-230
-1
- 50
-0
- 73
-    1
- 44
-1
-  0
-CIRCLE
-  5
-2D4
-100
-AcDbEntity
-  8
-debug
-  6
-ByLayer
- 62
-    2
-370
-   -1
-100
-AcDbCircle
- 10
-784
- 20
-750
- 40
-1
-  0
-MTEXT
-  5
-2D5
 100
 AcDbEntity
   8
