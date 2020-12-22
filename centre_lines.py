@@ -419,11 +419,12 @@ def get_centre_lines_from_pairs(parallel_line_pairs : List[List[tuple]]) -> List
                 """)
             
             width = parallel_line_pair_meta[str(pair)]
-            centre_line = CentreLine(number, line_segment[0], line_segment[1], line_segment[0], line_segment[1], width)
-            
-            centre_lines.append(centre_line)
-            
-            number += 1
+            if find_distance(line_segment[0], line_segment[1]) >= 5:
+                    centre_line = CentreLine(number, line_segment[0], line_segment[1], line_segment[0], line_segment[1], width)
+                    
+                    centre_lines.append(centre_line)
+                    
+                    number += 1
             
     return centre_lines
 
