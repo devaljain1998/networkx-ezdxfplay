@@ -810,7 +810,68 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
                 
 
             def get_end_points_for_both_perpendicular_lines(nearest_line1: 'CentreLine', nearest_line2: 'CentreLine', entity_location: float):
-                pass
+                # Exception Handling:
+                if not {nearest_line1.type, nearest_line2.type} == {PERPENDICULAR}:
+                    raise AttributeError(
+                        f'The function is only meant for perpendicular lines but got: {nearest_line1.type, nearest_line2.type}.')
+                                
+                # find width of the parallel_line:
+                smallest_perpendicular_line_width = nearest_line1.width if nearest_line1.width <= nearest_line2.width else nearest_line2.width
+                end_point_sets = []
+                # Use this width to find the end-points of the parallel and perpendicular lines
+                # Now find the end_points of each nearest_line:
+                for nearest_line in (nearest_line1, nearest_line2):
+                    closest_point = nearest_line.get_closest_point(entity_location)
+                    distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.end_point
+                    rotation = find_rotation(closest_point, distant_point)
+                    
+                    perpendicular_point_on_the_centre_line = find_perpendicular_point(
+                                        center=entity_location, line_start=closest_point, line_end=distant_point)
+                    perp_points = directed_points_on_line(
+                        perpendicular_point_on_the_centre_line, math.radians(rotation + 90), nearest_line.width / 2)
+                    closest_perp_point = perp_points[0] if \
+                        find_distance(entity_location, perp_points[0]) <= find_distance(entity_location, perp_points[1]) else perp_points[1]
+                    nearest_line_end_points = directed_points_on_line(
+                        closest_perp_point, math.radians(rotation), smallest_perpendicular_line_width / 2)
+                    end_point_sets.append(set(nearest_line_end_points))
+                    
+                    # DEBUG
+                    __debug_location(
+                        msp=_msp,
+                        point=perpendicular_point_on_the_centre_line,
+                        name='PERPPOINT',
+                        radius=1,
+                        color=4,
+                        char_height=0.3
+                    );
+                    __debug_location(
+                        msp=_msp,
+                        point=closest_perp_point,
+                        name='CPP',
+                        radius=0.2,
+                        color=2,
+                        char_height=0.3
+                    );                
+                    __debug_location(
+                        msp=_msp,
+                        point=nearest_line_end_points[0],
+                        name='nlep1',
+                        radius=0.2,
+                        color=5,
+                        char_height=0.3
+                    );                
+                    __debug_location(
+                        msp=_msp,
+                        point=nearest_line_end_points[1],
+                        name='nlep2',
+                        radius=0.2,
+                        color=5,
+                        char_height=0.3
+                    );                
+                        
+                        
+                return end_point_sets
+
             
             # Fill wall_counter dict: (used to keep the count of no of parallel or perpendicular walls.)
             wall_counter_dict = OrderedDict.fromkeys((PARALLEL, PERPENDICULAR), value=0)
@@ -949,67 +1010,8 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
         _msp = _dwg.modelspace();
         
         # 2. Now find the end_points of each nearest_line:
-        if {nearest_line1.type, nearest_line2.type} == {PARALLEL, PERPENDICULAR} or {nearest_line1.type, nearest_line2.type} == {PARALLEL}:
-            end_point_sets = get_end_points(
-                nearest_line1=nearest_line1, nearest_line2=nearest_line2, entity_location=entity_location)
-        else:
-            for nearest_line in (nearest_line1, nearest_line2):
-                closest_point = nearest_line.get_closest_point(entity_location)
-                distant_point = nearest_line.start_point if nearest_line.end_point == closest_point else nearest_line.end_point
-                rotation = find_rotation(closest_point, distant_point)
-                
-                if nearest_line.type == PARALLEL:
-                    # get the end_points:
-                    nearest_line_end_point_rotation = math.radians(rotation + 90)
-                    nearest_line_end_points = directed_points_on_line(
-                        closest_point, nearest_line_end_point_rotation, nearest_line.width / 2)
-                    end_point_sets.append(set(nearest_line_end_points))
-                # for perpendicular
-                else:
-                    perpendicular_point_on_the_centre_line = find_perpendicular_point(
-                                        center=entity_location, line_start=closest_point, line_end=distant_point)
-                    perp_points = directed_points_on_line(
-                        perpendicular_point_on_the_centre_line, math.radians(rotation + 90), nearest_line.width / 2)
-                    closest_perp_point = perp_points[0] if \
-                        find_distance(entity_location, perp_points[0]) <= find_distance(entity_location, perp_points[1]) else perp_points[1]
-                    nearest_line_end_points = directed_points_on_line(
-                        closest_perp_point, math.radians(rotation), nearest_line.width / 2)
-                    end_point_sets.append(set(nearest_line_end_points))
-                    
-                    # DEBUG
-                    __debug_location(
-                        msp=_msp,
-                        point=perpendicular_point_on_the_centre_line,
-                        name='PERPPOINT',
-                        radius=1,
-                        color=4,
-                        char_height=0.3
-                    );
-                    __debug_location(
-                        msp=_msp,
-                        point=closest_perp_point,
-                        name='CPP',
-                        radius=0.2,
-                        color=2,
-                        char_height=0.3
-                    );                
-                    __debug_location(
-                        msp=_msp,
-                        point=nearest_line_end_points[0],
-                        name='nlep1',
-                        radius=0.2,
-                        color=5,
-                        char_height=0.3
-                    );                
-                    __debug_location(
-                        msp=_msp,
-                        point=nearest_line_end_points[1],
-                        name='nlep2',
-                        radius=0.2,
-                        color=5,
-                        char_height=0.3
-                    );                
-
+        end_point_sets = get_end_points(
+            nearest_line1=nearest_line1, nearest_line2=nearest_line2, entity_location=entity_location)
 
         # mapping sets to int
         end_point_sets[0] = set(map(lambda point: (int(point[0]), int(point[1])), end_point_sets[0]))
@@ -1426,7 +1428,17 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
             return find_mid_point(closest_point_of_parallel_line, perpendicular_point)
         
         def get_door_centre_points_from_perpendicular_lines(nearest_line1, nearest_line2, entity_location):
-            pass
+            # 1. Validate both the lines are PERPENDICULAR.
+            if not (nearest_line1.type == PERPENDICULAR and nearest_line2.type == PERPENDICULAR):
+                raise ValueError(f"Only PERPENDICULAR lines wrt to the entity location is allowed in the function.Instead got: 1:{nearest_line1.type}, 2:{nearest_line1.type}.")
+                        
+            # 2. Find closest_point1 and closest_point2
+            closest_point1 = nearest_line1.get_closest_point(entity_location)
+            closest_point2 = nearest_line2.get_closest_point(entity_location)
+            
+            # Return mid_point(closest_point1, closest_point2)
+            return find_mid_point(closest_point1, closest_point2)
+
         
         # TEST
         conversion_factor = {'mm': 1.0, 'inch': 0.0393701}
@@ -1633,131 +1645,6 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
 # print('graph.edges: ', pprint.pprint(list(graph.edges)))
 
 # Now Finding area of the extended edges:
-extended_edges = [((328, 537), (528, 537)),
- ((328, 537), (328, 981)),
- ((528, 537), (558, 537)),
- ((328, 981), (464, 981)),
- ((528, 546), (337, 546)),
- ((528, 546), (558, 546)),
- ((558, 537), (614, 537)),
- ((614, 537), (614, 441)),
- ((558, 546), (614, 546)),
- ((614, 441), (642, 441)),
- ((337, 546), (337, 823)),
- ((337, 823), (512, 823)),
- ((614, 546), (614, 645)),
- ((614, 645), (619, 645)),
- ((642, 441), (642, 390)),
- ((642, 390), (651, 390)),
- ((646, 441), (661, 441)),
- ((646, 441), (646, 399)),
- ((661, 441), (691, 441)),
- ((646, 399), (651, 399)),
- ((661, 450), (619, 450)),
- ((661, 450), (691, 450)),
- ((718, 441), (775, 441)),
- ((718, 441), (700, 441)),
- ((775, 441), (775, 399)),
- ((718, 450), (775, 450)),
- ((718, 450), (700, 450)),
- ((775, 399), (770, 399)),
- ((619, 450), (619, 640)),
- ((619, 645), (661, 645)),
- ((775, 450), (775, 640)),
- ((775, 640), (709, 640)),
- ((661, 640), (679, 640)),
- ((661, 640), (619, 640)),
- ((679, 640), (709, 640)),
- ((661, 645), (674, 645)),
- ((679, 718), (754, 718)),
- ((679, 718), (679, 645)),
- ((709, 645), (775, 645)),
- ((709, 645), (679, 645)),
- ((674, 645), (674, 723)),
- ((674, 723), (746, 723)),
- ((775, 645), (775, 718)),
- ((775, 718), (772, 718)),
- ((754, 718), (772, 718)),
- ((754, 723), (751, 723)),
- ((754, 723), (772, 723)),
- ((772, 723), (775, 723)),
- ((746, 723), (746, 741)),
- ((746, 741), (746, 752)),
- ((751, 723), (751, 741)),
- ((751, 741), (751, 752)),
- ((775, 723), (775, 741)),
- ((775, 741), (775, 759)),
- ((554, 823), (559, 823)),
- ((554, 823), (512, 823)),
- ((559, 823), (601, 823)),
- ((554, 876), (517, 876)),
- ((554, 876), (554, 828)),
- ((559, 981), (505, 981)),
- ((559, 981), (601, 981)),
- ((784, 390), (770, 390)),
- ((784, 390), (784, 741)),
- ((770, 390), (770, 399)),
- ((784, 741), (784, 759)),
- ((784, 981), (601, 981)),
- ((784, 981), (784, 759)),
- ((651, 390), (651, 399)),
- ((775, 777), (772, 777)),
- ((775, 777), (775, 759)),
- ((772, 777), (754, 777)),
- ((751, 752), (751, 777)),
- ((751, 777), (754, 777)),
- ((746, 752), (746, 777)),
- ((746, 777), (674, 777)),
- ((674, 777), (674, 781)),
- ((775, 781), (775, 882)),
- ((775, 781), (772, 781)),
- ((775, 882), (737, 882)),
- ((772, 781), (754, 781)),
- ((737, 882), (707, 882)),
- ((775, 886), (775, 972)),
- ((775, 886), (737, 886)),
- ((775, 972), (601, 972)),
- ((737, 886), (707, 886)),
- ((601, 972), (559, 972)),
- ((674, 781), (703, 781)),
- ((703, 781), (703, 823)),
- ((703, 823), (601, 823)),
- ((703, 828), (703, 912)),
- ((703, 828), (601, 828)),
- ((703, 912), (703, 939)),
- ((601, 828), (559, 828)),
- ((703, 939), (706, 939)),
- ((707, 781), (754, 781)),
- ((707, 781), (707.0, 882.0)),
- ((707, 912), (706, 912)),
- ((707, 912), (707.0, 886.0)),
- ((706, 912), (706, 939)),
- ((505, 981), (487, 981)),
- ((517, 876), (487, 876)),
- ((554, 880), (554, 972)),
- ((554, 880), (517, 880)),
- ((554, 972), (505, 972)),
- ((517, 880), (487, 880)),
- ((505, 972), (487, 972)),
- ((487, 981), (482, 981)),
- ((482, 981), (464, 981)),
- ((487, 876), (482, 876)),
- ((482, 876), (482, 972)),
- ((464, 972), (337, 972)),
- ((464, 972), (482, 972)),
- ((337, 972), (337, 828)),
- ((337, 828), (512, 828)),
- ((512, 828), (554, 828)),
- ((700, 450), (691, 450)),
- ((700, 441), (691, 441)),
- ((487, 972), (487, 880)),
- ((559, 828), (559, 972))]
-
-# # Creating new graph:
-graph = nx.Graph()
-graph.add_edges_from(extended_edges)
-print('graph creation success.', len(graph.edges))
-
 def get_area_from_the_room_texts(msp, graph: 'nx.Graph', ROOM_TEXT_LAYER: str = 'PP-ROOM Text') -> dict:
     """This function returns the dict containing information about the Rooms and areas.
     NOTE: This function assumes that the graph contains all the nodes that are 2-degree.
@@ -1885,12 +1772,12 @@ def get_area_from_the_room_texts(msp, graph: 'nx.Graph', ROOM_TEXT_LAYER: str = 
 
     return rooms_information
 
-input_key = 'sample3'
-dwg = ezdxf.readfile(f'dxfFilesIn/dxf_files/{input_key}.dxf')
-msp = dwg.modelspace()
-rooms_information = get_area_from_the_room_texts(
-    msp=msp, graph=graph, ROOM_TEXT_LAYER='PP-Room Text')
-pprint.pprint(rooms_information)
+# input_key = 'sample3'
+# dwg = ezdxf.readfile(f'dxfFilesIn/dxf_files/{input_key}.dxf')
+# msp = dwg.modelspace()
+# rooms_information = get_area_from_the_room_texts(
+#     msp=msp, graph=graph, ROOM_TEXT_LAYER='PP-Room Text')
+# pprint.pprint(rooms_information)
 
 # def plot_room_areas(rooms_information: List[dict]):
 #     for room in rooms_information:
