@@ -1,0 +1,191 @@
+block name,block type,block rotation
+PP-FAN2,fan 48'',0
+PP-FAN3,fan 48'',0
+PP-FAN4,fan 48'',0
+PP-FAN5,fan 48'',0
+1,fan 48'',0
+FAN,fan 48'',0
+Fan 30 in,fan 30'',0
+fan 55,fan 48'',0
+CF,fan 48'',0
+fan51,fan 48'',0
+FAN 48,fan 48'',0
+zw$9B3C,fan 48'',0
+A$C44315F50,fan 48'',0
+PP-CEILING LIGHT 1,round ceiling light,0
+PP-CEILING LIGHT2,round ceiling light,0
+PP-CEILING LIGHT3,round ceiling light,0
+PP-CEILING LIGHT4,round ceiling light,0
+PP-CEILING LIGHT 5,round ceiling light,0
+cl10,round ceiling light,0
+cl3,round ceiling light,0
+CL 60,round ceiling light,0
+SB1,switchboard,0
+SB 2,switchboard,0
+SB 3,switchboard,0
+HBT,switchboard,0
+SB 5,switchboard,0
+zw$EE25,switchboard,0
+switchboard,switchboard,0
+SB 4,switchboard,0
+WL1,wall light,0
+PP-W LIGHT,wall light,0
+WL3,wall light,0
+WL 5,wall light,0
+PP-WL 58,wall light,0
+bracket light,wall light,0
+WIFI1,WiFi,0
+WIFI 2,WiFi,0
+WIFI3,WiFi,0
+CHANDELOR 1,chandelier,0
+CHANDELIER 2,chandelier,0
+CHANDELIER 3,chandelier,0
+CHANDELIER 4,chandelier,0
+EXHAUST1,exhaust,0
+EXHAUST 2,exhaust,0
+EXHAUST 3,exhaust,0
+EXHAUST 4,exhaust,0
+EXHAUST5,exhaust,0
+exhaust,exhaust,0
+DOOR 1,door,0
+DOOR 2,door,0
+DOOR 3,door,0
+DOOR 5,door,0
+A$C19C41023,door,0
+DOOR45,door,0
+A$C715E23D6,door,0
+A$C421C437E,door,0
+A$C27D12597,door,0
+A$C7FA31A0A,door,0
+A$C6CDF2B06,door,0
+DOOR78,door,0
+WINDOW 1,window,0
+WINDOW 12,window,0
+WINDOW 3,window,0
+WINDOW 4,window,0
+WINDOW 5,window,0
+PP-WINDOW45,window,0
+PP-WINDOW 43,window,0
+WINDOW 00,window,0
+WINDOW01,window,0
+WINDOW02,window,0
+WC 1,wb wall,0
+WC 2,wb wall,0
+WC 3,wb wall,0
+WC 4,wb wall,0
+yhnty,wb wall,0
+WWCCCC,wb wall,0
+WWC1233,wb wall,0
+j,wb wall,0
+URINAL1,urinal wall,0
+URINAL 2,urinal wall,0
+URINAL 3,urinal wall,0
+URINAL    4,urinal wall,0
+URINAL   5,urinal wall,0
+A$C76A5756F,urinal wall,0
+A$C32C26043,urinal wall,0
+A$C201371A2,urinal wall,0
+A$C3D9F592C,urinal wall,0
+A$C33122C8F,urinal wall,0
+A$C3A4C1CAD,urinal wall,0
+URINAL,urinal wall,0
+PP-URW,urinal wall,0
+BATHTUB1,bathtub,0
+BATHTUB   2,bathtub,0
+BATHTUB  3,bathtub,0
+BATHTUB 5,bathtub,0
+BATHTUB  4,bathtub,0
+Art 216_top_cad-block.com,bathtub,0
+Art 218_top_cad-block.com,bathtub,0
+Art 219_top_cad-block.com,bathtub,0
+BATHTUB2,bathtub,0
+zw$E58,bathtub,0
+zw$69F3,bathtub,0
+PP-BATHTUB P,bathtub,0
+SINK 1,sink wall,0
+SINK 2,sink wall,0
+SINK 3,sink wall,0
+SINK 4,sink wall,0
+SINK 5,sink wall,0
+S7,sink wall,0
+S8,sink wall,0
+S9,sink wall,0
+S10,sink wall,0
+S12,sink wall,0
+S13,sink wall,0
+S16,sink wall,0
+S15,sink wall,0
+S14,sink wall,0
+S11,sink wall,0
+S6,sink wall,0
+DSINK1DB,sink wall,0
+WB 1,sink wall,0
+kitchen sink15,sink wall,0
+kitchen sink12,sink wall,0
+sink10,sink wall,0
+WB05,wb wall,0
+WB 2,wb wall,0
+WB 3,wb wall,0
+WB 4,wb wall,0
+WB 5,wb wall,0
+WBWALL1,wb wall,0
+WB,wb wall,0
+WBWALL,wb wall,0
+A$C704F1A5F,wb wall,0
+WB4,wb wall,0
+WB5,wb wall,0
+WBBBB,wb wall,0
+kitchen sink6,wb wall,0
+WC 5,wb wall,0
+PP-WB WALL P,wb wall,0
+TT,tubelight,0
+TL2,tubelight,0
+TUBELIGHT,tubelight,0
+E-FL1X8N,tubelight,0
+PP-TL3,tubelight,0
+pp-SQUARE CEILING,square ceiling light,0
+zw$67DD,square ceiling light,0
+SQUARE CEILING,square ceiling light,0
+A$C28426EA8,square ceiling light,0
+PP-SQUARE LIGHT P,square ceiling light,0
+JH,wall fan,0
+WALL FAN 1,wall fan,0
+PP-WALL FAN P,wall fan,0
+WL 2,foot light,0
+FOOT LIGHT 1,foot light,0
+A$C54643BE3,ac,0
+Split AC,ac,0
+AC 2,ac,0
+FFCC,mirror light,0
+HTTYTYTY,geyser,0
+16 a geyser,geyser,0
+PP-GEYSER P,geyser,0
+TVVV,tv,0
+A$C687F4EC0,tv,0
+QDQDD,tv,0
+TV,tv,0
+Squat toilet 1_top_cad-block.com,wc indian,0
+Squat toilet 6_top_cad-block.com,wc indian,0
+Squat toilet 7_top_cad-block.com,wc indian,0
+IWC,wc indian,0
+Squat toilet 5_top_cad-block.com,wc indian,0
+Squat toilet 4_top_cad-block.com,wc indian,0
+shower,shower,0
+PP-shower,shower,0
+PP-SHOWER P,shower,0
+PP-HEALTH FAUCAT P,health faucet,0
+FLOOR TRAP,floor trap,0
+SHOWER CHANNEL,shower channel,0
+PP-SHOWER CHANNEL,shower channel,0
+PP-SHOWER CHANNEL P,shower channel,0
+25 AMP SOCKET,switchboard,0
+6_16 AMP SOCKET,switchboard,0
+SOCKET 3,switchboard,0
+SOCKET 4,switchboard,0
+SOCKET 5,switchboard,0
+6A SWITCH SOCKET OUTLET,switchboard,0
+A$C31A13D96,switchboard,0
+A$C530B5B80,switchboard,0
+socket,switchboard,0
+HGYF,switchboard,0
+NT,floor trap,0

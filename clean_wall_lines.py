@@ -35,6 +35,7 @@ _msp = _dwg.modelspace()
 
 
 NODE_COLOR = {
+    0: 5,
     1: 1,
     2: 2,
     3: 3,
@@ -73,6 +74,7 @@ def __label_all_the_nodes_in_graphs_according_to_their_degree(graph, **kwargs):
         )
         
     __dwg.saveas(filepath+f'debug_degree_{debug_counter}_{kwargs.get("checkpoint", "")}.dxf')
+    print('saved', filepath+f'debug_degree_{debug_counter}_{kwargs.get("checkpoint", "")}.dxf')
 
 
     
@@ -558,9 +560,10 @@ def get_cleaned_wall_lines(wall_lines: list, *args, **kwargs) -> list:
             __add_graph_wall_lines(current_wall_lines)
         else:
             __save_graph_debug_dxf_file(current_wall_lines, graph=graph)
-        if not debug_counter <= 4:
+        if not debug_counter <= 5:
             print('Now terminating')
-            break #sys.exit(1)
+            sys.exit(1)
+            break 
         print()
         # draw_graph(graph)
         

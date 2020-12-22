@@ -1,3 +1,10 @@
+##### LATEST #####
+1. need to implement'perpendicular and perpendicular' case for door
+
+
+
+
+
 ###### Verbal Questions #####
 1. Can height, widths and lengths of doors and windows be fetched through the json.
 2.
