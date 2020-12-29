@@ -124,13 +124,6 @@ def get_wall_lines():
 wall_lines = get_wall_lines()
 print('wall_lines: ', len(wall_lines))
 
-# testing components:
-# dwg.layers.new('comp_debug_text')
-# draw_components(wall_lines, msp, dwg)
-# dwg.saveas(output_file_path + output_file)
-# print(f'Success in saving {output_file_path + output_file} for testing components.')
-
-
 # Operations:
 cleaned_wall_lines, graph = get_cleaned_wall_lines(
     wall_lines, filepath=output_file_path)
@@ -149,17 +142,18 @@ centre_lines = get_centre_lines(
 # pprint([centre_line.__dict__ for centre_line in centre_lines])
 
 #### POC OPERATIONS:
-from test_shapely import extend_wall_lines_for_entity, get_area_from_the_room_texts, fill_str_tree
+from test_shapely import extend_wall_lines_for_entity, get_area_from_the_room_texts, fill_str_tree, plot_room_areas
 import json
+
+try:
+    with open(f'dxfFilesIn/identification_json/{input_key}.json') as identification_json_file:
+        identification_json = json.load(identification_json_file)
+        print('Success in reading the JSON file.')
+except Exception:
+    print('Failed to open identification JSON.')
+
 counter = 0
 def test_shapely():
-    try:
-        with open(f'dxfFilesIn/identification_json/{input_key}.json') as identification_json_file:
-            identification_json = json.load(identification_json_file)
-            print('Success in reading the JSON file.')
-    except Exception:
-        print('Failed to open identification JSON.')
-
     windows = list(filter(lambda entity: entity['type']=='window' and entity['category'] == 'p', identification_json['entities']))
     doors = list(filter(lambda entity: entity['type']=='door' and entity['category'] == 'p', identification_json['entities']))
     
@@ -217,8 +211,40 @@ def test_shapely():
 
     print('extra_data')
     # pprint(extra_data)
-    print('Success.')
-
-
+    print('Success in EXTENDING.')
 
 test_shapely()
+
+ROOMS_TEXT_LAYERS = {
+    # p20 files:
+    'p20_ground_floor': 'A_text',
+    'p20_first_floor': 'A_text',
+    'p22_ground_floor': 'A_text',
+    'p22_first_floor': 'A_text',
+    'p23_ground_floor': 'A_text',
+    'p23_first_floor': 'A_text',
+}
+rooms_information = get_area_from_the_room_texts(
+    msp=msp,
+    graph=graph,
+    ROOM_TEXT_LAYER=ROOMS_TEXT_LAYERS[input_key],
+)
+
+windows = list(filter(lambda entity: entity['type']=='window' and entity['category'] == 'p', identification_json['entities']))
+doors = list(filter(lambda entity: entity['type']=='door' and entity['category'] == 'p', identification_json['entities']))
+plot_room_areas(rooms_information=rooms_information, msp=msp, dwg=dwg, doors=doors, windows=windows)
+
+# Generate EXCEL SHEETS:
+from excel_generator import generator_function
+import pandas as pd
+def generate_excel_sheets(identification_json, rooms_information):
+    a,b,c,d = generator_function(identification_json, rooms_information)
+    writer = pd.ExcelWriter(f'dxfFilesOut/{input_key}/output.xlsx', engine='xlsxwriter')
+    a.to_excel(writer,'doors&window',index=False)
+    b.to_excel(writer,'doors_window_consolidated',index=False)
+    c.to_excel(writer,'wall_info',index=False)
+    d.to_excel(writer,'room_area',index=False)
+    writer.save()
+    print('EXCEL sheet successfully created!')
+    
+generate_excel_sheets(identification_json=identification_json, rooms_information=rooms_information)

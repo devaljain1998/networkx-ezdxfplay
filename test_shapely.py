@@ -18,496 +18,6 @@ from pillarplus.math import (directed_points_on_line, find_angle,
 from Shapely_polygons.shapely_polygons import pointslist_from_lines, define_polygons, find_polygon_area
 from collections import OrderedDict
 
-# from test_clean_wall_lines import centre_lines, msp, dwg
-# edges = [((328, 537), (528, 537)), ((328, 537), (328, 981)), ((528, 537), (528, 546)), ((558, 537), (614, 537)), ((558, 537), (558, 546)), ((614, 537), (614, 441)), ((337, 546), (528, 546)), ((337, 546), (337, 823)), ((558, 546), (614, 546)), ((614, 546), (614, 645)), ((614, 441), (642, 441)), ((642, 441), (642, 390)), ((646, 441), (661, 441)), ((646, 441), (646, 399)), ((661, 441), (661, 450)), ((718, 441), (775, 441)), ((718, 441), (718, 450)), ((775, 441), (775, 399)), ((619, 450), (661, 450)), ((619, 450), (619, 645)), ((718, 450), (775, 450)), ((775, 450), (775, 640)), ((661, 640), (679, 640)), ((661, 640), (661, 645)), ((679, 640), (679, 718)), ((709, 640), (775, 640)), ((709, 640), (709, 645)), ((614, 645), (619, 645)), ((661, 645), (674, 645)), ((674, 645), (674, 723)), ((709, 645), (775, 645)), ((775, 645), (775, 718)), ((679, 718), (754, 718)), ((754, 718), (754, 723)), ((772, 718), (775, 718)), ((772, 718), (772, 723)), ((674, 723), (746, 723)), ((746, 723), (746, 741)), ((751, 723), (754, 723)), ((751, 723), (751, 741)), ((772, 723), (775, 723)), ((775, 723), (775, 741)), ((554, 823), (559, 823)), ((554, 823), (554, 876)), ((559, 823), (559, 981)), ((784, 390), (770, 390)), ((784, 390), (784, 741)), ((784, 981), (601, 981)), ((784, 981), (784, 759)), ((642, 390), (651, 390)), ((646, 399), (651, 399)), ((651, 390), (651, 399)), ((775, 399), (770, 399)), ((775, 777), (772, 777)), ((775, 777), (775, 759)), ((751, 752), (751, 777)), ((751, 752), (746, 752)), ((751, 777), (754, 777)), ((746, 752), (746, 777)), ((746, 777), (674, 777)), ((775, 781), (775, 882)), ((775, 781), (772, 781)), ((775, 882), (737, 882)), ((775, 886), (775, 972)), ((775, 886), (737, 886)), ((775, 972), (601, 972)), ((674, 777), (674, 781)), ((674, 781), (703, 781)), ((703, 781), (703, 823)), ((703, 823), (601, 823)), ((703, 828), (703, 912)), ((703, 828), (601, 828)), ((703, 912), (703, 939)), ((707, 781), (707, 912)), ((707, 781), (754, 781)), ((707, 912), (706, 912)), ((737, 882), (737, 886)), ((559, 981), (505, 981)), ((601, 823), (601, 828)), ((554, 876), (517, 876)), ((554, 880), (554, 972)), ((554, 880), (517, 880)), ((554, 972), (505, 972)), ((601, 981), (601, 972)), ((505, 981), (505, 972)), ((487, 981), (482, 981)), ((487, 981), (487, 876)), ((482, 981), (482, 876)), ((464, 981), (328, 981)), ((464, 981), (464, 972)), ((464, 972), (337, 972)), ((337, 972), (337, 828)), ((772, 781), (772, 777)), ((754, 781), (754, 777)), ((337, 823), (512, 823)), ((337, 828), (512, 828)), ((482, 876), (487, 876)), ((517, 880), (517, 876)), ((512, 823), (512, 828)), ((700, 450), (700, 441)), ((700, 450), (691, 450)), ((700, 441), (691, 441)), ((770, 390), (770, 399)), ((703, 939), (706, 939)), ((706, 912), (706, 939)), ((775, 759), (784, 759)), ((775, 741), (784, 741)), ((751, 741), (746, 741)), ((691, 450), (691, 441))]
-
-
-# graph = nx.Graph()
-# graph.add_edges_from(edges)
-# print('graph creation success.', len(graph.edges))
-
-# centre_lines = [{'end_point': (332.5, 823.0),
-#   'number': 1,
-#   'screen_end_point': (332.5, 823.0),
-#   'screen_start_point': (332.5, 823.0),
-#   'start_point': (332.5, 546.0),
-#   'width': 9.0},
-#  {'end_point': (332.5, 828.0),
-#   'number': 2,
-#   'screen_end_point': (332.5, 828.0),
-#   'screen_start_point': (332.5, 828.0),
-#   'start_point': (332.5, 972.0),
-#   'width': 9.0},
-#  {'end_point': (473.0, 972.0),
-#   'number': 3,
-#   'screen_end_point': (473.0, 972.0),
-#   'screen_start_point': (473.0, 972.0),
-#   'start_point': (473.0, 981.0),
-#   'width': 18.0},
-#  {'end_point': (484.5, 876.0),
-#   'number': 4,
-#   'screen_end_point': (484.5, 876.0),
-#   'screen_start_point': (484.5, 876.0),
-#   'start_point': (484.5, 981.0),
-#   'width': 5.0},
-#  {'end_point': (496.0, 972.0),
-#   'number': 5,
-#   'screen_end_point': (496.0, 972.0),
-#   'screen_start_point': (496.0, 972.0),
-#   'start_point': (496.0, 981.0),
-#   'width': 18.0},
-#  {'end_point': (556.5, 876.0),
-#   'number': 6,
-#   'screen_end_point': (556.5, 876.0),
-#   'screen_start_point': (556.5, 876.0),
-#   'start_point': (556.5, 823.0),
-#   'width': 5.0},
-#  {'end_point': (556.5, 972.0),
-#   'number': 7,
-#   'screen_end_point': (556.5, 972.0),
-#   'screen_start_point': (556.5, 972.0),
-#   'start_point': (556.5, 880.0),
-#   'width': 5.0},
-#  {'end_point': (616.5, 450.0),
-#   'number': 8,
-#   'screen_end_point': (616.5, 450.0),
-#   'screen_start_point': (616.5, 450.0),
-#   'start_point': (616.5, 537.0),
-#   'width': 5.0},
-#  {'end_point': (616.5, 645.0),
-#   'number': 9,
-#   'screen_end_point': (616.5, 645.0),
-#   'screen_start_point': (616.5, 645.0),
-#   'start_point': (616.5, 546.0),
-#   'width': 5.0},
-#  {'end_point': (644.0, 399.0),
-#   'number': 10,
-#   'screen_end_point': (644.0, 399.0),
-#   'screen_start_point': (644.0, 399.0),
-#   'start_point': (644.0, 441.0),
-#   'width': 4.0},
-#  {'end_point': (646.5, 399.0),
-#   'number': 11,
-#   'screen_end_point': (646.5, 399.0),
-#   'screen_start_point': (646.5, 399.0),
-#   'start_point': (646.5, 390.0),
-#   'width': 9.0},
-#  {'end_point': (651.5, 441.0),
-#   'number': 12,
-#   'screen_end_point': (651.5, 441.0),
-#   'screen_start_point': (651.5, 441.0),
-#   'start_point': (651.5, 441.0),
-#   'width': 19.0},
-#  {'end_point': (648.5, 399.0),
-#   'number': 13,
-#   'screen_end_point': (648.5, 399.0),
-#   'screen_start_point': (648.5, 399.0),
-#   'start_point': (648.5, 399.0),
-#   'width': 5.0},
-#  {'end_point': (653.5, 441.0),
-#   'number': 14,
-#   'screen_end_point': (653.5, 441.0),
-#   'screen_start_point': (653.5, 441.0),
-#   'start_point': (653.5, 441.0),
-#   'width': 15.0},
-#  {'end_point': (667.5, 645.0),
-#   'number': 15,
-#   'screen_end_point': (667.5, 645.0),
-#   'screen_start_point': (667.5, 645.0),
-#   'start_point': (667.5, 645.0),
-#   'width': 13.0},
-#  {'end_point': (670.0, 645.0),
-#   'number': 16,
-#   'screen_end_point': (670.0, 645.0),
-#   'screen_start_point': (670.0, 645.0),
-#   'start_point': (670.0, 640.0),
-#   'width': 18.0},
-#  {'end_point': (676.5, 718.0),
-#   'number': 17,
-#   'screen_end_point': (676.5, 718.0),
-#   'screen_start_point': (676.5, 718.0),
-#   'start_point': (676.5, 645.0),
-#   'width': 5.0},
-#  {'end_point': (695.5, 441.0),
-#   'number': 18,
-#   'screen_end_point': (695.5, 441.0),
-#   'screen_start_point': (695.5, 441.0),
-#   'start_point': (695.5, 450.0),
-#   'width': 9.0},
-#  {'end_point': (709.0, 441.0),
-#   'number': 19,
-#   'screen_end_point': (709.0, 441.0),
-#   'screen_start_point': (709.0, 441.0),
-#   'start_point': (709.0, 450.0),
-#   'width': 18.0},
-#  {'end_point': (705.0, 823.0),
-#   'number': 20,
-#   'screen_end_point': (705.0, 823.0),
-#   'screen_start_point': (705.0, 823.0),
-#   'start_point': (705.0, 781.0),
-#   'width': 4.0},
-#  {'end_point': (704.5, 912.0),
-#   'number': 21,
-#   'screen_end_point': (704.5, 912.0),
-#   'screen_start_point': (704.5, 912.0),
-#   'start_point': (704.5, 912.0),
-#   'width': 3.0},
-#  {'end_point': (705.0, 912.0),
-#   'number': 22,
-#   'screen_end_point': (705.0, 912.0),
-#   'screen_start_point': (705.0, 912.0),
-#   'start_point': (705.0, 828.0),
-#   'width': 4.0},
-#  {'end_point': (704.5, 939.0),
-#   'number': 23,
-#   'screen_end_point': (704.5, 939.0),
-#   'screen_start_point': (704.5, 939.0),
-#   'start_point': (704.5, 912.0),
-#   'width': 3.0},
-#  {'end_point': (705.0, 912.0),
-#   'number': 24,
-#   'screen_end_point': (705.0, 912.0),
-#   'screen_start_point': (705.0, 912.0),
-#   'start_point': (705.0, 912.0),
-#   'width': 4.0},
-#  {'end_point': (706.5, 912.0),
-#   'number': 25,
-#   'screen_end_point': (706.5, 912.0),
-#   'screen_start_point': (706.5, 912.0),
-#   'start_point': (706.5, 912.0),
-#   'width': 1.0},
-#  {'end_point': (748.5, 741.0),
-#   'number': 26,
-#   'screen_end_point': (748.5, 741.0),
-#   'screen_start_point': (748.5, 741.0),
-#   'start_point': (748.5, 723.0),
-#   'width': 5.0},
-#  {'end_point': (750.0, 723.0),
-#   'number': 27,
-#   'screen_end_point': (750.0, 723.0),
-#   'screen_start_point': (750.0, 723.0),
-#   'start_point': (750.0, 723.0),
-#   'width': 8.0},
-#  {'end_point': (748.5, 777.0),
-#   'number': 28,
-#   'screen_end_point': (748.5, 777.0),
-#   'screen_start_point': (748.5, 777.0),
-#   'start_point': (748.5, 752.0),
-#   'width': 5.0},
-#  {'end_point': (750.0, 777.0),
-#   'number': 29,
-#   'screen_end_point': (750.0, 777.0),
-#   'screen_start_point': (750.0, 777.0),
-#   'start_point': (750.0, 777.0),
-#   'width': 8.0},
-#  {'end_point': (752.5, 723.0),
-#   'number': 30,
-#   'screen_end_point': (752.5, 723.0),
-#   'screen_start_point': (752.5, 723.0),
-#   'start_point': (752.5, 723.0),
-#   'width': 3.0},
-#  {'end_point': (752.5, 777.0),
-#   'number': 31,
-#   'screen_end_point': (752.5, 777.0),
-#   'screen_start_point': (752.5, 777.0),
-#   'start_point': (752.5, 777.0),
-#   'width': 3.0},
-#  {'end_point': (763.0, 723.0),
-#   'number': 32,
-#   'screen_end_point': (763.0, 723.0),
-#   'screen_start_point': (763.0, 723.0),
-#   'start_point': (763.0, 718.0),
-#   'width': 18.0},
-#  {'end_point': (763.0, 777.0),
-#   'number': 33,
-#   'screen_end_point': (763.0, 777.0),
-#   'screen_start_point': (763.0, 777.0),
-#   'start_point': (763.0, 781.0),
-#   'width': 18.0},
-#  {'end_point': (772.5, 399.0),
-#   'number': 34,
-#   'screen_end_point': (772.5, 399.0),
-#   'screen_start_point': (772.5, 399.0),
-#   'start_point': (772.5, 399.0),
-#   'width': 5.0},
-#  {'end_point': (777.0, 399.0),
-#   'number': 35,
-#   'screen_end_point': (777.0, 399.0),
-#   'screen_start_point': (777.0, 399.0),
-#   'start_point': (777.0, 390.0),
-#   'width': 14.0},
-#  {'end_point': (773.5, 718.0),
-#   'number': 36,
-#   'screen_end_point': (773.5, 718.0),
-#   'screen_start_point': (773.5, 718.0),
-#   'start_point': (773.5, 718.0),
-#   'width': 3.0},
-#  {'end_point': (773.5, 723.0),
-#   'number': 37,
-#   'screen_end_point': (773.5, 723.0),
-#   'screen_start_point': (773.5, 723.0),
-#   'start_point': (773.5, 723.0),
-#   'width': 3.0},
-#  {'end_point': (778.0, 723.0),
-#   'number': 38,
-#   'screen_end_point': (778.0, 723.0),
-#   'screen_start_point': (778.0, 723.0),
-#   'start_point': (778.0, 718.0),
-#   'width': 12.0},
-#  {'end_point': (773.5, 777.0),
-#   'number': 39,
-#   'screen_end_point': (773.5, 777.0),
-#   'screen_start_point': (773.5, 777.0),
-#   'start_point': (773.5, 777.0),
-#   'width': 3.0},
-#  {'end_point': (773.5, 781.0),
-#   'number': 40,
-#   'screen_end_point': (773.5, 781.0),
-#   'screen_start_point': (773.5, 781.0),
-#   'start_point': (773.5, 781.0),
-#   'width': 3.0},
-#  {'end_point': (778.0, 777.0),
-#   'number': 41,
-#   'screen_end_point': (778.0, 777.0),
-#   'screen_start_point': (778.0, 777.0),
-#   'start_point': (778.0, 781.0),
-#   'width': 12.0},
-#  {'end_point': (779.5, 399.0),
-#   'number': 42,
-#   'screen_end_point': (779.5, 399.0),
-#   'screen_start_point': (779.5, 399.0),
-#   'start_point': (779.5, 441.0),
-#   'width': 9.0},
-#  {'end_point': (779.5, 640.0),
-#   'number': 43,
-#   'screen_end_point': (779.5, 640.0),
-#   'screen_start_point': (779.5, 640.0),
-#   'start_point': (779.5, 450.0),
-#   'width': 9.0},
-#  {'end_point': (779.5, 718.0),
-#   'number': 44,
-#   'screen_end_point': (779.5, 718.0),
-#   'screen_start_point': (779.5, 718.0),
-#   'start_point': (779.5, 645.0),
-#   'width': 9.0},
-#  {'end_point': (779.5, 741.0),
-#   'number': 45,
-#   'screen_end_point': (779.5, 741.0),
-#   'screen_start_point': (779.5, 741.0),
-#   'start_point': (779.5, 723.0),
-#   'width': 9.0},
-#  {'end_point': (779.5, 759.0),
-#   'number': 46,
-#   'screen_end_point': (779.5, 759.0),
-#   'screen_start_point': (779.5, 759.0),
-#   'start_point': (779.5, 777.0),
-#   'width': 9.0},
-#  {'end_point': (779.5, 882.0),
-#   'number': 47,
-#   'screen_end_point': (779.5, 882.0),
-#   'screen_start_point': (779.5, 882.0),
-#   'start_point': (779.5, 781.0),
-#   'width': 9.0},
-#  {'end_point': (779.5, 972.0),
-#   'number': 48,
-#   'screen_end_point': (779.5, 972.0),
-#   'screen_start_point': (779.5, 972.0),
-#   'start_point': (779.5, 886.0),
-#   'width': 9.0},
-#  {'end_point': (528.0, 541.5),
-#   'number': 49,
-#   'screen_end_point': (528.0, 541.5),
-#   'screen_start_point': (528.0, 541.5),
-#   'start_point': (337.0, 541.5),
-#   'width': 9.0},
-#  {'end_point': (464.0, 976.5),
-#   'number': 50,
-#   'screen_end_point': (464.0, 976.5),
-#   'screen_start_point': (464.0, 976.5),
-#   'start_point': (337.0, 976.5),
-#   'width': 9.0},
-#  {'end_point': (512.0, 825.5),
-#   'number': 51,
-#   'screen_end_point': (512.0, 825.5),
-#   'screen_start_point': (512.0, 825.5),
-#   'start_point': (337.0, 825.5),
-#   'width': 5.0},
-#  {'end_point': (554.0, 976.5),
-#   'number': 52,
-#   'screen_end_point': (554.0, 976.5),
-#   'screen_start_point': (554.0, 976.5),
-#   'start_point': (505.0, 976.5),
-#   'width': 9.0},
-#  {'end_point': (554.0, 878.0),
-#   'number': 53,
-#   'screen_end_point': (554.0, 878.0),
-#   'screen_start_point': (554.0, 878.0),
-#   'start_point': (517.0, 878.0),
-#   'width': 4.0},
-#  {'end_point': (614.0, 541.5),
-#   'number': 54,
-#   'screen_end_point': (614.0, 541.5),
-#   'screen_start_point': (614.0, 541.5),
-#   'start_point': (558.0, 541.5),
-#   'width': 9.0},
-#  {'end_point': (703.0, 825.5),
-#   'number': 55,
-#   'screen_end_point': (703.0, 825.5),
-#   'screen_start_point': (703.0, 825.5),
-#   'start_point': (601.0, 825.5),
-#   'width': 5.0},
-#  {'end_point': (775.0, 976.5),
-#   'number': 56,
-#   'screen_end_point': (775.0, 976.5),
-#   'screen_start_point': (775.0, 976.5),
-#   'start_point': (601.0, 976.5),
-#   'width': 9.0},
-#  {'end_point': (642.0, 445.5),
-#   'number': 57,
-#   'screen_end_point': (642.0, 445.5),
-#   'screen_start_point': (642.0, 445.5),
-#   'start_point': (619.0, 445.5),
-#   'width': 9.0},
-#  {'end_point': (661.0, 445.5),
-#   'number': 58,
-#   'screen_end_point': (661.0, 445.5),
-#   'screen_start_point': (661.0, 445.5),
-#   'start_point': (646.0, 445.5),
-#   'width': 9.0},
-#  {'end_point': (651.0, 394.5),
-#   'number': 59,
-#   'screen_end_point': (651.0, 394.5),
-#   'screen_start_point': (651.0, 394.5),
-#   'start_point': (646.0, 394.5),
-#   'width': 9.0},
-#  {'end_point': (674.0, 642.5),
-#   'number': 60,
-#   'screen_end_point': (674.0, 642.5),
-#   'screen_start_point': (674.0, 642.5),
-#   'start_point': (661.0, 642.5),
-#   'width': 5.0},
-#  {'end_point': (746.0, 720.5),
-#   'number': 61,
-#   'screen_end_point': (746.0, 720.5),
-#   'screen_start_point': (746.0, 720.5),
-#   'start_point': (679.0, 720.5),
-#   'width': 5.0},
-#  {'end_point': (746.0, 732.0),
-#   'number': 62,
-#   'screen_end_point': (746.0, 732.0),
-#   'screen_start_point': (746.0, 732.0),
-#   'start_point': (746.0, 732.0),
-#   'width': 18.0},
-#  {'end_point': (703.0, 779.0),
-#   'number': 63,
-#   'screen_end_point': (703.0, 779.0),
-#   'screen_start_point': (703.0, 779.0),
-#   'start_point': (674.0, 779.0),
-#   'width': 4.0},
-#  {'end_point': (746.0, 779.0),
-#   'number': 64,
-#   'screen_end_point': (746.0, 779.0),
-#   'screen_start_point': (746.0, 779.0),
-#   'start_point': (707.0, 779.0),
-#   'width': 4.0},
-#  {'end_point': (754.0, 720.5),
-#   'number': 65,
-#   'screen_end_point': (754.0, 720.5),
-#   'screen_start_point': (754.0, 720.5),
-#   'start_point': (751.0, 720.5),
-#   'width': 5.0},
-#  {'end_point': (700.0, 445.5),
-#   'number': 66,
-#   'screen_end_point': (700.0, 445.5),
-#   'screen_start_point': (700.0, 445.5),
-#   'start_point': (691.0, 445.5),
-#   'width': 9.0},
-#  {'end_point': (754.0, 779.0),
-#   'number': 67,
-#   'screen_end_point': (754.0, 779.0),
-#   'screen_start_point': (754.0, 779.0),
-#   'start_point': (751.0, 779.0),
-#   'width': 4.0},
-#  {'end_point': (775.0, 642.5),
-#   'number': 68,
-#   'screen_end_point': (775.0, 642.5),
-#   'screen_start_point': (775.0, 642.5),
-#   'start_point': (709.0, 642.5),
-#   'width': 5.0},
-#  {'end_point': (775.0, 445.5),
-#   'number': 69,
-#   'screen_end_point': (775.0, 445.5),
-#   'screen_start_point': (775.0, 445.5),
-#   'start_point': (718.0, 445.5),
-#   'width': 9.0},
-#  {'end_point': (775.0, 884.0),
-#   'number': 70,
-#   'screen_end_point': (775.0, 884.0),
-#   'screen_start_point': (775.0, 884.0),
-#   'start_point': (737.0, 884.0),
-#   'width': 4.0},
-#  {'end_point': (751.0, 746.5),
-#   'number': 71,
-#   'screen_end_point': (751.0, 746.5),
-#   'screen_start_point': (751.0, 746.5),
-#   'start_point': (746.0, 746.5),
-#   'width': 11.0},
-#  {'end_point': (751.0, 732.0),
-#   'number': 72,
-#   'screen_end_point': (751.0, 732.0),
-#   'screen_start_point': (751.0, 732.0),
-#   'start_point': (751.0, 732.0),
-#   'width': 18.0},
-#  {'end_point': (775.0, 394.5),
-#   'number': 73,
-#   'screen_end_point': (775.0, 394.5),
-#   'screen_start_point': (775.0, 394.5),
-#   'start_point': (770.0, 394.5),
-#   'width': 9.0},
-#  {'end_point': (775.0, 720.5),
-#   'number': 74,
-#   'screen_end_point': (775.0, 720.5),
-#   'screen_start_point': (775.0, 720.5),
-#   'start_point': (772.0, 720.5),
-#   'width': 5.0},
-#  {'end_point': (775.0, 732.0),
-#   'number': 75,
-#   'screen_end_point': (775.0, 732.0),
-#   'screen_start_point': (775.0, 732.0),
-#   'start_point': (775.0, 732.0),
-#   'width': 18.0},
-#  {'end_point': (775.0, 779.0),
-#   'number': 76,
-#   'screen_end_point': (775.0, 779.0),
-#   'screen_start_point': (775.0, 779.0),
-#   'start_point': (772.0, 779.0),
-#   'width': 4.0},
-#  {'end_point': (775.0, 768.0),
-#   'number': 77,
-#   'screen_end_point': (775.0, 768.0),
-#   'screen_start_point': (775.0, 768.0),
-#   'start_point': (775.0, 768.0),
-#   'width': 18.0},
-#  {'end_point': (784.0, 750.0),
-#   'number': 78,
-#   'screen_end_point': (784.0, 750.0),
-#   'screen_start_point': (784.0, 750.0),
-#   'start_point': (775.0, 750.0),
-#   'width': 18.0}]
-
-# centre_lines = list(map(lambda centre_line_dict: CentreLine(**centre_line_dict), centre_lines))
-
-# input_key= 'sample3'
-# try:
-#     with open('dxfFilesIn/identification_json/sample3.json') as identification_json_file:
-#         identification_json = json.load(identification_json_file)
-#         print('Success in reading the JSON file.')
-# except Exception:
-#     print('Failed to open identification JSON.')
-
-# windows = list(filter(lambda entity: entity['type']=='window' and entity['category'] == 'p', identification_json['entities']))
-# doors = list(filter(lambda entity: entity['type']=='door' and entity['category'] == 'p', identification_json['entities']))
-
 # DEBUG:
 def __debug_location(msp, point, name: str = 'debug', radius = 2, color:int = 2, char_height=0.5, layer: str = 'debug'):
     msp.add_circle(point, radius, dxfattribs={'color': color, 'layer': layer})
@@ -1589,61 +1099,6 @@ def extend_wall_lines_for_entity(entity: dict, centre_lines: List["CentreLine"],
     return
 
 
-# fill_str_tree(centre_lines=centre_lines)
-
-# for counter, current_entity in enumerate(windows):
-#     # DEBUG
-#     print('COUNTER', counter)
-    
-#     if input_key == 'sample3' and counter in [6]:
-#         continue
-    
-#     extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
-
-#     print('Now plotting on msp', counter)
-#     dwg = ezdxf.new()
-#     msp = dwg.modelspace()
-
-#     for edge in graph.edges():
-#         msp.add_line(edge[0], edge[1])
-#     msp.add_circle(current_entity['location'], radius=2)
-
-#     dwg.saveas(f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
-#     print('saved: ', f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
-
-# window_counter = counter   
-# print('WINDOWS COMPLETE!!\n')
-# # Now iterating for doors
-# for counter, current_entity in enumerate(doors):
-#     counter = window_counter + counter + 1
-#     # DEBUG
-#     print('COUNTER', counter)
-    
-#     try:
-#         extend_wall_lines_for_entity(entity=current_entity, centre_lines=centre_lines, graph=graph)
-#     except Exception as e:
-#         raise e;
-#         # continue
-#         exit()
-
-#     print('Now plotting on msp', counter)
-#     dwg = ezdxf.new()
-#     msp = dwg.modelspace()
-
-#     for edge in graph.edges():
-#         msp.add_line(edge[0], edge[1])
-#     msp.add_circle(current_entity['location'], radius=2)
-
-#     dwg.saveas(f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
-#     print('saved: ', f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/extended_wall_lines_windows_{counter}.dxf')
-
-# print('extra_data')
-# pprint.pprint(extra_data)
-# print('Success.')
-
-# extend_lines_for_doors_and_windows()
-# print('graph.edges: ', pprint.pprint(list(graph.edges)))
-
 # Now Finding area of the extended edges:
 def get_area_from_the_room_texts(msp, graph: 'nx.Graph', ROOM_TEXT_LAYER: str = 'PP-ROOM Text') -> dict:
     """This function returns the dict containing information about the Rooms and areas.
@@ -1685,7 +1140,7 @@ def get_area_from_the_room_texts(msp, graph: 'nx.Graph', ROOM_TEXT_LAYER: str = 
             rooms = []
             mtext_rooms = msp.query(f'MTEXT[layer=="{ROOM_TEXT_LAYER}"]')
             rooms = list(
-                map(lambda mtext_room: {'room_name': mtext_room.text, 'room_location': mtext_room.dxf.insert}, mtext_rooms))
+                map(lambda mtext_room: {'room_name': mtext_room.plain_text(), 'room_location': mtext_room.dxf.insert}, mtext_rooms))
             return rooms
 
         def get_text_rooms(msp):
@@ -1760,50 +1215,95 @@ def get_area_from_the_room_texts(msp, graph: 'nx.Graph', ROOM_TEXT_LAYER: str = 
             edge=nearest_line, graph=graph)
         
         # 2.5 Check if the graph component is closed:
-        if has_cycle(graph_component):
-            # 2.5.1  Fetch The room_area:
-            room_area = get_area_of_polygon(graph_component)
-            # 2.5.2 Populate Room information
-            room_information = get_room_information(room, room_area, graph_component)
-            rooms_information.append(room_information) 
-        # 2.6 Else: print(Room {room.number} is not open.)
-        else:
+        try:
+            if has_cycle(graph_component):
+                # 2.5.1  Fetch The room_area:
+                room_area = get_area_of_polygon(graph_component)
+                # 2.5.2 Populate Room information
+                room_information = get_room_information(room, room_area, graph_component)
+                rooms_information.append(room_information) 
+            # 2.6 Else: print(Room {room.number} is not open.)
+        except:
             print(f'Room {room["room_name"]} is not open.')
 
     return rooms_information
 
-# input_key = 'sample3'
-# dwg = ezdxf.readfile(f'dxfFilesIn/dxf_files/{input_key}.dxf')
-# msp = dwg.modelspace()
-# rooms_information = get_area_from_the_room_texts(
-#     msp=msp, graph=graph, ROOM_TEXT_LAYER='PP-Room Text')
-# pprint.pprint(rooms_information)
 
-# def plot_room_areas(rooms_information: List[dict]):
-#     for room in rooms_information:
-#         location = room['room']['room_location']
-#         area = room['area']
-#         room_name = room['room']['room_name']
+def plot_room_areas(rooms_information: List[dict], msp, dwg, doors, windows):
+    for room_index, room in enumerate(rooms_information):
+        location = room['room']['room_location']
+        area = room['area']
+        room_name = room['room']['room_name']
+        ordered_points = room['ordered_points']
         
-#         # DEBUG
-#         __debug_location(
-#             msp=msp, point=location, name=f'{room_name}\n{area}', radius=0.5, color=4, char_height=3, layer='PP ROOM-AREA'
-#         )
+        # Make Polyline across rooms:
+        room_polyline_layer = f'PP-ROOM BOUNDRY {room_index}'
+        room_polyline = msp.add_lwpolyline(ordered_points, dxfattribs = {'layer': room_polyline_layer})
         
-#         _dwg = ezdxf.new()
-#         _msp = _dwg.modelspace()
-#         for edge in graph.edges:
-#             _msp.add_line(edge[0], edge[1], dxfattribs={'layer': 'graph_lines'})
+        # add hatch for the polyline:
+        room_hatch_layer = f'PP-ROOM HATCH {room_index}'
+        hatch = msp.add_hatch(color=2, dxfattribs={'layer': room_hatch_layer})  # by default a solid fill hatch with fill color=7 (white/black)
+        hatch.paths.add_polyline_path(ordered_points)
+        
+        # label the ordered_points:
+        wall_label = 'A'
+        for i in range(len(ordered_points) - 1):
+            wall = (ordered_points[i], ordered_points[i+1])
+            location_to_label = find_mid_point(wall[0], wall[1])
+            label_text = msp.add_mtext(wall_label, dxfattribs={'layer': room_polyline_layer})
+            label_text.set_location(location_to_label)
             
-#         for edge in room['graph_component'].edges:
-#             _msp.add_line(edge[0], edge[1], dxfattribs={'layer': 'GRAPH-COMPONENT', 'color': 2})
-#         __debug_location(
-#             msp=_msp, point=location, name=f'{room_name}\n{area}', radius=0.5, color=4, char_height=3, layer='PP ROOM-AREA'
-#         )
-#         _dwg.saveas(f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/graph_component_{room_name}.dxf')
-#         print('saved', f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/graph_component_{room_name}.dxf')
+            # incrementing th wall_label now:
+            wall_label = chr(ord(wall_label) + 1)
 
-#     dwg.saveas(f'dxfFilesOut/{input_key}/debug_dxf/rooms_area.dxf')
-#     print('SUCCESS in saving, ', f'dxfFilesOut/{input_key}/debug_dxf/rooms_area.dxf')
+        
+        # DEBUG
+        __debug_location(
+            msp=msp, point=location, name=f'{room_name}\n{area}', radius=0.5, color=4, char_height=3, layer='PP ROOM-AREA'
+        )
+        
+        _dwg = ezdxf.new()
+        _msp = _dwg.modelspace()
+        for edge in graph.edges:
+            _msp.add_line(edge[0], edge[1], dxfattribs={'layer': 'graph_lines'})
+            
+        for edge in room['graph_component'].edges:
+            _msp.add_line(edge[0], edge[1], dxfattribs={'layer': 'GRAPH-COMPONENT', 'color': 2})
+        __debug_location(
+            msp=_msp, point=location, name=f'{room_name}\n{area}', radius=0.5, color=4, char_height=3, layer='PP ROOM-AREA'
+        )
+        _dwg.saveas(f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/graph_component_{room_index}.dxf')
+        print('saved', f'dxfFilesOut/{input_key}/debug_dxf/extended_wall_lines/graph_component_{room_index}.dxf')
+
+    # Removing unwanted layers (for debug)
+    try:
+        entities = msp.query("")
+        dwg.layers.remove('CenterLines')
+        print(f'Removed centrelines')
+    except:
+        pass
+    try:
+        dwg.layers.remove('debug')
+        print(f'Removed debug')
+    except:
+        pass
+    
+    # labelling doors and windows:
+    for door in doors:
+        door_name = door['display_name']
+        door_location = door['location']
+        door_text = msp.add_mtext(door_name, dxfattribs = {'layer': 'PP-DOOR LABEL'})
+        door_text.set_location(door_location)
+        
+    for window in windows:
+        window_name = window['display_name']
+        window_location = window['location']
+        window_text = msp.add_mtext(window_name, dxfattribs = {'layer': 'PP-WINDOW LABEL'})
+        window_text.set_location(window_location)
+    print('Windows and Doors labelled')    
+    
+    
+    dwg.saveas(f'dxfFilesOut/{input_key}/debug_dxf/rooms_area.dxf')
+    print('SUCCESS in saving, ', f'dxfFilesOut/{input_key}/debug_dxf/rooms_area.dxf')
 
 # plot_room_areas(rooms_information)
